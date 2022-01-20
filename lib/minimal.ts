@@ -35,7 +35,6 @@ export enum MavAutopilot {
   'ASLUAV'                                       = 17,
   'SMARTAP'                                      = 18,
   'AIRRAILS'                                     = 19,
-  'REFLEX'                                       = 20,
 }
 
 /**
@@ -80,12 +79,6 @@ export enum MavType {
   'SERVO'                                        = 33,
   'ODID'                                         = 34,
   'DECAROTOR'                                    = 35,
-  'BATTERY'                                      = 36,
-  'PARACHUTE'                                    = 37,
-  'LOG'                                          = 38,
-  'OSD'                                          = 39,
-  'IMU'                                          = 40,
-  'GPS'                                          = 41,
 }
 
 /**
@@ -583,14 +576,11 @@ export enum MavComponent {
   'PERIPHERAL'                                   = 158,
   'QX1_GIMBAL'                                   = 159,
   'FLARM'                                        = 160,
-  'PARACHUTE'                                    = 161,
   'GIMBAL2'                                      = 171,
   'GIMBAL3'                                      = 172,
   'GIMBAL4'                                      = 173,
   'GIMBAL5'                                      = 174,
   'GIMBAL6'                                      = 175,
-  'BATTERY'                                      = 180,
-  'BATTERY2'                                     = 181,
   'MISSIONPLANNER'                               = 190,
   /**
    * Component that lives on the onboard computer (companion computer) and has some generic
@@ -598,24 +588,6 @@ export enum MavComponent {
    * don't directly speak mavlink and so on.
    */
   'ONBOARD_COMPUTER'                             = 191,
-  /**
-   * Component that lives on the onboard computer (companion computer) and has some generic
-   * functionalities, such as settings system parameters and monitoring the status of some processes that
-   * don't directly speak mavlink and so on.
-   */
-  'ONBOARD_COMPUTER2'                            = 192,
-  /**
-   * Component that lives on the onboard computer (companion computer) and has some generic
-   * functionalities, such as settings system parameters and monitoring the status of some processes that
-   * don't directly speak mavlink and so on.
-   */
-  'ONBOARD_COMPUTER3'                            = 193,
-  /**
-   * Component that lives on the onboard computer (companion computer) and has some generic
-   * functionalities, such as settings system parameters and monitoring the status of some processes that
-   * don't directly speak mavlink and so on.
-   */
-  'ONBOARD_COMPUTER4'                            = 194,
   /**
    * Component that finds an optimal path between points based on a certain constraint (e.g. minimum
    * snap, shortest path, cost, etc.).
@@ -688,50 +660,6 @@ export class Heartbeat extends MavLinkData {
   mavlinkVersion: uint8_t_mavlink_version
 }
 
-/**
- * Version and capability of protocol version. This message can be requested with
- * MAV_CMD_REQUEST_MESSAGE and is used as part of the handshaking to establish which MAVLink version
- * should be used on the network. Every node should respond to a request for PROTOCOL_VERSION to enable
- * the handshaking. Library implementers should consider adding this into the default decoding state
- * machine to allow the protocol core to respond directly.
- */
-export class ProtocolVersion extends MavLinkData {
-  static MSG_ID = 300
-  static MSG_NAME = 'PROTOCOL_VERSION'
-  static PAYLOAD_LENGTH = 22
-  static MAGIC_NUMBER = 217
-
-  static FIELDS = [
-    new MavLinkPacketField('version', 'version', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('min_version', 'minVersion', 2, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('max_version', 'maxVersion', 4, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('spec_version_hash', 'specVersionHash', 6, false, 1, 'uint8_t[]', '', 8),
-    new MavLinkPacketField('library_version_hash', 'libraryVersionHash', 14, false, 1, 'uint8_t[]', '', 8),
-  ]
-
-  /**
-   * Currently active MAVLink version number * 100: v1.0 is 100, v2.0 is 200, etc.
-   */
-  version: uint16_t
-  /**
-   * Minimum MAVLink version supported
-   */
-  minVersion: uint16_t
-  /**
-   * Maximum MAVLink version supported (set to the same value as version by default)
-   */
-  maxVersion: uint16_t
-  /**
-   * The first 8 bytes (not characters printed in hex!) of the git hash.
-   */
-  specVersionHash: uint8_t[]
-  /**
-   * The first 8 bytes (not characters printed in hex!) of the git hash.
-   */
-  libraryVersionHash: uint8_t[]
-}
-
 export const REGISTRY: MavLinkPacketRegistry = {
   0: Heartbeat,
-  300: ProtocolVersion,
 }

@@ -30,41 +30,41 @@ import {
  * of this type. For example the first alpha release would be 64, the second would be 65.
  */
 export enum FirmwareVersionType {
-  'DEV'                                            = 0,
-  'ALPHA'                                          = 64,
-  'BETA'                                           = 128,
-  'RC'                                             = 192,
-  'OFFICIAL'                                       = 255,
+  'DEV'                                    = 0,
+  'ALPHA'                                  = 64,
+  'BETA'                                   = 128,
+  'RC'                                     = 192,
+  'OFFICIAL'                               = 255,
 }
 
 /**
  * Flags to report failure cases over the high latency telemtry.
  */
 export enum HlFailureFlag {
-  'GPS'                                            = 1,
-  'DIFFERENTIAL_PRESSURE'                          = 2,
-  'ABSOLUTE_PRESSURE'                              = 4,
-  'HL_FAILURE_FLAG_3D_ACCEL'                       = 8,
-  'HL_FAILURE_FLAG_3D_GYRO'                        = 16,
-  'HL_FAILURE_FLAG_3D_MAG'                         = 32,
-  'TERRAIN'                                        = 64,
-  'BATTERY'                                        = 128,
-  'RC_RECEIVER'                                    = 256,
-  'OFFBOARD_LINK'                                  = 512,
-  'ENGINE'                                         = 1024,
-  'GEOFENCE'                                       = 2048,
-  'ESTIMATOR'                                      = 4096,
-  'MISSION'                                        = 8192,
+  'GPS'                                    = 1,
+  'DIFFERENTIAL_PRESSURE'                  = 2,
+  'ABSOLUTE_PRESSURE'                      = 4,
+  'HL_FAILURE_FLAG_3D_ACCEL'               = 8,
+  'HL_FAILURE_FLAG_3D_GYRO'                = 16,
+  'HL_FAILURE_FLAG_3D_MAG'                 = 32,
+  'TERRAIN'                                = 64,
+  'BATTERY'                                = 128,
+  'RC_RECEIVER'                            = 256,
+  'OFFBOARD_LINK'                          = 512,
+  'ENGINE'                                 = 1024,
+  'GEOFENCE'                               = 2048,
+  'ESTIMATOR'                              = 4096,
+  'MISSION'                                = 8192,
 }
 
 /**
  * Actions that may be specified in MAV_CMD_OVERRIDE_GOTO to override mission execution.
  */
 export enum MavGoto {
-  'DO_HOLD'                                        = 0,
-  'DO_CONTINUE'                                    = 1,
-  'HOLD_AT_CURRENT_POSITION'                       = 2,
-  'HOLD_AT_SPECIFIED_POSITION'                     = 3,
+  'DO_HOLD'                                = 0,
+  'DO_CONTINUE'                            = 1,
+  'HOLD_AT_CURRENT_POSITION'               = 2,
+  'HOLD_AT_SPECIFIED_POSITION'             = 3,
 }
 
 /**
@@ -73,621 +73,278 @@ export enum MavGoto {
  * safety override.
  */
 export enum MavMode {
-  'PREFLIGHT'                                      = 0,
-  'STABILIZE_DISARMED'                             = 80,
-  'STABILIZE_ARMED'                                = 208,
-  'MANUAL_DISARMED'                                = 64,
-  'MANUAL_ARMED'                                   = 192,
-  'GUIDED_DISARMED'                                = 88,
-  'GUIDED_ARMED'                                   = 216,
+  'PREFLIGHT'                              = 0,
+  'STABILIZE_DISARMED'                     = 80,
+  'STABILIZE_ARMED'                        = 208,
+  'MANUAL_DISARMED'                        = 64,
+  'MANUAL_ARMED'                           = 192,
+  'GUIDED_DISARMED'                        = 88,
+  'GUIDED_ARMED'                           = 216,
   /**
    * System is allowed to be active, under autonomous control and navigation (the trajectory is decided
    * onboard and not pre-programmed by waypoints)
    */
-  'AUTO_DISARMED'                                  = 92,
+  'AUTO_DISARMED'                          = 92,
   /**
    * System is allowed to be active, under autonomous control and navigation (the trajectory is decided
    * onboard and not pre-programmed by waypoints)
    */
-  'AUTO_ARMED'                                     = 220,
+  'AUTO_ARMED'                             = 220,
   /**
    * UNDEFINED mode. This solely depends on the autopilot - use with caution, intended for developers
    * only.
    */
-  'TEST_DISARMED'                                  = 66,
+  'TEST_DISARMED'                          = 66,
   /**
    * UNDEFINED mode. This solely depends on the autopilot - use with caution, intended for developers
    * only.
    */
-  'TEST_ARMED'                                     = 194,
+  'TEST_ARMED'                             = 194,
 }
 
 /**
  * These encode the sensors whose status is sent as part of the SYS_STATUS message.
  */
 export enum MavSysStatusSensor {
-  'SENSOR_3D_GYRO'                                 = 1,
-  'SENSOR_3D_ACCEL'                                = 2,
-  'SENSOR_3D_MAG'                                  = 4,
-  'SENSOR_ABSOLUTE_PRESSURE'                       = 8,
-  'SENSOR_DIFFERENTIAL_PRESSURE'                   = 16,
-  'SENSOR_GPS'                                     = 32,
-  'SENSOR_OPTICAL_FLOW'                            = 64,
-  'SENSOR_VISION_POSITION'                         = 128,
-  'SENSOR_LASER_POSITION'                          = 256,
-  'SENSOR_EXTERNAL_GROUND_TRUTH'                   = 512,
-  'SENSOR_ANGULAR_RATE_CONTROL'                    = 1024,
-  'SENSOR_ATTITUDE_STABILIZATION'                  = 2048,
-  'SENSOR_YAW_POSITION'                            = 4096,
-  'SENSOR_Z_ALTITUDE_CONTROL'                      = 8192,
-  'SENSOR_XY_POSITION_CONTROL'                     = 16384,
-  'SENSOR_MOTOR_OUTPUTS'                           = 32768,
-  'SENSOR_RC_RECEIVER'                             = 65536,
-  'SENSOR_3D_GYRO2'                                = 131072,
-  'SENSOR_3D_ACCEL2'                               = 262144,
-  'SENSOR_3D_MAG2'                                 = 524288,
-  'GEOFENCE'                                       = 1048576,
-  'AHRS'                                           = 2097152,
-  'TERRAIN'                                        = 4194304,
-  'REVERSE_MOTOR'                                  = 8388608,
-  'LOGGING'                                        = 16777216,
-  'SENSOR_BATTERY'                                 = 33554432,
-  'SENSOR_PROXIMITY'                               = 67108864,
-  'SENSOR_SATCOM'                                  = 134217728,
-  'PREARM_CHECK'                                   = 268435456,
-  'OBSTACLE_AVOIDANCE'                             = 536870912,
-  'SENSOR_PROPULSION'                              = 1073741824,
-  /**
-   * 0x80000000 Extended bit-field are used for further sensor status bits (needs to be set in
-   * onboard_control_sensors_present only)
-   */
-  'EXTENSION_USED'                                 = 2147483648,
+  'SENSOR_3D_GYRO'                         = 1,
+  'SENSOR_3D_ACCEL'                        = 2,
+  'SENSOR_3D_MAG'                          = 4,
+  'SENSOR_ABSOLUTE_PRESSURE'               = 8,
+  'SENSOR_DIFFERENTIAL_PRESSURE'           = 16,
+  'SENSOR_GPS'                             = 32,
+  'SENSOR_OPTICAL_FLOW'                    = 64,
+  'SENSOR_VISION_POSITION'                 = 128,
+  'SENSOR_LASER_POSITION'                  = 256,
+  'SENSOR_EXTERNAL_GROUND_TRUTH'           = 512,
+  'SENSOR_ANGULAR_RATE_CONTROL'            = 1024,
+  'SENSOR_ATTITUDE_STABILIZATION'          = 2048,
+  'SENSOR_YAW_POSITION'                    = 4096,
+  'SENSOR_Z_ALTITUDE_CONTROL'              = 8192,
+  'SENSOR_XY_POSITION_CONTROL'             = 16384,
+  'SENSOR_MOTOR_OUTPUTS'                   = 32768,
+  'SENSOR_RC_RECEIVER'                     = 65536,
+  'SENSOR_3D_GYRO2'                        = 131072,
+  'SENSOR_3D_ACCEL2'                       = 262144,
+  'SENSOR_3D_MAG2'                         = 524288,
+  'GEOFENCE'                               = 1048576,
+  'AHRS'                                   = 2097152,
+  'TERRAIN'                                = 4194304,
+  'REVERSE_MOTOR'                          = 8388608,
+  'LOGGING'                                = 16777216,
+  'SENSOR_BATTERY'                         = 33554432,
+  'SENSOR_PROXIMITY'                       = 67108864,
+  'SENSOR_SATCOM'                          = 134217728,
+  'PREARM_CHECK'                           = 268435456,
+  'OBSTACLE_AVOIDANCE'                     = 536870912,
+  'SENSOR_PROPULSION'                      = 1073741824,
 }
 
 /**
- * These encode the sensors whose status is sent as part of the SYS_STATUS message in the extended
- * fields.
- */
-export enum MavSysStatusSensorExtended {
-  'SYSTEM'                                         = 1,
-}
-
-/**
- * Co-ordinate frames used by MAVLink. Not all frames are supported by all commands, messages, or
- * vehicles. Global frames use the following naming conventions: - "GLOBAL": Global co-ordinate frame
- * with WGS84 latitude/longitude and altitude positive over mean sea level (MSL) by default. The
- * following modifiers may be used with "GLOBAL": - "RELATIVE_ALT": Altitude is relative to the vehicle
- * home position rather than MSL. - "TERRAIN_ALT": Altitude is relative to ground level rather than
- * MSL. - "INT": Latitude/longitude (in degrees) are scaled by multiplying by 1E7. Local frames use the
- * following naming conventions: - "LOCAL": Origin of local frame is fixed relative to earth. Unless
- * otherwise specified this origin is the origin of the vehicle position-estimator ("EKF"). - "BODY":
- * Origin of local frame travels with the vehicle. NOTE, "BODY" does NOT indicate alignment of frame
- * axis with vehicle attitude. - "OFFSET": Deprecated synonym for "BODY" (origin travels with the
- * vehicle). Not to be used for new frames. Some deprecated frames do not follow these conventions
- * (e.g. MAV_FRAME_BODY_NED and MAV_FRAME_BODY_OFFSET_NED).
+ * MAV_FRAME
  */
 export enum MavFrame {
   /**
    * Global (WGS84) coordinate frame + MSL altitude. First value / x: latitude, second value / y:
    * longitude, third value / z: positive altitude over mean sea level (MSL).
    */
-  'GLOBAL'                                         = 0,
-  'LOCAL_NED'                                      = 1,
-  'MISSION'                                        = 2,
+  'GLOBAL'                                 = 0,
+  'LOCAL_NED'                              = 1,
+  'MISSION'                                = 2,
   /**
    * Global (WGS84) coordinate frame + altitude relative to the home position. First value / x: latitude,
    * second value / y: longitude, third value / z: positive altitude with 0 being at the altitude of the
    * home location.
    */
-  'GLOBAL_RELATIVE_ALT'                            = 3,
-  'LOCAL_ENU'                                      = 4,
+  'GLOBAL_RELATIVE_ALT'                    = 3,
+  'LOCAL_ENU'                              = 4,
   /**
-   * Global (WGS84) coordinate frame (scaled) + MSL altitude. First value / x: latitude in degrees*1E7,
-   * second value / y: longitude in degrees*1E7, third value / z: positive altitude over mean sea level
-   * (MSL).
+   * Global (WGS84) coordinate frame (scaled) + MSL altitude. First value / x: latitude in
+   * degrees*1.0e-7, second value / y: longitude in degrees*1.0e-7, third value / z: positive altitude
+   * over mean sea level (MSL).
    */
-  'GLOBAL_INT'                                     = 5,
+  'GLOBAL_INT'                             = 5,
   /**
    * Global (WGS84) coordinate frame (scaled) + altitude relative to the home position. First value / x:
-   * latitude in degrees*1E7, second value / y: longitude in degrees*1E7, third value / z: positive
+   * latitude in degrees*10e-7, second value / y: longitude in degrees*10e-7, third value / z: positive
    * altitude with 0 being at the altitude of the home location.
    */
-  'GLOBAL_RELATIVE_ALT_INT'                        = 6,
-  'LOCAL_OFFSET_NED'                               = 7,
+  'GLOBAL_RELATIVE_ALT_INT'                = 6,
   /**
-   * Same as MAV_FRAME_LOCAL_NED when used to represent position values. Same as MAV_FRAME_BODY_FRD when
-   * used with velocity/accelaration values.
+   * Offset to the current local frame. Anything expressed in this frame should be added to the current
+   * local frame position.
    */
-  'BODY_NED'                                       = 8,
-  'BODY_OFFSET_NED'                                = 9,
+  'LOCAL_OFFSET_NED'                       = 7,
+  /**
+   * Setpoint in body NED frame. This makes sense if all position control is externalized - e.g. useful
+   * to command 2 m/s^2 acceleration to the right.
+   */
+  'BODY_NED'                               = 8,
+  /**
+   * Offset in body NED frame. This makes sense if adding setpoints to the current flight path, to avoid
+   * an obstacle - e.g. useful to command 2 m/s^2 acceleration to the east.
+   */
+  'BODY_OFFSET_NED'                        = 9,
   /**
    * Global (WGS84) coordinate frame with AGL altitude (at the waypoint coordinate). First value / x:
    * latitude in degrees, second value / y: longitude in degrees, third value / z: positive altitude in
    * meters with 0 being at ground level in terrain model.
    */
-  'GLOBAL_TERRAIN_ALT'                             = 10,
+  'GLOBAL_TERRAIN_ALT'                     = 10,
   /**
    * Global (WGS84) coordinate frame (scaled) with AGL altitude (at the waypoint coordinate). First value
-   * / x: latitude in degrees*1E7, second value / y: longitude in degrees*1E7, third value / z: positive
-   * altitude in meters with 0 being at ground level in terrain model.
+   * / x: latitude in degrees*10e-7, second value / y: longitude in degrees*10e-7, third value / z:
+   * positive altitude in meters with 0 being at ground level in terrain model.
    */
-  'GLOBAL_TERRAIN_ALT_INT'                         = 11,
-  /**
-   * FRD local tangent frame (x: Forward, y: Right, z: Down) with origin that travels with vehicle. The
-   * forward axis is aligned to the front of the vehicle in the horizontal plane.
-   */
-  'BODY_FRD'                                       = 12,
-  'RESERVED_13'                                    = 13,
+  'GLOBAL_TERRAIN_ALT_INT'                 = 11,
+  'BODY_FRD'                               = 12,
+  'RESERVED_13'                            = 13,
   /**
    * MAV_FRAME_MOCAP_NED - Odometry local coordinate frame of data given by a motion capture system,
    * Z-down (x: North, y: East, z: Down).
    */
-  'RESERVED_14'                                    = 14,
+  'RESERVED_14'                            = 14,
   /**
    * MAV_FRAME_MOCAP_ENU - Odometry local coordinate frame of data given by a motion capture system, Z-up
    * (x: East, y: North, z: Up).
    */
-  'RESERVED_15'                                    = 15,
+  'RESERVED_15'                            = 15,
   /**
    * MAV_FRAME_VISION_NED - Odometry local coordinate frame of data given by a vision estimation system,
    * Z-down (x: North, y: East, z: Down).
    */
-  'RESERVED_16'                                    = 16,
+  'RESERVED_16'                            = 16,
   /**
    * MAV_FRAME_VISION_ENU - Odometry local coordinate frame of data given by a vision estimation system,
    * Z-up (x: East, y: North, z: Up).
    */
-  'RESERVED_17'                                    = 17,
+  'RESERVED_17'                            = 17,
   /**
    * MAV_FRAME_ESTIM_NED - Odometry local coordinate frame of data given by an estimator running onboard
    * the vehicle, Z-down (x: North, y: East, z: Down).
    */
-  'RESERVED_18'                                    = 18,
+  'RESERVED_18'                            = 18,
   /**
    * MAV_FRAME_ESTIM_ENU - Odometry local coordinate frame of data given by an estimator running onboard
    * the vehicle, Z-up (x: East, y: North, z: Up).
    */
-  'RESERVED_19'                                    = 19,
+  'RESERVED_19'                            = 19,
   /**
-   * FRD local tangent frame (x: Forward, y: Right, z: Down) with origin fixed relative to earth. The
-   * forward axis is aligned to the front of the vehicle in the horizontal plane.
+   * Forward, Right, Down coordinate frame. This is a local frame with Z-down and arbitrary F/R alignment
+   * (i.e. not aligned with NED/earth frame).
    */
-  'LOCAL_FRD'                                      = 20,
+  'LOCAL_FRD'                              = 20,
   /**
-   * FLU local tangent frame (x: Forward, y: Left, z: Up) with origin fixed relative to earth. The
-   * forward axis is aligned to the front of the vehicle in the horizontal plane.
+   * Forward, Left, Up coordinate frame. This is a local frame with Z-up and arbitrary F/L alignment
+   * (i.e. not aligned with ENU/earth frame).
    */
-  'LOCAL_FLU'                                      = 21,
+  'LOCAL_FLU'                              = 21,
 }
 
 /**
  * MAVLINK_DATA_STREAM_TYPE
  */
 export enum MavlinkDataStreamType {
-  'JPEG'                                           = 0,
-  'BMP'                                            = 1,
-  'RAW8U'                                          = 2,
-  'RAW32U'                                         = 3,
-  'PGM'                                            = 4,
-  'PNG'                                            = 5,
+  'JPEG'                                   = 0,
+  'BMP'                                    = 1,
+  'RAW8U'                                  = 2,
+  'RAW32U'                                 = 3,
+  'PGM'                                    = 4,
+  'PNG'                                    = 5,
 }
 
 /**
- * Actions following geofence breach.
+ * FENCE_ACTION
  */
 export enum FenceAction {
-  'NONE'                                           = 0,
-  /**
-   * Fly to geofence MAV_CMD_NAV_FENCE_RETURN_POINT in GUIDED mode. Note: This action is only supported
-   * by ArduPlane, and may not be supported in all versions.
-   */
-  'GUIDED'                                         = 1,
-  'REPORT'                                         = 2,
-  /**
-   * Fly to geofence MAV_CMD_NAV_FENCE_RETURN_POINT with manual throttle control in GUIDED mode. Note:
-   * This action is only supported by ArduPlane, and may not be supported in all versions.
-   */
-  'GUIDED_THR_PASS'                                = 3,
-  'RTL'                                            = 4,
-  'HOLD'                                           = 5,
-  'TERMINATE'                                      = 6,
-  'LAND'                                           = 7,
+  'NONE'                                   = 0,
+  'GUIDED'                                 = 1,
+  'REPORT'                                 = 2,
+  'GUIDED_THR_PASS'                        = 3,
+  'RTL'                                    = 4,
 }
 
 /**
  * FENCE_BREACH
  */
 export enum FenceBreach {
-  'NONE'                                           = 0,
-  'MINALT'                                         = 1,
-  'MAXALT'                                         = 2,
-  'BOUNDARY'                                       = 3,
+  'NONE'                                   = 0,
+  'MINALT'                                 = 1,
+  'MAXALT'                                 = 2,
+  'BOUNDARY'                               = 3,
 }
 
 /**
  * Actions being taken to mitigate/prevent fence breach
  */
 export enum FenceMitigate {
-  'UNKNOWN'                                        = 0,
-  'NONE'                                           = 1,
-  'VEL_LIMIT'                                      = 2,
+  'UNKNOWN'                                = 0,
+  'NONE'                                   = 1,
+  'VEL_LIMIT'                              = 2,
 }
 
 /**
- * Enumeration of possible mount operation modes. This message is used by obsolete/deprecated gimbal
- * messages.
+ * Enumeration of possible mount operation modes
  */
 export enum MavMountMode {
-  'RETRACT'                                        = 0,
-  'NEUTRAL'                                        = 1,
-  'MAVLINK_TARGETING'                              = 2,
-  'RC_TARGETING'                                   = 3,
-  'GPS_POINT'                                      = 4,
-  'SYSID_TARGET'                                   = 5,
-  'HOME_LOCATION'                                  = 6,
-}
-
-/**
- * Gimbal device (low level) capability flags (bitmap)
- */
-export enum GimbalDeviceCapFlags {
-  'HAS_RETRACT'                                    = 1,
-  'HAS_NEUTRAL'                                    = 2,
-  'HAS_ROLL_AXIS'                                  = 4,
-  'HAS_ROLL_FOLLOW'                                = 8,
-  'HAS_ROLL_LOCK'                                  = 16,
-  'HAS_PITCH_AXIS'                                 = 32,
-  'HAS_PITCH_FOLLOW'                               = 64,
-  /**
-   * Gimbal device supports locking to an pitch angle (generally that's the default with pitch
-   * stabilized)
-   */
-  'HAS_PITCH_LOCK'                                 = 128,
-  'HAS_YAW_AXIS'                                   = 256,
-  'HAS_YAW_FOLLOW'                                 = 512,
-  'HAS_YAW_LOCK'                                   = 1024,
-  'SUPPORTS_INFINITE_YAW'                          = 2048,
-}
-
-/**
- * Gimbal manager high level capability flags (bitmap). The first 16 bits are identical to the
- * GIMBAL_DEVICE_CAP_FLAGS. However, the gimbal manager does not need to copy the flags from the gimbal
- * but can also enhance the capabilities and thus add flags.
- */
-export enum GimbalManagerCapFlags {
-  'HAS_RETRACT'                                    = 1,
-  'HAS_NEUTRAL'                                    = 2,
-  'HAS_ROLL_AXIS'                                  = 4,
-  'HAS_ROLL_FOLLOW'                                = 8,
-  'HAS_ROLL_LOCK'                                  = 16,
-  'HAS_PITCH_AXIS'                                 = 32,
-  'HAS_PITCH_FOLLOW'                               = 64,
-  'HAS_PITCH_LOCK'                                 = 128,
-  'HAS_YAW_AXIS'                                   = 256,
-  'HAS_YAW_FOLLOW'                                 = 512,
-  'HAS_YAW_LOCK'                                   = 1024,
-  'SUPPORTS_INFINITE_YAW'                          = 2048,
-  'CAN_POINT_LOCATION_LOCAL'                       = 65536,
-  'CAN_POINT_LOCATION_GLOBAL'                      = 131072,
-}
-
-/**
- * Flags for gimbal device (lower level) operation.
- */
-export enum GimbalDeviceFlags {
-  'RETRACT'                                        = 1,
-  /**
-   * Set to neutral/default position, taking precedence over all other flags except RETRACT. Neutral is
-   * commonly forward-facing and horizontal (pitch=yaw=0) but may be any orientation.
-   */
-  'NEUTRAL'                                        = 2,
-  /**
-   * Lock roll angle to absolute angle relative to horizon (not relative to drone). This is generally the
-   * default with a stabilizing gimbal.
-   */
-  'ROLL_LOCK'                                      = 4,
-  /**
-   * Lock pitch angle to absolute angle relative to horizon (not relative to drone). This is generally
-   * the default.
-   */
-  'PITCH_LOCK'                                     = 8,
-  /**
-   * Lock yaw angle to absolute angle relative to North (not relative to drone). If this flag is set, the
-   * quaternion is in the Earth frame with the x-axis pointing North (yaw absolute). If this flag is not
-   * set, the quaternion frame is in the Earth frame rotated so that the x-axis is pointing forward (yaw
-   * relative to vehicle).
-   */
-  'YAW_LOCK'                                       = 16,
-}
-
-/**
- * Flags for high level gimbal manager operation The first 16 bits are identical to the
- * GIMBAL_DEVICE_FLAGS.
- */
-export enum GimbalManagerFlags {
-  'RETRACT'                                        = 1,
-  'NEUTRAL'                                        = 2,
-  'ROLL_LOCK'                                      = 4,
-  'PITCH_LOCK'                                     = 8,
-  'YAW_LOCK'                                       = 16,
-}
-
-/**
- * Gimbal device (low level) error flags (bitmap, 0 means no error)
- */
-export enum GimbalDeviceErrorFlags {
-  'AT_ROLL_LIMIT'                                  = 1,
-  'AT_PITCH_LIMIT'                                 = 2,
-  'AT_YAW_LIMIT'                                   = 4,
-  'ENCODER_ERROR'                                  = 8,
-  'POWER_ERROR'                                    = 16,
-  'MOTOR_ERROR'                                    = 32,
-  'SOFTWARE_ERROR'                                 = 64,
-  'COMMS_ERROR'                                    = 128,
-  'CALIBRATION_RUNNING'                            = 256,
+  'RETRACT'                                = 0,
+  'NEUTRAL'                                = 1,
+  'MAVLINK_TARGETING'                      = 2,
+  'RC_TARGETING'                           = 3,
+  'GPS_POINT'                              = 4,
+  'SYSID_TARGET'                           = 5,
+  'HOME_LOCATION'                          = 6,
 }
 
 /**
  * Gripper actions.
  */
 export enum GripperActions {
-  'RELEASE'                                        = 0,
-  'GRAB'                                           = 1,
+  'RELEASE'                                = 0,
+  'GRAB'                                   = 1,
 }
 
 /**
  * Winch actions.
  */
 export enum WinchActions {
-  'RELAXED'                                        = 0,
-  'RELATIVE_LENGTH_CONTROL'                        = 1,
-  'RATE_CONTROL'                                   = 2,
-  /**
-   * Perform the locking sequence to relieve motor while in the fully retracted position. Only action and
-   * instance command parameters are used, others are ignored.
-   */
-  'LOCK'                                           = 3,
-  /**
-   * Sequence of drop, slow down, touch down, reel up, lock. Only action and instance command parameters
-   * are used, others are ignored.
-   */
-  'DELIVER'                                        = 4,
-  /**
-   * Engage motor and hold current position. Only action and instance command parameters are used, others
-   * are ignored.
-   */
-  'HOLD'                                           = 5,
-  /**
-   * Return the reel to the fully retracted position. Only action and instance command parameters are
-   * used, others are ignored.
-   */
-  'RETRACT'                                        = 6,
-  /**
-   * Load the reel with line. The winch will calculate the total loaded length and stop when the tension
-   * exceeds a threshold. Only action and instance command parameters are used, others are ignored.
-   */
-  'LOAD_LINE'                                      = 7,
-  /**
-   * Spool out the entire length of the line. Only action and instance command parameters are used,
-   * others are ignored.
-   */
-  'ABANDON_LINE'                                   = 8,
+  'RELAXED'                                = 0,
+  'RELATIVE_LENGTH_CONTROL'                = 1,
+  'RATE_CONTROL'                           = 2,
 }
 
 /**
  * Generalized UAVCAN node health
  */
 export enum UavcanNodeHealth {
-  'OK'                                             = 0,
-  'WARNING'                                        = 1,
-  'ERROR'                                          = 2,
-  'CRITICAL'                                       = 3,
+  'OK'                                     = 0,
+  'WARNING'                                = 1,
+  'ERROR'                                  = 2,
+  'CRITICAL'                               = 3,
 }
 
 /**
  * Generalized UAVCAN node mode
  */
 export enum UavcanNodeMode {
-  'OPERATIONAL'                                    = 0,
-  'INITIALIZATION'                                 = 1,
-  'MAINTENANCE'                                    = 2,
-  'SOFTWARE_UPDATE'                                = 3,
-  'OFFLINE'                                        = 7,
-}
-
-/**
- * Indicates the ESC connection type.
- */
-export enum EscConnectionType {
-  'PPM'                                            = 0,
-  'SERIAL'                                         = 1,
-  'ONESHOT'                                        = 2,
-  'I2C'                                            = 3,
-  'CAN'                                            = 4,
-  'DSHOT'                                          = 5,
-}
-
-/**
- * Flags to report ESC failures.
- */
-export enum EscFailureFlags {
-  'NONE'                                           = 0,
-  'OVER_CURRENT'                                   = 1,
-  'OVER_VOLTAGE'                                   = 2,
-  'OVER_TEMPERATURE'                               = 4,
-  'OVER_RPM'                                       = 8,
-  'INCONSISTENT_CMD'                               = 16,
-  'MOTOR_STUCK'                                    = 32,
-  'GENERIC'                                        = 64,
+  'OPERATIONAL'                            = 0,
+  'INITIALIZATION'                         = 1,
+  'MAINTENANCE'                            = 2,
+  'SOFTWARE_UPDATE'                        = 3,
+  'OFFLINE'                                = 7,
 }
 
 /**
  * Flags to indicate the status of camera storage.
  */
 export enum StorageStatus {
-  'EMPTY'                                          = 0,
-  'UNFORMATTED'                                    = 1,
-  'READY'                                          = 2,
+  'EMPTY'                                  = 0,
+  'UNFORMATTED'                            = 1,
+  'READY'                                  = 2,
   /**
    * Camera does not supply storage status information. Capacity information in STORAGE_INFORMATION
    * fields will be ignored.
    */
-  'NOT_SUPPORTED'                                  = 3,
-}
-
-/**
- * Flags to indicate the type of storage.
- */
-export enum StorageType {
-  'UNKNOWN'                                        = 0,
-  'USB_STICK'                                      = 1,
-  'SD'                                             = 2,
-  'MICROSD'                                        = 3,
-  'CF'                                             = 4,
-  'CFE'                                            = 5,
-  'XQD'                                            = 6,
-  'HD'                                             = 7,
-  'OTHER'                                          = 254,
-}
-
-/**
- * Flags to indicate usage for a particular storage (see STORAGE_INFORMATION.storage_usage and
- * MAV_CMD_SET_STORAGE_USAGE).
- */
-export enum StorageUsageFlag {
-  'SET'                                            = 1,
-  'PHOTO'                                          = 2,
-  'VIDEO'                                          = 4,
-  'LOGS'                                           = 8,
-}
-
-/**
- * Yaw behaviour during orbit flight.
- */
-export enum OrbitYawBehaviour {
-  'HOLD_FRONT_TO_CIRCLE_CENTER'                    = 0,
-  'HOLD_INITIAL_HEADING'                           = 1,
-  'UNCONTROLLED'                                   = 2,
-  'HOLD_FRONT_TANGENT_TO_CIRCLE'                   = 3,
-  'RC_CONTROLLED'                                  = 4,
-}
-
-/**
- * Possible responses from a WIFI_CONFIG_AP message.
- */
-export enum WifiConfigApResponse {
-  'UNDEFINED'                                      = 0,
-  'ACCEPTED'                                       = 1,
-  'REJECTED'                                       = 2,
-  'MODE_ERROR'                                     = 3,
-  'SSID_ERROR'                                     = 4,
-  'PASSWORD_ERROR'                                 = 5,
-}
-
-/**
- * Possible responses from a CELLULAR_CONFIG message.
- */
-export enum CellularConfigResponse {
-  'RESPONSE_ACCEPTED'                              = 0,
-  'RESPONSE_APN_ERROR'                             = 1,
-  'RESPONSE_PIN_ERROR'                             = 2,
-  'RESPONSE_REJECTED'                              = 3,
-  'BLOCKED_PUK_REQUIRED'                           = 4,
-}
-
-/**
- * WiFi Mode.
- */
-export enum WifiConfigApMode {
-  'UNDEFINED'                                      = 0,
-  'AP'                                             = 1,
-  'STATION'                                        = 2,
-  'DISABLED'                                       = 3,
-}
-
-/**
- * Supported component metadata types. These are used in the "general" metadata file returned by
- * COMPONENT_INFORMATION to provide information about supported metadata types. The types are not used
- * directly in MAVLink messages.
- */
-export enum CompMetadataType {
-  /**
-   * General information about the component. General metadata includes information about other
-   * COMP_METADATA_TYPEs supported by the component. This type must be supported and must be downloadable
-   * from vehicle.
-   */
-  'GENERAL'                                        = 0,
-  'PARAMETER'                                      = 1,
-  'COMMANDS'                                       = 2,
-  'PERIPHERALS'                                    = 3,
-  'EVENTS'                                         = 4,
-  'ACTUATORS'                                      = 5,
-}
-
-/**
- * Actuator configuration, used to change a setting on an actuator. Component information metadata can
- * be used to know which outputs support which commands.
- */
-export enum ActuatorConfiguration {
-  'NONE'                                           = 0,
-  'BEEP'                                           = 1,
-  'ACTUATOR_CONFIGURATION_3D_MODE_ON'              = 2,
-  'ACTUATOR_CONFIGURATION_3D_MODE_OFF'             = 3,
-  /**
-   * Permanently set the actuator (ESC) to spin direction 1 (which can be clockwise or
-   * counter-clockwise).
-   */
-  'SPIN_DIRECTION1'                                = 4,
-  'SPIN_DIRECTION2'                                = 5,
-}
-
-/**
- * Actuator output function. Values greater or equal to 1000 are autopilot-specific.
- */
-export enum ActuatorOutputFunction {
-  'NONE'                                           = 0,
-  'MOTOR1'                                         = 1,
-  'MOTOR2'                                         = 2,
-  'MOTOR3'                                         = 3,
-  'MOTOR4'                                         = 4,
-  'MOTOR5'                                         = 5,
-  'MOTOR6'                                         = 6,
-  'MOTOR7'                                         = 7,
-  'MOTOR8'                                         = 8,
-  'MOTOR9'                                         = 9,
-  'MOTOR10'                                        = 10,
-  'MOTOR11'                                        = 11,
-  'MOTOR12'                                        = 12,
-  'MOTOR13'                                        = 13,
-  'MOTOR14'                                        = 14,
-  'MOTOR15'                                        = 15,
-  'MOTOR16'                                        = 16,
-  'SERVO1'                                         = 33,
-  'SERVO2'                                         = 34,
-  'SERVO3'                                         = 35,
-  'SERVO4'                                         = 36,
-  'SERVO5'                                         = 37,
-  'SERVO6'                                         = 38,
-  'SERVO7'                                         = 39,
-  'SERVO8'                                         = 40,
-  'SERVO9'                                         = 41,
-  'SERVO10'                                        = 42,
-  'SERVO11'                                        = 43,
-  'SERVO12'                                        = 44,
-  'SERVO13'                                        = 45,
-  'SERVO14'                                        = 46,
-  'SERVO15'                                        = 47,
-  'SERVO16'                                        = 48,
-}
-
-/**
- * Enable axes that will be tuned via autotuning. Used in MAV_CMD_DO_AUTOTUNE_ENABLE.
- */
-export enum AutotuneAxis {
-  'DEFAULT'                                        = 0,
-  'ROLL'                                           = 1,
-  'PITCH'                                          = 2,
-  'YAW'                                            = 4,
+  'NOT_SUPPORTED'                          = 3,
 }
 
 /**
@@ -701,113 +358,91 @@ export enum AutotuneAxis {
  * structure of the MAV_CMD entries
  */
 export enum MavCmd {
-  'NAV_WAYPOINT'                                   = 16,
-  'NAV_LOITER_UNLIM'                               = 17,
-  'NAV_LOITER_TURNS'                               = 18,
-  /**
-   * Loiter at the specified latitude, longitude and altitude for a certain amount of time. Multicopter
-   * vehicles stop at the point (within a vehicle-specific acceptance radius). Forward-only moving
-   * vehicles (e.g. fixed-wing) circle the point with the specified radius/direction. If the Heading
-   * Required parameter (2) is non-zero forward moving aircraft will only leave the loiter circle once
-   * heading towards the next waypoint.
-   */
-  'NAV_LOITER_TIME'                                = 19,
-  'NAV_RETURN_TO_LAUNCH'                           = 20,
-  'NAV_LAND'                                       = 21,
+  'NAV_WAYPOINT'                           = 16,
+  'NAV_LOITER_UNLIM'                       = 17,
+  'NAV_LOITER_TURNS'                       = 18,
+  'NAV_LOITER_TIME'                        = 19,
+  'NAV_RETURN_TO_LAUNCH'                   = 20,
+  'NAV_LAND'                               = 21,
   /**
    * Takeoff from ground / hand. Vehicles that support multiple takeoff modes (e.g. VTOL quadplane)
    * should take off using the currently configured mode.
    */
-  'NAV_TAKEOFF'                                    = 22,
-  'NAV_LAND_LOCAL'                                 = 23,
-  'NAV_TAKEOFF_LOCAL'                              = 24,
-  'NAV_FOLLOW'                                     = 25,
+  'NAV_TAKEOFF'                            = 22,
+  'NAV_LAND_LOCAL'                         = 23,
+  'NAV_TAKEOFF_LOCAL'                      = 24,
+  'NAV_FOLLOW'                             = 25,
   /**
    * Continue on the current course and climb/descend to specified altitude. When the altitude is reached
    * continue to the next command (i.e., don't proceed to the next command until the desired altitude is
    * reached.
    */
-  'NAV_CONTINUE_AND_CHANGE_ALT'                    = 30,
+  'NAV_CONTINUE_AND_CHANGE_ALT'            = 30,
   /**
    * Begin loiter at the specified Latitude and Longitude. If Lat=Lon=0, then loiter at the current
    * position. Don't consider the navigation command complete (don't leave loiter) until the altitude has
    * been reached. Additionally, if the Heading Required parameter is non-zero the aircraft will not
    * leave the loiter until heading toward the next waypoint.
    */
-  'NAV_LOITER_TO_ALT'                              = 31,
-  'DO_FOLLOW'                                      = 32,
-  'DO_FOLLOW_REPOSITION'                           = 33,
-  /**
-   * Start orbiting on the circumference of a circle defined by the parameters. Setting values to
-   * NaN/INT32_MAX (as appropriate) results in using defaults.
-   */
-  'DO_ORBIT'                                       = 34,
+  'NAV_LOITER_TO_ALT'                      = 31,
+  'DO_FOLLOW'                              = 32,
+  'DO_FOLLOW_REPOSITION'                   = 33,
   /**
    * Sets the region of interest (ROI) for a sensor set or the vehicle itself. This can then be used by
    * the vehicle's control system to control the vehicle attitude and the attitude of various sensors
    * such as cameras.
    */
-  'NAV_ROI'                                        = 80,
-  'NAV_PATHPLANNING'                               = 81,
-  'NAV_SPLINE_WAYPOINT'                            = 82,
-  /**
-   * Takeoff from ground using VTOL mode, and transition to forward flight with specified heading. The
-   * command should be ignored by vehicles that dont support both VTOL and fixed-wing flight
-   * (multicopters, boats,etc.).
-   */
-  'NAV_VTOL_TAKEOFF'                               = 84,
-  'NAV_VTOL_LAND'                                  = 85,
-  'NAV_GUIDED_ENABLE'                              = 92,
-  'NAV_DELAY'                                      = 93,
+  'NAV_ROI'                                = 80,
+  'NAV_PATHPLANNING'                       = 81,
+  'NAV_SPLINE_WAYPOINT'                    = 82,
+  'NAV_VTOL_TAKEOFF'                       = 84,
+  'NAV_VTOL_LAND'                          = 85,
+  'NAV_GUIDED_ENABLE'                      = 92,
+  'NAV_DELAY'                              = 93,
   /**
    * Descend and place payload. Vehicle moves to specified location, descends until it detects a hanging
    * payload has reached the ground, and then releases the payload. If ground is not detected before the
    * reaching the maximum descent value (param1), the command will complete without releasing the
    * payload.
    */
-  'NAV_PAYLOAD_PLACE'                              = 94,
+  'NAV_PAYLOAD_PLACE'                      = 94,
   /**
    * NOP - This command is only used to mark the upper limit of the NAV/ACTION commands in the
    * enumeration
    */
-  'NAV_LAST'                                       = 95,
-  'CONDITION_DELAY'                                = 112,
+  'NAV_LAST'                               = 95,
+  'CONDITION_DELAY'                        = 112,
   /**
    * Ascend/descend to target altitude at specified rate. Delay mission state machine until desired
    * altitude reached.
    */
-  'CONDITION_CHANGE_ALT'                           = 113,
-  'CONDITION_DISTANCE'                             = 114,
-  'CONDITION_YAW'                                  = 115,
-  'CONDITION_LAST'                                 = 159,
-  'DO_SET_MODE'                                    = 176,
+  'CONDITION_CHANGE_ALT'                   = 113,
+  'CONDITION_DISTANCE'                     = 114,
+  'CONDITION_YAW'                          = 115,
+  'CONDITION_LAST'                         = 159,
+  'DO_SET_MODE'                            = 176,
   /**
    * Jump to the desired command in the mission list. Repeat this action only the specified number of
    * times
    */
-  'DO_JUMP'                                        = 177,
-  'DO_CHANGE_SPEED'                                = 178,
-  'DO_SET_HOME'                                    = 179,
+  'DO_JUMP'                                = 177,
+  'DO_CHANGE_SPEED'                        = 178,
+  'DO_SET_HOME'                            = 179,
   /**
    * Set a system parameter. Caution! Use of this command requires knowledge of the numeric enumeration
    * value of the parameter.
    */
-  'DO_SET_PARAMETER'                               = 180,
-  'DO_SET_RELAY'                                   = 181,
-  'DO_REPEAT_RELAY'                                = 182,
-  'DO_SET_SERVO'                                   = 183,
+  'DO_SET_PARAMETER'                       = 180,
+  'DO_SET_RELAY'                           = 181,
+  'DO_REPEAT_RELAY'                        = 182,
+  'DO_SET_SERVO'                           = 183,
   /**
    * Cycle a between its nominal setting and a desired PWM for a desired number of cycles with a desired
    * period.
    */
-  'DO_REPEAT_SERVO'                                = 184,
-  'DO_FLIGHTTERMINATION'                           = 185,
-  'DO_CHANGE_ALTITUDE'                             = 186,
-  /**
-   * Sets actuators (e.g. servos) to a desired value. The actuator numbers are mapped to specific outputs
-   * (e.g. on any MAIN or AUX PWM or UAVCAN) using a flight-stack specific mechanism (i.e. a parameter).
-   */
-  'DO_SET_ACTUATOR'                                = 187,
+  'DO_REPEAT_SERVO'                        = 184,
+  'DO_FLIGHTTERMINATION'                   = 185,
+  'DO_CHANGE_ALTITUDE'                     = 186,
   /**
    * Mission command to perform a landing. This is used as a marker in a mission to tell the autopilot
    * where a sequence of mission items that represents a landing starts. It may also be sent via a
@@ -815,119 +450,113 @@ export enum MavCmd {
    * the mission will be used. The Latitude/Longitude is optional, and may be set to 0 if not needed. If
    * specified then it will be used to help find the closest landing sequence.
    */
-  'DO_LAND_START'                                  = 189,
-  'DO_RALLY_LAND'                                  = 190,
-  'DO_GO_AROUND'                                   = 191,
-  'DO_REPOSITION'                                  = 192,
-  'DO_PAUSE_CONTINUE'                              = 193,
-  'DO_SET_REVERSE'                                 = 194,
+  'DO_LAND_START'                          = 189,
+  'DO_RALLY_LAND'                          = 190,
+  'DO_GO_AROUND'                           = 191,
+  'DO_REPOSITION'                          = 192,
+  'DO_PAUSE_CONTINUE'                      = 193,
+  'DO_SET_REVERSE'                         = 194,
   /**
    * Sets the region of interest (ROI) to a location. This can then be used by the vehicle's control
-   * system to control the vehicle attitude and the attitude of various sensors such as cameras. This
-   * command can be sent to a gimbal manager but not to a gimbal device. A gimbal is not to react to this
-   * message.
+   * system to control the vehicle attitude and the attitude of various sensors such as cameras.
    */
-  'DO_SET_ROI_LOCATION'                            = 195,
+  'DO_SET_ROI_LOCATION'                    = 195,
   /**
    * Sets the region of interest (ROI) to be toward next waypoint, with optional pitch/roll/yaw offset.
    * This can then be used by the vehicle's control system to control the vehicle attitude and the
-   * attitude of various sensors such as cameras. This command can be sent to a gimbal manager but not to
-   * a gimbal device. A gimbal device is not to react to this message.
+   * attitude of various sensors such as cameras.
    */
-  'DO_SET_ROI_WPNEXT_OFFSET'                       = 196,
+  'DO_SET_ROI_WPNEXT_OFFSET'               = 196,
   /**
    * Cancels any previous ROI command returning the vehicle/sensors to default flight characteristics.
    * This can then be used by the vehicle's control system to control the vehicle attitude and the
-   * attitude of various sensors such as cameras. This command can be sent to a gimbal manager but not to
-   * a gimbal device. A gimbal device is not to react to this message. After this command the gimbal
-   * manager should go back to manual input if available, and otherwise assume a neutral position.
+   * attitude of various sensors such as cameras.
    */
-  'DO_SET_ROI_NONE'                                = 197,
+  'DO_SET_ROI_NONE'                        = 197,
   /**
    * Mount tracks system with specified system ID. Determination of target vehicle position may be done
-   * with GLOBAL_POSITION_INT or any other means. This command can be sent to a gimbal manager but not to
-   * a gimbal device. A gimbal device is not to react to this message.
+   * with GLOBAL_POSITION_INT or any other means.
    */
-  'DO_SET_ROI_SYSID'                               = 198,
-  'DO_CONTROL_VIDEO'                               = 200,
+  'DO_SET_ROI_SYSID'                       = 198,
+  'DO_CONTROL_VIDEO'                       = 200,
   /**
    * Sets the region of interest (ROI) for a sensor set or the vehicle itself. This can then be used by
    * the vehicle's control system to control the vehicle attitude and the attitude of various sensors
    * such as cameras.
    */
-  'DO_SET_ROI'                                     = 201,
+  'DO_SET_ROI'                             = 201,
   /**
    * Configure digital camera. This is a fallback message for systems that have not yet implemented
    * PARAM_EXT_XXX messages and camera definition files (see
    * https://mavlink.io/en/services/camera_def.html ).
    */
-  'DO_DIGICAM_CONFIGURE'                           = 202,
+  'DO_DIGICAM_CONFIGURE'                   = 202,
   /**
    * Control digital camera. This is a fallback message for systems that have not yet implemented
    * PARAM_EXT_XXX messages and camera definition files (see
    * https://mavlink.io/en/services/camera_def.html ).
    */
-  'DO_DIGICAM_CONTROL'                             = 203,
-  'DO_MOUNT_CONFIGURE'                             = 204,
-  'DO_MOUNT_CONTROL'                               = 205,
+  'DO_DIGICAM_CONTROL'                     = 203,
+  'DO_MOUNT_CONFIGURE'                     = 204,
+  'DO_MOUNT_CONTROL'                       = 205,
   /**
    * Mission command to set camera trigger distance for this flight. The camera is triggered each time
    * this distance is exceeded. This command can also be used to set the shutter integration time for the
    * camera.
    */
-  'DO_SET_CAM_TRIGG_DIST'                          = 206,
-  'DO_FENCE_ENABLE'                                = 207,
-  'DO_PARACHUTE'                                   = 208,
-  'DO_MOTOR_TEST'                                  = 209,
-  'DO_INVERTED_FLIGHT'                             = 210,
-  'DO_GRIPPER'                                     = 211,
-  'DO_AUTOTUNE_ENABLE'                             = 212,
-  'NAV_SET_YAW_SPEED'                              = 213,
+  'DO_SET_CAM_TRIGG_DIST'                  = 206,
+  'DO_FENCE_ENABLE'                        = 207,
+  'DO_PARACHUTE'                           = 208,
+  'DO_MOTOR_TEST'                          = 209,
+  'DO_INVERTED_FLIGHT'                     = 210,
+  'DO_GRIPPER'                             = 211,
+  'DO_AUTOTUNE_ENABLE'                     = 212,
+  'NAV_SET_YAW_SPEED'                      = 213,
   /**
    * Mission command to set camera trigger interval for this flight. If triggering is enabled, the camera
    * is triggered each time this interval expires. This command can also be used to set the shutter
    * integration time for the camera.
    */
-  'DO_SET_CAM_TRIGG_INTERVAL'                      = 214,
-  'DO_MOUNT_CONTROL_QUAT'                          = 220,
-  'DO_GUIDED_MASTER'                               = 221,
-  'DO_GUIDED_LIMITS'                               = 222,
+  'DO_SET_CAM_TRIGG_INTERVAL'              = 214,
+  'DO_MOUNT_CONTROL_QUAT'                  = 220,
+  'DO_GUIDED_MASTER'                       = 221,
+  'DO_GUIDED_LIMITS'                       = 222,
   /**
    * Control vehicle engine. This is interpreted by the vehicles engine controller to change the target
    * engine state. It is intended for vehicles with internal combustion engines
    */
-  'DO_ENGINE_CONTROL'                              = 223,
+  'DO_ENGINE_CONTROL'                      = 223,
   /**
    * Set the mission item with sequence number seq as current item. This means that the MAV will continue
    * to this mission item on the shortest path (not following the mission items in-between).
    */
-  'DO_SET_MISSION_CURRENT'                         = 224,
-  'DO_LAST'                                        = 240,
+  'DO_SET_MISSION_CURRENT'                 = 224,
+  'DO_LAST'                                = 240,
   /**
    * Trigger calibration. This command will be only accepted if in pre-flight mode. Except for
    * Temperature Calibration, only one sensor should be set in a single message and all others should be
    * zero.
    */
-  'PREFLIGHT_CALIBRATION'                          = 241,
-  'PREFLIGHT_SET_SENSOR_OFFSETS'                   = 242,
+  'PREFLIGHT_CALIBRATION'                  = 241,
+  'PREFLIGHT_SET_SENSOR_OFFSETS'           = 242,
   /**
    * Trigger UAVCAN configuration (actuator ID assignment and direction mapping). Note that this maps to
    * the legacy UAVCAN v0 function UAVCAN_ENUMERATE, which is intended to be executed just once during
    * initial vehicle configuration (it is not a normal pre-flight command and has been poorly named).
    */
-  'PREFLIGHT_UAVCAN'                               = 243,
+  'PREFLIGHT_UAVCAN'                       = 243,
   /**
    * Request storage of different parameter values and logs. This command will be only accepted if in
    * pre-flight mode.
    */
-  'PREFLIGHT_STORAGE'                              = 245,
-  'PREFLIGHT_REBOOT_SHUTDOWN'                      = 246,
+  'PREFLIGHT_STORAGE'                      = 245,
+  'PREFLIGHT_REBOOT_SHUTDOWN'              = 246,
   /**
    * Override current mission with command to pause mission, pause mission and move to position,
    * continue/resume mission. When param 1 indicates that the mission is paused (MAV_GOTO_DO_HOLD), param
    * 2 defines whether it holds in place or moves to another position.
    */
-  'OVERRIDE_GOTO'                                  = 252,
+  'OVERRIDE_GOTO'                          = 252,
   /**
    * Mission command to set a Camera Auto Mount Pivoting Oblique Survey (Replaces CAM_TRIGG_DIST for this
    * purpose). The camera is triggered each time this distance is exceeded, then the mount moves to the
@@ -936,143 +565,92 @@ export enum MavCmd {
    * setup (providing an increased HFOV). This command can also be used to set the shutter integration
    * time for the camera.
    */
-  'OBLIQUE_SURVEY'                                 = 260,
-  'MISSION_START'                                  = 300,
-  /**
-   * Actuator testing command. This is similar to MAV_CMD_DO_MOTOR_TEST but operates on the level of
-   * output functions, i.e. it is possible to test Motor1 independent from which output it is configured
-   * on. Autopilots typically refuse this command while armed.
-   */
-  'ACTUATOR_TEST'                                  = 310,
-  'CONFIGURE_ACTUATOR'                             = 311,
-  'COMPONENT_ARM_DISARM'                           = 400,
+  'OBLIQUE_SURVEY'                         = 260,
+  'MISSION_START'                          = 300,
+  'COMPONENT_ARM_DISARM'                   = 400,
   /**
    * Instructs system to run pre-arm checks. This command should return MAV_RESULT_TEMPORARILY_REJECTED
-   * in the case the system is armed, otherwise MAV_RESULT_ACCEPTED. Note that the return value from
+   * in the case the system is armed, otherwse MAV_RESULT_ACCEPTED. Note that the return value from
    * executing this command does not indicate whether the vehicle is armable or not, just whether the
    * system has successfully run/is currently running the checks. The result of the checks is reflected
    * in the SYS_STATUS message.
    */
-  'RUN_PREARM_CHECKS'                              = 401,
-  /**
-   * Turns illuminators ON/OFF. An illuminator is a light source that is used for lighting up dark areas
-   * external to the sytstem: e.g. a torch or searchlight (as opposed to a light source for illuminating
-   * the system itself, e.g. an indicator light).
-   */
-  'ILLUMINATOR_ON_OFF'                             = 405,
-  'GET_HOME_POSITION'                              = 410,
-  /**
-   * Inject artificial failure for testing purposes. Note that autopilots should implement an additional
-   * protection before accepting this command such as a specific param setting.
-   */
-  'INJECT_FAILURE'                                 = 420,
-  'START_RX_PAIR'                                  = 500,
+  'RUN_PREARM_CHECKS'                      = 401,
+  'GET_HOME_POSITION'                      = 410,
+  'START_RX_PAIR'                          = 500,
   /**
    * Request the interval between messages for a particular MAVLink message ID. The receiver should ACK
    * the command and then emit its response in a MESSAGE_INTERVAL message.
    */
-  'GET_MESSAGE_INTERVAL'                           = 510,
+  'GET_MESSAGE_INTERVAL'                   = 510,
   /**
    * Set the interval between messages for a particular MAVLink message ID. This interface replaces
    * REQUEST_DATA_STREAM.
    */
-  'SET_MESSAGE_INTERVAL'                           = 511,
+  'SET_MESSAGE_INTERVAL'                   = 511,
   /**
    * Request the target system(s) emit a single instance of a specified message (i.e. a "one-shot"
    * version of MAV_CMD_SET_MESSAGE_INTERVAL).
    */
-  'REQUEST_MESSAGE'                                = 512,
+  'REQUEST_MESSAGE'                        = 512,
   /**
    * Request MAVLink protocol version compatibility. All receivers should ACK the command and then emit
    * their capabilities in an PROTOCOL_VERSION message
    */
-  'REQUEST_PROTOCOL_VERSION'                       = 519,
+  'REQUEST_PROTOCOL_VERSION'               = 519,
   /**
    * Request autopilot capabilities. The receiver should ACK the command and then emit its capabilities
    * in an AUTOPILOT_VERSION message
    */
-  'REQUEST_AUTOPILOT_CAPABILITIES'                 = 520,
-  'REQUEST_CAMERA_INFORMATION'                     = 521,
-  'REQUEST_CAMERA_SETTINGS'                        = 522,
+  'REQUEST_AUTOPILOT_CAPABILITIES'         = 520,
+  'REQUEST_CAMERA_INFORMATION'             = 521,
+  'REQUEST_CAMERA_SETTINGS'                = 522,
   /**
    * Request storage information (STORAGE_INFORMATION). Use the command's target_component to target a
    * specific component's storage.
    */
-  'REQUEST_STORAGE_INFORMATION'                    = 525,
+  'REQUEST_STORAGE_INFORMATION'            = 525,
   /**
    * Format a storage medium. Once format is complete, a STORAGE_INFORMATION message is sent. Use the
    * command's target_component to target a specific component's storage.
    */
-  'STORAGE_FORMAT'                                 = 526,
-  'REQUEST_CAMERA_CAPTURE_STATUS'                  = 527,
-  'REQUEST_FLIGHT_INFORMATION'                     = 528,
-  'RESET_CAMERA_SETTINGS'                          = 529,
+  'STORAGE_FORMAT'                         = 526,
+  'REQUEST_CAMERA_CAPTURE_STATUS'          = 527,
+  'REQUEST_FLIGHT_INFORMATION'             = 528,
+  'RESET_CAMERA_SETTINGS'                  = 529,
   /**
    * Set camera running mode. Use NaN for reserved values. GCS will send a
    * MAV_CMD_REQUEST_VIDEO_STREAM_STATUS command after a mode change if the camera supports video
    * streaming.
    */
-  'SET_CAMERA_MODE'                                = 530,
-  'SET_CAMERA_ZOOM'                                = 531,
-  'SET_CAMERA_FOCUS'                               = 532,
-  /**
-   * Set that a particular storage is the preferred location for saving photos, videos, and/or other
-   * media (e.g. to set that an SD card is used for storing videos). There can only be one preferred save
-   * location for each particular media type: setting a media usage flag will clear/reset that same flag
-   * if set on any other storage. If no flag is set the system should use its default storage. A target
-   * system can choose to always use default storage, in which case it should ACK the command with
-   * MAV_RESULT_UNSUPPORTED. A target system can choose to not allow a particular storage to be set as
-   * preferred storage, in which case it should ACK the command with MAV_RESULT_DENIED.
-   */
-  'SET_STORAGE_USAGE'                              = 533,
-  'JUMP_TAG'                                       = 600,
+  'SET_CAMERA_MODE'                        = 530,
+  'JUMP_TAG'                               = 600,
   /**
    * Jump to the matching tag in the mission list. Repeat this action for the specified number of times.
    * A mission should contain a single matching tag for each jump. If this is not the case then a jump to
    * a missing tag should complete the mission, and a jump where there are multiple matching tags should
    * always select the one with the lowest mission sequence number.
    */
-  'DO_JUMP_TAG'                                    = 601,
-  /**
-   * High level setpoint to be sent to a gimbal manager to set a gimbal attitude. It is possible to set
-   * combinations of the values below. E.g. an angle as well as a desired angular rate can be used to get
-   * to this angle at a certain angular rate, or an angular rate only will result in continuous turning.
-   * NaN is to be used to signal unset. Note: a gimbal is never to react to this command but only the
-   * gimbal manager.
-   */
-  'DO_GIMBAL_MANAGER_PITCHYAW'                     = 1000,
-  'DO_GIMBAL_MANAGER_CONFIGURE'                    = 1001,
+  'DO_JUMP_TAG'                            = 601,
   /**
    * Start image capture sequence. Sends CAMERA_IMAGE_CAPTURED after each capture. Use NaN for reserved
    * values.
    */
-  'IMAGE_START_CAPTURE'                            = 2000,
-  'IMAGE_STOP_CAPTURE'                             = 2001,
-  'REQUEST_CAMERA_IMAGE_CAPTURE'                   = 2002,
-  'DO_TRIGGER_CONTROL'                             = 2003,
-  /**
-   * If the camera supports point visual tracking (CAMERA_CAP_FLAGS_HAS_TRACKING_POINT is set), this
-   * command allows to initiate the tracking.
-   */
-  'CAMERA_TRACK_POINT'                             = 2004,
-  /**
-   * If the camera supports rectangle visual tracking (CAMERA_CAP_FLAGS_HAS_TRACKING_RECTANGLE is set),
-   * this command allows to initiate the tracking.
-   */
-  'CAMERA_TRACK_RECTANGLE'                         = 2005,
-  'CAMERA_STOP_TRACKING'                           = 2010,
-  'VIDEO_START_CAPTURE'                            = 2500,
-  'VIDEO_STOP_CAPTURE'                             = 2501,
-  'VIDEO_START_STREAMING'                          = 2502,
-  'VIDEO_STOP_STREAMING'                           = 2503,
-  'REQUEST_VIDEO_STREAM_INFORMATION'               = 2504,
-  'REQUEST_VIDEO_STREAM_STATUS'                    = 2505,
-  'LOGGING_START'                                  = 2510,
-  'LOGGING_STOP'                                   = 2511,
-  'AIRFRAME_CONFIGURATION'                         = 2520,
-  'CONTROL_HIGH_LATENCY'                           = 2600,
-  'PANORAMA_CREATE'                                = 2800,
-  'DO_VTOL_TRANSITION'                             = 3000,
+  'IMAGE_START_CAPTURE'                    = 2000,
+  'IMAGE_STOP_CAPTURE'                     = 2001,
+  'DO_TRIGGER_CONTROL'                     = 2003,
+  'VIDEO_START_CAPTURE'                    = 2500,
+  'VIDEO_STOP_CAPTURE'                     = 2501,
+  'VIDEO_START_STREAMING'                  = 2502,
+  'VIDEO_STOP_STREAMING'                   = 2503,
+  'REQUEST_VIDEO_STREAM_INFORMATION'       = 2504,
+  'REQUEST_VIDEO_STREAM_STATUS'            = 2505,
+  'LOGGING_START'                          = 2510,
+  'LOGGING_STOP'                           = 2511,
+  'AIRFRAME_CONFIGURATION'                 = 2520,
+  'CONTROL_HIGH_LATENCY'                   = 2600,
+  'PANORAMA_CREATE'                        = 2800,
+  'DO_VTOL_TRANSITION'                     = 3000,
   /**
    * Request authorization to arm the vehicle to a external entity, the arm authorizer is responsible to
    * request all data that is needs from the vehicle before authorize or deny the request. If approved
@@ -1080,37 +658,37 @@ export enum MavCmd {
    * valid in seconds or in case it was denied it should be set with one of the reasons in
    * ARM_AUTH_DENIED_REASON.
    */
-  'ARM_AUTHORIZATION_REQUEST'                      = 3001,
+  'ARM_AUTHORIZATION_REQUEST'              = 3001,
   /**
    * This command sets the submode to standard guided when vehicle is in guided mode. The vehicle holds
    * position and altitude and the user can input the desired velocities along all three axes.
    */
-  'SET_GUIDED_SUBMODE_STANDARD'                    = 4000,
+  'SET_GUIDED_SUBMODE_STANDARD'            = 4000,
   /**
    * This command sets submode circle when vehicle is in guided mode. Vehicle flies along a circle facing
    * the center of the circle. The user can input the velocity along the circle and change the radius. If
    * no input is given the vehicle will hold position.
    */
-  'SET_GUIDED_SUBMODE_CIRCLE'                      = 4001,
-  'CONDITION_GATE'                                 = 4501,
+  'SET_GUIDED_SUBMODE_CIRCLE'              = 4001,
   /**
    * Fence return point (there can only be one such point in a geofence definition). If rally points are
    * supported they should be used instead.
    */
-  'NAV_FENCE_RETURN_POINT'                         = 5000,
+  'NAV_FENCE_RETURN_POINT'                 = 5000,
   /**
    * Fence vertex for an inclusion polygon (the polygon must not be self-intersecting). The vehicle must
    * stay within this area. Minimum of 3 vertices required.
    */
-  'NAV_FENCE_POLYGON_VERTEX_INCLUSION'             = 5001,
+  'NAV_FENCE_POLYGON_VERTEX_INCLUSION'     = 5001,
   /**
    * Fence vertex for an exclusion polygon (the polygon must not be self-intersecting). The vehicle must
    * stay outside this area. Minimum of 3 vertices required.
    */
-  'NAV_FENCE_POLYGON_VERTEX_EXCLUSION'             = 5002,
-  'NAV_FENCE_CIRCLE_INCLUSION'                     = 5003,
-  'NAV_FENCE_CIRCLE_EXCLUSION'                     = 5004,
-  'NAV_RALLY_POINT'                                = 5100,
+  'NAV_FENCE_POLYGON_VERTEX_EXCLUSION'     = 5002,
+  'NAV_FENCE_CIRCLE_INCLUSION'             = 5003,
+  'NAV_FENCE_CIRCLE_EXCLUSION'             = 5004,
+  'NAV_RALLY_POINT'                        = 5100,
+  'NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION' = 5109,
   /**
    * Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every
    * UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver
@@ -1118,81 +696,76 @@ export enum MavCmd {
    * UAVCAN_NODE_INFO received earlier; if not, this command should be sent again in order to request
    * re-transmission of the node information messages.
    */
-  'UAVCAN_GET_NODE_INFO'                           = 5200,
-  /**
-   * Trigger the start of an ADSB-out IDENT. This should only be used when requested to do so by an Air
-   * Traffic Controller in controlled airspace. This starts the IDENT which is then typically held for 18
-   * seconds by the hardware per the Mode A, C, and S transponder spec.
-   */
-  'DO_ADSB_OUT_IDENT'                              = 10001,
+  'UAVCAN_GET_NODE_INFO'                   = 5200,
   /**
    * Deploy payload on a Lat / Lon / Alt position. This includes the navigation to reach the required
    * release position and velocity.
    */
-  'PAYLOAD_PREPARE_DEPLOY'                         = 30001,
-  'PAYLOAD_CONTROL_DEPLOY'                         = 30002,
+  'PAYLOAD_PREPARE_DEPLOY'                 = 30001,
+  'PAYLOAD_CONTROL_DEPLOY'                 = 30002,
   /**
    * Magnetometer calibration based on provided known yaw. This allows for fast calibration using WMM
    * field tables in the vehicle, given only the known yaw of the vehicle. If Latitude and longitude are
    * both zero then use the current vehicle location.
    */
-  'FIXED_MAG_CAL_YAW'                              = 42006,
-  'DO_WINCH'                                       = 42600,
-  'WAYPOINT_USER_1'                                = 31000,
-  'WAYPOINT_USER_2'                                = 31001,
-  'WAYPOINT_USER_3'                                = 31002,
-  'WAYPOINT_USER_4'                                = 31003,
-  'WAYPOINT_USER_5'                                = 31004,
+  'FIXED_MAG_CAL_YAW'                      = 42006,
+  'DO_WINCH'                               = 42600,
+  'SWARM_RADIUS'                           = 12613,
+  'WAYPOINT_USER_1'                        = 31000,
+  'WAYPOINT_USER_2'                        = 31001,
+  'WAYPOINT_USER_3'                        = 31002,
+  'WAYPOINT_USER_4'                        = 31003,
+  'WAYPOINT_USER_5'                        = 31004,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_1'                                 = 31005,
+  'SPATIAL_USER_1'                         = 31005,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_2'                                 = 31006,
+  'SPATIAL_USER_2'                         = 31006,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_3'                                 = 31007,
+  'SPATIAL_USER_3'                         = 31007,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_4'                                 = 31008,
+  'SPATIAL_USER_4'                         = 31008,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_5'                                 = 31009,
+  'SPATIAL_USER_5'                         = 31009,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_1'                                         = 31010,
+  'USER_1'                                 = 31010,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_2'                                         = 31011,
+  'USER_2'                                 = 31011,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_3'                                         = 31012,
+  'USER_3'                                 = 31012,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_4'                                         = 31013,
+  'USER_4'                                 = 31013,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_5'                                         = 31014,
+  'USER_5'                                 = 31014,
 }
 
 /**
@@ -1200,15 +773,15 @@ export enum MavCmd {
  * Individual autopilots may or may not obey the recommended messages.
  */
 export enum MavDataStream {
-  'ALL'                                            = 0,
-  'RAW_SENSORS'                                    = 1,
-  'EXTENDED_STATUS'                                = 2,
-  'RC_CHANNELS'                                    = 3,
-  'RAW_CONTROLLER'                                 = 4,
-  'POSITION'                                       = 6,
-  'EXTRA1'                                         = 10,
-  'EXTRA2'                                         = 11,
-  'EXTRA3'                                         = 12,
+  'ALL'                                    = 0,
+  'RAW_SENSORS'                            = 1,
+  'EXTENDED_STATUS'                        = 2,
+  'RC_CHANNELS'                            = 3,
+  'RAW_CONTROLLER'                         = 4,
+  'POSITION'                               = 6,
+  'EXTRA1'                                 = 10,
+  'EXTRA2'                                 = 11,
+  'EXTRA3'                                 = 12,
 }
 
 /**
@@ -1216,124 +789,107 @@ export enum MavDataStream {
  * attitude alignment (see MAV_CMD_NAV_ROI).
  */
 export enum MavRoi {
-  'NONE'                                           = 0,
-  'WPNEXT'                                         = 1,
-  'WPINDEX'                                        = 2,
-  'LOCATION'                                       = 3,
-  'TARGET'                                         = 4,
+  'NONE'                                   = 0,
+  'WPNEXT'                                 = 1,
+  'WPINDEX'                                = 2,
+  'LOCATION'                               = 3,
+  'TARGET'                                 = 4,
 }
 
 /**
  * ACK / NACK / ERROR values as a result of MAV_CMDs and for mission item transmission.
  */
 export enum MavCmdAck {
-  'OK'                                             = 0,
+  'OK'                                     = 0,
   /**
    * Generic error message if none of the other reasons fails or if no detailed error reporting is
    * implemented.
    */
-  'ERR_FAIL'                                       = 1,
-  'ERR_ACCESS_DENIED'                              = 2,
-  'ERR_NOT_SUPPORTED'                              = 3,
-  'ERR_COORDINATE_FRAME_NOT_SUPPORTED'             = 4,
+  'ERR_FAIL'                               = 1,
+  'ERR_ACCESS_DENIED'                      = 2,
+  'ERR_NOT_SUPPORTED'                      = 3,
+  'ERR_COORDINATE_FRAME_NOT_SUPPORTED'     = 4,
   /**
    * The coordinate frame of this command is ok, but he coordinate values exceed the safety limits of
    * this system. This is a generic error, please use the more specific error messages below if possible.
    */
-  'ERR_COORDINATES_OUT_OF_RANGE'                   = 5,
-  'ERR_X_LAT_OUT_OF_RANGE'                         = 6,
-  'ERR_Y_LON_OUT_OF_RANGE'                         = 7,
-  'ERR_Z_ALT_OUT_OF_RANGE'                         = 8,
+  'ERR_COORDINATES_OUT_OF_RANGE'           = 5,
+  'ERR_X_LAT_OUT_OF_RANGE'                 = 6,
+  'ERR_Y_LON_OUT_OF_RANGE'                 = 7,
+  'ERR_Z_ALT_OUT_OF_RANGE'                 = 8,
 }
 
 /**
  * Specifies the datatype of a MAVLink parameter.
  */
 export enum MavParamType {
-  'UINT8'                                          = 1,
-  'INT8'                                           = 2,
-  'UINT16'                                         = 3,
-  'INT16'                                          = 4,
-  'UINT32'                                         = 5,
-  'INT32'                                          = 6,
-  'UINT64'                                         = 7,
-  'INT64'                                          = 8,
-  'REAL32'                                         = 9,
-  'REAL64'                                         = 10,
-}
-
-/**
- * Specifies the datatype of a MAVLink extended parameter.
- */
-export enum MavParamExtType {
-  'UINT8'                                          = 1,
-  'INT8'                                           = 2,
-  'UINT16'                                         = 3,
-  'INT16'                                          = 4,
-  'UINT32'                                         = 5,
-  'INT32'                                          = 6,
-  'UINT64'                                         = 7,
-  'INT64'                                          = 8,
-  'REAL32'                                         = 9,
-  'REAL64'                                         = 10,
-  'CUSTOM'                                         = 11,
+  'UINT8'                                  = 1,
+  'INT8'                                   = 2,
+  'UINT16'                                 = 3,
+  'INT16'                                  = 4,
+  'UINT32'                                 = 5,
+  'INT32'                                  = 6,
+  'UINT64'                                 = 7,
+  'INT64'                                  = 8,
+  'REAL32'                                 = 9,
+  'REAL64'                                 = 10,
 }
 
 /**
  * Result from a MAVLink command (MAV_CMD)
  */
 export enum MavResult {
-  'ACCEPTED'                                       = 0,
+  'ACCEPTED'                               = 0,
   /**
    * Command is valid, but cannot be executed at this time. This is used to indicate a problem that
    * should be fixed just by waiting (e.g. a state machine is busy, can't arm because have not got GPS
    * lock, etc.). Retrying later should work.
    */
-  'TEMPORARILY_REJECTED'                           = 1,
+  'TEMPORARILY_REJECTED'                   = 1,
   /**
    * Command is invalid (is supported but has invalid parameters). Retrying same command and parameters
    * will not work.
    */
-  'DENIED'                                         = 2,
-  'UNSUPPORTED'                                    = 3,
+  'DENIED'                                 = 2,
+  'UNSUPPORTED'                            = 3,
   /**
    * Command is valid, but execution has failed. This is used to indicate any non-temporary or unexpected
    * problem, i.e. any problem that must be fixed before the command can succeed/be retried. For example,
    * attempting to write a file when out of memory, attempting to arm when sensors are not calibrated,
    * etc.
    */
-  'FAILED'                                         = 4,
+  'FAILED'                                 = 4,
   /**
    * Command is valid and is being executed. This will be followed by further progress updates, i.e. the
    * component may send further COMMAND_ACK messages with result MAV_RESULT_IN_PROGRESS (at a rate
    * decided by the implementation), and must terminate by sending a COMMAND_ACK message with final
    * result of the operation. The COMMAND_ACK.progress field can be used to indicate the progress of the
-   * operation.
+   * operation. There is no need for the sender to retry the command, but if done during execution, the
+   * component will return MAV_RESULT_IN_PROGRESS with an updated progress.
    */
-  'IN_PROGRESS'                                    = 5,
-  'CANCELLED'                                      = 6,
+  'IN_PROGRESS'                            = 5,
 }
 
 /**
  * Result of mission operation (in a MISSION_ACK message).
  */
 export enum MavMissionResult {
-  'ACCEPTED'                                       = 0,
-  'ERROR'                                          = 1,
-  'UNSUPPORTED_FRAME'                              = 2,
-  'UNSUPPORTED'                                    = 3,
-  'NO_SPACE'                                       = 4,
-  'INVALID'                                        = 5,
-  'INVALID_PARAM1'                                 = 6,
-  'INVALID_PARAM2'                                 = 7,
-  'INVALID_PARAM3'                                 = 8,
-  'INVALID_PARAM4'                                 = 9,
-  'INVALID_PARAM5_X'                               = 10,
-  'INVALID_PARAM6_Y'                               = 11,
-  'INVALID_PARAM7'                                 = 12,
-  'INVALID_SEQUENCE'                               = 13,
-  'DENIED'                                         = 14,
-  'OPERATION_CANCELLED'                            = 15,
+  'ACCEPTED'                               = 0,
+  'ERROR'                                  = 1,
+  'UNSUPPORTED_FRAME'                      = 2,
+  'UNSUPPORTED'                            = 3,
+  'NO_SPACE'                               = 4,
+  'INVALID'                                = 5,
+  'INVALID_PARAM1'                         = 6,
+  'INVALID_PARAM2'                         = 7,
+  'INVALID_PARAM3'                         = 8,
+  'INVALID_PARAM4'                         = 9,
+  'INVALID_PARAM5_X'                       = 10,
+  'INVALID_PARAM6_Y'                       = 11,
+  'INVALID_PARAM7'                         = 12,
+  'INVALID_SEQUENCE'                       = 13,
+  'DENIED'                                 = 14,
+  'OPERATION_CANCELLED'                    = 15,
 }
 
 /**
@@ -1342,134 +898,134 @@ export enum MavMissionResult {
  * http://www.kiwisyslog.com/kb/info:-syslog-message-levels/.
  */
 export enum MavSeverity {
-  'EMERGENCY'                                      = 0,
-  'ALERT'                                          = 1,
-  'CRITICAL'                                       = 2,
-  'ERROR'                                          = 3,
+  'EMERGENCY'                              = 0,
+  'ALERT'                                  = 1,
+  'CRITICAL'                               = 2,
+  'ERROR'                                  = 3,
   /**
    * Indicates about a possible future error if this is not resolved within a given timeframe. Example
    * would be a low battery warning.
    */
-  'WARNING'                                        = 4,
+  'WARNING'                                = 4,
   /**
    * An unusual event has occurred, though not an error condition. This should be investigated for the
    * root cause.
    */
-  'NOTICE'                                         = 5,
-  'INFO'                                           = 6,
+  'NOTICE'                                 = 5,
+  'INFO'                                   = 6,
   /**
    * Useful non-operational messages that can assist in debugging. These should not occur during normal
    * operation.
    */
-  'DEBUG'                                          = 7,
+  'DEBUG'                                  = 7,
 }
 
 /**
  * Power supply status flags (bitmask)
  */
 export enum MavPowerStatus {
-  'BRICK_VALID'                                    = 1,
-  'SERVO_VALID'                                    = 2,
-  'USB_CONNECTED'                                  = 4,
-  'PERIPH_OVERCURRENT'                             = 8,
-  'PERIPH_HIPOWER_OVERCURRENT'                     = 16,
-  'CHANGED'                                        = 32,
+  'BRICK_VALID'                            = 1,
+  'SERVO_VALID'                            = 2,
+  'USB_CONNECTED'                          = 4,
+  'PERIPH_OVERCURRENT'                     = 8,
+  'PERIPH_HIPOWER_OVERCURRENT'             = 16,
+  'CHANGED'                                = 32,
 }
 
 /**
  * SERIAL_CONTROL device types
  */
 export enum SerialControlDev {
-  'DEV_TELEM1'                                     = 0,
-  'DEV_TELEM2'                                     = 1,
-  'DEV_GPS1'                                       = 2,
-  'DEV_GPS2'                                       = 3,
-  'DEV_SHELL'                                      = 10,
-  'SERIAL0'                                        = 100,
-  'SERIAL1'                                        = 101,
-  'SERIAL2'                                        = 102,
-  'SERIAL3'                                        = 103,
-  'SERIAL4'                                        = 104,
-  'SERIAL5'                                        = 105,
-  'SERIAL6'                                        = 106,
-  'SERIAL7'                                        = 107,
-  'SERIAL8'                                        = 108,
-  'SERIAL9'                                        = 109,
+  'DEV_TELEM1'                             = 0,
+  'DEV_TELEM2'                             = 1,
+  'DEV_GPS1'                               = 2,
+  'DEV_GPS2'                               = 3,
+  'DEV_SHELL'                              = 10,
+  'SERIAL0'                                = 100,
+  'SERIAL1'                                = 101,
+  'SERIAL2'                                = 102,
+  'SERIAL3'                                = 103,
+  'SERIAL4'                                = 104,
+  'SERIAL5'                                = 105,
+  'SERIAL6'                                = 106,
+  'SERIAL7'                                = 107,
+  'SERIAL8'                                = 108,
+  'SERIAL9'                                = 109,
 }
 
 /**
  * SERIAL_CONTROL flags (bitmask)
  */
 export enum SerialControlFlag {
-  'REPLY'                                          = 1,
-  'RESPOND'                                        = 2,
+  'REPLY'                                  = 1,
+  'RESPOND'                                = 2,
   /**
    * Set if access to the serial port should be removed from whatever driver is currently using it,
    * giving exclusive access to the SERIAL_CONTROL protocol. The port can be handed back by sending a
    * request without this flag set
    */
-  'EXCLUSIVE'                                      = 4,
-  'BLOCKING'                                       = 8,
-  'MULTI'                                          = 16,
+  'EXCLUSIVE'                              = 4,
+  'BLOCKING'                               = 8,
+  'MULTI'                                  = 16,
 }
 
 /**
  * Enumeration of distance sensor types
  */
 export enum MavDistanceSensor {
-  'LASER'                                          = 0,
-  'ULTRASOUND'                                     = 1,
-  'INFRARED'                                       = 2,
-  'RADAR'                                          = 3,
-  'UNKNOWN'                                        = 4,
+  'LASER'                                  = 0,
+  'ULTRASOUND'                             = 1,
+  'INFRARED'                               = 2,
+  'RADAR'                                  = 3,
+  'UNKNOWN'                                = 4,
 }
 
 /**
  * Enumeration of sensor orientation, according to its rotations
  */
 export enum MavSensorOrientation {
-  'NONE'                                           = 0,
-  'YAW_45'                                         = 1,
-  'YAW_90'                                         = 2,
-  'YAW_135'                                        = 3,
-  'YAW_180'                                        = 4,
-  'YAW_225'                                        = 5,
-  'YAW_270'                                        = 6,
-  'YAW_315'                                        = 7,
-  'ROLL_180'                                       = 8,
-  'ROLL_180_YAW_45'                                = 9,
-  'ROLL_180_YAW_90'                                = 10,
-  'ROLL_180_YAW_135'                               = 11,
-  'PITCH_180'                                      = 12,
-  'ROLL_180_YAW_225'                               = 13,
-  'ROLL_180_YAW_270'                               = 14,
-  'ROLL_180_YAW_315'                               = 15,
-  'ROLL_90'                                        = 16,
-  'ROLL_90_YAW_45'                                 = 17,
-  'ROLL_90_YAW_90'                                 = 18,
-  'ROLL_90_YAW_135'                                = 19,
-  'ROLL_270'                                       = 20,
-  'ROLL_270_YAW_45'                                = 21,
-  'ROLL_270_YAW_90'                                = 22,
-  'ROLL_270_YAW_135'                               = 23,
-  'PITCH_90'                                       = 24,
-  'PITCH_270'                                      = 25,
-  'PITCH_180_YAW_90'                               = 26,
-  'PITCH_180_YAW_270'                              = 27,
-  'ROLL_90_PITCH_90'                               = 28,
-  'ROLL_180_PITCH_90'                              = 29,
-  'ROLL_270_PITCH_90'                              = 30,
-  'ROLL_90_PITCH_180'                              = 31,
-  'ROLL_270_PITCH_180'                             = 32,
-  'ROLL_90_PITCH_270'                              = 33,
-  'ROLL_180_PITCH_270'                             = 34,
-  'ROLL_270_PITCH_270'                             = 35,
-  'ROLL_90_PITCH_180_YAW_90'                       = 36,
-  'ROLL_90_YAW_270'                                = 37,
-  'ROLL_90_PITCH_68_YAW_293'                       = 38,
-  'PITCH_315'                                      = 39,
-  'ROLL_90_PITCH_315'                              = 40,
-  'CUSTOM'                                         = 100,
+  'NONE'                                   = 0,
+  'YAW_45'                                 = 1,
+  'YAW_90'                                 = 2,
+  'YAW_135'                                = 3,
+  'YAW_180'                                = 4,
+  'YAW_225'                                = 5,
+  'YAW_270'                                = 6,
+  'YAW_315'                                = 7,
+  'ROLL_180'                               = 8,
+  'ROLL_180_YAW_45'                        = 9,
+  'ROLL_180_YAW_90'                        = 10,
+  'ROLL_180_YAW_135'                       = 11,
+  'PITCH_180'                              = 12,
+  'ROLL_180_YAW_225'                       = 13,
+  'ROLL_180_YAW_270'                       = 14,
+  'ROLL_180_YAW_315'                       = 15,
+  'ROLL_90'                                = 16,
+  'ROLL_90_YAW_45'                         = 17,
+  'ROLL_90_YAW_90'                         = 18,
+  'ROLL_90_YAW_135'                        = 19,
+  'ROLL_270'                               = 20,
+  'ROLL_270_YAW_45'                        = 21,
+  'ROLL_270_YAW_90'                        = 22,
+  'ROLL_270_YAW_135'                       = 23,
+  'PITCH_90'                               = 24,
+  'PITCH_270'                              = 25,
+  'PITCH_180_YAW_90'                       = 26,
+  'PITCH_180_YAW_270'                      = 27,
+  'ROLL_90_PITCH_90'                       = 28,
+  'ROLL_180_PITCH_90'                      = 29,
+  'ROLL_270_PITCH_90'                      = 30,
+  'ROLL_90_PITCH_180'                      = 31,
+  'ROLL_270_PITCH_180'                     = 32,
+  'ROLL_90_PITCH_270'                      = 33,
+  'ROLL_180_PITCH_270'                     = 34,
+  'ROLL_270_PITCH_270'                     = 35,
+  'ROLL_90_PITCH_180_YAW_90'               = 36,
+  'ROLL_90_YAW_270'                        = 37,
+  'ROLL_90_PITCH_68_YAW_293'               = 38,
+  'PITCH_315'                              = 39,
+  'ROLL_90_PITCH_315'                      = 40,
+  'CUSTOM'                                 = 100,
 }
 
 /**
@@ -1477,135 +1033,97 @@ export enum MavSensorOrientation {
  * capability.
  */
 export enum MavProtocolCapability {
-  'MISSION_FLOAT'                                  = 1,
-  'PARAM_FLOAT'                                    = 2,
-  'MISSION_INT'                                    = 4,
-  'COMMAND_INT'                                    = 8,
-  'PARAM_UNION'                                    = 16,
-  'FTP'                                            = 32,
-  'SET_ATTITUDE_TARGET'                            = 64,
-  'SET_POSITION_TARGET_LOCAL_NED'                  = 128,
-  'SET_POSITION_TARGET_GLOBAL_INT'                 = 256,
-  'TERRAIN'                                        = 512,
-  'SET_ACTUATOR_TARGET'                            = 1024,
-  'FLIGHT_TERMINATION'                             = 2048,
-  'COMPASS_CALIBRATION'                            = 4096,
-  'MAVLINK2'                                       = 8192,
-  'MISSION_FENCE'                                  = 16384,
-  'MISSION_RALLY'                                  = 32768,
-  'FLIGHT_INFORMATION'                             = 65536,
+  'MISSION_FLOAT'                          = 1,
+  'PARAM_FLOAT'                            = 2,
+  'MISSION_INT'                            = 4,
+  'COMMAND_INT'                            = 8,
+  'PARAM_UNION'                            = 16,
+  'FTP'                                    = 32,
+  'SET_ATTITUDE_TARGET'                    = 64,
+  'SET_POSITION_TARGET_LOCAL_NED'          = 128,
+  'SET_POSITION_TARGET_GLOBAL_INT'         = 256,
+  'TERRAIN'                                = 512,
+  'SET_ACTUATOR_TARGET'                    = 1024,
+  'FLIGHT_TERMINATION'                     = 2048,
+  'COMPASS_CALIBRATION'                    = 4096,
+  'MAVLINK2'                               = 8192,
+  'MISSION_FENCE'                          = 16384,
+  'MISSION_RALLY'                          = 32768,
+  'FLIGHT_INFORMATION'                     = 65536,
 }
 
 /**
  * Type of mission items being requested/sent in mission protocol.
  */
 export enum MavMissionType {
-  'MISSION'                                        = 0,
-  'FENCE'                                          = 1,
+  'MISSION'                                = 0,
+  'FENCE'                                  = 1,
   /**
    * Specifies the rally points for the vehicle. Rally points are alternative RTL points. Items are
    * MAV_CMD_NAV_RALLY_POINT rally point items.
    */
-  'RALLY'                                          = 2,
-  'ALL'                                            = 255,
+  'RALLY'                                  = 2,
+  /**
+   * Specifies Swarm Region-of-Interest. Items are either MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION or
+   * MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION.
+   */
+  'SWARM_ROI'                              = 3,
+  'ALL'                                    = 255,
 }
 
 /**
  * Enumeration of estimator types
  */
 export enum MavEstimatorType {
-  'UNKNOWN'                                        = 0,
-  'NAIVE'                                          = 1,
-  'VISION'                                         = 2,
-  'VIO'                                            = 3,
-  'GPS'                                            = 4,
-  'GPS_INS'                                        = 5,
-  'MOCAP'                                          = 6,
-  'LIDAR'                                          = 7,
-  'AUTOPILOT'                                      = 8,
+  'UNKNOWN'                                = 0,
+  'NAIVE'                                  = 1,
+  'VISION'                                 = 2,
+  'VIO'                                    = 3,
+  'GPS'                                    = 4,
+  'GPS_INS'                                = 5,
+  'MOCAP'                                  = 6,
+  'LIDAR'                                  = 7,
+  'AUTOPILOT'                              = 8,
 }
 
 /**
  * Enumeration of battery types
  */
 export enum MavBatteryType {
-  'UNKNOWN'                                        = 0,
-  'LIPO'                                           = 1,
-  'LIFE'                                           = 2,
-  'LION'                                           = 3,
-  'NIMH'                                           = 4,
+  'UNKNOWN'                                = 0,
+  'LIPO'                                   = 1,
+  'LIFE'                                   = 2,
+  'LION'                                   = 3,
+  'NIMH'                                   = 4,
 }
 
 /**
  * Enumeration of battery functions
  */
 export enum MavBatteryFunction {
-  'FUNCTION_UNKNOWN'                               = 0,
-  'FUNCTION_ALL'                                   = 1,
-  'FUNCTION_PROPULSION'                            = 2,
-  'FUNCTION_AVIONICS'                              = 3,
-  'TYPE_PAYLOAD'                                   = 4,
+  'FUNCTION_UNKNOWN'                       = 0,
+  'FUNCTION_ALL'                           = 1,
+  'FUNCTION_PROPULSION'                    = 2,
+  'FUNCTION_AVIONICS'                      = 3,
+  'TYPE_PAYLOAD'                           = 4,
 }
 
 /**
  * Enumeration for battery charge states.
  */
 export enum MavBatteryChargeState {
-  'UNDEFINED'                                      = 0,
-  'OK'                                             = 1,
-  'LOW'                                            = 2,
-  'CRITICAL'                                       = 3,
+  'UNDEFINED'                              = 0,
+  'OK'                                     = 1,
+  'LOW'                                    = 2,
+  'CRITICAL'                               = 3,
   /**
    * Battery state is too low for ordinary abort sequence. Perform fastest possible emergency stop to
    * prevent damage.
    */
-  'EMERGENCY'                                      = 4,
-  'FAILED'                                         = 5,
-  /**
-   * Battery is diagnosed to be defective or an error occurred, usage is discouraged / prohibited.
-   * Possible causes (faults) are listed in MAV_BATTERY_FAULT.
-   */
-  'UNHEALTHY'                                      = 6,
-  'CHARGING'                                       = 7,
-}
-
-/**
- * Battery mode. Note, the normal operation mode (i.e. when flying) should be reported as
- * MAV_BATTERY_MODE_UNKNOWN to allow message trimming in normal flight.
- */
-export enum MavBatteryMode {
-  'UNKNOWN'                                        = 0,
-  'AUTO_DISCHARGING'                               = 1,
-  /**
-   * Battery in hot-swap mode (current limited to prevent spikes that might damage sensitive electrical
-   * circuits).
-   */
-  'HOT_SWAP'                                       = 2,
-}
-
-/**
- * Smart battery supply status/fault flags (bitmask) for health indication. The battery must also
- * report either MAV_BATTERY_CHARGE_STATE_FAILED or MAV_BATTERY_CHARGE_STATE_UNHEALTHY if any of these
- * are set.
- */
-export enum MavBatteryFault {
-  'DEEP_DISCHARGE'                                 = 1,
-  'SPIKES'                                         = 2,
-  /**
-   * One or more cells have failed. Battery should also report MAV_BATTERY_CHARGE_STATE_FAILE (and should
-   * not be used).
-   */
-  'CELL_FAIL'                                      = 4,
-  'OVER_CURRENT'                                   = 8,
-  'OVER_TEMPERATURE'                               = 16,
-  'UNDER_TEMPERATURE'                              = 32,
-  /**
-   * Vehicle voltage is not compatible with this battery (batteries on same power rail should have
-   * similar voltage).
-   */
-  'INCOMPATIBLE_VOLTAGE'                           = 64,
-  'INCOMPATIBLE_FIRMWARE'                          = 128,
-  'BATTERY_FAULT_INCOMPATIBLE_CELLS_CONFIGURATION' = 256,
+  'EMERGENCY'                              = 4,
+  'FAILED'                                 = 5,
+  'UNHEALTHY'                              = 6,
+  'CHARGING'                               = 7,
 }
 
 /**
@@ -1614,113 +1132,113 @@ export enum MavBatteryFault {
  * attention before the next use (they indicate the system is not operating properly).
  */
 export enum MavGeneratorStatusFlag {
-  'OFF'                                            = 1,
-  'READY'                                          = 2,
-  'GENERATING'                                     = 4,
-  'CHARGING'                                       = 8,
-  'REDUCED_POWER'                                  = 16,
-  'MAXPOWER'                                       = 32,
-  'OVERTEMP_WARNING'                               = 64,
-  'OVERTEMP_FAULT'                                 = 128,
-  'ELECTRONICS_OVERTEMP_WARNING'                   = 256,
-  'ELECTRONICS_OVERTEMP_FAULT'                     = 512,
-  'ELECTRONICS_FAULT'                              = 1024,
+  'OFF'                                    = 1,
+  'READY'                                  = 2,
+  'GENERATING'                             = 4,
+  'CHARGING'                               = 8,
+  'REDUCED_POWER'                          = 16,
+  'MAXPOWER'                               = 32,
+  'OVERTEMP_WARNING'                       = 64,
+  'OVERTEMP_FAULT'                         = 128,
+  'ELECTRONICS_OVERTEMP_WARNING'           = 256,
+  'ELECTRONICS_OVERTEMP_FAULT'             = 512,
+  'ELECTRONICS_FAULT'                      = 1024,
   /**
    * The power source supplying the generator failed e.g. mechanical generator stopped, tether is no
    * longer providing power, solar cell is in shade, hydrogen reaction no longer happening.
    */
-  'POWERSOURCE_FAULT'                              = 2048,
-  'COMMUNICATION_WARNING'                          = 4096,
-  'COOLING_WARNING'                                = 8192,
-  'POWER_RAIL_FAULT'                               = 16384,
-  'OVERCURRENT_FAULT'                              = 32768,
+  'POWERSOURCE_FAULT'                      = 2048,
+  'COMMUNICATION_WARNING'                  = 4096,
+  'COOLING_WARNING'                        = 8192,
+  'POWER_RAIL_FAULT'                       = 16384,
+  'OVERCURRENT_FAULT'                      = 32768,
   /**
    * Generator controller detected a high current going into the batteries and shutdown to prevent
    * battery damage.
    */
-  'BATTERY_OVERCHARGE_CURRENT_FAULT'               = 65536,
+  'BATTERY_OVERCHARGE_CURRENT_FAULT'       = 65536,
   /**
    * Generator controller exceeded it's overvoltage threshold and shutdown to prevent it exceeding the
    * voltage rating.
    */
-  'OVERVOLTAGE_FAULT'                              = 131072,
-  'BATTERY_UNDERVOLT_FAULT'                        = 262144,
-  'START_INHIBITED'                                = 524288,
-  'MAINTENANCE_REQUIRED'                           = 1048576,
-  'WARMING_UP'                                     = 2097152,
-  'IDLE'                                           = 4194304,
+  'OVERVOLTAGE_FAULT'                      = 131072,
+  'BATTERY_UNDERVOLT_FAULT'                = 262144,
+  'START_INHIBITED'                        = 524288,
+  'MAINTENANCE_REQUIRED'                   = 1048576,
+  'WARMING_UP'                             = 2097152,
+  'IDLE'                                   = 4194304,
 }
 
 /**
  * Enumeration of VTOL states
  */
 export enum MavVtolState {
-  'UNDEFINED'                                      = 0,
-  'TRANSITION_TO_FW'                               = 1,
-  'TRANSITION_TO_MC'                               = 2,
-  'MC'                                             = 3,
-  'FW'                                             = 4,
+  'UNDEFINED'                              = 0,
+  'TRANSITION_TO_FW'                       = 1,
+  'TRANSITION_TO_MC'                       = 2,
+  'MC'                                     = 3,
+  'FW'                                     = 4,
 }
 
 /**
  * Enumeration of landed detector states
  */
 export enum MavLandedState {
-  'UNDEFINED'                                      = 0,
-  'ON_GROUND'                                      = 1,
-  'IN_AIR'                                         = 2,
-  'TAKEOFF'                                        = 3,
-  'LANDING'                                        = 4,
+  'UNDEFINED'                              = 0,
+  'ON_GROUND'                              = 1,
+  'IN_AIR'                                 = 2,
+  'TAKEOFF'                                = 3,
+  'LANDING'                                = 4,
 }
 
 /**
  * Enumeration of the ADSB altimeter types
  */
 export enum AdsbAltitudeType {
-  'PRESSURE_QNH'                                   = 0,
-  'GEOMETRIC'                                      = 1,
+  'PRESSURE_QNH'                           = 0,
+  'GEOMETRIC'                              = 1,
 }
 
 /**
  * ADSB classification for the type of vehicle emitting the transponder signal
  */
 export enum AdsbEmitterType {
-  'NO_INFO'                                        = 0,
-  'LIGHT'                                          = 1,
-  'SMALL'                                          = 2,
-  'LARGE'                                          = 3,
-  'HIGH_VORTEX_LARGE'                              = 4,
-  'HEAVY'                                          = 5,
-  'HIGHLY_MANUV'                                   = 6,
-  'ROTOCRAFT'                                      = 7,
-  'UNASSIGNED'                                     = 8,
-  'GLIDER'                                         = 9,
-  'LIGHTER_AIR'                                    = 10,
-  'PARACHUTE'                                      = 11,
-  'ULTRA_LIGHT'                                    = 12,
-  'UNASSIGNED2'                                    = 13,
-  'UAV'                                            = 14,
-  'SPACE'                                          = 15,
-  'UNASSGINED3'                                    = 16,
-  'EMERGENCY_SURFACE'                              = 17,
-  'SERVICE_SURFACE'                                = 18,
-  'POINT_OBSTACLE'                                 = 19,
+  'NO_INFO'                                = 0,
+  'LIGHT'                                  = 1,
+  'SMALL'                                  = 2,
+  'LARGE'                                  = 3,
+  'HIGH_VORTEX_LARGE'                      = 4,
+  'HEAVY'                                  = 5,
+  'HIGHLY_MANUV'                           = 6,
+  'ROTOCRAFT'                              = 7,
+  'UNASSIGNED'                             = 8,
+  'GLIDER'                                 = 9,
+  'LIGHTER_AIR'                            = 10,
+  'PARACHUTE'                              = 11,
+  'ULTRA_LIGHT'                            = 12,
+  'UNASSIGNED2'                            = 13,
+  'UAV'                                    = 14,
+  'SPACE'                                  = 15,
+  'UNASSGINED3'                            = 16,
+  'EMERGENCY_SURFACE'                      = 17,
+  'SERVICE_SURFACE'                        = 18,
+  'POINT_OBSTACLE'                         = 19,
 }
 
 /**
  * These flags indicate status such as data validity of each data source. Set = data valid
  */
 export enum AdsbFlags {
-  'VALID_COORDS'                                   = 1,
-  'VALID_ALTITUDE'                                 = 2,
-  'VALID_HEADING'                                  = 4,
-  'VALID_VELOCITY'                                 = 8,
-  'VALID_CALLSIGN'                                 = 16,
-  'VALID_SQUAWK'                                   = 32,
-  'SIMULATED'                                      = 64,
-  'VERTICAL_VELOCITY_VALID'                        = 128,
-  'BARO_VALID'                                     = 256,
-  'SOURCE_UAT'                                     = 32768,
+  'VALID_COORDS'                           = 1,
+  'VALID_ALTITUDE'                         = 2,
+  'VALID_HEADING'                          = 4,
+  'VALID_VELOCITY'                         = 8,
+  'VALID_CALLSIGN'                         = 16,
+  'VALID_SQUAWK'                           = 32,
+  'SIMULATED'                              = 64,
+  'VERTICAL_VELOCITY_VALID'                = 128,
+  'BARO_VALID'                             = 256,
+  'SOURCE_UAT'                             = 32768,
 }
 
 /**
@@ -1731,298 +1249,217 @@ export enum MavDoRepositionFlags {
    * The aircraft should immediately transition into guided. This should not be set for follow me
    * applications
    */
-  'CHANGE_MODE'                                    = 1,
+  'CHANGE_MODE'                            = 1,
 }
 
 /**
  * Flags in ESTIMATOR_STATUS message
  */
 export enum EstimatorStatusFlags {
-  'ATTITUDE'                                       = 1,
-  'VELOCITY_HORIZ'                                 = 2,
-  'VELOCITY_VERT'                                  = 4,
-  'POS_HORIZ_REL'                                  = 8,
-  'POS_HORIZ_ABS'                                  = 16,
-  'POS_VERT_ABS'                                   = 32,
-  'POS_VERT_AGL'                                   = 64,
+  'ATTITUDE'                               = 1,
+  'VELOCITY_HORIZ'                         = 2,
+  'VELOCITY_VERT'                          = 4,
+  'POS_HORIZ_REL'                          = 8,
+  'POS_HORIZ_ABS'                          = 16,
+  'POS_VERT_ABS'                           = 32,
+  'POS_VERT_AGL'                           = 64,
   /**
    * True if the EKF is in a constant position mode and is not using external measurements (eg GPS or
    * optical flow)
    */
-  'CONST_POS_MODE'                                 = 128,
-  'PRED_POS_HORIZ_REL'                             = 256,
-  'PRED_POS_HORIZ_ABS'                             = 512,
-  'GPS_GLITCH'                                     = 1024,
-  'ACCEL_ERROR'                                    = 2048,
+  'CONST_POS_MODE'                         = 128,
+  'PRED_POS_HORIZ_REL'                     = 256,
+  'PRED_POS_HORIZ_ABS'                     = 512,
+  'GPS_GLITCH'                             = 1024,
+  'ACCEL_ERROR'                            = 2048,
 }
 
 /**
- * Sequence that motors are tested when using MAV_CMD_DO_MOTOR_TEST.
+ * MOTOR_TEST_ORDER
  */
 export enum MotorTestOrder {
-  'DEFAULT'                                        = 0,
-  'SEQUENCE'                                       = 1,
-  'BOARD'                                          = 2,
+  'DEFAULT'                                = 0,
+  'SEQUENCE'                               = 1,
+  'BOARD'                                  = 2,
 }
 
 /**
- * Defines how throttle value is represented in MAV_CMD_DO_MOTOR_TEST.
+ * MOTOR_TEST_THROTTLE_TYPE
  */
 export enum MotorTestThrottleType {
-  'THROTTLE_PERCENT'                               = 0,
-  'THROTTLE_PWM'                                   = 1,
-  'THROTTLE_PILOT'                                 = 2,
-  'COMPASS_CAL'                                    = 3,
+  'THROTTLE_PERCENT'                       = 0,
+  'THROTTLE_PWM'                           = 1,
+  'THROTTLE_PILOT'                         = 2,
+  'COMPASS_CAL'                            = 3,
 }
 
 /**
  * GPS_INPUT_IGNORE_FLAGS
  */
 export enum GpsInputIgnoreFlags {
-  'ALT'                                            = 1,
-  'HDOP'                                           = 2,
-  'VDOP'                                           = 4,
-  'VEL_HORIZ'                                      = 8,
-  'VEL_VERT'                                       = 16,
-  'SPEED_ACCURACY'                                 = 32,
-  'HORIZONTAL_ACCURACY'                            = 64,
-  'VERTICAL_ACCURACY'                              = 128,
+  'ALT'                                    = 1,
+  'HDOP'                                   = 2,
+  'VDOP'                                   = 4,
+  'VEL_HORIZ'                              = 8,
+  'VEL_VERT'                               = 16,
+  'SPEED_ACCURACY'                         = 32,
+  'HORIZONTAL_ACCURACY'                    = 64,
+  'VERTICAL_ACCURACY'                      = 128,
 }
 
 /**
  * Possible actions an aircraft can take to avoid a collision.
  */
 export enum MavCollisionAction {
-  'NONE'                                           = 0,
-  'REPORT'                                         = 1,
-  'ASCEND_OR_DESCEND'                              = 2,
-  'MOVE_HORIZONTALLY'                              = 3,
-  'MOVE_PERPENDICULAR'                             = 4,
-  'RTL'                                            = 5,
-  'HOVER'                                          = 6,
+  'NONE'                                   = 0,
+  'REPORT'                                 = 1,
+  'ASCEND_OR_DESCEND'                      = 2,
+  'MOVE_HORIZONTALLY'                      = 3,
+  'MOVE_PERPENDICULAR'                     = 4,
+  'RTL'                                    = 5,
+  'HOVER'                                  = 6,
 }
 
 /**
  * Aircraft-rated danger from this threat.
  */
 export enum MavCollisionThreatLevel {
-  'NONE'                                           = 0,
-  'LOW'                                            = 1,
-  'HIGH'                                           = 2,
+  'NONE'                                   = 0,
+  'LOW'                                    = 1,
+  'HIGH'                                   = 2,
 }
 
 /**
  * Source of information about this collision.
  */
 export enum MavCollisionSrc {
-  'ADSB'                                           = 0,
-  'MAVLINK_GPS_GLOBAL_INT'                         = 1,
+  'ADSB'                                   = 0,
+  'MAVLINK_GPS_GLOBAL_INT'                 = 1,
 }
 
 /**
  * Type of GPS fix
  */
 export enum GpsFixType {
-  'NO_GPS'                                         = 0,
-  'NO_FIX'                                         = 1,
-  'GPS_FIX_TYPE_2D_FIX'                            = 2,
-  'GPS_FIX_TYPE_3D_FIX'                            = 3,
-  'DGPS'                                           = 4,
-  'RTK_FLOAT'                                      = 5,
-  'RTK_FIXED'                                      = 6,
-  'STATIC'                                         = 7,
-  'PPP'                                            = 8,
+  'NO_GPS'                                 = 0,
+  'NO_FIX'                                 = 1,
+  'GPS_FIX_TYPE_2D_FIX'                    = 2,
+  'GPS_FIX_TYPE_3D_FIX'                    = 3,
+  'DGPS'                                   = 4,
+  'RTK_FLOAT'                              = 5,
+  'RTK_FIXED'                              = 6,
+  'STATIC'                                 = 7,
+  'PPP'                                    = 8,
 }
 
 /**
  * RTK GPS baseline coordinate system, used for RTK corrections
  */
 export enum RtkBaselineCoordinateSystem {
-  'ECEF'                                           = 0,
-  'NED'                                            = 1,
+  'ECEF'                                   = 0,
+  'NED'                                    = 1,
 }
 
 /**
  * Type of landing target
  */
 export enum LandingTargetType {
-  'LIGHT_BEACON'                                   = 0,
-  'RADIO_BEACON'                                   = 1,
-  'VISION_FIDUCIAL'                                = 2,
-  'VISION_OTHER'                                   = 3,
+  'LIGHT_BEACON'                           = 0,
+  'RADIO_BEACON'                           = 1,
+  'VISION_FIDUCIAL'                        = 2,
+  'VISION_OTHER'                           = 3,
 }
 
 /**
  * Direction of VTOL transition
  */
 export enum VtolTransitionHeading {
-  'VEHICLE_DEFAULT'                                = 0,
-  'NEXT_WAYPOINT'                                  = 1,
-  'TAKEOFF'                                        = 2,
-  'SPECIFIED'                                      = 3,
+  'VEHICLE_DEFAULT'                        = 0,
+  'NEXT_WAYPOINT'                          = 1,
+  'TAKEOFF'                                = 2,
+  'SPECIFIED'                              = 3,
   /**
    * Use the current heading when reaching takeoff altitude (potentially facing the wind when
    * weather-vaning is active).
    */
-  'ANY'                                            = 4,
+  'ANY'                                    = 4,
 }
 
 /**
  * Camera capability flags (Bitmap)
  */
 export enum CameraCapFlags {
-  'CAPTURE_VIDEO'                                  = 1,
-  'CAPTURE_IMAGE'                                  = 2,
-  'HAS_MODES'                                      = 4,
-  'CAN_CAPTURE_IMAGE_IN_VIDEO_MODE'                = 8,
-  'CAN_CAPTURE_VIDEO_IN_IMAGE_MODE'                = 16,
-  'HAS_IMAGE_SURVEY_MODE'                          = 32,
-  'HAS_BASIC_ZOOM'                                 = 64,
-  'HAS_BASIC_FOCUS'                                = 128,
+  'CAPTURE_VIDEO'                          = 1,
+  'CAPTURE_IMAGE'                          = 2,
+  'HAS_MODES'                              = 4,
+  'CAN_CAPTURE_IMAGE_IN_VIDEO_MODE'        = 8,
+  'CAN_CAPTURE_VIDEO_IN_IMAGE_MODE'        = 16,
+  'HAS_IMAGE_SURVEY_MODE'                  = 32,
+  'HAS_BASIC_ZOOM'                         = 64,
+  'HAS_BASIC_FOCUS'                        = 128,
   /**
    * Camera has video streaming capabilities (request VIDEO_STREAM_INFORMATION with
    * MAV_CMD_REQUEST_MESSAGE for video streaming info)
    */
-  'HAS_VIDEO_STREAM'                               = 256,
-  'HAS_TRACKING_POINT'                             = 512,
-  'HAS_TRACKING_RECTANGLE'                         = 1024,
-  'HAS_TRACKING_GEO_STATUS'                        = 2048,
+  'HAS_VIDEO_STREAM'                       = 256,
+  'HAS_TRACKING_POINT'                     = 512,
+  'HAS_TRACKING_RECTANGLE'                 = 1024,
+  'HAS_TRACKING_GEO_STATUS'                = 2048,
 }
 
 /**
  * Stream status flags (Bitmap)
  */
 export enum VideoStreamStatusFlags {
-  'RUNNING'                                        = 1,
-  'THERMAL'                                        = 2,
+  'RUNNING'                                = 1,
+  'THERMAL'                                = 2,
 }
 
 /**
  * Video stream types
  */
 export enum VideoStreamType {
-  'RTSP'                                           = 0,
-  'RTPUDP'                                         = 1,
-  'TCP_MPEG'                                       = 2,
-  'MPEG_TS_H264'                                   = 3,
-}
-
-/**
- * Camera tracking status flags
- */
-export enum CameraTrackingStatusFlags {
-  'IDLE'                                           = 0,
-  'ACTIVE'                                         = 1,
-  'ERROR'                                          = 2,
-}
-
-/**
- * Camera tracking modes
- */
-export enum CameraTrackingMode {
-  'NONE'                                           = 0,
-  'POINT'                                          = 1,
-  'RECTANGLE'                                      = 2,
-}
-
-/**
- * Camera tracking target data (shows where tracked target is within image)
- */
-export enum CameraTrackingTargetData {
-  'NONE'                                           = 0,
-  'EMBEDDED'                                       = 1,
-  'RENDERED'                                       = 2,
-  'IN_STATUS'                                      = 4,
-}
-
-/**
- * Zoom types for MAV_CMD_SET_CAMERA_ZOOM
- */
-export enum CameraZoomType {
-  'STEP'                                           = 0,
-  'CONTINUOUS'                                     = 1,
-  'RANGE'                                          = 2,
-  /**
-   * Zoom value/variable focal length in milimetres. Note that there is no message to get the valid zoom
-   * range of the camera, so this can type can only be used for cameras where the zoom range is known
-   * (implying that this cannot reliably be used in a GCS for an arbitrary camera)
-   */
-  'FOCAL_LENGTH'                                   = 3,
-}
-
-/**
- * Focus types for MAV_CMD_SET_CAMERA_FOCUS
- */
-export enum SetFocusType {
-  'STEP'                                           = 0,
-  /**
-   * Continuous focus up/down until stopped (-1 for focusing in, 1 for focusing out towards infinity, 0
-   * to stop focusing)
-   */
-  'CONTINUOUS'                                     = 1,
-  'RANGE'                                          = 2,
-  /**
-   * Focus value in metres. Note that there is no message to get the valid focus range of the camera, so
-   * this can type can only be used for cameras where the range is known (implying that this cannot
-   * reliably be used in a GCS for an arbitrary camera).
-   */
-  'METERS'                                         = 3,
-  'AUTO'                                           = 4,
-  'AUTO_SINGLE'                                    = 5,
-  'AUTO_CONTINUOUS'                                = 6,
-}
-
-/**
- * Result from PARAM_EXT_SET message (or a PARAM_SET within a transaction).
- */
-export enum ParamAck {
-  'ACCEPTED'                                       = 0,
-  'VALUE_UNSUPPORTED'                              = 1,
-  'FAILED'                                         = 2,
-  /**
-   * Parameter value received but not yet set/accepted. A subsequent PARAM_ACK_TRANSACTION or
-   * PARAM_EXT_ACK with the final result will follow once operation is completed. This is returned
-   * immediately for parameters that take longer to set, indicating taht the the parameter was recieved
-   * and does not need to be resent.
-   */
-  'IN_PROGRESS'                                    = 3,
+  'RTSP'                                   = 0,
+  'RTPUDP'                                 = 1,
+  'TCP_MPEG'                               = 2,
+  'MPEG_TS_H264'                           = 3,
 }
 
 /**
  * Camera Modes.
  */
 export enum CameraMode {
-  'IMAGE'                                          = 0,
-  'VIDEO'                                          = 1,
+  'IMAGE'                                  = 0,
+  'VIDEO'                                  = 1,
   /**
    * Camera is in image survey capture mode. It allows for camera controller to do specific settings for
    * surveys.
    */
-  'IMAGE_SURVEY'                                   = 2,
+  'IMAGE_SURVEY'                           = 2,
 }
 
 /**
  * MAV_ARM_AUTH_DENIED_REASON
  */
 export enum MavArmAuthDeniedReason {
-  'GENERIC'                                        = 0,
-  'NONE'                                           = 1,
-  'INVALID_WAYPOINT'                               = 2,
-  'TIMEOUT'                                        = 3,
+  'GENERIC'                                = 0,
+  'NONE'                                   = 1,
+  'INVALID_WAYPOINT'                       = 2,
+  'TIMEOUT'                                = 3,
   /**
    * Airspace of the mission in use by another vehicle, second result parameter can have the waypoint id
    * that caused it to be denied.
    */
-  'AIRSPACE_IN_USE'                                = 4,
-  'BAD_WEATHER'                                    = 5,
+  'AIRSPACE_IN_USE'                        = 4,
+  'BAD_WEATHER'                            = 5,
 }
 
 /**
  * RC type
  */
 export enum RcType {
-  'SPEKTRUM_DSM2'                                  = 0,
-  'SPEKTRUM_DSMX'                                  = 1,
+  'SPEKTRUM_DSM2'                          = 0,
+  'SPEKTRUM_DSMX'                          = 1,
 }
 
 /**
@@ -2031,18 +1468,18 @@ export enum RcType {
  * set the floats afx afy afz should be interpreted as force instead of acceleration.
  */
 export enum PositionTargetTypemask {
-  'X_IGNORE'                                       = 1,
-  'Y_IGNORE'                                       = 2,
-  'Z_IGNORE'                                       = 4,
-  'VX_IGNORE'                                      = 8,
-  'VY_IGNORE'                                      = 16,
-  'VZ_IGNORE'                                      = 32,
-  'AX_IGNORE'                                      = 64,
-  'AY_IGNORE'                                      = 128,
-  'AZ_IGNORE'                                      = 256,
-  'FORCE_SET'                                      = 512,
-  'YAW_IGNORE'                                     = 1024,
-  'YAW_RATE_IGNORE'                                = 2048,
+  'X_IGNORE'                               = 1,
+  'Y_IGNORE'                               = 2,
+  'Z_IGNORE'                               = 4,
+  'VX_IGNORE'                              = 8,
+  'VY_IGNORE'                              = 16,
+  'VZ_IGNORE'                              = 32,
+  'AX_IGNORE'                              = 64,
+  'AY_IGNORE'                              = 128,
+  'AZ_IGNORE'                              = 256,
+  'FORCE_SET'                              = 512,
+  'YAW_IGNORE'                             = 1024,
+  'YAW_RATE_IGNORE'                        = 2048,
 }
 
 /**
@@ -2050,441 +1487,164 @@ export enum PositionTargetTypemask {
  * indicates that none of the setpoint dimensions should be ignored.
  */
 export enum AttitudeTargetTypemask {
-  'BODY_ROLL_RATE_IGNORE'                          = 1,
-  'BODY_PITCH_RATE_IGNORE'                         = 2,
-  'BODY_YAW_RATE_IGNORE'                           = 4,
-  'THRUST_BODY_SET'                                = 32,
-  'THROTTLE_IGNORE'                                = 64,
-  'ATTITUDE_IGNORE'                                = 128,
+  'BODY_ROLL_RATE_IGNORE'                  = 1,
+  'BODY_PITCH_RATE_IGNORE'                 = 2,
+  'BODY_YAW_RATE_IGNORE'                   = 4,
+  'THROTTLE_IGNORE'                        = 64,
+  'ATTITUDE_IGNORE'                        = 128,
 }
 
 /**
  * Airborne status of UAS.
  */
 export enum UtmFlightState {
-  'UNKNOWN'                                        = 1,
-  'GROUND'                                         = 2,
-  'AIRBORNE'                                       = 3,
-  'EMERGENCY'                                      = 16,
-  'NOCTRL'                                         = 32,
+  'UNKNOWN'                                = 1,
+  'GROUND'                                 = 2,
+  'AIRBORNE'                               = 3,
+  'EMERGENCY'                              = 16,
+  'NOCTRL'                                 = 32,
 }
 
 /**
  * Flags for the global position report.
  */
 export enum UtmDataAvailFlags {
-  'TIME_VALID'                                     = 1,
-  'UAS_ID_AVAILABLE'                               = 2,
-  'POSITION_AVAILABLE'                             = 4,
-  'ALTITUDE_AVAILABLE'                             = 8,
-  'RELATIVE_ALTITUDE_AVAILABLE'                    = 16,
-  'HORIZONTAL_VELO_AVAILABLE'                      = 32,
-  'VERTICAL_VELO_AVAILABLE'                        = 64,
-  'NEXT_WAYPOINT_AVAILABLE'                        = 128,
-}
-
-/**
- * These flags encode the cellular network status
- */
-export enum CellularStatusFlag {
-  'UNKNOWN'                                        = 0,
-  'FAILED'                                         = 1,
-  'INITIALIZING'                                   = 2,
-  'LOCKED'                                         = 3,
-  'DISABLED'                                       = 4,
-  'DISABLING'                                      = 5,
-  'ENABLING'                                       = 6,
-  /**
-   * Modem is enabled and powered on but not registered with a network provider and not available for
-   * data connections
-   */
-  'ENABLED'                                        = 7,
-  'SEARCHING'                                      = 8,
-  /**
-   * Modem is registered with a network provider, and data connections and messaging may be available for
-   * use
-   */
-  'REGISTERED'                                     = 9,
-  /**
-   * Modem is disconnecting and deactivating the last active packet data bearer. This state will not be
-   * entered if more than one packet data bearer is active and one of the active bearers is deactivated
-   */
-  'DISCONNECTING'                                  = 10,
-  /**
-   * Modem is activating and connecting the first packet data bearer. Subsequent bearer activations when
-   * another bearer is already active do not cause this state to be entered
-   */
-  'CONNECTING'                                     = 11,
-  'CONNECTED'                                      = 12,
-}
-
-/**
- * These flags are used to diagnose the failure state of CELLULAR_STATUS
- */
-export enum CellularNetworkFailedReason {
-  'NONE'                                           = 0,
-  'UNKNOWN'                                        = 1,
-  'SIM_MISSING'                                    = 2,
-  'SIM_ERROR'                                      = 3,
-}
-
-/**
- * Cellular network radio type
- */
-export enum CellularNetworkRadioType {
-  'NONE'                                           = 0,
-  'GSM'                                            = 1,
-  'CDMA'                                           = 2,
-  'WCDMA'                                          = 3,
-  'LTE'                                            = 4,
+  'TIME_VALID'                             = 1,
+  'UAS_ID_AVAILABLE'                       = 2,
+  'POSITION_AVAILABLE'                     = 4,
+  'ALTITUDE_AVAILABLE'                     = 8,
+  'RELATIVE_ALTITUDE_AVAILABLE'            = 16,
+  'HORIZONTAL_VELO_AVAILABLE'              = 32,
+  'VERTICAL_VELO_AVAILABLE'                = 64,
+  'NEXT_WAYPOINT_AVAILABLE'                = 128,
 }
 
 /**
  * Precision land modes (used in MAV_CMD_NAV_LAND).
  */
 export enum PrecisionLandMode {
-  'DISABLED'                                       = 0,
-  'OPPORTUNISTIC'                                  = 1,
+  'DISABLED'                               = 0,
+  'OPPORTUNISTIC'                          = 1,
   /**
    * Use precision landing, searching for beacon if not found when land command accepted (land normally
    * if beacon cannot be found).
    */
-  'REQUIRED'                                       = 2,
+  'REQUIRED'                               = 2,
 }
 
 /**
  * Parachute actions. Trigger release and enable/disable auto-release.
  */
 export enum ParachuteAction {
-  'DISABLE'                                        = 0,
-  'ENABLE'                                         = 1,
-  'RELEASE'                                        = 2,
-}
-
-/**
- * MAV_TUNNEL_PAYLOAD_TYPE
- */
-export enum MavTunnelPayloadType {
-  'UNKNOWN'                                        = 0,
-  'STORM32_RESERVED0'                              = 200,
-  'STORM32_RESERVED1'                              = 201,
-  'STORM32_RESERVED2'                              = 202,
-  'STORM32_RESERVED3'                              = 203,
-  'STORM32_RESERVED4'                              = 204,
-  'STORM32_RESERVED5'                              = 205,
-  'STORM32_RESERVED6'                              = 206,
-  'STORM32_RESERVED7'                              = 207,
-  'STORM32_RESERVED8'                              = 208,
-  'STORM32_RESERVED9'                              = 209,
-}
-
-/**
- * MAV_ODID_ID_TYPE
- */
-export enum MavOdidIdType {
-  'NONE'                                           = 0,
-  'SERIAL_NUMBER'                                  = 1,
-  'CAA_REGISTRATION_ID'                            = 2,
-  'UTM_ASSIGNED_UUID'                              = 3,
-  /**
-   * A 20 byte ID for a specific flight/session. The exact ID type is indicated by the first byte of
-   * uas_id and these type values are managed by ICAO.
-   */
-  'SPECIFIC_SESSION_ID'                            = 4,
-}
-
-/**
- * MAV_ODID_UA_TYPE
- */
-export enum MavOdidUaType {
-  'NONE'                                           = 0,
-  'AEROPLANE'                                      = 1,
-  'HELICOPTER_OR_MULTIROTOR'                       = 2,
-  'GYROPLANE'                                      = 3,
-  'HYBRID_LIFT'                                    = 4,
-  'ORNITHOPTER'                                    = 5,
-  'GLIDER'                                         = 6,
-  'KITE'                                           = 7,
-  'FREE_BALLOON'                                   = 8,
-  'CAPTIVE_BALLOON'                                = 9,
-  'AIRSHIP'                                        = 10,
-  'FREE_FALL_PARACHUTE'                            = 11,
-  'ROCKET'                                         = 12,
-  'TETHERED_POWERED_AIRCRAFT'                      = 13,
-  'GROUND_OBSTACLE'                                = 14,
-  'OTHER'                                          = 15,
-}
-
-/**
- * MAV_ODID_STATUS
- */
-export enum MavOdidStatus {
-  'UNDECLARED'                                     = 0,
-  'GROUND'                                         = 1,
-  'AIRBORNE'                                       = 2,
-  'EMERGENCY'                                      = 3,
-}
-
-/**
- * MAV_ODID_HEIGHT_REF
- */
-export enum MavOdidHeightRef {
-  'OVER_TAKEOFF'                                   = 0,
-  'OVER_GROUND'                                    = 1,
-}
-
-/**
- * MAV_ODID_HOR_ACC
- */
-export enum MavOdidHorAcc {
-  'UNKNOWN'                                        = 0,
-  'MAV_ODID_HOR_ACC_10NM'                          = 1,
-  'MAV_ODID_HOR_ACC_4NM'                           = 2,
-  'MAV_ODID_HOR_ACC_2NM'                           = 3,
-  'MAV_ODID_HOR_ACC_1NM'                           = 4,
-  'MAV_ODID_HOR_ACC_0_5NM'                         = 5,
-  'MAV_ODID_HOR_ACC_0_3NM'                         = 6,
-  'MAV_ODID_HOR_ACC_0_1NM'                         = 7,
-  'MAV_ODID_HOR_ACC_0_05NM'                        = 8,
-  'MAV_ODID_HOR_ACC_30_METER'                      = 9,
-  'MAV_ODID_HOR_ACC_10_METER'                      = 10,
-  'MAV_ODID_HOR_ACC_3_METER'                       = 11,
-  'MAV_ODID_HOR_ACC_1_METER'                       = 12,
-}
-
-/**
- * MAV_ODID_VER_ACC
- */
-export enum MavOdidVerAcc {
-  'UNKNOWN'                                        = 0,
-  'MAV_ODID_VER_ACC_150_METER'                     = 1,
-  'MAV_ODID_VER_ACC_45_METER'                      = 2,
-  'MAV_ODID_VER_ACC_25_METER'                      = 3,
-  'MAV_ODID_VER_ACC_10_METER'                      = 4,
-  'MAV_ODID_VER_ACC_3_METER'                       = 5,
-  'MAV_ODID_VER_ACC_1_METER'                       = 6,
-}
-
-/**
- * MAV_ODID_SPEED_ACC
- */
-export enum MavOdidSpeedAcc {
-  'UNKNOWN'                                        = 0,
-  'MAV_ODID_SPEED_ACC_10_METERS_PER_SECOND'        = 1,
-  'MAV_ODID_SPEED_ACC_3_METERS_PER_SECOND'         = 2,
-  'MAV_ODID_SPEED_ACC_1_METERS_PER_SECOND'         = 3,
-  'MAV_ODID_SPEED_ACC_0_3_METERS_PER_SECOND'       = 4,
-}
-
-/**
- * MAV_ODID_TIME_ACC
- */
-export enum MavOdidTimeAcc {
-  'UNKNOWN'                                        = 0,
-  'MAV_ODID_TIME_ACC_0_1_SECOND'                   = 1,
-  'MAV_ODID_TIME_ACC_0_2_SECOND'                   = 2,
-  'MAV_ODID_TIME_ACC_0_3_SECOND'                   = 3,
-  'MAV_ODID_TIME_ACC_0_4_SECOND'                   = 4,
-  'MAV_ODID_TIME_ACC_0_5_SECOND'                   = 5,
-  'MAV_ODID_TIME_ACC_0_6_SECOND'                   = 6,
-  'MAV_ODID_TIME_ACC_0_7_SECOND'                   = 7,
-  'MAV_ODID_TIME_ACC_0_8_SECOND'                   = 8,
-  'MAV_ODID_TIME_ACC_0_9_SECOND'                   = 9,
-  'MAV_ODID_TIME_ACC_1_0_SECOND'                   = 10,
-  'MAV_ODID_TIME_ACC_1_1_SECOND'                   = 11,
-  'MAV_ODID_TIME_ACC_1_2_SECOND'                   = 12,
-  'MAV_ODID_TIME_ACC_1_3_SECOND'                   = 13,
-  'MAV_ODID_TIME_ACC_1_4_SECOND'                   = 14,
-  'MAV_ODID_TIME_ACC_1_5_SECOND'                   = 15,
-}
-
-/**
- * MAV_ODID_AUTH_TYPE
- */
-export enum MavOdidAuthType {
-  'NONE'                                           = 0,
-  'UAS_ID_SIGNATURE'                               = 1,
-  'OPERATOR_ID_SIGNATURE'                          = 2,
-  'MESSAGE_SET_SIGNATURE'                          = 3,
-  'NETWORK_REMOTE_ID'                              = 4,
-  /**
-   * The exact authentication type is indicated by the first byte of authentication_data and these type
-   * values are managed by ICAO.
-   */
-  'SPECIFIC_AUTHENTICATION'                        = 5,
-}
-
-/**
- * MAV_ODID_DESC_TYPE
- */
-export enum MavOdidDescType {
-  'TEXT'                                           = 0,
-}
-
-/**
- * MAV_ODID_OPERATOR_LOCATION_TYPE
- */
-export enum MavOdidOperatorLocationType {
-  'TAKEOFF'                                        = 0,
-  'LIVE_GNSS'                                      = 1,
-  'FIXED'                                          = 2,
-}
-
-/**
- * MAV_ODID_CLASSIFICATION_TYPE
- */
-export enum MavOdidClassificationType {
-  'UNDECLARED'                                     = 0,
-  'EU'                                             = 1,
-}
-
-/**
- * MAV_ODID_CATEGORY_EU
- */
-export enum MavOdidCategoryEu {
-  'UNDECLARED'                                     = 0,
-  'OPEN'                                           = 1,
-  'SPECIFIC'                                       = 2,
-  'CERTIFIED'                                      = 3,
-}
-
-/**
- * MAV_ODID_CLASS_EU
- */
-export enum MavOdidClassEu {
-  'UNDECLARED'                                     = 0,
-  'CLASS_0'                                        = 1,
-  'CLASS_1'                                        = 2,
-  'CLASS_2'                                        = 3,
-  'CLASS_3'                                        = 4,
-  'CLASS_4'                                        = 5,
-  'CLASS_5'                                        = 6,
-  'CLASS_6'                                        = 7,
-}
-
-/**
- * MAV_ODID_OPERATOR_ID_TYPE
- */
-export enum MavOdidOperatorIdType {
-  'CAA'                                            = 0,
-}
-
-/**
- * Tune formats (used for vehicle buzzer/tone generation).
- */
-export enum TuneFormat {
-  'QBASIC1_1'                                      = 1,
-  /**
-   * Format is Modern Music Markup Language (MML):
-   * https://en.wikipedia.org/wiki/Music_Macro_Language#Modern_MML.
-   */
-  'MML_MODERN'                                     = 2,
+  'DISABLE'                                = 0,
+  'ENABLE'                                 = 1,
+  'RELEASE'                                = 2,
 }
 
 /**
  * Type of AIS vessel, enum duplicated from AIS standard, https://gpsd.gitlab.io/gpsd/AIVDM.html
  */
 export enum AisType {
-  'UNKNOWN'                                        = 0,
-  'RESERVED_1'                                     = 1,
-  'RESERVED_2'                                     = 2,
-  'RESERVED_3'                                     = 3,
-  'RESERVED_4'                                     = 4,
-  'RESERVED_5'                                     = 5,
-  'RESERVED_6'                                     = 6,
-  'RESERVED_7'                                     = 7,
-  'RESERVED_8'                                     = 8,
-  'RESERVED_9'                                     = 9,
-  'RESERVED_10'                                    = 10,
-  'RESERVED_11'                                    = 11,
-  'RESERVED_12'                                    = 12,
-  'RESERVED_13'                                    = 13,
-  'RESERVED_14'                                    = 14,
-  'RESERVED_15'                                    = 15,
-  'RESERVED_16'                                    = 16,
-  'RESERVED_17'                                    = 17,
-  'RESERVED_18'                                    = 18,
-  'RESERVED_19'                                    = 19,
-  'WIG'                                            = 20,
-  'WIG_HAZARDOUS_A'                                = 21,
-  'WIG_HAZARDOUS_B'                                = 22,
-  'WIG_HAZARDOUS_C'                                = 23,
-  'WIG_HAZARDOUS_D'                                = 24,
-  'WIG_RESERVED_1'                                 = 25,
-  'WIG_RESERVED_2'                                 = 26,
-  'WIG_RESERVED_3'                                 = 27,
-  'WIG_RESERVED_4'                                 = 28,
-  'WIG_RESERVED_5'                                 = 29,
-  'FISHING'                                        = 30,
-  'TOWING'                                         = 31,
-  'TOWING_LARGE'                                   = 32,
-  'DREDGING'                                       = 33,
-  'DIVING'                                         = 34,
-  'MILITARY'                                       = 35,
-  'SAILING'                                        = 36,
-  'PLEASURE'                                       = 37,
-  'RESERVED_20'                                    = 38,
-  'RESERVED_21'                                    = 39,
-  'HSC'                                            = 40,
-  'HSC_HAZARDOUS_A'                                = 41,
-  'HSC_HAZARDOUS_B'                                = 42,
-  'HSC_HAZARDOUS_C'                                = 43,
-  'HSC_HAZARDOUS_D'                                = 44,
-  'HSC_RESERVED_1'                                 = 45,
-  'HSC_RESERVED_2'                                 = 46,
-  'HSC_RESERVED_3'                                 = 47,
-  'HSC_RESERVED_4'                                 = 48,
-  'HSC_UNKNOWN'                                    = 49,
-  'PILOT'                                          = 50,
-  'SAR'                                            = 51,
-  'TUG'                                            = 52,
-  'PORT_TENDER'                                    = 53,
-  'ANTI_POLLUTION'                                 = 54,
-  'LAW_ENFORCEMENT'                                = 55,
-  'SPARE_LOCAL_1'                                  = 56,
-  'SPARE_LOCAL_2'                                  = 57,
-  'MEDICAL_TRANSPORT'                              = 58,
-  'NONECOMBATANT'                                  = 59,
-  'PASSENGER'                                      = 60,
-  'PASSENGER_HAZARDOUS_A'                          = 61,
-  'PASSENGER_HAZARDOUS_B'                          = 62,
-  'PASSENGER_HAZARDOUS_C'                          = 63,
-  'PASSENGER_HAZARDOUS_D'                          = 64,
-  'PASSENGER_RESERVED_1'                           = 65,
-  'PASSENGER_RESERVED_2'                           = 66,
-  'PASSENGER_RESERVED_3'                           = 67,
-  'PASSENGER_RESERVED_4'                           = 68,
-  'PASSENGER_UNKNOWN'                              = 69,
-  'CARGO'                                          = 70,
-  'CARGO_HAZARDOUS_A'                              = 71,
-  'CARGO_HAZARDOUS_B'                              = 72,
-  'CARGO_HAZARDOUS_C'                              = 73,
-  'CARGO_HAZARDOUS_D'                              = 74,
-  'CARGO_RESERVED_1'                               = 75,
-  'CARGO_RESERVED_2'                               = 76,
-  'CARGO_RESERVED_3'                               = 77,
-  'CARGO_RESERVED_4'                               = 78,
-  'CARGO_UNKNOWN'                                  = 79,
-  'TANKER'                                         = 80,
-  'TANKER_HAZARDOUS_A'                             = 81,
-  'TANKER_HAZARDOUS_B'                             = 82,
-  'TANKER_HAZARDOUS_C'                             = 83,
-  'TANKER_HAZARDOUS_D'                             = 84,
-  'TANKER_RESERVED_1'                              = 85,
-  'TANKER_RESERVED_2'                              = 86,
-  'TANKER_RESERVED_3'                              = 87,
-  'TANKER_RESERVED_4'                              = 88,
-  'TANKER_UNKNOWN'                                 = 89,
-  'OTHER'                                          = 90,
-  'OTHER_HAZARDOUS_A'                              = 91,
-  'OTHER_HAZARDOUS_B'                              = 92,
-  'OTHER_HAZARDOUS_C'                              = 93,
-  'OTHER_HAZARDOUS_D'                              = 94,
-  'OTHER_RESERVED_1'                               = 95,
-  'OTHER_RESERVED_2'                               = 96,
-  'OTHER_RESERVED_3'                               = 97,
-  'OTHER_RESERVED_4'                               = 98,
-  'OTHER_UNKNOWN'                                  = 99,
+  'UNKNOWN'                                = 0,
+  'RESERVED_1'                             = 1,
+  'RESERVED_2'                             = 2,
+  'RESERVED_3'                             = 3,
+  'RESERVED_4'                             = 4,
+  'RESERVED_5'                             = 5,
+  'RESERVED_6'                             = 6,
+  'RESERVED_7'                             = 7,
+  'RESERVED_8'                             = 8,
+  'RESERVED_9'                             = 9,
+  'RESERVED_10'                            = 10,
+  'RESERVED_11'                            = 11,
+  'RESERVED_12'                            = 12,
+  'RESERVED_13'                            = 13,
+  'RESERVED_14'                            = 14,
+  'RESERVED_15'                            = 15,
+  'RESERVED_16'                            = 16,
+  'RESERVED_17'                            = 17,
+  'RESERVED_18'                            = 18,
+  'RESERVED_19'                            = 19,
+  'WIG'                                    = 20,
+  'WIG_HAZARDOUS_A'                        = 21,
+  'WIG_HAZARDOUS_B'                        = 22,
+  'WIG_HAZARDOUS_C'                        = 23,
+  'WIG_HAZARDOUS_D'                        = 24,
+  'WIG_RESERVED_1'                         = 25,
+  'WIG_RESERVED_2'                         = 26,
+  'WIG_RESERVED_3'                         = 27,
+  'WIG_RESERVED_4'                         = 28,
+  'WIG_RESERVED_5'                         = 29,
+  'FISHING'                                = 30,
+  'TOWING'                                 = 31,
+  'TOWING_LARGE'                           = 32,
+  'DREDGING'                               = 33,
+  'DIVING'                                 = 34,
+  'MILITARY'                               = 35,
+  'SAILING'                                = 36,
+  'PLEASURE'                               = 37,
+  'RESERVED_20'                            = 38,
+  'RESERVED_21'                            = 39,
+  'HSC'                                    = 40,
+  'HSC_HAZARDOUS_A'                        = 41,
+  'HSC_HAZARDOUS_B'                        = 42,
+  'HSC_HAZARDOUS_C'                        = 43,
+  'HSC_HAZARDOUS_D'                        = 44,
+  'HSC_RESERVED_1'                         = 45,
+  'HSC_RESERVED_2'                         = 46,
+  'HSC_RESERVED_3'                         = 47,
+  'HSC_RESERVED_4'                         = 48,
+  'HSC_UNKNOWN'                            = 49,
+  'PILOT'                                  = 50,
+  'SAR'                                    = 51,
+  'TUG'                                    = 52,
+  'PORT_TENDER'                            = 53,
+  'ANTI_POLLUTION'                         = 54,
+  'LAW_ENFORCEMENT'                        = 55,
+  'SPARE_LOCAL_1'                          = 56,
+  'SPARE_LOCAL_2'                          = 57,
+  'MEDICAL_TRANSPORT'                      = 58,
+  'NONECOMBATANT'                          = 59,
+  'PASSENGER'                              = 60,
+  'PASSENGER_HAZARDOUS_A'                  = 61,
+  'PASSENGER_HAZARDOUS_B'                  = 62,
+  'PASSENGER_HAZARDOUS_C'                  = 63,
+  'PASSENGER_HAZARDOUS_D'                  = 64,
+  'PASSENGER_RESERVED_1'                   = 65,
+  'PASSENGER_RESERVED_2'                   = 66,
+  'PASSENGER_RESERVED_3'                   = 67,
+  'PASSENGER_RESERVED_4'                   = 68,
+  'PASSENGER_UNKNOWN'                      = 69,
+  'CARGO'                                  = 70,
+  'CARGO_HAZARDOUS_A'                      = 71,
+  'CARGO_HAZARDOUS_B'                      = 72,
+  'CARGO_HAZARDOUS_C'                      = 73,
+  'CARGO_HAZARDOUS_D'                      = 74,
+  'CARGO_RESERVED_1'                       = 75,
+  'CARGO_RESERVED_2'                       = 76,
+  'CARGO_RESERVED_3'                       = 77,
+  'CARGO_RESERVED_4'                       = 78,
+  'CARGO_UNKNOWN'                          = 79,
+  'TANKER'                                 = 80,
+  'TANKER_HAZARDOUS_A'                     = 81,
+  'TANKER_HAZARDOUS_B'                     = 82,
+  'TANKER_HAZARDOUS_C'                     = 83,
+  'TANKER_HAZARDOUS_D'                     = 84,
+  'TANKER_RESERVED_1'                      = 85,
+  'TANKER_RESERVED_2'                      = 86,
+  'TANKER_RESERVED_3'                      = 87,
+  'TANKER_RESERVED_4'                      = 88,
+  'TANKER_UNKNOWN'                         = 89,
+  'OTHER'                                  = 90,
+  'OTHER_HAZARDOUS_A'                      = 91,
+  'OTHER_HAZARDOUS_B'                      = 92,
+  'OTHER_HAZARDOUS_C'                      = 93,
+  'OTHER_HAZARDOUS_D'                      = 94,
+  'OTHER_RESERVED_1'                       = 95,
+  'OTHER_RESERVED_2'                       = 96,
+  'OTHER_RESERVED_3'                       = 97,
+  'OTHER_RESERVED_4'                       = 98,
+  'OTHER_UNKNOWN'                          = 99,
 }
 
 /**
@@ -2492,22 +1652,22 @@ export enum AisType {
  * https://gpsd.gitlab.io/gpsd/AIVDM.html
  */
 export enum AisNavStatus {
-  'UNDER_WAY'                                      = 0,
-  'ANCHORED'                                       = 1,
-  'UN_COMMANDED'                                   = 2,
-  'RESTRICTED_MANOEUVERABILITY'                    = 3,
-  'DRAUGHT_CONSTRAINED'                            = 4,
-  'MOORED'                                         = 5,
-  'AGROUND'                                        = 6,
-  'FISHING'                                        = 7,
-  'SAILING'                                        = 8,
-  'RESERVED_HSC'                                   = 9,
-  'RESERVED_WIG'                                   = 10,
-  'RESERVED_1'                                     = 11,
-  'RESERVED_2'                                     = 12,
-  'RESERVED_3'                                     = 13,
-  'AIS_SART'                                       = 14,
-  'UNKNOWN'                                        = 15,
+  'UNDER_WAY'                              = 0,
+  'ANCHORED'                               = 1,
+  'UN_COMMANDED'                           = 2,
+  'RESTRICTED_MANOEUVERABILITY'            = 3,
+  'DRAUGHT_CONSTRAINED'                    = 4,
+  'MOORED'                                 = 5,
+  'AGROUND'                                = 6,
+  'FISHING'                                = 7,
+  'SAILING'                                = 8,
+  'RESERVED_HSC'                           = 9,
+  'RESERVED_WIG'                           = 10,
+  'RESERVED_1'                             = 11,
+  'RESERVED_2'                             = 12,
+  'RESERVED_3'                             = 13,
+  'AIS_SART'                               = 14,
+  'UNKNOWN'                                = 15,
 }
 
 /**
@@ -2515,171 +1675,56 @@ export enum AisNavStatus {
  * message fields. When set, the data is valid.
  */
 export enum AisFlags {
-  'POSITION_ACCURACY'                              = 1,
-  'VALID_COG'                                      = 2,
-  'VALID_VELOCITY'                                 = 4,
-  'HIGH_VELOCITY'                                  = 8,
-  'VALID_TURN_RATE'                                = 16,
+  'POSITION_ACCURACY'                      = 1,
+  'VALID_COG'                              = 2,
+  'VALID_VELOCITY'                         = 4,
+  'HIGH_VELOCITY'                          = 8,
+  'VALID_TURN_RATE'                        = 16,
   /**
    * Only the sign of the returned turn rate value is valid, either greater than 5deg/30s or less than
    * -5deg/30s
    */
-  'TURN_RATE_SIGN_ONLY'                            = 32,
-  'VALID_DIMENSIONS'                               = 64,
-  'LARGE_BOW_DIMENSION'                            = 128,
-  'LARGE_STERN_DIMENSION'                          = 256,
-  'LARGE_PORT_DIMENSION'                           = 512,
-  'LARGE_STARBOARD_DIMENSION'                      = 1024,
-  'VALID_CALLSIGN'                                 = 2048,
-  'VALID_NAME'                                     = 4096,
-}
-
-/**
- * List of possible units where failures can be injected.
- */
-export enum FailureUnit {
-  'SENSOR_GYRO'                                    = 0,
-  'SENSOR_ACCEL'                                   = 1,
-  'SENSOR_MAG'                                     = 2,
-  'SENSOR_BARO'                                    = 3,
-  'SENSOR_GPS'                                     = 4,
-  'SENSOR_OPTICAL_FLOW'                            = 5,
-  'SENSOR_VIO'                                     = 6,
-  'SENSOR_DISTANCE_SENSOR'                         = 7,
-  'SENSOR_AIRSPEED'                                = 8,
-  'SYSTEM_BATTERY'                                 = 100,
-  'SYSTEM_MOTOR'                                   = 101,
-  'SYSTEM_SERVO'                                   = 102,
-  'SYSTEM_AVOIDANCE'                               = 103,
-  'SYSTEM_RC_SIGNAL'                               = 104,
-  'SYSTEM_MAVLINK_SIGNAL'                          = 105,
-}
-
-/**
- * List of possible failure type to inject.
- */
-export enum FailureType {
-  'OK'                                             = 0,
-  'OFF'                                            = 1,
-  'STUCK'                                          = 2,
-  'GARBAGE'                                        = 3,
-  'WRONG'                                          = 4,
-  'SLOW'                                           = 5,
-  'DELAYED'                                        = 6,
-  'INTERMITTENT'                                   = 7,
-}
-
-/**
- * NAV_VTOL_LAND_OPTIONS
- */
-export enum NavVtolLandOptions {
-  'DEFAULT'                                        = 0,
-  /**
-   * Descend in fixed wing mode, transitioning to multicopter mode for vertical landing when close to the
-   * ground. The fixed wing descent pattern is at the discretion of the vehicle (e.g. transition
-   * altitude, loiter direction, radius, and speed, etc.).
-   */
-  'FW_DESCENT'                                     = 1,
-  /**
-   * Land in multicopter mode on reaching the landing co-ordinates (the whole landing is by "hover
-   * descent").
-   */
-  'HOVER_DESCENT'                                  = 2,
+  'TURN_RATE_SIGN_ONLY'                    = 32,
+  'VALID_DIMENSIONS'                       = 64,
+  'LARGE_BOW_DIMENSION'                    = 128,
+  'LARGE_STERN_DIMENSION'                  = 256,
+  'LARGE_PORT_DIMENSION'                   = 512,
+  'LARGE_STARBOARD_DIMENSION'              = 1024,
+  'VALID_CALLSIGN'                         = 2048,
+  'VALID_NAME'                             = 4096,
 }
 
 /**
  * Winch status flags used in WINCH_STATUS
  */
 export enum MavWinchStatusFlag {
-  'HEALTHY'                                        = 1,
-  'FULLY_RETRACTED'                                = 2,
-  'MOVING'                                         = 4,
-  'CLUTCH_ENGAGED'                                 = 8,
-  'LOCKED'                                         = 16,
-  'DROPPING'                                       = 32,
-  'ARRESTING'                                      = 64,
-  'GROUND_SENSE'                                   = 128,
-  'RETRACTING'                                     = 256,
-  /**
-   * Winch is redelivering the payload. This is a failover state if the line tension goes above a
-   * threshold during RETRACTING.
-   */
-  'REDELIVER'                                      = 512,
-  /**
-   * Winch is abandoning the line and possibly payload. Winch unspools the entire calculated line length.
-   * This is a failover state from REDELIVER if the number of attemps exceeds a threshold.
-   */
-  'ABANDON_LINE'                                   = 1024,
+  'HEALTHY'                                = 1,
+  'FULLY_RETRACTED'                        = 2,
+  'MOVING'                                 = 4,
+  'CLUTCH_ENGAGED'                         = 8,
 }
 
 /**
  * MAG_CAL_STATUS
  */
 export enum MagCalStatus {
-  'NOT_STARTED'                                    = 0,
-  'WAITING_TO_START'                               = 1,
-  'RUNNING_STEP_ONE'                               = 2,
-  'RUNNING_STEP_TWO'                               = 3,
-  'SUCCESS'                                        = 4,
-  'FAILED'                                         = 5,
-  'BAD_ORIENTATION'                                = 6,
-  'BAD_RADIUS'                                     = 7,
+  'NOT_STARTED'                            = 0,
+  'WAITING_TO_START'                       = 1,
+  'RUNNING_STEP_ONE'                       = 2,
+  'RUNNING_STEP_TWO'                       = 3,
+  'SUCCESS'                                = 4,
+  'FAILED'                                 = 5,
+  'BAD_ORIENTATION'                        = 6,
+  'BAD_RADIUS'                             = 7,
 }
 
 /**
- * Reason for an event error response.
+ * SWARM_STATE_NAV
  */
-export enum MavEventErrorReason {
-  'UNAVAILABLE'                                    = 0,
-}
-
-/**
- * Flags for CURRENT_EVENT_SEQUENCE.
- */
-export enum MavEventCurrentSequenceFlags {
-  'RESET'                                          = 1,
-}
-
-/**
- * Flags in the HIL_SENSOR message indicate which fields have updated since the last message
- */
-export enum HilSensorUpdatedFlags {
-  'NONE'                                           = 0,
-  'XACC'                                           = 1,
-  'YACC'                                           = 2,
-  'ZACC'                                           = 4,
-  'XGYRO'                                          = 8,
-  'YGYRO'                                          = 16,
-  'ZGYRO'                                          = 32,
-  'XMAG'                                           = 64,
-  'YMAG'                                           = 128,
-  'ZMAG'                                           = 256,
-  'ABS_PRESSURE'                                   = 512,
-  'DIFF_PRESSURE'                                  = 1024,
-  'PRESSURE_ALT'                                   = 2048,
-  'TEMPERATURE'                                    = 4096,
-  'RESET'                                          = 2147483648,
-}
-
-/**
- * Flags in the HIGHRES_IMU message indicate which fields have updated since the last message
- */
-export enum HighresImuUpdatedFlags {
-  'NONE'                                           = 0,
-  'XACC'                                           = 1,
-  'YACC'                                           = 2,
-  'ZACC'                                           = 4,
-  'XGYRO'                                          = 8,
-  'YGYRO'                                          = 16,
-  'ZGYRO'                                          = 32,
-  'XMAG'                                           = 64,
-  'YMAG'                                           = 128,
-  'ZMAG'                                           = 256,
-  'ABS_PRESSURE'                                   = 512,
-  'DIFF_PRESSURE'                                  = 1024,
-  'PRESSURE_ALT'                                   = 2048,
-  'TEMPERATURE'                                    = 4096,
-  'ALL'                                            = 65535,
+export enum SwarmStateNav {
+  'INGRESSING_TO_MESH'                     = 0,
+  'ON_STATION'                             = 1,
+  'HOME'                                   = 2,
 }
 
 /**
@@ -2697,7 +1742,7 @@ export enum HighresImuUpdatedFlags {
 export class SysStatus extends MavLinkData {
   static MSG_ID = 1
   static MSG_NAME = 'SYS_STATUS'
-  static PAYLOAD_LENGTH = 43
+  static PAYLOAD_LENGTH = 31
   static MAGIC_NUMBER = 124
 
   static FIELDS = [
@@ -2714,9 +1759,6 @@ export class SysStatus extends MavLinkData {
     new MavLinkPacketField('errors_count3', 'errorsCount3', 26, false, 2, 'uint16_t', ''),
     new MavLinkPacketField('errors_count4', 'errorsCount4', 28, false, 2, 'uint16_t', ''),
     new MavLinkPacketField('battery_remaining', 'batteryRemaining', 30, false, 1, 'int8_t', '%'),
-    new MavLinkPacketField('onboard_control_sensors_present_extended', 'onboardControlSensorsPresentExtended', 31, true, 4, 'uint32_t', ''),
-    new MavLinkPacketField('onboard_control_sensors_enabled_extended', 'onboardControlSensorsEnabledExtended', 35, true, 4, 'uint32_t', ''),
-    new MavLinkPacketField('onboard_control_sensors_health_extended', 'onboardControlSensorsHealthExtended', 39, true, 4, 'uint32_t', ''),
   ]
 
   /**
@@ -2781,21 +1823,6 @@ export class SysStatus extends MavLinkData {
    * Autopilot-specific errors
    */
   errorsCount4: uint16_t
-  /**
-   * Bitmap showing which onboard controllers and sensors are present. Value of 0: not present. Value of
-   * 1: present.
-   */
-  onboardControlSensorsPresentExtended: MavSysStatusSensorExtended
-  /**
-   * Bitmap showing which onboard controllers and sensors are enabled: Value of 0: not enabled. Value of
-   * 1: enabled.
-   */
-  onboardControlSensorsEnabledExtended: MavSysStatusSensorExtended
-  /**
-   * Bitmap showing which onboard controllers and sensors have an error (or are operational). Value of 0:
-   * error. Value of 1: healthy.
-   */
-  onboardControlSensorsHealthExtended: MavSysStatusSensorExtended
 }
 
 /**
@@ -2956,83 +1983,6 @@ export class AuthKey extends MavLinkData {
 }
 
 /**
- * Status generated in each node in the communication chain and injected into MAVLink stream.
- */
-export class LinkNodeStatus extends MavLinkData {
-  static MSG_ID = 8
-  static MSG_NAME = 'LINK_NODE_STATUS'
-  static PAYLOAD_LENGTH = 36
-  static MAGIC_NUMBER = 117
-
-  static FIELDS = [
-    new MavLinkPacketField('timestamp', 'timestamp', 0, false, 8, 'uint64_t', 'ms'),
-    new MavLinkPacketField('tx_rate', 'txRate', 8, false, 4, 'uint32_t', 'bytes/s'),
-    new MavLinkPacketField('rx_rate', 'rxRate', 12, false, 4, 'uint32_t', 'bytes/s'),
-    new MavLinkPacketField('messages_sent', 'messagesSent', 16, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('messages_received', 'messagesReceived', 20, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('messages_lost', 'messagesLost', 24, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('rx_parse_err', 'rxParseErr', 28, false, 2, 'uint16_t', 'bytes'),
-    new MavLinkPacketField('tx_overflows', 'txOverflows', 30, false, 2, 'uint16_t', 'bytes'),
-    new MavLinkPacketField('rx_overflows', 'rxOverflows', 32, false, 2, 'uint16_t', 'bytes'),
-    new MavLinkPacketField('tx_buf', 'txBuf', 34, false, 1, 'uint8_t', '%'),
-    new MavLinkPacketField('rx_buf', 'rxBuf', 35, false, 1, 'uint8_t', '%'),
-  ]
-
-  /**
-   * Timestamp (time since system boot).
-   * Units: ms
-   */
-  timestamp: uint64_t
-  /**
-   * Remaining free transmit buffer space
-   * Units: %
-   */
-  txBuf: uint8_t
-  /**
-   * Remaining free receive buffer space
-   * Units: %
-   */
-  rxBuf: uint8_t
-  /**
-   * Transmit rate
-   * Units: bytes/s
-   */
-  txRate: uint32_t
-  /**
-   * Receive rate
-   * Units: bytes/s
-   */
-  rxRate: uint32_t
-  /**
-   * Number of bytes that could not be parsed correctly.
-   * Units: bytes
-   */
-  rxParseErr: uint16_t
-  /**
-   * Transmit buffer overflows. This number wraps around as it reaches UINT16_MAX
-   * Units: bytes
-   */
-  txOverflows: uint16_t
-  /**
-   * Receive buffer overflows. This number wraps around as it reaches UINT16_MAX
-   * Units: bytes
-   */
-  rxOverflows: uint16_t
-  /**
-   * Messages sent
-   */
-  messagesSent: uint32_t
-  /**
-   * Messages received (estimated from counting seq)
-   */
-  messagesReceived: uint32_t
-  /**
-   * Messages lost (estimated from counting seq)
-   */
-  messagesLost: uint32_t
-}
-
-/**
  * Set the system mode, as defined by enum MAV_MODE. There is no target component id as the mode is by
  * definition for the overall aircraft, not only for one component.
  *
@@ -3179,11 +2129,7 @@ export class ParamValue extends MavLinkData {
  * acknowledge the new parameter value by broadcasting a PARAM_VALUE message (broadcasting ensures that
  * multiple GCS all have an up-to-date list of all parameters). If the sending GCS did not receive a
  * PARAM_VALUE within its timeout time, it should re-send the PARAM_SET message. The parameter
- * microservice is documented at https://mavlink.io/en/services/parameter.html. PARAM_SET may also be
- * called within the context of a transaction (started with MAV_CMD_PARAM_TRANSACTION). Within a
- * transaction the receiving component should respond with PARAM_ACK_TRANSACTION to the setter
- * component (instead of broadcasting PARAM_VALUE), and PARAM_SET should be re-sent if this is ACK not
- * received.
+ * microservice is documented at https://mavlink.io/en/services/parameter.html.
  */
 export class ParamSet extends MavLinkData {
   static MSG_ID = 23
@@ -3225,8 +2171,8 @@ export class ParamSet extends MavLinkData {
 
 /**
  * The global position, as returned by the Global Positioning System (GPS). This is NOT the global
- * position estimate of the system, but rather a RAW sensor value. See message GLOBAL_POSITION_INT for
- * the global position estimate.
+ * position estimate of the system, but rather a RAW sensor value. See message GLOBAL_POSITION for the
+ * global position estimate.
  */
 export class GpsRawInt extends MavLinkData {
   static MSG_ID = 24
@@ -3280,11 +2226,11 @@ export class GpsRawInt extends MavLinkData {
    */
   alt: int32_t
   /**
-   * GPS HDOP horizontal dilution of position (unitless * 100). If unknown, set to: UINT16_MAX
+   * GPS HDOP horizontal dilution of position (unitless). If unknown, set to: UINT16_MAX
    */
   eph: uint16_t
   /**
-   * GPS VDOP vertical dilution of position (unitless * 100). If unknown, set to: UINT16_MAX
+   * GPS VDOP vertical dilution of position (unitless). If unknown, set to: UINT16_MAX
    */
   epv: uint16_t
   /**
@@ -3299,7 +2245,7 @@ export class GpsRawInt extends MavLinkData {
    */
   cog: uint16_t
   /**
-   * Number of satellites visible. If unknown, set to UINT8_MAX
+   * Number of satellites visible. If unknown, set to 255
    */
   satellitesVisible: uint8_t
   /**
@@ -3328,7 +2274,7 @@ export class GpsRawInt extends MavLinkData {
    */
   hdgAcc: uint32_t
   /**
-   * Yaw in earth frame from north. Use 0 if this GPS does not provide yaw. Use UINT16_MAX if this GPS is
+   * Yaw in earth frame from north. Use 0 if this GPS does not provide yaw. Use 65535 if this GPS is
    * configured to provide yaw and is currently unable to provide it. Use 36000 for north.
    * Units: cdeg
    */
@@ -3337,8 +2283,8 @@ export class GpsRawInt extends MavLinkData {
 
 /**
  * The positioning status, as reported by GPS. This message is intended to display status information
- * about each satellite visible to the receiver. See message GLOBAL_POSITION_INT for the global
- * position estimate. This message can contain information for up to 20 satellites.
+ * about each satellite visible to the receiver. See message GLOBAL_POSITION for the global position
+ * estimate. This message can contain information for up to 20 satellites.
  */
 export class GpsStatus extends MavLinkData {
   static MSG_ID = 25
@@ -3951,7 +2897,7 @@ export class RcChannelsScaled extends MavLinkData {
    */
   chan8Scaled: int16_t
   /**
-   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], UINT8_MAX:
+   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255:
    * invalid/unknown.
    */
   rssi: uint8_t
@@ -4033,7 +2979,7 @@ export class RcChannelsRaw extends MavLinkData {
    */
   chan8Raw: uint16_t
   /**
-   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], UINT8_MAX:
+   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255:
    * invalid/unknown.
    */
   rssi: uint8_t
@@ -4942,7 +3888,7 @@ export class AttitudeQuaternionCov extends MavLinkData {
 }
 
 /**
- * The state of the navigation and position controller.
+ * The state of the fixed wing navigation and position controller.
  */
 export class NavControllerOutput extends MavLinkData {
   static MSG_ID = 62
@@ -5307,7 +4253,7 @@ export class RcChannels extends MavLinkData {
    */
   chan18Raw: uint16_t
   /**
-   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], UINT8_MAX:
+   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255:
    * invalid/unknown.
    */
   rssi: uint8_t
@@ -5315,8 +4261,6 @@ export class RcChannels extends MavLinkData {
 
 /**
  * Request a data stream.
- *
- * @deprecated since 2015-08, replaced by SET_MESSAGE_INTERVAL
  */
 export class RequestDataStream extends MavLinkData {
   static MSG_ID = 66
@@ -5357,8 +4301,6 @@ export class RequestDataStream extends MavLinkData {
 
 /**
  * Data stream status information.
- *
- * @deprecated since 2015-08, replaced by MESSAGE_INTERVAL
  */
 export class DataStream extends MavLinkData {
   static MSG_ID = 67
@@ -5389,13 +4331,13 @@ export class DataStream extends MavLinkData {
 
 /**
  * This message provides an API for manually controlling the vehicle using standard joystick axes
- * nomenclature, along with a joystick-like input device. Unused axes can be disabled and buttons
- * states are transmitted as individual on/off bits of a bitmask
+ * nomenclature, along with a joystick-like input device. Unused axes can be disabled an buttons are
+ * also transmit as boolean values of their
  */
 export class ManualControl extends MavLinkData {
   static MSG_ID = 69
   static MSG_NAME = 'MANUAL_CONTROL'
-  static PAYLOAD_LENGTH = 18
+  static PAYLOAD_LENGTH = 11
   static MAGIC_NUMBER = 243
 
   static FIELDS = [
@@ -5405,10 +4347,6 @@ export class ManualControl extends MavLinkData {
     new MavLinkPacketField('r', 'r', 6, false, 2, 'int16_t', ''),
     new MavLinkPacketField('buttons', 'buttons', 8, false, 2, 'uint16_t', ''),
     new MavLinkPacketField('target', 'target', 10, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('buttons2', 'buttons2', 11, true, 2, 'uint16_t', ''),
-    new MavLinkPacketField('enabled_extensions', 'enabledExtensions', 13, true, 1, 'uint8_t', ''),
-    new MavLinkPacketField('s', 's', 14, true, 2, 'int16_t', ''),
-    new MavLinkPacketField('t', 't', 16, true, 2, 'int16_t', ''),
   ]
 
   /**
@@ -5441,32 +4379,10 @@ export class ManualControl extends MavLinkData {
    */
   r: int16_t
   /**
-   * A bitfield corresponding to the joystick buttons' 0-15 current state, 1 for pressed, 0 for released.
-   * The lowest bit corresponds to Button 1.
+   * A bitfield corresponding to the joystick buttons' current state, 1 for pressed, 0 for released. The
+   * lowest bit corresponds to Button 1.
    */
   buttons: uint16_t
-  /**
-   * A bitfield corresponding to the joystick buttons' 16-31 current state, 1 for pressed, 0 for
-   * released. The lowest bit corresponds to Button 16.
-   */
-  buttons2: uint16_t
-  /**
-   * Set bits to 1 to indicate which of the following extension fields contain valid data: bit 0: pitch,
-   * bit 1: roll.
-   */
-  enabledExtensions: uint8_t
-  /**
-   * Pitch-only-axis, normalized to the range [-1000,1000]. Generally corresponds to pitch on vehicles
-   * with additional degrees of freedom. Valid if bit 0 of enabled_extensions field is set. Set to 0 if
-   * invalid.
-   */
-  s: int16_t
-  /**
-   * Roll-only-axis, normalized to the range [-1000,1000]. Generally corresponds to roll on vehicles with
-   * additional degrees of freedom. Valid if bit 1 of enabled_extensions field is set. Set to 0 if
-   * invalid.
-   */
-  t: int16_t
 }
 
 /**
@@ -5771,9 +4687,7 @@ export class VfrHud extends MavLinkData {
 
 /**
  * Message encoding a command with parameters as scaled integers. Scaling depends on the actual command
- * value. NaN or INT32_MAX may be used in float/integer params (respectively) to indicate
- * optional/default values (e.g. to use the component's current latitude, yaw rather than a specific
- * value). The command microservice is documented at https://mavlink.io/en/services/command.html
+ * value. The command microservice is documented at https://mavlink.io/en/services/command.html
  */
 export class CommandInt extends MavLinkData {
   static MSG_ID = 75
@@ -5928,16 +4842,12 @@ export class CommandLong extends MavLinkData {
 export class CommandAck extends MavLinkData {
   static MSG_ID = 77
   static MSG_NAME = 'COMMAND_ACK'
-  static PAYLOAD_LENGTH = 10
+  static PAYLOAD_LENGTH = 3
   static MAGIC_NUMBER = 143
 
   static FIELDS = [
     new MavLinkPacketField('command', 'command', 0, false, 2, 'uint16_t', ''),
     new MavLinkPacketField('result', 'result', 2, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('progress', 'progress', 3, true, 1, 'uint8_t', ''),
-    new MavLinkPacketField('result_param2', 'resultParam2', 4, true, 4, 'int32_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 8, true, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 9, true, 1, 'uint8_t', ''),
   ]
 
   /**
@@ -5948,60 +4858,6 @@ export class CommandAck extends MavLinkData {
    * Result of command.
    */
   result: MavResult
-  /**
-   * Also used as result_param1, it can be set with an enum containing the errors reasons of why the
-   * command was denied, or the progress percentage when result is MAV_RESULT_IN_PROGRESS (UINT8_MAX if
-   * the progress is unknown).
-   */
-  progress: uint8_t
-  /**
-   * Additional parameter of the result, example: which parameter of MAV_CMD_NAV_WAYPOINT caused it to be
-   * denied.
-   */
-  resultParam2: int32_t
-  /**
-   * System ID of the target recipient. This is the ID of the system that sent the command for which this
-   * COMMAND_ACK is an acknowledgement.
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID of the target recipient. This is the ID of the system that sent the command for which
-   * this COMMAND_ACK is an acknowledgement.
-   */
-  targetComponent: uint8_t
-}
-
-/**
- * Cancel a long running command. The target system should respond with a COMMAND_ACK to the original
- * command with result=MAV_RESULT_CANCELLED if the long running process was cancelled. If it has
- * already completed, the cancel action can be ignored. The cancel action can be retried until some
- * sort of acknowledgement to the original command has been received. The command microservice is
- * documented at https://mavlink.io/en/services/command.html
- */
-export class CommandCancel extends MavLinkData {
-  static MSG_ID = 80
-  static MSG_NAME = 'COMMAND_CANCEL'
-  static PAYLOAD_LENGTH = 4
-  static MAGIC_NUMBER = 14
-
-  static FIELDS = [
-    new MavLinkPacketField('command', 'command', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 2, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 3, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System executing long running command. Should not be broadcast (0).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component executing long running command.
-   */
-  targetComponent: uint8_t
-  /**
-   * Command ID (of command to cancel).
-   */
-  command: MavCmd
 }
 
 /**
@@ -6064,7 +4920,7 @@ export class ManualSetpoint extends MavLinkData {
 export class SetAttitudeTarget extends MavLinkData {
   static MSG_ID = 82
   static MSG_NAME = 'SET_ATTITUDE_TARGET'
-  static PAYLOAD_LENGTH = 51
+  static PAYLOAD_LENGTH = 39
   static MAGIC_NUMBER = 49
 
   static FIELDS = [
@@ -6077,7 +4933,6 @@ export class SetAttitudeTarget extends MavLinkData {
     new MavLinkPacketField('target_system', 'targetSystem', 36, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('target_component', 'targetComponent', 37, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('type_mask', 'typeMask', 38, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('thrust_body', 'thrustBody', 39, true, 4, 'float[]', '', 3),
   ]
 
   /**
@@ -6120,10 +4975,6 @@ export class SetAttitudeTarget extends MavLinkData {
    * Collective thrust, normalized to 0 .. 1 (-1 .. 1 for vehicles capable of reverse trust)
    */
   thrust: float
-  /**
-   * 3D thrust setpoint in the body NED frame, normalized to -1 .. 1
-   */
-  thrustBody: float[]
 }
 
 /**
@@ -6937,7 +5788,7 @@ export class HilRcInputsRaw extends MavLinkData {
    */
   chan12Raw: uint16_t
   /**
-   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], UINT8_MAX:
+   * Receive signal strength indicator in device-dependent units/scale. Values: [0-254], 255:
    * invalid/unknown.
    */
   rssi: uint8_t
@@ -7406,9 +6257,9 @@ export class HighresImu extends MavLinkData {
    */
   temperature: float
   /**
-   * Bitmap for fields that have updated since last message
+   * Bitmap for fields that have updated since last message, bit 0 = xacc, bit 12: temperature
    */
-  fieldsUpdated: HighresImuUpdatedFlags
+  fieldsUpdated: uint16_t
   /**
    * Id. Ids are numbered from 0 and map to IMUs numbered from 1 (e.g. IMU1 will have a message with
    * id=0)
@@ -7604,9 +6455,10 @@ export class HilSensor extends MavLinkData {
    */
   temperature: float
   /**
-   * Bitmap for fields that have updated since last message
+   * Bitmap for fields that have updated since last message, bit 0 = xacc, bit 12: temperature, bit 31:
+   * full reset of attitude/position/velocities/etc was performed in sim.
    */
-  fieldsUpdated: HilSensorUpdatedFlags
+  fieldsUpdated: uint32_t
   /**
    * Sensor ID (zero indexed). Used for multiple sensor inputs
    */
@@ -7765,12 +6617,12 @@ export class RadioStatus extends MavLinkData {
 
   /**
    * Local (message sender) recieved signal strength indication in device-dependent units/scale. Values:
-   * [0-254], UINT8_MAX: invalid/unknown.
+   * [0-254], 255: invalid/unknown.
    */
   rssi: uint8_t
   /**
    * Remote (message receiver) signal strength indication in device-dependent units/scale. Values:
-   * [0-254], UINT8_MAX: invalid/unknown.
+   * [0-254], 255: invalid/unknown.
    */
   remrssi: uint8_t
   /**
@@ -7780,12 +6632,12 @@ export class RadioStatus extends MavLinkData {
   txbuf: uint8_t
   /**
    * Local background noise level. These are device dependent RSSI values (scale as approx 2x dB on SiK
-   * radios). Values: [0-254], UINT8_MAX: invalid/unknown.
+   * radios). Values: [0-254], 255: invalid/unknown.
    */
   noise: uint8_t
   /**
    * Remote background noise level. These are device dependent RSSI values (scale as approx 2x dB on SiK
-   * radios). Values: [0-254], UINT8_MAX: invalid/unknown.
+   * radios). Values: [0-254], 255: invalid/unknown.
    */
   remnoise: uint8_t
   /**
@@ -7887,8 +6739,8 @@ export class CameraTrigger extends MavLinkData {
 
 /**
  * The global position, as returned by the Global Positioning System (GPS). This is NOT the global
- * position estimate of the sytem, but rather a RAW sensor value. See message GLOBAL_POSITION_INT for
- * the global position estimate.
+ * position estimate of the sytem, but rather a RAW sensor value. See message GLOBAL_POSITION for the
+ * global position estimate.
  */
 export class HilGps extends MavLinkData {
   static MSG_ID = 113
@@ -7941,15 +6793,15 @@ export class HilGps extends MavLinkData {
    */
   alt: int32_t
   /**
-   * GPS HDOP horizontal dilution of position (unitless * 100). If unknown, set to: UINT16_MAX
+   * GPS HDOP horizontal dilution of position (unitless). If unknown, set to: UINT16_MAX
    */
   eph: uint16_t
   /**
-   * GPS VDOP vertical dilution of position (unitless * 100). If unknown, set to: UINT16_MAX
+   * GPS VDOP vertical dilution of position (unitless). If unknown, set to: UINT16_MAX
    */
   epv: uint16_t
   /**
-   * GPS ground speed. If unknown, set to: UINT16_MAX
+   * GPS ground speed. If unknown, set to: 65535
    * Units: cm/s
    */
   vel: uint16_t
@@ -7970,12 +6822,12 @@ export class HilGps extends MavLinkData {
   vd: int16_t
   /**
    * Course over ground (NOT heading, but direction of movement), 0.0..359.99 degrees. If unknown, set
-   * to: UINT16_MAX
+   * to: 65535
    * Units: cdeg
    */
   cog: uint16_t
   /**
-   * Number of satellites visible. If unknown, set to UINT8_MAX
+   * Number of satellites visible. If unknown, set to 255
    */
   satellitesVisible: uint8_t
   /**
@@ -8562,11 +7414,11 @@ export class Gps2Raw extends MavLinkData {
    */
   alt: int32_t
   /**
-   * GPS HDOP horizontal dilution of position (unitless * 100). If unknown, set to: UINT16_MAX
+   * GPS HDOP horizontal dilution of position (unitless). If unknown, set to: UINT16_MAX
    */
   eph: uint16_t
   /**
-   * GPS VDOP vertical dilution of position (unitless * 100). If unknown, set to: UINT16_MAX
+   * GPS VDOP vertical dilution of position (unitless). If unknown, set to: UINT16_MAX
    */
   epv: uint16_t
   /**
@@ -8581,7 +7433,7 @@ export class Gps2Raw extends MavLinkData {
    */
   cog: uint16_t
   /**
-   * Number of satellites visible. If unknown, set to UINT8_MAX
+   * Number of satellites visible. If unknown, set to 255
    */
   satellitesVisible: uint8_t
   /**
@@ -8594,7 +7446,7 @@ export class Gps2Raw extends MavLinkData {
    */
   dgpsAge: uint32_t
   /**
-   * Yaw in earth frame from north. Use 0 if this GPS does not provide yaw. Use UINT16_MAX if this GPS is
+   * Yaw in earth frame from north. Use 0 if this GPS does not provide yaw. Use 65535 if this GPS is
    * configured to provide yaw and is currently unable to provide it. Use 36000 for north.
    * Units: cdeg
    */
@@ -8666,7 +7518,7 @@ export class PowerStatus extends MavLinkData {
 export class SerialControl extends MavLinkData {
   static MSG_ID = 126
   static MSG_NAME = 'SERIAL_CONTROL'
-  static PAYLOAD_LENGTH = 81
+  static PAYLOAD_LENGTH = 79
   static MAGIC_NUMBER = 220
 
   static FIELDS = [
@@ -8676,8 +7528,6 @@ export class SerialControl extends MavLinkData {
     new MavLinkPacketField('flags', 'flags', 7, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('count', 'count', 8, false, 1, 'uint8_t', 'bytes'),
     new MavLinkPacketField('data', 'data', 9, false, 1, 'uint8_t[]', '', 70),
-    new MavLinkPacketField('target_system', 'targetSystem', 79, true, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 80, true, 1, 'uint8_t', ''),
   ]
 
   /**
@@ -8707,14 +7557,6 @@ export class SerialControl extends MavLinkData {
    * serial data
    */
   data: uint8_t[]
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
 }
 
 /**
@@ -9106,7 +7948,7 @@ export class DistanceSensor extends MavLinkData {
    */
   orientation: MavSensorOrientation
   /**
-   * Measurement variance. Max standard deviation is 6cm. UINT8_MAX if unknown.
+   * Measurement variance. Max standard deviation is 6cm. 255 if unknown.
    * Units: cm^2
    */
   covariance: uint8_t
@@ -9686,7 +8528,7 @@ export class FollowTarget extends MavLinkData {
    */
   acc: float[]
   /**
-   * (0 0 0 0 for unknown)
+   * (1 0 0 0 for unknown)
    */
   attitudeQ: float[]
   /**
@@ -9818,13 +8660,12 @@ export class ControlSystemState extends MavLinkData {
 }
 
 /**
- * Battery information. Updates GCS with flight controller battery status. Smart batteries also use
- * this message, but may additionally send SMART_BATTERY_INFO.
+ * Battery information
  */
 export class BatteryStatus extends MavLinkData {
   static MSG_ID = 147
   static MSG_NAME = 'BATTERY_STATUS'
-  static PAYLOAD_LENGTH = 54
+  static PAYLOAD_LENGTH = 49
   static MAGIC_NUMBER = 154
 
   static FIELDS = [
@@ -9840,8 +8681,6 @@ export class BatteryStatus extends MavLinkData {
     new MavLinkPacketField('time_remaining', 'timeRemaining', 36, true, 4, 'int32_t', 's'),
     new MavLinkPacketField('charge_state', 'chargeState', 40, true, 1, 'uint8_t', ''),
     new MavLinkPacketField('voltages_ext', 'voltagesExt', 41, true, 2, 'uint16_t[]', 'mV', 4),
-    new MavLinkPacketField('mode', 'mode', 49, true, 1, 'uint8_t', ''),
-    new MavLinkPacketField('fault_bitmask', 'faultBitmask', 50, true, 4, 'uint32_t', ''),
   ]
 
   /**
@@ -9907,16 +8746,6 @@ export class BatteryStatus extends MavLinkData {
    * Units: mV
    */
   voltagesExt: uint16_t[]
-  /**
-   * Battery mode. Default (0) is that battery mode reporting is not supported or battery is in
-   * normal-use mode.
-   */
-  mode: MavBatteryMode
-  /**
-   * Fault/health indications. These should be set when charge_state is MAV_BATTERY_CHARGE_STATE_FAILED
-   * or MAV_BATTERY_CHARGE_STATE_UNHEALTHY (if not, fault reporting is not supported).
-   */
-  faultBitmask: MavBatteryFault
 }
 
 /**
@@ -9961,8 +8790,7 @@ export class AutopilotVersion extends MavLinkData {
    */
   osSwVersion: uint32_t
   /**
-   * HW / board version (last 8 bits should be silicon ID, if any). The first 16 bits of this field
-   * specify https://github.com/PX4/PX4-Bootloader/blob/master/board_types.txt
+   * HW / board version (last 8 bytes should be silicon ID, if any)
    */
   boardVersion: uint32_t
   /**
@@ -10775,7 +9603,7 @@ export class HighLatency extends MavLinkData {
    */
   climbRate: int8_t
   /**
-   * Number of satellites visible. If unknown, set to UINT8_MAX
+   * Number of satellites visible. If unknown, set to 255
    */
   gpsNsat: uint8_t
   /**
@@ -11748,8 +10576,6 @@ export class ButtonChange extends MavLinkData {
 
 /**
  * Control vehicle tone generation (buzzer).
- *
- * @deprecated since 2019-10, replaced by PLAY_TUNE_V2; New version explicitly defines format. More interoperable.
  */
 export class PlayTune extends MavLinkData {
   static MSG_ID = 258
@@ -11865,9 +10691,7 @@ export class CameraInformation extends MavLinkData {
   /**
    * Camera definition URI (if any, otherwise only basic functions will be available). HTTP- (http://)
    * and MAVLink FTP- (mavlinkftp://) formatted URIs are allowed (and both must be supported by any GCS
-   * that implements the Camera Protocol). The definition file may be xz compressed, which will be
-   * indicated by the file extension .xml.xz (a GCS that implements the protocol must support
-   * decompressing the file).
+   * that implements the Camera Protocol).
    */
   camDefinitionUri: string
 }
@@ -11916,7 +10740,7 @@ export class CameraSettings extends MavLinkData {
 export class StorageInformation extends MavLinkData {
   static MSG_ID = 261
   static MSG_NAME = 'STORAGE_INFORMATION'
-  static PAYLOAD_LENGTH = 61
+  static PAYLOAD_LENGTH = 27
   static MAGIC_NUMBER = 179
 
   static FIELDS = [
@@ -11929,9 +10753,6 @@ export class StorageInformation extends MavLinkData {
     new MavLinkPacketField('storage_id', 'storageId', 24, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('storage_count', 'storageCount', 25, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('status', 'status', 26, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('type', 'type', 27, true, 1, 'uint8_t', ''),
-    new MavLinkPacketField('name', 'name', 28, true, 1, 'char[]', '', 32),
-    new MavLinkPacketField('storage_usage', 'storageUsage', 60, true, 1, 'uint8_t', ''),
   ]
 
   /**
@@ -11976,24 +10797,6 @@ export class StorageInformation extends MavLinkData {
    * Units: MiB/s
    */
   writeSpeed: float
-  /**
-   * Type of storage
-   */
-  type: StorageType
-  /**
-   * Textual storage name to be used in UI (microSD 1, Internal Memory, etc.) This is a NULL terminated
-   * string. If it is exactly 32 characters long, add a terminating NULL. If this string is empty, the
-   * generic type is shown to the user.
-   */
-  name: string
-  /**
-   * Flags indicating whether this instance is preferred storage for photos, videos, etc. Note:
-   * Implementations should initially set the flags on the system-default storage id used for saving
-   * media (if possible/supported). This setting can then be overridden using MAV_CMD_SET_STORAGE_USAGE.
-   * If the media usage flags are not set, a GCS may assume storage ID 1 is the default storage for all
-   * media types.
-   */
-  storageUsage: StorageUsageFlag
 }
 
 /**
@@ -12035,8 +10838,7 @@ export class CameraCaptureStatus extends MavLinkData {
    */
   imageInterval: float
   /**
-   * Elapsed time since recording started (0: Not supported/available). A GCS should compute recording
-   * time and use non-zero values of this field to correct any discrepancy.
+   * Time since recording started
    * Units: ms
    */
   recordingTimeMs: uint32_t
@@ -12052,14 +10854,9 @@ export class CameraCaptureStatus extends MavLinkData {
 }
 
 /**
- * Information about a captured image. This is emitted every time a message is captured.
- * MAV_CMD_REQUEST_MESSAGE can be used to (re)request this message for a specific sequence number or
- * range of sequence numbers: MAV_CMD_REQUEST_MESSAGE.param2 indicates the sequence number the first
- * image to send, or set to -1 to send the message for all sequence numbers.
- * MAV_CMD_REQUEST_MESSAGE.param3 is used to specify a range of messages to send: set to 0 (default) to
- * send just the the message for the sequence number in param 2, set to -1 to send the message for the
- * sequence number in param 2 and all the following sequence numbers, set to the sequence number of the
- * final message in the range.
+ * Information about a captured image. This is emitted every time a message is captured. It may be
+ * re-requested using MAV_CMD_REQUEST_MESSAGE, using param2 to indicate the sequence number for the
+ * missing image.
  */
 export class CameraImageCaptured extends MavLinkData {
   static MSG_ID = 263
@@ -12173,8 +10970,6 @@ export class FlightInformation extends MavLinkData {
 
 /**
  * Orientation of a mount
- *
- * @deprecated since 2020-01, replaced by MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW; This message is being superseded by MAV_CMD_DO_GIMBAL_MANAGER_PITCHYAW. The message can still be used to communicate with legacy gimbals implementing it.
  */
 export class MountOrientation extends MavLinkData {
   static MSG_ID = 265
@@ -12254,7 +11049,7 @@ export class LoggingData extends MavLinkData {
   length: uint8_t
   /**
    * offset into data where first message starts. This can be used for recovery, when a previous message
-   * got lost (set to UINT8_MAX if no start exists).
+   * got lost (set to 255 if no start exists).
    * Units: bytes
    */
   firstMessageOffset: uint8_t
@@ -12301,7 +11096,7 @@ export class LoggingDataAcked extends MavLinkData {
   length: uint8_t
   /**
    * offset into data where first message starts. This can be used for recovery, when a previous message
-   * got lost (set to UINT8_MAX if no start exists).
+   * got lost (set to 255 if no start exists).
    * Units: bytes
    */
   firstMessageOffset: uint8_t
@@ -12483,978 +11278,18 @@ export class VideoStreamStatus extends MavLinkData {
 }
 
 /**
- * Information about the field of view of a camera. Can be requested with a MAV_CMD_REQUEST_MESSAGE
- * command.
- */
-export class CameraFovStatus extends MavLinkData {
-  static MSG_ID = 271
-  static MSG_NAME = 'CAMERA_FOV_STATUS'
-  static PAYLOAD_LENGTH = 52
-  static MAGIC_NUMBER = 22
-
-  static FIELDS = [
-    new MavLinkPacketField('time_boot_ms', 'timeBootMs', 0, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('lat_camera', 'latCamera', 4, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('lon_camera', 'lonCamera', 8, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('alt_camera', 'altCamera', 12, false, 4, 'int32_t', 'mm'),
-    new MavLinkPacketField('lat_image', 'latImage', 16, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('lon_image', 'lonImage', 20, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('alt_image', 'altImage', 24, false, 4, 'int32_t', 'mm'),
-    new MavLinkPacketField('q', 'q', 28, false, 4, 'float[]', '', 4),
-    new MavLinkPacketField('hfov', 'hfov', 44, false, 4, 'float', 'deg'),
-    new MavLinkPacketField('vfov', 'vfov', 48, false, 4, 'float', 'deg'),
-  ]
-
-  /**
-   * Timestamp (time since system boot).
-   * Units: ms
-   */
-  timeBootMs: uint32_t
-  /**
-   * Latitude of camera (INT32_MAX if unknown).
-   * Units: degE7
-   */
-  latCamera: int32_t
-  /**
-   * Longitude of camera (INT32_MAX if unknown).
-   * Units: degE7
-   */
-  lonCamera: int32_t
-  /**
-   * Altitude (MSL) of camera (INT32_MAX if unknown).
-   * Units: mm
-   */
-  altCamera: int32_t
-  /**
-   * Latitude of center of image (INT32_MAX if unknown, INT32_MIN if at infinity, not intersecting with
-   * horizon).
-   * Units: degE7
-   */
-  latImage: int32_t
-  /**
-   * Longitude of center of image (INT32_MAX if unknown, INT32_MIN if at infinity, not intersecting with
-   * horizon).
-   * Units: degE7
-   */
-  lonImage: int32_t
-  /**
-   * Altitude (MSL) of center of image (INT32_MAX if unknown, INT32_MIN if at infinity, not intersecting
-   * with horizon).
-   * Units: mm
-   */
-  altImage: int32_t
-  /**
-   * Quaternion of camera orientation (w, x, y, z order, zero-rotation is 1, 0, 0, 0)
-   */
-  q: float[]
-  /**
-   * Horizontal field of view (NaN if unknown).
-   * Units: deg
-   */
-  hfov: float
-  /**
-   * Vertical field of view (NaN if unknown).
-   * Units: deg
-   */
-  vfov: float
-}
-
-/**
- * Camera tracking status, sent while in active tracking. Use MAV_CMD_SET_MESSAGE_INTERVAL to define
- * message interval.
- */
-export class CameraTrackingImageStatus extends MavLinkData {
-  static MSG_ID = 275
-  static MSG_NAME = 'CAMERA_TRACKING_IMAGE_STATUS'
-  static PAYLOAD_LENGTH = 31
-  static MAGIC_NUMBER = 126
-
-  static FIELDS = [
-    new MavLinkPacketField('point_x', 'pointX', 0, false, 4, 'float', ''),
-    new MavLinkPacketField('point_y', 'pointY', 4, false, 4, 'float', ''),
-    new MavLinkPacketField('radius', 'radius', 8, false, 4, 'float', ''),
-    new MavLinkPacketField('rec_top_x', 'recTopX', 12, false, 4, 'float', ''),
-    new MavLinkPacketField('rec_top_y', 'recTopY', 16, false, 4, 'float', ''),
-    new MavLinkPacketField('rec_bottom_x', 'recBottomX', 20, false, 4, 'float', ''),
-    new MavLinkPacketField('rec_bottom_y', 'recBottomY', 24, false, 4, 'float', ''),
-    new MavLinkPacketField('tracking_status', 'trackingStatus', 28, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('tracking_mode', 'trackingMode', 29, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_data', 'targetData', 30, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Current tracking status
-   */
-  trackingStatus: CameraTrackingStatusFlags
-  /**
-   * Current tracking mode
-   */
-  trackingMode: CameraTrackingMode
-  /**
-   * Defines location of target data
-   */
-  targetData: CameraTrackingTargetData
-  /**
-   * Current tracked point x value if CAMERA_TRACKING_MODE_POINT (normalized 0..1, 0 is left, 1 is
-   * right), NAN if unknown
-   */
-  pointX: float
-  /**
-   * Current tracked point y value if CAMERA_TRACKING_MODE_POINT (normalized 0..1, 0 is top, 1 is
-   * bottom), NAN if unknown
-   */
-  pointY: float
-  /**
-   * Current tracked radius if CAMERA_TRACKING_MODE_POINT (normalized 0..1, 0 is image left, 1 is image
-   * right), NAN if unknown
-   */
-  radius: float
-  /**
-   * Current tracked rectangle top x value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is left,
-   * 1 is right), NAN if unknown
-   */
-  recTopX: float
-  /**
-   * Current tracked rectangle top y value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is top,
-   * 1 is bottom), NAN if unknown
-   */
-  recTopY: float
-  /**
-   * Current tracked rectangle bottom x value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is
-   * left, 1 is right), NAN if unknown
-   */
-  recBottomX: float
-  /**
-   * Current tracked rectangle bottom y value if CAMERA_TRACKING_MODE_RECTANGLE (normalized 0..1, 0 is
-   * top, 1 is bottom), NAN if unknown
-   */
-  recBottomY: float
-}
-
-/**
- * Camera tracking status, sent while in active tracking. Use MAV_CMD_SET_MESSAGE_INTERVAL to define
- * message interval.
- */
-export class CameraTrackingGeoStatus extends MavLinkData {
-  static MSG_ID = 276
-  static MSG_NAME = 'CAMERA_TRACKING_GEO_STATUS'
-  static PAYLOAD_LENGTH = 49
-  static MAGIC_NUMBER = 18
-
-  static FIELDS = [
-    new MavLinkPacketField('lat', 'lat', 0, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('lon', 'lon', 4, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('alt', 'alt', 8, false, 4, 'float', 'm'),
-    new MavLinkPacketField('h_acc', 'hAcc', 12, false, 4, 'float', 'm'),
-    new MavLinkPacketField('v_acc', 'vAcc', 16, false, 4, 'float', 'm'),
-    new MavLinkPacketField('vel_n', 'velN', 20, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('vel_e', 'velE', 24, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('vel_d', 'velD', 28, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('vel_acc', 'velAcc', 32, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('dist', 'dist', 36, false, 4, 'float', 'm'),
-    new MavLinkPacketField('hdg', 'hdg', 40, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('hdg_acc', 'hdgAcc', 44, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('tracking_status', 'trackingStatus', 48, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Current tracking status
-   */
-  trackingStatus: CameraTrackingStatusFlags
-  /**
-   * Latitude of tracked object
-   * Units: degE7
-   */
-  lat: int32_t
-  /**
-   * Longitude of tracked object
-   * Units: degE7
-   */
-  lon: int32_t
-  /**
-   * Altitude of tracked object(AMSL, WGS84)
-   * Units: m
-   */
-  alt: float
-  /**
-   * Horizontal accuracy. NAN if unknown
-   * Units: m
-   */
-  hAcc: float
-  /**
-   * Vertical accuracy. NAN if unknown
-   * Units: m
-   */
-  vAcc: float
-  /**
-   * North velocity of tracked object. NAN if unknown
-   * Units: m/s
-   */
-  velN: float
-  /**
-   * East velocity of tracked object. NAN if unknown
-   * Units: m/s
-   */
-  velE: float
-  /**
-   * Down velocity of tracked object. NAN if unknown
-   * Units: m/s
-   */
-  velD: float
-  /**
-   * Velocity accuracy. NAN if unknown
-   * Units: m/s
-   */
-  velAcc: float
-  /**
-   * Distance between camera and tracked object. NAN if unknown
-   * Units: m
-   */
-  dist: float
-  /**
-   * Heading in radians, in NED. NAN if unknown
-   * Units: rad
-   */
-  hdg: float
-  /**
-   * Accuracy of heading, in NED. NAN if unknown
-   * Units: rad
-   */
-  hdgAcc: float
-}
-
-/**
- * Information about a high level gimbal manager. This message should be requested by a ground station
- * using MAV_CMD_REQUEST_MESSAGE.
- */
-export class GimbalManagerInformation extends MavLinkData {
-  static MSG_ID = 280
-  static MSG_NAME = 'GIMBAL_MANAGER_INFORMATION'
-  static PAYLOAD_LENGTH = 33
-  static MAGIC_NUMBER = 70
-
-  static FIELDS = [
-    new MavLinkPacketField('time_boot_ms', 'timeBootMs', 0, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('cap_flags', 'capFlags', 4, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('roll_min', 'rollMin', 8, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('roll_max', 'rollMax', 12, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('pitch_min', 'pitchMin', 16, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('pitch_max', 'pitchMax', 20, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('yaw_min', 'yawMin', 24, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('yaw_max', 'yawMax', 28, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('gimbal_device_id', 'gimbalDeviceId', 32, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Timestamp (time since system boot).
-   * Units: ms
-   */
-  timeBootMs: uint32_t
-  /**
-   * Bitmap of gimbal capability flags.
-   */
-  capFlags: GimbalManagerCapFlags
-  /**
-   * Gimbal device ID that this gimbal manager is responsible for.
-   */
-  gimbalDeviceId: uint8_t
-  /**
-   * Minimum hardware roll angle (positive: rolling to the right, negative: rolling to the left)
-   * Units: rad
-   */
-  rollMin: float
-  /**
-   * Maximum hardware roll angle (positive: rolling to the right, negative: rolling to the left)
-   * Units: rad
-   */
-  rollMax: float
-  /**
-   * Minimum pitch angle (positive: up, negative: down)
-   * Units: rad
-   */
-  pitchMin: float
-  /**
-   * Maximum pitch angle (positive: up, negative: down)
-   * Units: rad
-   */
-  pitchMax: float
-  /**
-   * Minimum yaw angle (positive: to the right, negative: to the left)
-   * Units: rad
-   */
-  yawMin: float
-  /**
-   * Maximum yaw angle (positive: to the right, negative: to the left)
-   * Units: rad
-   */
-  yawMax: float
-}
-
-/**
- * Current status about a high level gimbal manager. This message should be broadcast at a low regular
- * rate (e.g. 5Hz).
- */
-export class GimbalManagerStatus extends MavLinkData {
-  static MSG_ID = 281
-  static MSG_NAME = 'GIMBAL_MANAGER_STATUS'
-  static PAYLOAD_LENGTH = 13
-  static MAGIC_NUMBER = 48
-
-  static FIELDS = [
-    new MavLinkPacketField('time_boot_ms', 'timeBootMs', 0, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('flags', 'flags', 4, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('gimbal_device_id', 'gimbalDeviceId', 8, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('primary_control_sysid', 'primaryControlSysid', 9, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('primary_control_compid', 'primaryControlCompid', 10, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('secondary_control_sysid', 'secondaryControlSysid', 11, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('secondary_control_compid', 'secondaryControlCompid', 12, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Timestamp (time since system boot).
-   * Units: ms
-   */
-  timeBootMs: uint32_t
-  /**
-   * High level gimbal manager flags currently applied.
-   */
-  flags: GimbalManagerFlags
-  /**
-   * Gimbal device ID that this gimbal manager is responsible for.
-   */
-  gimbalDeviceId: uint8_t
-  /**
-   * System ID of MAVLink component with primary control, 0 for none.
-   */
-  primaryControlSysid: uint8_t
-  /**
-   * Component ID of MAVLink component with primary control, 0 for none.
-   */
-  primaryControlCompid: uint8_t
-  /**
-   * System ID of MAVLink component with secondary control, 0 for none.
-   */
-  secondaryControlSysid: uint8_t
-  /**
-   * Component ID of MAVLink component with secondary control, 0 for none.
-   */
-  secondaryControlCompid: uint8_t
-}
-
-/**
- * High level message to control a gimbal's attitude. This message is to be sent to the gimbal manager
- * (e.g. from a ground station). Angles and rates can be set to NaN according to use case.
- */
-export class GimbalManagerSetAttitude extends MavLinkData {
-  static MSG_ID = 282
-  static MSG_NAME = 'GIMBAL_MANAGER_SET_ATTITUDE'
-  static PAYLOAD_LENGTH = 35
-  static MAGIC_NUMBER = 123
-
-  static FIELDS = [
-    new MavLinkPacketField('flags', 'flags', 0, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('q', 'q', 4, false, 4, 'float[]', '', 4),
-    new MavLinkPacketField('angular_velocity_x', 'angularVelocityX', 20, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('angular_velocity_y', 'angularVelocityY', 24, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('angular_velocity_z', 'angularVelocityZ', 28, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('target_system', 'targetSystem', 32, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 33, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('gimbal_device_id', 'gimbalDeviceId', 34, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * High level gimbal manager flags to use.
-   */
-  flags: GimbalManagerFlags
-  /**
-   * Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device
-   * components. Send command multiple times for more than one gimbal (but not all gimbals).
-   */
-  gimbalDeviceId: uint8_t
-  /**
-   * Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation, the frame is depends on whether the
-   * flag GIMBAL_MANAGER_FLAGS_YAW_LOCK is set)
-   */
-  q: float[]
-  /**
-   * X component of angular velocity, positive is rolling to the right, NaN to be ignored.
-   * Units: rad/s
-   */
-  angularVelocityX: float
-  /**
-   * Y component of angular velocity, positive is pitching up, NaN to be ignored.
-   * Units: rad/s
-   */
-  angularVelocityY: float
-  /**
-   * Z component of angular velocity, positive is yawing to the right, NaN to be ignored.
-   * Units: rad/s
-   */
-  angularVelocityZ: float
-}
-
-/**
- * Information about a low level gimbal. This message should be requested by the gimbal manager or a
- * ground station using MAV_CMD_REQUEST_MESSAGE. The maximum angles and rates are the limits by
- * hardware. However, the limits by software used are likely different/smaller and dependent on
- * mode/settings/etc..
- */
-export class GimbalDeviceInformation extends MavLinkData {
-  static MSG_ID = 283
-  static MSG_NAME = 'GIMBAL_DEVICE_INFORMATION'
-  static PAYLOAD_LENGTH = 144
-  static MAGIC_NUMBER = 74
-
-  static FIELDS = [
-    new MavLinkPacketField('uid', 'uid', 0, false, 8, 'uint64_t', ''),
-    new MavLinkPacketField('time_boot_ms', 'timeBootMs', 8, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('firmware_version', 'firmwareVersion', 12, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('hardware_version', 'hardwareVersion', 16, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('roll_min', 'rollMin', 20, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('roll_max', 'rollMax', 24, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('pitch_min', 'pitchMin', 28, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('pitch_max', 'pitchMax', 32, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('yaw_min', 'yawMin', 36, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('yaw_max', 'yawMax', 40, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('cap_flags', 'capFlags', 44, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('custom_cap_flags', 'customCapFlags', 46, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('vendor_name', 'vendorName', 48, false, 1, 'char[]', '', 32),
-    new MavLinkPacketField('model_name', 'modelName', 80, false, 1, 'char[]', '', 32),
-    new MavLinkPacketField('custom_name', 'customName', 112, false, 1, 'char[]', '', 32),
-  ]
-
-  /**
-   * Timestamp (time since system boot).
-   * Units: ms
-   */
-  timeBootMs: uint32_t
-  /**
-   * Name of the gimbal vendor.
-   */
-  vendorName: string
-  /**
-   * Name of the gimbal model.
-   */
-  modelName: string
-  /**
-   * Custom name of the gimbal given to it by the user.
-   */
-  customName: string
-  /**
-   * Version of the gimbal firmware, encoded as: (Dev & 0xff) << 24 | (Patch & 0xff) << 16 | (Minor &
-   * 0xff) << 8 | (Major & 0xff).
-   */
-  firmwareVersion: uint32_t
-  /**
-   * Version of the gimbal hardware, encoded as: (Dev & 0xff) << 24 | (Patch & 0xff) << 16 | (Minor &
-   * 0xff) << 8 | (Major & 0xff).
-   */
-  hardwareVersion: uint32_t
-  /**
-   * UID of gimbal hardware (0 if unknown).
-   */
-  uid: uint64_t
-  /**
-   * Bitmap of gimbal capability flags.
-   */
-  capFlags: GimbalDeviceCapFlags
-  /**
-   * Bitmap for use for gimbal-specific capability flags.
-   */
-  customCapFlags: uint16_t
-  /**
-   * Minimum hardware roll angle (positive: rolling to the right, negative: rolling to the left)
-   * Units: rad
-   */
-  rollMin: float
-  /**
-   * Maximum hardware roll angle (positive: rolling to the right, negative: rolling to the left)
-   * Units: rad
-   */
-  rollMax: float
-  /**
-   * Minimum hardware pitch angle (positive: up, negative: down)
-   * Units: rad
-   */
-  pitchMin: float
-  /**
-   * Maximum hardware pitch angle (positive: up, negative: down)
-   * Units: rad
-   */
-  pitchMax: float
-  /**
-   * Minimum hardware yaw angle (positive: to the right, negative: to the left)
-   * Units: rad
-   */
-  yawMin: float
-  /**
-   * Maximum hardware yaw angle (positive: to the right, negative: to the left)
-   * Units: rad
-   */
-  yawMax: float
-}
-
-/**
- * Low level message to control a gimbal device's attitude. This message is to be sent from the gimbal
- * manager to the gimbal device component. Angles and rates can be set to NaN according to use case.
- */
-export class GimbalDeviceSetAttitude extends MavLinkData {
-  static MSG_ID = 284
-  static MSG_NAME = 'GIMBAL_DEVICE_SET_ATTITUDE'
-  static PAYLOAD_LENGTH = 32
-  static MAGIC_NUMBER = 99
-
-  static FIELDS = [
-    new MavLinkPacketField('q', 'q', 0, false, 4, 'float[]', '', 4),
-    new MavLinkPacketField('angular_velocity_x', 'angularVelocityX', 16, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('angular_velocity_y', 'angularVelocityY', 20, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('angular_velocity_z', 'angularVelocityZ', 24, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('flags', 'flags', 28, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 30, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 31, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Low level gimbal flags.
-   */
-  flags: GimbalDeviceFlags
-  /**
-   * Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation, the frame is depends on whether the
-   * flag GIMBAL_DEVICE_FLAGS_YAW_LOCK is set, set all fields to NaN if only angular velocity should be
-   * used)
-   */
-  q: float[]
-  /**
-   * X component of angular velocity, positive is rolling to the right, NaN to be ignored.
-   * Units: rad/s
-   */
-  angularVelocityX: float
-  /**
-   * Y component of angular velocity, positive is pitching up, NaN to be ignored.
-   * Units: rad/s
-   */
-  angularVelocityY: float
-  /**
-   * Z component of angular velocity, positive is yawing to the right, NaN to be ignored.
-   * Units: rad/s
-   */
-  angularVelocityZ: float
-}
-
-/**
- * Message reporting the status of a gimbal device. This message should be broadcasted by a gimbal
- * device component. The angles encoded in the quaternion are relative to absolute North if the flag
- * GIMBAL_DEVICE_FLAGS_YAW_LOCK is set (roll: positive is rolling to the right, pitch: positive is
- * pitching up, yaw is turn to the right) or relative to the vehicle heading if the flag is not set.
- * This message should be broadcast at a low regular rate (e.g. 10Hz).
- */
-export class GimbalDeviceAttitudeStatus extends MavLinkData {
-  static MSG_ID = 285
-  static MSG_NAME = 'GIMBAL_DEVICE_ATTITUDE_STATUS'
-  static PAYLOAD_LENGTH = 40
-  static MAGIC_NUMBER = 137
-
-  static FIELDS = [
-    new MavLinkPacketField('time_boot_ms', 'timeBootMs', 0, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('q', 'q', 4, false, 4, 'float[]', '', 4),
-    new MavLinkPacketField('angular_velocity_x', 'angularVelocityX', 20, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('angular_velocity_y', 'angularVelocityY', 24, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('angular_velocity_z', 'angularVelocityZ', 28, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('failure_flags', 'failureFlags', 32, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('flags', 'flags', 36, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 38, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 39, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Timestamp (time since system boot).
-   * Units: ms
-   */
-  timeBootMs: uint32_t
-  /**
-   * Current gimbal flags set.
-   */
-  flags: GimbalDeviceFlags
-  /**
-   * Quaternion components, w, x, y, z (1 0 0 0 is the null-rotation, the frame is depends on whether the
-   * flag GIMBAL_DEVICE_FLAGS_YAW_LOCK is set)
-   */
-  q: float[]
-  /**
-   * X component of angular velocity (NaN if unknown)
-   * Units: rad/s
-   */
-  angularVelocityX: float
-  /**
-   * Y component of angular velocity (NaN if unknown)
-   * Units: rad/s
-   */
-  angularVelocityY: float
-  /**
-   * Z component of angular velocity (NaN if unknown)
-   * Units: rad/s
-   */
-  angularVelocityZ: float
-  /**
-   * Failure flags (0 for no failure)
-   */
-  failureFlags: GimbalDeviceErrorFlags
-}
-
-/**
- * Low level message containing autopilot state relevant for a gimbal device. This message is to be
- * sent from the gimbal manager to the gimbal device component. The data of this message server for the
- * gimbal's estimator corrections in particular horizon compensation, as well as the autopilot's
- * control intention e.g. feed forward angular control in z-axis.
- */
-export class AutopilotStateForGimbalDevice extends MavLinkData {
-  static MSG_ID = 286
-  static MSG_NAME = 'AUTOPILOT_STATE_FOR_GIMBAL_DEVICE'
-  static PAYLOAD_LENGTH = 53
-  static MAGIC_NUMBER = 210
-
-  static FIELDS = [
-    new MavLinkPacketField('time_boot_us', 'timeBootUs', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('q', 'q', 8, false, 4, 'float[]', '', 4),
-    new MavLinkPacketField('q_estimated_delay_us', 'qEstimatedDelayUs', 24, false, 4, 'uint32_t', 'us'),
-    new MavLinkPacketField('vx', 'vx', 28, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('vy', 'vy', 32, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('vz', 'vz', 36, false, 4, 'float', 'm/s'),
-    new MavLinkPacketField('v_estimated_delay_us', 'vEstimatedDelayUs', 40, false, 4, 'uint32_t', 'us'),
-    new MavLinkPacketField('feed_forward_angular_velocity_z', 'feedForwardAngularVelocityZ', 44, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('estimator_status', 'estimatorStatus', 48, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 50, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 51, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('landed_state', 'landedState', 52, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Timestamp (time since system boot).
-   * Units: us
-   */
-  timeBootUs: uint64_t
-  /**
-   * Quaternion components of autopilot attitude: w, x, y, z (1 0 0 0 is the null-rotation, Hamilton
-   * convention).
-   */
-  q: float[]
-  /**
-   * Estimated delay of the attitude data.
-   * Units: us
-   */
-  qEstimatedDelayUs: uint32_t
-  /**
-   * X Speed in NED (North, East, Down).
-   * Units: m/s
-   */
-  vx: float
-  /**
-   * Y Speed in NED (North, East, Down).
-   * Units: m/s
-   */
-  vy: float
-  /**
-   * Z Speed in NED (North, East, Down).
-   * Units: m/s
-   */
-  vz: float
-  /**
-   * Estimated delay of the speed data.
-   * Units: us
-   */
-  vEstimatedDelayUs: uint32_t
-  /**
-   * Feed forward Z component of angular velocity, positive is yawing to the right, NaN to be ignored.
-   * This is to indicate if the autopilot is actively yawing.
-   * Units: rad/s
-   */
-  feedForwardAngularVelocityZ: float
-  /**
-   * Bitmap indicating which estimator outputs are valid.
-   */
-  estimatorStatus: EstimatorStatusFlags
-  /**
-   * The landed state. Is set to MAV_LANDED_STATE_UNDEFINED if landed state is unknown.
-   */
-  landedState: MavLandedState
-}
-
-/**
- * High level message to control a gimbal's pitch and yaw angles. This message is to be sent to the
- * gimbal manager (e.g. from a ground station). Angles and rates can be set to NaN according to use
- * case.
- */
-export class GimbalManagerSetPitchyaw extends MavLinkData {
-  static MSG_ID = 287
-  static MSG_NAME = 'GIMBAL_MANAGER_SET_PITCHYAW'
-  static PAYLOAD_LENGTH = 23
-  static MAGIC_NUMBER = 1
-
-  static FIELDS = [
-    new MavLinkPacketField('flags', 'flags', 0, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('pitch', 'pitch', 4, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('yaw', 'yaw', 8, false, 4, 'float', 'rad'),
-    new MavLinkPacketField('pitch_rate', 'pitchRate', 12, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('yaw_rate', 'yawRate', 16, false, 4, 'float', 'rad/s'),
-    new MavLinkPacketField('target_system', 'targetSystem', 20, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 21, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('gimbal_device_id', 'gimbalDeviceId', 22, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * High level gimbal manager flags to use.
-   */
-  flags: GimbalManagerFlags
-  /**
-   * Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device
-   * components. Send command multiple times for more than one gimbal (but not all gimbals).
-   */
-  gimbalDeviceId: uint8_t
-  /**
-   * Pitch angle (positive: up, negative: down, NaN to be ignored).
-   * Units: rad
-   */
-  pitch: float
-  /**
-   * Yaw angle (positive: to the right, negative: to the left, NaN to be ignored).
-   * Units: rad
-   */
-  yaw: float
-  /**
-   * Pitch angular rate (positive: up, negative: down, NaN to be ignored).
-   * Units: rad/s
-   */
-  pitchRate: float
-  /**
-   * Yaw angular rate (positive: to the right, negative: to the left, NaN to be ignored).
-   * Units: rad/s
-   */
-  yawRate: float
-}
-
-/**
- * High level message to control a gimbal manually. The angles or angular rates are unitless; the
- * actual rates will depend on internal gimbal manager settings/configuration (e.g. set by parameters).
- * This message is to be sent to the gimbal manager (e.g. from a ground station). Angles and rates can
- * be set to NaN according to use case.
- */
-export class GimbalManagerSetManualControl extends MavLinkData {
-  static MSG_ID = 288
-  static MSG_NAME = 'GIMBAL_MANAGER_SET_MANUAL_CONTROL'
-  static PAYLOAD_LENGTH = 23
-  static MAGIC_NUMBER = 20
-
-  static FIELDS = [
-    new MavLinkPacketField('flags', 'flags', 0, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('pitch', 'pitch', 4, false, 4, 'float', ''),
-    new MavLinkPacketField('yaw', 'yaw', 8, false, 4, 'float', ''),
-    new MavLinkPacketField('pitch_rate', 'pitchRate', 12, false, 4, 'float', ''),
-    new MavLinkPacketField('yaw_rate', 'yawRate', 16, false, 4, 'float', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 20, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 21, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('gimbal_device_id', 'gimbalDeviceId', 22, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * High level gimbal manager flags.
-   */
-  flags: GimbalManagerFlags
-  /**
-   * Component ID of gimbal device to address (or 1-6 for non-MAVLink gimbal), 0 for all gimbal device
-   * components. Send command multiple times for more than one gimbal (but not all gimbals).
-   */
-  gimbalDeviceId: uint8_t
-  /**
-   * Pitch angle unitless (-1..1, positive: up, negative: down, NaN to be ignored).
-   */
-  pitch: float
-  /**
-   * Yaw angle unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).
-   */
-  yaw: float
-  /**
-   * Pitch angular rate unitless (-1..1, positive: up, negative: down, NaN to be ignored).
-   */
-  pitchRate: float
-  /**
-   * Yaw angular rate unitless (-1..1, positive: to the right, negative: to the left, NaN to be ignored).
-   */
-  yawRate: float
-}
-
-/**
- * ESC information for lower rate streaming. Recommended streaming rate 1Hz. See ESC_STATUS for
- * higher-rate ESC data.
- */
-export class EscInfo extends MavLinkData {
-  static MSG_ID = 290
-  static MSG_NAME = 'ESC_INFO'
-  static PAYLOAD_LENGTH = 46
-  static MAGIC_NUMBER = 251
-
-  static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('error_count', 'errorCount', 8, false, 4, 'uint32_t[]', '', 4),
-    new MavLinkPacketField('counter', 'counter', 24, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('failure_flags', 'failureFlags', 26, false, 2, 'uint16_t[]', '', 4),
-    new MavLinkPacketField('temperature', 'temperature', 34, false, 2, 'int16_t[]', 'cdegC', 4),
-    new MavLinkPacketField('index', 'index', 42, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('count', 'count', 43, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('connection_type', 'connectionType', 44, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('info', 'info', 45, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Index of the first ESC in this message. minValue = 0, maxValue = 60, increment = 4.
-   */
-  index: uint8_t
-  /**
-   * Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format
-   * (since 1.1.1970 or since system boot) by checking for the magnitude the number.
-   * Units: us
-   */
-  timeUsec: uint64_t
-  /**
-   * Counter of data packets received.
-   */
-  counter: uint16_t
-  /**
-   * Total number of ESCs in all messages of this type. Message fields with an index higher than this
-   * should be ignored because they contain invalid data.
-   */
-  count: uint8_t
-  /**
-   * Connection type protocol for all ESC.
-   */
-  connectionType: EscConnectionType
-  /**
-   * Information regarding online/offline status of each ESC.
-   */
-  info: uint8_t
-  /**
-   * Bitmap of ESC failure flags.
-   */
-  failureFlags: EscFailureFlags
-  /**
-   * Number of reported errors by each ESC since boot.
-   */
-  errorCount: uint32_t[]
-  /**
-   * Temperature of each ESC. INT16_MAX: if data not supplied by ESC.
-   * Units: cdegC
-   */
-  temperature: int16_t[]
-}
-
-/**
- * ESC information for higher rate streaming. Recommended streaming rate is ~10 Hz. Information that
- * changes more slowly is sent in ESC_INFO. It should typically only be streamed on high-bandwidth
- * links (i.e. to a companion computer).
- */
-export class EscStatus extends MavLinkData {
-  static MSG_ID = 291
-  static MSG_NAME = 'ESC_STATUS'
-  static PAYLOAD_LENGTH = 57
-  static MAGIC_NUMBER = 10
-
-  static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('rpm', 'rpm', 8, false, 4, 'int32_t[]', 'rpm', 4),
-    new MavLinkPacketField('voltage', 'voltage', 24, false, 4, 'float[]', 'V', 4),
-    new MavLinkPacketField('current', 'current', 40, false, 4, 'float[]', 'A', 4),
-    new MavLinkPacketField('index', 'index', 56, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Index of the first ESC in this message. minValue = 0, maxValue = 60, increment = 4.
-   */
-  index: uint8_t
-  /**
-   * Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format
-   * (since 1.1.1970 or since system boot) by checking for the magnitude the number.
-   * Units: us
-   */
-  timeUsec: uint64_t
-  /**
-   * Reported motor RPM from each ESC (negative for reverse rotation).
-   * Units: rpm
-   */
-  rpm: int32_t[]
-  /**
-   * Voltage measured from each ESC.
-   * Units: V
-   */
-  voltage: float[]
-  /**
-   * Current measured from each ESC.
-   * Units: A
-   */
-  current: float[]
-}
-
-/**
  * Configure WiFi AP SSID, password, and mode. This message is re-emitted as an acknowledgement by the
  * AP. The message may also be explicitly requested using MAV_CMD_REQUEST_MESSAGE
  */
 export class WifiConfigAp extends MavLinkData {
   static MSG_ID = 299
   static MSG_NAME = 'WIFI_CONFIG_AP'
-  static PAYLOAD_LENGTH = 98
+  static PAYLOAD_LENGTH = 96
   static MAGIC_NUMBER = 19
 
   static FIELDS = [
     new MavLinkPacketField('ssid', 'ssid', 0, false, 1, 'char[]', '', 32),
     new MavLinkPacketField('password', 'password', 32, false, 1, 'char[]', '', 64),
-    new MavLinkPacketField('mode', 'mode', 96, true, 1, 'int8_t', ''),
-    new MavLinkPacketField('response', 'response', 97, true, 1, 'int8_t', ''),
   ]
 
   /**
@@ -13466,14 +11301,6 @@ export class WifiConfigAp extends MavLinkData {
    * Password. Blank for an open AP. MD5 hash when message is sent back as a response.
    */
   password: string
-  /**
-   * WiFi Mode.
-   */
-  mode: WifiConfigApMode
-  /**
-   * Message acceptance response (sent back to GS).
-   */
-  response: WifiConfigApResponse
 }
 
 /**
@@ -13697,195 +11524,9 @@ export class UavcanNodeInfo extends MavLinkData {
    */
   swVersionMinor: uint8_t
   /**
-   * Version control system (VCS) revision identifier (e.g. git short commit hash). 0 if unknown.
+   * Version control system (VCS) revision identifier (e.g. git short commit hash). Zero if unknown.
    */
   swVcsCommit: uint32_t
-}
-
-/**
- * Request to read the value of a parameter with either the param_id string id or param_index.
- * PARAM_EXT_VALUE should be emitted in response.
- */
-export class ParamExtRequestRead extends MavLinkData {
-  static MSG_ID = 320
-  static MSG_NAME = 'PARAM_EXT_REQUEST_READ'
-  static PAYLOAD_LENGTH = 20
-  static MAGIC_NUMBER = 243
-
-  static FIELDS = [
-    new MavLinkPacketField('param_index', 'paramIndex', 0, false, 2, 'int16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 2, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 3, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('param_id', 'paramId', 4, false, 1, 'char[]', '', 16),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-   * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-   * storage if the ID is stored as string
-   */
-  paramId: string
-  /**
-   * Parameter index. Set to -1 to use the Parameter ID field as identifier (else param_id will be
-   * ignored)
-   */
-  paramIndex: int16_t
-}
-
-/**
- * Request all parameters of this component. All parameters should be emitted in response as
- * PARAM_EXT_VALUE.
- */
-export class ParamExtRequestList extends MavLinkData {
-  static MSG_ID = 321
-  static MSG_NAME = 'PARAM_EXT_REQUEST_LIST'
-  static PAYLOAD_LENGTH = 2
-  static MAGIC_NUMBER = 88
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-}
-
-/**
- * Emit the value of a parameter. The inclusion of param_count and param_index in the message allows
- * the recipient to keep track of received parameters and allows them to re-request missing parameters
- * after a loss or timeout.
- */
-export class ParamExtValue extends MavLinkData {
-  static MSG_ID = 322
-  static MSG_NAME = 'PARAM_EXT_VALUE'
-  static PAYLOAD_LENGTH = 149
-  static MAGIC_NUMBER = 243
-
-  static FIELDS = [
-    new MavLinkPacketField('param_count', 'paramCount', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('param_index', 'paramIndex', 2, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('param_id', 'paramId', 4, false, 1, 'char[]', '', 16),
-    new MavLinkPacketField('param_value', 'paramValue', 20, false, 1, 'char[]', '', 128),
-    new MavLinkPacketField('param_type', 'paramType', 148, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-   * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-   * storage if the ID is stored as string
-   */
-  paramId: string
-  /**
-   * Parameter value
-   */
-  paramValue: string
-  /**
-   * Parameter type.
-   */
-  paramType: MavParamExtType
-  /**
-   * Total number of parameters
-   */
-  paramCount: uint16_t
-  /**
-   * Index of this parameter
-   */
-  paramIndex: uint16_t
-}
-
-/**
- * Set a parameter value. In order to deal with message loss (and retransmission of PARAM_EXT_SET),
- * when setting a parameter value and the new value is the same as the current value, you will
- * immediately get a PARAM_ACK_ACCEPTED response. If the current state is PARAM_ACK_IN_PROGRESS, you
- * will accordingly receive a PARAM_ACK_IN_PROGRESS in response.
- */
-export class ParamExtSet extends MavLinkData {
-  static MSG_ID = 323
-  static MSG_NAME = 'PARAM_EXT_SET'
-  static PAYLOAD_LENGTH = 147
-  static MAGIC_NUMBER = 78
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('param_id', 'paramId', 2, false, 1, 'char[]', '', 16),
-    new MavLinkPacketField('param_value', 'paramValue', 18, false, 1, 'char[]', '', 128),
-    new MavLinkPacketField('param_type', 'paramType', 146, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-   * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-   * storage if the ID is stored as string
-   */
-  paramId: string
-  /**
-   * Parameter value
-   */
-  paramValue: string
-  /**
-   * Parameter type.
-   */
-  paramType: MavParamExtType
-}
-
-/**
- * Response from a PARAM_EXT_SET message.
- */
-export class ParamExtAck extends MavLinkData {
-  static MSG_ID = 324
-  static MSG_NAME = 'PARAM_EXT_ACK'
-  static PAYLOAD_LENGTH = 146
-  static MAGIC_NUMBER = 132
-
-  static FIELDS = [
-    new MavLinkPacketField('param_id', 'paramId', 0, false, 1, 'char[]', '', 16),
-    new MavLinkPacketField('param_value', 'paramValue', 16, false, 1, 'char[]', '', 128),
-    new MavLinkPacketField('param_type', 'paramType', 144, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('param_result', 'paramResult', 145, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-   * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-   * storage if the ID is stored as string
-   */
-  paramId: string
-  /**
-   * Parameter value (new value if PARAM_ACK_ACCEPTED, current value otherwise)
-   */
-  paramValue: string
-  /**
-   * Parameter type.
-   */
-  paramType: MavParamExtType
-  /**
-   * Result code.
-   */
-  paramResult: ParamAck
 }
 
 /**
@@ -14082,209 +11723,6 @@ export class Odometry extends MavLinkData {
 }
 
 /**
- * Describe a trajectory using an array of up-to 5 waypoints in the local frame (MAV_FRAME_LOCAL_NED).
- */
-export class TrajectoryRepresentationWaypoints extends MavLinkData {
-  static MSG_ID = 332
-  static MSG_NAME = 'TRAJECTORY_REPRESENTATION_WAYPOINTS'
-  static PAYLOAD_LENGTH = 239
-  static MAGIC_NUMBER = 236
-
-  static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('pos_x', 'posX', 8, false, 4, 'float[]', 'm', 5),
-    new MavLinkPacketField('pos_y', 'posY', 28, false, 4, 'float[]', 'm', 5),
-    new MavLinkPacketField('pos_z', 'posZ', 48, false, 4, 'float[]', 'm', 5),
-    new MavLinkPacketField('vel_x', 'velX', 68, false, 4, 'float[]', 'm/s', 5),
-    new MavLinkPacketField('vel_y', 'velY', 88, false, 4, 'float[]', 'm/s', 5),
-    new MavLinkPacketField('vel_z', 'velZ', 108, false, 4, 'float[]', 'm/s', 5),
-    new MavLinkPacketField('acc_x', 'accX', 128, false, 4, 'float[]', 'm/s/s', 5),
-    new MavLinkPacketField('acc_y', 'accY', 148, false, 4, 'float[]', 'm/s/s', 5),
-    new MavLinkPacketField('acc_z', 'accZ', 168, false, 4, 'float[]', 'm/s/s', 5),
-    new MavLinkPacketField('pos_yaw', 'posYaw', 188, false, 4, 'float[]', 'rad', 5),
-    new MavLinkPacketField('vel_yaw', 'velYaw', 208, false, 4, 'float[]', 'rad/s', 5),
-    new MavLinkPacketField('command', 'command', 228, false, 2, 'uint16_t[]', '', 5),
-    new MavLinkPacketField('valid_points', 'validPoints', 238, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format
-   * (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
-   * Units: us
-   */
-  timeUsec: uint64_t
-  /**
-   * Number of valid points (up-to 5 waypoints are possible)
-   */
-  validPoints: uint8_t
-  /**
-   * X-coordinate of waypoint, set to NaN if not being used
-   * Units: m
-   */
-  posX: float[]
-  /**
-   * Y-coordinate of waypoint, set to NaN if not being used
-   * Units: m
-   */
-  posY: float[]
-  /**
-   * Z-coordinate of waypoint, set to NaN if not being used
-   * Units: m
-   */
-  posZ: float[]
-  /**
-   * X-velocity of waypoint, set to NaN if not being used
-   * Units: m/s
-   */
-  velX: float[]
-  /**
-   * Y-velocity of waypoint, set to NaN if not being used
-   * Units: m/s
-   */
-  velY: float[]
-  /**
-   * Z-velocity of waypoint, set to NaN if not being used
-   * Units: m/s
-   */
-  velZ: float[]
-  /**
-   * X-acceleration of waypoint, set to NaN if not being used
-   * Units: m/s/s
-   */
-  accX: float[]
-  /**
-   * Y-acceleration of waypoint, set to NaN if not being used
-   * Units: m/s/s
-   */
-  accY: float[]
-  /**
-   * Z-acceleration of waypoint, set to NaN if not being used
-   * Units: m/s/s
-   */
-  accZ: float[]
-  /**
-   * Yaw angle, set to NaN if not being used
-   * Units: rad
-   */
-  posYaw: float[]
-  /**
-   * Yaw rate, set to NaN if not being used
-   * Units: rad/s
-   */
-  velYaw: float[]
-  /**
-   * MAV_CMD command id of waypoint, set to UINT16_MAX if not being used.
-   */
-  command: MavCmd
-}
-
-/**
- * Describe a trajectory using an array of up-to 5 bezier control points in the local frame
- * (MAV_FRAME_LOCAL_NED).
- */
-export class TrajectoryRepresentationBezier extends MavLinkData {
-  static MSG_ID = 333
-  static MSG_NAME = 'TRAJECTORY_REPRESENTATION_BEZIER'
-  static PAYLOAD_LENGTH = 109
-  static MAGIC_NUMBER = 231
-
-  static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('pos_x', 'posX', 8, false, 4, 'float[]', 'm', 5),
-    new MavLinkPacketField('pos_y', 'posY', 28, false, 4, 'float[]', 'm', 5),
-    new MavLinkPacketField('pos_z', 'posZ', 48, false, 4, 'float[]', 'm', 5),
-    new MavLinkPacketField('delta', 'delta', 68, false, 4, 'float[]', 's', 5),
-    new MavLinkPacketField('pos_yaw', 'posYaw', 88, false, 4, 'float[]', 'rad', 5),
-    new MavLinkPacketField('valid_points', 'validPoints', 108, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format
-   * (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
-   * Units: us
-   */
-  timeUsec: uint64_t
-  /**
-   * Number of valid control points (up-to 5 points are possible)
-   */
-  validPoints: uint8_t
-  /**
-   * X-coordinate of bezier control points. Set to NaN if not being used
-   * Units: m
-   */
-  posX: float[]
-  /**
-   * Y-coordinate of bezier control points. Set to NaN if not being used
-   * Units: m
-   */
-  posY: float[]
-  /**
-   * Z-coordinate of bezier control points. Set to NaN if not being used
-   * Units: m
-   */
-  posZ: float[]
-  /**
-   * Bezier time horizon. Set to NaN if velocity/acceleration should not be incorporated
-   * Units: s
-   */
-  delta: float[]
-  /**
-   * Yaw. Set to NaN for unchanged
-   * Units: rad
-   */
-  posYaw: float[]
-}
-
-/**
- * Report current used cellular network status
- */
-export class CellularStatus extends MavLinkData {
-  static MSG_ID = 334
-  static MSG_NAME = 'CELLULAR_STATUS'
-  static PAYLOAD_LENGTH = 10
-  static MAGIC_NUMBER = 72
-
-  static FIELDS = [
-    new MavLinkPacketField('mcc', 'mcc', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('mnc', 'mnc', 2, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('lac', 'lac', 4, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('status', 'status', 6, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('failure_reason', 'failureReason', 7, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('type', 'type', 8, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('quality', 'quality', 9, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Cellular modem status
-   */
-  status: CellularStatusFlag
-  /**
-   * Failure reason when status in in CELLUAR_STATUS_FAILED
-   */
-  failureReason: CellularNetworkFailedReason
-  /**
-   * Cellular network radio type: gsm, cdma, lte...
-   */
-  type: CellularNetworkRadioType
-  /**
-   * Signal quality in percent. If unknown, set to UINT8_MAX
-   */
-  quality: uint8_t
-  /**
-   * Mobile country code. If unknown, set to UINT16_MAX
-   */
-  mcc: uint16_t
-  /**
-   * Mobile network code. If unknown, set to UINT16_MAX
-   */
-  mnc: uint16_t
-  /**
-   * Location area code. If unknown, set to 0
-   */
-  lac: uint16_t
-}
-
-/**
  * Status of the Iridium SBD link.
  */
 export class IsbdLinkStatus extends MavLinkData {
@@ -14341,66 +11779,6 @@ export class IsbdLinkStatus extends MavLinkData {
    * 1: Receiving session pending, 0: No receiving session pending.
    */
   rxSessionPending: uint8_t
-}
-
-/**
- * Configure cellular modems. This message is re-emitted as an acknowledgement by the modem. The
- * message may also be explicitly requested using MAV_CMD_REQUEST_MESSAGE.
- */
-export class CellularConfig extends MavLinkData {
-  static MSG_ID = 336
-  static MSG_NAME = 'CELLULAR_CONFIG'
-  static PAYLOAD_LENGTH = 84
-  static MAGIC_NUMBER = 245
-
-  static FIELDS = [
-    new MavLinkPacketField('enable_lte', 'enableLte', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('enable_pin', 'enablePin', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('pin', 'pin', 2, false, 1, 'char[]', '', 16),
-    new MavLinkPacketField('new_pin', 'newPin', 18, false, 1, 'char[]', '', 16),
-    new MavLinkPacketField('apn', 'apn', 34, false, 1, 'char[]', '', 32),
-    new MavLinkPacketField('puk', 'puk', 66, false, 1, 'char[]', '', 16),
-    new MavLinkPacketField('roaming', 'roaming', 82, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('response', 'response', 83, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Enable/disable LTE. 0: setting unchanged, 1: disabled, 2: enabled. Current setting when sent back as
-   * a response.
-   */
-  enableLte: uint8_t
-  /**
-   * Enable/disable PIN on the SIM card. 0: setting unchanged, 1: disabled, 2: enabled. Current setting
-   * when sent back as a response.
-   */
-  enablePin: uint8_t
-  /**
-   * PIN sent to the SIM card. Blank when PIN is disabled. Empty when message is sent back as a response.
-   */
-  pin: string
-  /**
-   * New PIN when changing the PIN. Blank to leave it unchanged. Empty when message is sent back as a
-   * response.
-   */
-  newPin: string
-  /**
-   * Name of the cellular APN. Blank to leave it unchanged. Current APN when sent back as a response.
-   */
-  apn: string
-  /**
-   * Required PUK code in case the user failed to authenticate 3 times with the PIN. Empty when message
-   * is sent back as a response.
-   */
-  puk: string
-  /**
-   * Enable/disable roaming. 0: setting unchanged, 1: disabled, 2: enabled. Current setting when sent
-   * back as a response.
-   */
-  roaming: uint8_t
-  /**
-   * Message acceptance response (sent back to GS).
-   */
-  response: CellularConfigResponse
 }
 
 /**
@@ -14583,57 +11961,6 @@ export class DebugFloatArray extends MavLinkData {
    * data
    */
   data: float[]
-}
-
-/**
- * Vehicle status report that is sent out while orbit execution is in progress (see MAV_CMD_DO_ORBIT).
- */
-export class OrbitExecutionStatus extends MavLinkData {
-  static MSG_ID = 360
-  static MSG_NAME = 'ORBIT_EXECUTION_STATUS'
-  static PAYLOAD_LENGTH = 25
-  static MAGIC_NUMBER = 11
-
-  static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('radius', 'radius', 8, false, 4, 'float', 'm'),
-    new MavLinkPacketField('x', 'x', 12, false, 4, 'int32_t', ''),
-    new MavLinkPacketField('y', 'y', 16, false, 4, 'int32_t', ''),
-    new MavLinkPacketField('z', 'z', 20, false, 4, 'float', 'm'),
-    new MavLinkPacketField('frame', 'frame', 24, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format
-   * (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
-   * Units: us
-   */
-  timeUsec: uint64_t
-  /**
-   * Radius of the orbit circle. Positive values orbit clockwise, negative values orbit
-   * counter-clockwise.
-   * Units: m
-   */
-  radius: float
-  /**
-   * The coordinate system of the fields: x, y, z.
-   */
-  frame: MavFrame
-  /**
-   * X coordinate of center point. Coordinate system depends on frame field: local = x position in meters
-   * * 1e4, global = latitude in degrees * 1e7.
-   */
-  x: int32_t
-  /**
-   * Y coordinate of center point. Coordinate system depends on frame field: local = x position in meters
-   * * 1e4, global = latitude in degrees * 1e7.
-   */
-  y: int32_t
-  /**
-   * Altitude of center point. Coordinate system depends on frame field.
-   * Units: m
-   */
-  z: float
 }
 
 /**
@@ -14860,500 +12187,260 @@ export class ActuatorOutputStatus extends MavLinkData {
 }
 
 /**
- * Time/duration estimates for various events and actions given the current vehicle state and position.
+ * Position of an aircraft in swarm.
  */
-export class TimeEstimateToTarget extends MavLinkData {
-  static MSG_ID = 380
-  static MSG_NAME = 'TIME_ESTIMATE_TO_TARGET'
-  static PAYLOAD_LENGTH = 20
-  static MAGIC_NUMBER = 232
-
-  static FIELDS = [
-    new MavLinkPacketField('safe_return', 'safeReturn', 0, false, 4, 'int32_t', 's'),
-    new MavLinkPacketField('land', 'land', 4, false, 4, 'int32_t', 's'),
-    new MavLinkPacketField('mission_next_item', 'missionNextItem', 8, false, 4, 'int32_t', 's'),
-    new MavLinkPacketField('mission_end', 'missionEnd', 12, false, 4, 'int32_t', 's'),
-    new MavLinkPacketField('commanded_action', 'commandedAction', 16, false, 4, 'int32_t', 's'),
-  ]
-
-  /**
-   * Estimated time to complete the vehicle's configured "safe return" action from its current position
-   * (e.g. RTL, Smart RTL, etc.). -1 indicates that the vehicle is landed, or that no time estimate
-   * available.
-   * Units: s
-   */
-  safeReturn: int32_t
-  /**
-   * Estimated time for vehicle to complete the LAND action from its current position. -1 indicates that
-   * the vehicle is landed, or that no time estimate available.
-   * Units: s
-   */
-  land: int32_t
-  /**
-   * Estimated time for reaching/completing the currently active mission item. -1 means no time estimate
-   * available.
-   * Units: s
-   */
-  missionNextItem: int32_t
-  /**
-   * Estimated time for completing the current mission. -1 means no mission active and/or no estimate
-   * available.
-   * Units: s
-   */
-  missionEnd: int32_t
-  /**
-   * Estimated time for completing the current commanded action (i.e. Go To, Takeoff, Land, etc.). -1
-   * means no action active and/or no estimate available.
-   * Units: s
-   */
-  commandedAction: int32_t
-}
-
-/**
- * Message for transporting "arbitrary" variable-length data from one component to another (broadcast
- * is not forbidden, but discouraged). The encoding of the data is usually extension specific, i.e.
- * determined by the source, and is usually not documented as part of the MAVLink specification.
- */
-export class Tunnel extends MavLinkData {
-  static MSG_ID = 385
-  static MSG_NAME = 'TUNNEL'
-  static PAYLOAD_LENGTH = 133
-  static MAGIC_NUMBER = 147
-
-  static FIELDS = [
-    new MavLinkPacketField('payload_type', 'payloadType', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 2, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 3, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('payload_length', 'payloadLength', 4, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('payload', 'payload', 5, false, 1, 'uint8_t[]', '', 128),
-  ]
-
-  /**
-   * System ID (can be 0 for broadcast, but this is discouraged)
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (can be 0 for broadcast, but this is discouraged)
-   */
-  targetComponent: uint8_t
-  /**
-   * A code that identifies the content of the payload (0 for unknown, which is the default). If this
-   * code is less than 32768, it is a 'registered' payload type and the corresponding code should be
-   * added to the MAV_TUNNEL_PAYLOAD_TYPE enum. Software creators can register blocks of types as needed.
-   * Codes greater than 32767 are considered local experiments and should not be checked in to any widely
-   * distributed codebase.
-   */
-  payloadType: MavTunnelPayloadType
-  /**
-   * Length of the data transported in payload
-   */
-  payloadLength: uint8_t
-  /**
-   * Variable length payload. The payload length is defined by payload_length. The entire content of this
-   * block is opaque unless you understand the encoding specified by payload_type.
-   */
-  payload: uint8_t[]
-}
-
-/**
- * Hardware status sent by an onboard computer.
- */
-export class OnboardComputerStatus extends MavLinkData {
-  static MSG_ID = 390
-  static MSG_NAME = 'ONBOARD_COMPUTER_STATUS'
-  static PAYLOAD_LENGTH = 238
-  static MAGIC_NUMBER = 156
+export class SwarmVehicle extends MavLinkData {
+  static MSG_ID = 2820
+  static MSG_NAME = 'SWARM_VEHICLE'
+  static PAYLOAD_LENGTH = 51
+  static MAGIC_NUMBER = 195
 
   static FIELDS = [
     new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('uptime', 'uptime', 8, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('ram_usage', 'ramUsage', 12, false, 4, 'uint32_t', 'MiB'),
-    new MavLinkPacketField('ram_total', 'ramTotal', 16, false, 4, 'uint32_t', 'MiB'),
-    new MavLinkPacketField('storage_type', 'storageType', 20, false, 4, 'uint32_t[]', '', 4),
-    new MavLinkPacketField('storage_usage', 'storageUsage', 36, false, 4, 'uint32_t[]', 'MiB', 4),
-    new MavLinkPacketField('storage_total', 'storageTotal', 52, false, 4, 'uint32_t[]', 'MiB', 4),
-    new MavLinkPacketField('link_type', 'linkType', 68, false, 4, 'uint32_t[]', '', 6),
-    new MavLinkPacketField('link_tx_rate', 'linkTxRate', 92, false, 4, 'uint32_t[]', 'KiB/s', 6),
-    new MavLinkPacketField('link_rx_rate', 'linkRxRate', 116, false, 4, 'uint32_t[]', 'KiB/s', 6),
-    new MavLinkPacketField('link_tx_max', 'linkTxMax', 140, false, 4, 'uint32_t[]', 'KiB/s', 6),
-    new MavLinkPacketField('link_rx_max', 'linkRxMax', 164, false, 4, 'uint32_t[]', 'KiB/s', 6),
-    new MavLinkPacketField('fan_speed', 'fanSpeed', 188, false, 2, 'int16_t[]', 'rpm', 4),
-    new MavLinkPacketField('type', 'type', 196, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('cpu_cores', 'cpuCores', 197, false, 1, 'uint8_t[]', '', 8),
-    new MavLinkPacketField('cpu_combined', 'cpuCombined', 205, false, 1, 'uint8_t[]', '', 10),
-    new MavLinkPacketField('gpu_cores', 'gpuCores', 215, false, 1, 'uint8_t[]', '', 4),
-    new MavLinkPacketField('gpu_combined', 'gpuCombined', 219, false, 1, 'uint8_t[]', '', 10),
-    new MavLinkPacketField('temperature_board', 'temperatureBoard', 229, false, 1, 'int8_t', 'degC'),
-    new MavLinkPacketField('temperature_core', 'temperatureCore', 230, false, 1, 'int8_t[]', 'degC', 8),
+    new MavLinkPacketField('cog', 'cog', 8, false, 4, 'float', 'deg'),
+    new MavLinkPacketField('effective_radius', 'effectiveRadius', 12, false, 4, 'float', 'm'),
+    new MavLinkPacketField('lat', 'lat', 16, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('lon', 'lon', 20, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('altMSL', 'altMSL', 24, false, 4, 'float', 'm'),
+    new MavLinkPacketField('lat_target', 'latTarget', 28, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('lon_target', 'lonTarget', 32, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('altMSL_target', 'altMSLTarget', 36, false, 4, 'float', 'm'),
+    new MavLinkPacketField('ROI_crc', 'ROICrc', 40, false, 4, 'uint32_t', ''),
+    new MavLinkPacketField('aircraft_id', 'aircraftId', 44, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('squadron_id', 'squadronId', 46, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('speed', 'speed', 48, false, 2, 'int16_t', 'm/s'),
+    new MavLinkPacketField('state_nav', 'stateNav', 50, false, 1, 'uint8_t', ''),
   ]
 
   /**
-   * Timestamp (UNIX Epoch time or time since system boot). The receiving end can infer timestamp format
-   * (since 1.1.1970 or since system boot) by checking for the magnitude of the number.
+   * Timestamp (UNIX Epoch time from GPS, if unknown use 0).
    * Units: us
    */
   timeUsec: uint64_t
   /**
-   * Time since system boot.
-   * Units: ms
+   * Aircraft ID
    */
-  uptime: uint32_t
+  aircraftId: uint16_t
   /**
-   * Type of the onboard computer: 0: Mission computer primary, 1: Mission computer backup 1, 2: Mission
-   * computer backup 2, 3: Compute node, 4-5: Compute spares, 6-9: Payload computers.
+   * Squadron ID
    */
-  type: uint8_t
+  squadronId: uint16_t
   /**
-   * CPU usage on the component in percent (100 - idle). A value of UINT8_MAX implies the field is
-   * unused.
+   * Navigation State
    */
-  cpuCores: uint8_t[]
+  stateNav: SwarmStateNav
   /**
-   * Combined CPU usage as the last 10 slices of 100 MS (a histogram). This allows to identify spikes in
-   * load that max out the system, but only for a short amount of time. A value of UINT8_MAX implies the
-   * field is unused.
+   * Speed
+   * Units: m/s
    */
-  cpuCombined: uint8_t[]
+  speed: int16_t
   /**
-   * GPU usage on the component in percent (100 - idle). A value of UINT8_MAX implies the field is
-   * unused.
+   * Course over Ground (GPS heading)
+   * Units: deg
    */
-  gpuCores: uint8_t[]
+  cog: float
   /**
-   * Combined GPU usage as the last 10 slices of 100 MS (a histogram). This allows to identify spikes in
-   * load that max out the system, but only for a short amount of time. A value of UINT8_MAX implies the
-   * field is unused.
+   * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
+   * Units: m
    */
-  gpuCombined: uint8_t[]
+  effectiveRadius: float
   /**
-   * Temperature of the board. A value of INT8_MAX implies the field is unused.
-   * Units: degC
+   * Latitude
+   * Units: degE7
    */
-  temperatureBoard: int8_t
+  lat: int32_t
   /**
-   * Temperature of the CPU core. A value of INT8_MAX implies the field is unused.
-   * Units: degC
+   * Longitude
+   * Units: degE7
    */
-  temperatureCore: int8_t[]
+  lon: int32_t
   /**
-   * Fan speeds. A value of INT16_MAX implies the field is unused.
-   * Units: rpm
+   * MSL Altitude.
+   * Units: m
    */
-  fanSpeed: int16_t[]
+  altMSL: float
   /**
-   * Amount of used RAM on the component system. A value of UINT32_MAX implies the field is unused.
-   * Units: MiB
+   * Target Latitude
+   * Units: degE7
    */
-  ramUsage: uint32_t
+  latTarget: int32_t
   /**
-   * Total amount of RAM on the component system. A value of UINT32_MAX implies the field is unused.
-   * Units: MiB
+   * Target Longitude
+   * Units: degE7
    */
-  ramTotal: uint32_t
+  lonTarget: int32_t
   /**
-   * Storage type: 0: HDD, 1: SSD, 2: EMMC, 3: SD card (non-removable), 4: SD card (removable). A value
-   * of UINT32_MAX implies the field is unused.
+   * Target MSL Altitude.
+   * Units: m
    */
-  storageType: uint32_t[]
+  altMSLTarget: float
   /**
-   * Amount of used storage space on the component system. A value of UINT32_MAX implies the field is
-   * unused.
-   * Units: MiB
+   * Region-of-Interest 32bit CRC. Zero indicates unknown. If a valid CRC computes to zero, use 1. This
+   * CRC is used to verify an ROI that is actively loaded. It is used to keep the swarm in sync without
+   * having to constantly send it to the mesh to verify.
    */
-  storageUsage: uint32_t[]
-  /**
-   * Total amount of storage space on the component system. A value of UINT32_MAX implies the field is
-   * unused.
-   * Units: MiB
-   */
-  storageTotal: uint32_t[]
-  /**
-   * Link type: 0-9: UART, 10-19: Wired network, 20-29: Wifi, 30-39: Point-to-point proprietary, 40-49:
-   * Mesh proprietary
-   */
-  linkType: uint32_t[]
-  /**
-   * Network traffic from the component system. A value of UINT32_MAX implies the field is unused.
-   * Units: KiB/s
-   */
-  linkTxRate: uint32_t[]
-  /**
-   * Network traffic to the component system. A value of UINT32_MAX implies the field is unused.
-   * Units: KiB/s
-   */
-  linkRxRate: uint32_t[]
-  /**
-   * Network capacity from the component system. A value of UINT32_MAX implies the field is unused.
-   * Units: KiB/s
-   */
-  linkTxMax: uint32_t[]
-  /**
-   * Network capacity to the component system. A value of UINT32_MAX implies the field is unused.
-   * Units: KiB/s
-   */
-  linkRxMax: uint32_t[]
+  ROICrc: uint32_t
 }
 
 /**
- * Information about a component. For camera components instead use CAMERA_INFORMATION, and for
- * autopilots additionally use AUTOPILOT_VERSION. Components including GCSes should consider supporting
- * requests of this message via MAV_CMD_REQUEST_MESSAGE.
+ * Status of a swarm aircraft's communications link.
  */
-export class ComponentInformation extends MavLinkData {
-  static MSG_ID = 395
-  static MSG_NAME = 'COMPONENT_INFORMATION'
-  static PAYLOAD_LENGTH = 212
-  static MAGIC_NUMBER = 0
+export class SwarmCommlinkStatus extends MavLinkData {
+  static MSG_ID = 2821
+  static MSG_NAME = 'SWARM_COMMLINK_STATUS'
+  static PAYLOAD_LENGTH = 10
+  static MAGIC_NUMBER = 39
 
   static FIELDS = [
-    new MavLinkPacketField('time_boot_ms', 'timeBootMs', 0, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('general_metadata_file_crc', 'generalMetadataFileCrc', 4, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('peripherals_metadata_file_crc', 'peripheralsMetadataFileCrc', 8, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('general_metadata_uri', 'generalMetadataUri', 12, false, 1, 'char[]', '', 100),
-    new MavLinkPacketField('peripherals_metadata_uri', 'peripheralsMetadataUri', 112, false, 1, 'char[]', '', 100),
+    new MavLinkPacketField('ROSER', 'ROSER', 0, false, 4, 'float', ''),
+    new MavLinkPacketField('aircraft_id_self', 'aircraftIdSelf', 4, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('aircraft_id_external', 'aircraftIdExternal', 6, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('last_contact', 'lastContact', 8, false, 2, 'uint16_t', 's'),
   ]
 
   /**
-   * Timestamp (time since system boot).
-   * Units: ms
+   * This Aircraft ID
    */
-  timeBootMs: uint32_t
+  aircraftIdSelf: uint16_t
   /**
-   * CRC32 of the TYPE_GENERAL file (can be used by a GCS for file caching).
+   * External Aircraft ID
    */
-  generalMetadataFileCrc: uint32_t
+  aircraftIdExternal: uint16_t
   /**
-   * Component definition URI for TYPE_GENERAL. This must be a MAVLink FTP URI and the file might be
-   * compressed with xz.
+   * Radio Overlap of Shortest Effective Radius
    */
-  generalMetadataUri: string
+  ROSER: float
   /**
-   * CRC32 of the TYPE_PERIPHERALS file (can be used by a GCS for file caching).
+   * 
+   * Units: s
    */
-  peripheralsMetadataFileCrc: uint32_t
-  /**
-   * (Optional) Component definition URI for TYPE_PERIPHERALS. This must be a MAVLink FTP URI and the
-   * file might be compressed with xz.
-   */
-  peripheralsMetadataUri: string
+  lastContact: uint16_t
 }
 
 /**
- * Play vehicle tone/tune (buzzer). Supersedes message PLAY_TUNE.
+ * Position of the swarm coverage area (NOT the aircraft).
  */
-export class PlayTuneV2 extends MavLinkData {
-  static MSG_ID = 400
-  static MSG_NAME = 'PLAY_TUNE_V2'
-  static PAYLOAD_LENGTH = 254
-  static MAGIC_NUMBER = 110
+export class SwarmCoverageArea extends MavLinkData {
+  static MSG_ID = 2822
+  static MSG_NAME = 'SWARM_COVERAGE_AREA'
+  static PAYLOAD_LENGTH = 88
+  static MAGIC_NUMBER = 49
 
   static FIELDS = [
-    new MavLinkPacketField('format', 'format', 0, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 4, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 5, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('tune', 'tune', 6, false, 1, 'char[]', '', 248),
+    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
+    new MavLinkPacketField('coverage_radius', 'coverageRadius', 8, false, 4, 'float', 'm'),
+    new MavLinkPacketField('lat', 'lat', 12, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('lon', 'lon', 16, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('altMSL', 'altMSL', 20, false, 4, 'float', 'm'),
+    new MavLinkPacketField('coverage_polys', 'coveragePolys', 24, false, 4, 'float[]', 'm', 16),
   ]
 
   /**
-   * System ID
+   * Timestamp (UNIX Epoch time from GPS, if unknown use 0).
+   * Units: us
+   */
+  timeUsec: uint64_t
+  /**
+   * Swarm Coverage Area modeled as a radius.
+   * Units: m
+   */
+  coverageRadius: float
+  /**
+   * Latitude
+   * Units: degE7
+   */
+  lat: int32_t
+  /**
+   * Longitude
+   * Units: degE7
+   */
+  lon: int32_t
+  /**
+   * MSL Altitude
+   * Units: m
+   */
+  altMSL: float
+  /**
+   * Swarm Coverage Area modeled as an octogon.
+   * Units: m
+   */
+  coveragePolys: float[]
+}
+
+/**
+ * A swarm point. Used to set a swarm ROI point within from GCS. Also used to return a point from MAV
+ * GCS.
+ */
+export class SwarmPoint extends MavLinkData {
+  static MSG_ID = 2823
+  static MSG_NAME = 'SWARM_POINT'
+  static PAYLOAD_LENGTH = 12
+  static MAGIC_NUMBER = 141
+
+  static FIELDS = [
+    new MavLinkPacketField('lat', 'lat', 0, false, 4, 'float', 'deg'),
+    new MavLinkPacketField('lng', 'lng', 4, false, 4, 'float', 'deg'),
+    new MavLinkPacketField('target_system', 'targetSystem', 8, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('target_component', 'targetComponent', 9, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('idx', 'idx', 10, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('count', 'count', 11, false, 1, 'uint8_t', ''),
+  ]
+
+  /**
+   * System ID.
    */
   targetSystem: uint8_t
   /**
-   * Component ID
+   * Component ID.
    */
   targetComponent: uint8_t
   /**
-   * Tune format
+   * Point index (first point is 1, 0 is for return point).
    */
-  format: TuneFormat
+  idx: uint8_t
   /**
-   * Tune definition as a NULL-terminated string.
+   * Total number of points (for sanity checking).
    */
-  tune: string
+  count: uint8_t
+  /**
+   * Latitude of point.
+   * Units: deg
+   */
+  lat: float
+  /**
+   * Longitude of point.
+   * Units: deg
+   */
+  lng: float
 }
 
 /**
- * Tune formats supported by vehicle. This should be emitted as response to MAV_CMD_REQUEST_MESSAGE.
+ * Request a current swarm point from MAV. Mostly intended for GCS.
  */
-export class SupportedTunes extends MavLinkData {
-  static MSG_ID = 401
-  static MSG_NAME = 'SUPPORTED_TUNES'
-  static PAYLOAD_LENGTH = 6
-  static MAGIC_NUMBER = 183
-
-  static FIELDS = [
-    new MavLinkPacketField('format', 'format', 0, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 4, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 5, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Bitfield of supported tune formats.
-   */
-  format: TuneFormat
-}
-
-/**
- * Event message. Each new event from a particular component gets a new sequence number. The same
- * message might be sent multiple times if (re-)requested. Most events are broadcast, some can be
- * specific to a target component (as receivers keep track of the sequence for missed events, all
- * events need to be broadcast. Thus we use destination_component instead of target_component).
- */
-export class Event extends MavLinkData {
-  static MSG_ID = 410
-  static MSG_NAME = 'EVENT'
-  static PAYLOAD_LENGTH = 53
-  static MAGIC_NUMBER = 160
-
-  static FIELDS = [
-    new MavLinkPacketField('id', 'id', 0, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('event_time_boot_ms', 'eventTimeBootMs', 4, false, 4, 'uint32_t', 'ms'),
-    new MavLinkPacketField('sequence', 'sequence', 8, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('destination_component', 'destinationComponent', 10, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('destination_system', 'destinationSystem', 11, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('log_levels', 'logLevels', 12, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('arguments', 'arguments', 13, false, 1, 'uint8_t[]', '', 40),
-  ]
-
-  /**
-   * Component ID
-   */
-  destinationComponent: uint8_t
-  /**
-   * System ID
-   */
-  destinationSystem: uint8_t
-  /**
-   * Event ID (as defined in the component metadata)
-   */
-  id: uint32_t
-  /**
-   * Timestamp (time since system boot when the event happened).
-   * Units: ms
-   */
-  eventTimeBootMs: uint32_t
-  /**
-   * Sequence number.
-   */
-  sequence: uint16_t
-  /**
-   * Log levels: 4 bits MSB: internal (for logging purposes), 4 bits LSB: external. Levels: Emergency =
-   * 0, Alert = 1, Critical = 2, Error = 3, Warning = 4, Notice = 5, Info = 6, Debug = 7, Protocol = 8,
-   * Disabled = 9
-   */
-  logLevels: uint8_t
-  /**
-   * Arguments (depend on event ID).
-   */
-  arguments: uint8_t[]
-}
-
-/**
- * Regular broadcast for the current latest event sequence number for a component. This is used to
- * check for dropped events.
- */
-export class CurrentEventSequence extends MavLinkData {
-  static MSG_ID = 411
-  static MSG_NAME = 'CURRENT_EVENT_SEQUENCE'
+export class SwarmFetchPoint extends MavLinkData {
+  static MSG_ID = 2824
+  static MSG_NAME = 'SWARM_FETCH_POINT'
   static PAYLOAD_LENGTH = 3
-  static MAGIC_NUMBER = 106
+  static MAGIC_NUMBER = 99
 
   static FIELDS = [
-    new MavLinkPacketField('sequence', 'sequence', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('flags', 'flags', 2, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('idx', 'idx', 2, false, 1, 'uint8_t', ''),
   ]
 
   /**
-   * Sequence number.
-   */
-  sequence: uint16_t
-  /**
-   * Flag bitset.
-   */
-  flags: MavEventCurrentSequenceFlags
-}
-
-/**
- * Request one or more events to be (re-)sent. If first_sequence==last_sequence, only a single event is
- * requested. Note that first_sequence can be larger than last_sequence (because the sequence number
- * can wrap). Each sequence will trigger an EVENT or EVENT_ERROR response.
- */
-export class RequestEvent extends MavLinkData {
-  static MSG_ID = 412
-  static MSG_NAME = 'REQUEST_EVENT'
-  static PAYLOAD_LENGTH = 6
-  static MAGIC_NUMBER = 33
-
-  static FIELDS = [
-    new MavLinkPacketField('first_sequence', 'firstSequence', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('last_sequence', 'lastSequence', 2, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 4, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 5, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
+   * System ID.
    */
   targetSystem: uint8_t
   /**
-   * Component ID
+   * Component ID.
    */
   targetComponent: uint8_t
   /**
-   * First sequence number of the requested event.
+   * Point index (first point is 1, 0 is for return point).
    */
-  firstSequence: uint16_t
-  /**
-   * Last sequence number of the requested event.
-   */
-  lastSequence: uint16_t
-}
-
-/**
- * Response to a REQUEST_EVENT in case of an error (e.g. the event is not available anymore).
- */
-export class ResponseEventError extends MavLinkData {
-  static MSG_ID = 413
-  static MSG_NAME = 'RESPONSE_EVENT_ERROR'
-  static PAYLOAD_LENGTH = 7
-  static MAGIC_NUMBER = 77
-
-  static FIELDS = [
-    new MavLinkPacketField('sequence', 'sequence', 0, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('sequence_oldest_available', 'sequenceOldestAvailable', 2, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('target_system', 'targetSystem', 4, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 5, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('reason', 'reason', 6, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID
-   */
-  targetComponent: uint8_t
-  /**
-   * Sequence number.
-   */
-  sequence: uint16_t
-  /**
-   * Oldest Sequence number that is still available after the sequence set in REQUEST_EVENT.
-   */
-  sequenceOldestAvailable: uint16_t
-  /**
-   * Error reason.
-   */
-  reason: MavEventErrorReason
+  idx: uint8_t
 }
 
 /**
@@ -15451,516 +12538,6 @@ export class WinchStatus extends MavLinkData {
   status: MavWinchStatusFlag
 }
 
-/**
- * Data for filling the OpenDroneID Basic ID message. This and the below messages are primarily meant
- * for feeding data to/from an OpenDroneID implementation. E.g.
- * https://github.com/opendroneid/opendroneid-core-c. These messages are compatible with the ASTM
- * Remote ID standard at https://www.astm.org/Standards/F3411.htm and the ASD-STAN Direct Remote ID
- * standard. The usage of these messages is documented at
- * https://mavlink.io/en/services/opendroneid.html.
- */
-export class OpenDroneIdBasicId extends MavLinkData {
-  static MSG_ID = 12900
-  static MSG_NAME = 'OPEN_DRONE_ID_BASIC_ID'
-  static PAYLOAD_LENGTH = 44
-  static MAGIC_NUMBER = 114
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 2, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('id_type', 'idType', 22, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('ua_type', 'uaType', 23, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('uas_id', 'uasId', 24, false, 1, 'uint8_t[]', '', 20),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * Indicates the format for the uas_id field of this message.
-   */
-  idType: MavOdidIdType
-  /**
-   * Indicates the type of UA (Unmanned Aircraft).
-   */
-  uaType: MavOdidUaType
-  /**
-   * UAS (Unmanned Aircraft System) ID following the format specified by id_type. Shall be filled with
-   * nulls in the unused portion of the field.
-   */
-  uasId: uint8_t[]
-}
-
-/**
- * Data for filling the OpenDroneID Location message. The float data types are 32-bit IEEE 754. The
- * Location message provides the location, altitude, direction and speed of the aircraft.
- */
-export class OpenDroneIdLocation extends MavLinkData {
-  static MSG_ID = 12901
-  static MSG_NAME = 'OPEN_DRONE_ID_LOCATION'
-  static PAYLOAD_LENGTH = 59
-  static MAGIC_NUMBER = 254
-
-  static FIELDS = [
-    new MavLinkPacketField('latitude', 'latitude', 0, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('longitude', 'longitude', 4, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('altitude_barometric', 'altitudeBarometric', 8, false, 4, 'float', 'm'),
-    new MavLinkPacketField('altitude_geodetic', 'altitudeGeodetic', 12, false, 4, 'float', 'm'),
-    new MavLinkPacketField('height', 'height', 16, false, 4, 'float', 'm'),
-    new MavLinkPacketField('timestamp', 'timestamp', 20, false, 4, 'float', 's'),
-    new MavLinkPacketField('direction', 'direction', 24, false, 2, 'uint16_t', 'cdeg'),
-    new MavLinkPacketField('speed_horizontal', 'speedHorizontal', 26, false, 2, 'uint16_t', 'cm/s'),
-    new MavLinkPacketField('speed_vertical', 'speedVertical', 28, false, 2, 'int16_t', 'cm/s'),
-    new MavLinkPacketField('target_system', 'targetSystem', 30, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 31, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 32, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('status', 'status', 52, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('height_reference', 'heightReference', 53, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('horizontal_accuracy', 'horizontalAccuracy', 54, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('vertical_accuracy', 'verticalAccuracy', 55, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('barometer_accuracy', 'barometerAccuracy', 56, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('speed_accuracy', 'speedAccuracy', 57, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('timestamp_accuracy', 'timestampAccuracy', 58, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * Indicates whether the unmanned aircraft is on the ground or in the air.
-   */
-  status: MavOdidStatus
-  /**
-   * Direction over ground (not heading, but direction of movement) measured clockwise from true North: 0
-   * - 35999 centi-degrees. If unknown: 36100 centi-degrees.
-   * Units: cdeg
-   */
-  direction: uint16_t
-  /**
-   * Ground speed. Positive only. If unknown: 25500 cm/s. If speed is larger than 25425 cm/s, use 25425
-   * cm/s.
-   * Units: cm/s
-   */
-  speedHorizontal: uint16_t
-  /**
-   * The vertical speed. Up is positive. If unknown: 6300 cm/s. If speed is larger than 6200 cm/s, use
-   * 6200 cm/s. If lower than -6200 cm/s, use -6200 cm/s.
-   * Units: cm/s
-   */
-  speedVertical: int16_t
-  /**
-   * Current latitude of the unmanned aircraft. If unknown: 0 (both Lat/Lon).
-   * Units: degE7
-   */
-  latitude: int32_t
-  /**
-   * Current longitude of the unmanned aircraft. If unknown: 0 (both Lat/Lon).
-   * Units: degE7
-   */
-  longitude: int32_t
-  /**
-   * The altitude calculated from the barometric pressue. Reference is against 29.92inHg or 1013.2mb. If
-   * unknown: -1000 m.
-   * Units: m
-   */
-  altitudeBarometric: float
-  /**
-   * The geodetic altitude as defined by WGS84. If unknown: -1000 m.
-   * Units: m
-   */
-  altitudeGeodetic: float
-  /**
-   * Indicates the reference point for the height field.
-   */
-  heightReference: MavOdidHeightRef
-  /**
-   * The current height of the unmanned aircraft above the take-off location or the ground as indicated
-   * by height_reference. If unknown: -1000 m.
-   * Units: m
-   */
-  height: float
-  /**
-   * The accuracy of the horizontal position.
-   */
-  horizontalAccuracy: MavOdidHorAcc
-  /**
-   * The accuracy of the vertical position.
-   */
-  verticalAccuracy: MavOdidVerAcc
-  /**
-   * The accuracy of the barometric altitude.
-   */
-  barometerAccuracy: MavOdidVerAcc
-  /**
-   * The accuracy of the horizontal and vertical speed.
-   */
-  speedAccuracy: MavOdidSpeedAcc
-  /**
-   * Seconds after the full hour with reference to UTC time. Typically the GPS outputs a time-of-week
-   * value in milliseconds. First convert that to UTC and then convert for this field using ((float)
-   * (time_week_ms % (60*60*1000))) / 1000. If unknown: 0xFFFF.
-   * Units: s
-   */
-  timestamp: float
-  /**
-   * The accuracy of the timestamps.
-   */
-  timestampAccuracy: MavOdidTimeAcc
-}
-
-/**
- * Data for filling the OpenDroneID Authentication message. The Authentication Message defines a field
- * that can provide a means of authenticity for the identity of the UAS (Unmanned Aircraft System). The
- * Authentication message can have two different formats. Five data pages are supported. For data page
- * 0, the fields PageCount, Length and TimeStamp are present and AuthData is only 17 bytes. For data
- * page 1 through 15, PageCount, Length and TimeStamp are not present and the size of AuthData is 23
- * bytes.
- */
-export class OpenDroneIdAuthentication extends MavLinkData {
-  static MSG_ID = 12902
-  static MSG_NAME = 'OPEN_DRONE_ID_AUTHENTICATION'
-  static PAYLOAD_LENGTH = 53
-  static MAGIC_NUMBER = 140
-
-  static FIELDS = [
-    new MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
-    new MavLinkPacketField('target_system', 'targetSystem', 4, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 5, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 6, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('authentication_type', 'authenticationType', 26, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('data_page', 'dataPage', 27, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('last_page_index', 'lastPageIndex', 28, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('length', 'length', 29, false, 1, 'uint8_t', 'bytes'),
-    new MavLinkPacketField('authentication_data', 'authenticationData', 30, false, 1, 'uint8_t[]', '', 23),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * Indicates the type of authentication.
-   */
-  authenticationType: MavOdidAuthType
-  /**
-   * Allowed range is 0 - 15.
-   */
-  dataPage: uint8_t
-  /**
-   * This field is only present for page 0. Allowed range is 0 - 15. See the description of struct
-   * ODID_Auth_data at
-   * https://github.com/opendroneid/opendroneid-core-c/blob/master/libopendroneid/opendroneid.h.
-   */
-  lastPageIndex: uint8_t
-  /**
-   * This field is only present for page 0. Total bytes of authentication_data from all data pages. See
-   * the description of struct ODID_Auth_data at
-   * https://github.com/opendroneid/opendroneid-core-c/blob/master/libopendroneid/opendroneid.h.
-   * Units: bytes
-   */
-  length: uint8_t
-  /**
-   * This field is only present for page 0. 32 bit Unix Timestamp in seconds since 00:00:00 01/01/2019.
-   * Units: s
-   */
-  timestamp: uint32_t
-  /**
-   * Opaque authentication data. For page 0, the size is only 17 bytes. For other pages, the size is 23
-   * bytes. Shall be filled with nulls in the unused portion of the field.
-   */
-  authenticationData: uint8_t[]
-}
-
-/**
- * Data for filling the OpenDroneID Self ID message. The Self ID Message is an opportunity for the
- * operator to (optionally) declare their identity and purpose of the flight. This message can provide
- * additional information that could reduce the threat profile of a UA (Unmanned Aircraft) flying in a
- * particular area or manner.
- */
-export class OpenDroneIdSelfId extends MavLinkData {
-  static MSG_ID = 12903
-  static MSG_NAME = 'OPEN_DRONE_ID_SELF_ID'
-  static PAYLOAD_LENGTH = 46
-  static MAGIC_NUMBER = 249
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 2, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('description_type', 'descriptionType', 22, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('description', 'description', 23, false, 1, 'char[]', '', 23),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * Indicates the type of the description field.
-   */
-  descriptionType: MavOdidDescType
-  /**
-   * Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the
-   * unused portion of the field.
-   */
-  description: string
-}
-
-/**
- * Data for filling the OpenDroneID System message. The System Message contains general system
- * information including the operator location and possible aircraft group information.
- */
-export class OpenDroneIdSystem extends MavLinkData {
-  static MSG_ID = 12904
-  static MSG_NAME = 'OPEN_DRONE_ID_SYSTEM'
-  static PAYLOAD_LENGTH = 50
-  static MAGIC_NUMBER = 150
-
-  static FIELDS = [
-    new MavLinkPacketField('operator_latitude', 'operatorLatitude', 0, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('operator_longitude', 'operatorLongitude', 4, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('area_ceiling', 'areaCeiling', 8, false, 4, 'float', 'm'),
-    new MavLinkPacketField('area_floor', 'areaFloor', 12, false, 4, 'float', 'm'),
-    new MavLinkPacketField('operator_altitude_geo', 'operatorAltitudeGeo', 16, false, 4, 'float', 'm'),
-    new MavLinkPacketField('area_count', 'areaCount', 20, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('area_radius', 'areaRadius', 22, false, 2, 'uint16_t', 'm'),
-    new MavLinkPacketField('target_system', 'targetSystem', 24, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 25, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 26, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('operator_location_type', 'operatorLocationType', 46, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('classification_type', 'classificationType', 47, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('category_eu', 'categoryEu', 48, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('class_eu', 'classEu', 49, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * Specifies the operator location type.
-   */
-  operatorLocationType: MavOdidOperatorLocationType
-  /**
-   * Specifies the classification type of the UA.
-   */
-  classificationType: MavOdidClassificationType
-  /**
-   * Latitude of the operator. If unknown: 0 (both Lat/Lon).
-   * Units: degE7
-   */
-  operatorLatitude: int32_t
-  /**
-   * Longitude of the operator. If unknown: 0 (both Lat/Lon).
-   * Units: degE7
-   */
-  operatorLongitude: int32_t
-  /**
-   * Number of aircraft in the area, group or formation (default 1).
-   */
-  areaCount: uint16_t
-  /**
-   * Radius of the cylindrical area of the group or formation (default 0).
-   * Units: m
-   */
-  areaRadius: uint16_t
-  /**
-   * Area Operations Ceiling relative to WGS84. If unknown: -1000 m.
-   * Units: m
-   */
-  areaCeiling: float
-  /**
-   * Area Operations Floor relative to WGS84. If unknown: -1000 m.
-   * Units: m
-   */
-  areaFloor: float
-  /**
-   * When classification_type is MAV_ODID_CLASSIFICATION_TYPE_EU, specifies the category of the UA.
-   */
-  categoryEu: MavOdidCategoryEu
-  /**
-   * When classification_type is MAV_ODID_CLASSIFICATION_TYPE_EU, specifies the class of the UA.
-   */
-  classEu: MavOdidClassEu
-  /**
-   * Geodetic altitude of the operator relative to WGS84. If unknown: -1000 m.
-   * Units: m
-   */
-  operatorAltitudeGeo: float
-}
-
-/**
- * Data for filling the OpenDroneID Operator ID message, which contains the CAA (Civil Aviation
- * Authority) issued operator ID.
- */
-export class OpenDroneIdOperatorId extends MavLinkData {
-  static MSG_ID = 12905
-  static MSG_NAME = 'OPEN_DRONE_ID_OPERATOR_ID'
-  static PAYLOAD_LENGTH = 43
-  static MAGIC_NUMBER = 49
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 2, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('operator_id_type', 'operatorIdType', 22, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('operator_id', 'operatorId', 23, false, 1, 'char[]', '', 20),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * Indicates the type of the operator_id field.
-   */
-  operatorIdType: MavOdidOperatorIdType
-  /**
-   * Text description or numeric value expressed as ASCII characters. Shall be filled with nulls in the
-   * unused portion of the field.
-   */
-  operatorId: string
-}
-
-/**
- * An OpenDroneID message pack is a container for multiple encoded OpenDroneID messages (i.e. not in
- * the format given for the above messages descriptions but after encoding into the compressed
- * OpenDroneID byte format). Used e.g. when transmitting on Bluetooth 5.0 Long Range/Extended
- * Advertising or on WiFi Neighbor Aware Networking.
- */
-export class OpenDroneIdMessagePack extends MavLinkData {
-  static MSG_ID = 12915
-  static MSG_NAME = 'OPEN_DRONE_ID_MESSAGE_PACK'
-  static PAYLOAD_LENGTH = 249
-  static MAGIC_NUMBER = 94
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('id_or_mac', 'idOrMac', 2, false, 1, 'uint8_t[]', '', 20),
-    new MavLinkPacketField('single_message_size', 'singleMessageSize', 22, false, 1, 'uint8_t', 'bytes'),
-    new MavLinkPacketField('msg_pack_size', 'msgPackSize', 23, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('messages', 'messages', 24, false, 1, 'uint8_t[]', '', 225),
-  ]
-
-  /**
-   * System ID (0 for broadcast).
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID (0 for broadcast).
-   */
-  targetComponent: uint8_t
-  /**
-   * Only used for drone ID data received from other UAs. See detailed description at
-   * https://mavlink.io/en/services/opendroneid.html.
-   */
-  idOrMac: uint8_t[]
-  /**
-   * This field must currently always be equal to 25 (bytes), since all encoded OpenDroneID messages are
-   * specificed to have this length.
-   * Units: bytes
-   */
-  singleMessageSize: uint8_t
-  /**
-   * Number of encoded messages in the pack (not the number of bytes). Allowed range is 1 - 9.
-   */
-  msgPackSize: uint8_t
-  /**
-   * Concatenation of encoded OpenDroneID messages. Shall be filled with nulls in the unused portion of
-   * the field.
-   */
-  messages: uint8_t[]
-}
-
-/**
- * Temperature and humidity from hygrometer.
- */
-export class HygrometerSensor extends MavLinkData {
-  static MSG_ID = 12920
-  static MSG_NAME = 'HYGROMETER_SENSOR'
-  static PAYLOAD_LENGTH = 5
-  static MAGIC_NUMBER = 20
-
-  static FIELDS = [
-    new MavLinkPacketField('temperature', 'temperature', 0, false, 2, 'int16_t', 'cdegC'),
-    new MavLinkPacketField('humidity', 'humidity', 2, false, 2, 'uint16_t', 'c%'),
-    new MavLinkPacketField('id', 'id', 4, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * Hygrometer ID
-   */
-  id: uint8_t
-  /**
-   * Temperature
-   * Units: cdegC
-   */
-  temperature: int16_t
-  /**
-   * Humidity
-   * Units: c%
-   */
-  humidity: uint16_t
-}
-
 export const REGISTRY: MavLinkPacketRegistry = {
   1: SysStatus,
   2: SystemTime,
@@ -15968,7 +12545,6 @@ export const REGISTRY: MavLinkPacketRegistry = {
   5: ChangeOperatorControl,
   6: ChangeOperatorControlAck,
   7: AuthKey,
-  8: LinkNodeStatus,
   11: SetMode,
   20: ParamRequestRead,
   21: ParamRequestList,
@@ -16018,7 +12594,6 @@ export const REGISTRY: MavLinkPacketRegistry = {
   75: CommandInt,
   76: CommandLong,
   77: CommandAck,
-  80: CommandCancel,
   81: ManualSetpoint,
   82: SetAttitudeTarget,
   83: AttitudeTarget,
@@ -16118,61 +12693,24 @@ export const REGISTRY: MavLinkPacketRegistry = {
   268: LoggingAck,
   269: VideoStreamInformation,
   270: VideoStreamStatus,
-  271: CameraFovStatus,
-  275: CameraTrackingImageStatus,
-  276: CameraTrackingGeoStatus,
-  280: GimbalManagerInformation,
-  281: GimbalManagerStatus,
-  282: GimbalManagerSetAttitude,
-  283: GimbalDeviceInformation,
-  284: GimbalDeviceSetAttitude,
-  285: GimbalDeviceAttitudeStatus,
-  286: AutopilotStateForGimbalDevice,
-  287: GimbalManagerSetPitchyaw,
-  288: GimbalManagerSetManualControl,
-  290: EscInfo,
-  291: EscStatus,
   299: WifiConfigAp,
   301: AisVessel,
   310: UavcanNodeStatus,
   311: UavcanNodeInfo,
-  320: ParamExtRequestRead,
-  321: ParamExtRequestList,
-  322: ParamExtValue,
-  323: ParamExtSet,
-  324: ParamExtAck,
   330: ObstacleDistance,
   331: Odometry,
-  332: TrajectoryRepresentationWaypoints,
-  333: TrajectoryRepresentationBezier,
-  334: CellularStatus,
   335: IsbdLinkStatus,
-  336: CellularConfig,
   339: RawRpm,
   340: UtmGlobalPosition,
   350: DebugFloatArray,
-  360: OrbitExecutionStatus,
   370: SmartBatteryInfo,
   373: GeneratorStatus,
   375: ActuatorOutputStatus,
-  380: TimeEstimateToTarget,
-  385: Tunnel,
-  390: OnboardComputerStatus,
-  395: ComponentInformation,
-  400: PlayTuneV2,
-  401: SupportedTunes,
-  410: Event,
-  411: CurrentEventSequence,
-  412: RequestEvent,
-  413: ResponseEventError,
+  2820: SwarmVehicle,
+  2821: SwarmCommlinkStatus,
+  2822: SwarmCoverageArea,
+  2823: SwarmPoint,
+  2824: SwarmFetchPoint,
   9000: WheelDistance,
   9005: WinchStatus,
-  12900: OpenDroneIdBasicId,
-  12901: OpenDroneIdLocation,
-  12902: OpenDroneIdAuthentication,
-  12903: OpenDroneIdSelfId,
-  12904: OpenDroneIdSystem,
-  12905: OpenDroneIdOperatorId,
-  12915: OpenDroneIdMessagePack,
-  12920: HygrometerSensor,
 }

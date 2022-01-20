@@ -78,7 +78,6 @@ export enum MavCmd {
    */
   'FIXED_MAG_CAL'                     = 42004,
   'FIXED_MAG_CAL_FIELD'               = 42005,
-  'SET_EKF_SOURCE_SET'                = 42007,
   'DO_START_MAG_CAL'                  = 42424,
   'DO_ACCEPT_MAG_CAL'                 = 42425,
   'DO_CANCEL_MAG_CAL'                 = 42426,
@@ -608,7 +607,6 @@ export enum CopterMode {
   'ZIGZAG'                            = 24,
   'SYSTEMID'                          = 25,
   'AUTOROTATE'                        = 26,
-  'AUTO_RTL'                          = 27,
 }
 
 /**
@@ -2440,7 +2438,7 @@ export class EkfStatusReport extends MavLinkData {
 export class PidTuning extends MavLinkData {
   static MSG_ID = 194
   static MSG_NAME = 'PID_TUNING'
-  static PAYLOAD_LENGTH = 33
+  static PAYLOAD_LENGTH = 25
   static MAGIC_NUMBER = 98
 
   static FIELDS = [
@@ -2451,8 +2449,6 @@ export class PidTuning extends MavLinkData {
     new MavLinkPacketField('I', 'I', 16, false, 4, 'float', ''),
     new MavLinkPacketField('D', 'D', 20, false, 4, 'float', ''),
     new MavLinkPacketField('axis', 'axis', 24, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('SRate', 'SRate', 25, true, 4, 'float', ''),
-    new MavLinkPacketField('PDmod', 'PDmod', 29, true, 4, 'float', ''),
   ]
 
   /**
@@ -2483,14 +2479,6 @@ export class PidTuning extends MavLinkData {
    * D component.
    */
   D: float
-  /**
-   * Slew rate.
-   */
-  SRate: float
-  /**
-   * P/D oscillation modifier.
-   */
-  PDmod: float
 }
 
 /**
@@ -3731,50 +3719,6 @@ export class WaterDepth extends MavLinkData {
   temperature: float
 }
 
-/**
- * The MCU status, giving MCU temperature and voltage. The min and max voltages are to allow for
- * detecting power supply instability.
- */
-export class McuStatus extends MavLinkData {
-  static MSG_ID = 11039
-  static MSG_NAME = 'MCU_STATUS'
-  static PAYLOAD_LENGTH = 9
-  static MAGIC_NUMBER = 142
-
-  static FIELDS = [
-    new MavLinkPacketField('MCU_temperature', 'MCUTemperature', 0, false, 2, 'int16_t', 'cdegC'),
-    new MavLinkPacketField('MCU_voltage', 'MCUVoltage', 2, false, 2, 'uint16_t', 'mV'),
-    new MavLinkPacketField('MCU_voltage_min', 'MCUVoltageMin', 4, false, 2, 'uint16_t', 'mV'),
-    new MavLinkPacketField('MCU_voltage_max', 'MCUVoltageMax', 6, false, 2, 'uint16_t', 'mV'),
-    new MavLinkPacketField('id', 'id', 8, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * MCU instance
-   */
-  id: uint8_t
-  /**
-   * MCU Internal temperature
-   * Units: cdegC
-   */
-  MCUTemperature: int16_t
-  /**
-   * MCU voltage
-   * Units: mV
-   */
-  MCUVoltage: uint16_t
-  /**
-   * MCU voltage minimum
-   * Units: mV
-   */
-  MCUVoltageMin: uint16_t
-  /**
-   * MCU voltage maximum
-   * Units: mV
-   */
-  MCUVoltageMax: uint16_t
-}
-
 export const REGISTRY: MavLinkPacketRegistry = {
   150: SensorOffsets,
   151: SetMagOffsets,
@@ -3840,5 +3784,4 @@ export const REGISTRY: MavLinkPacketRegistry = {
   11036: OsdParamShowConfigReply,
   11037: ObstacleDistance3d,
   11038: WaterDepth,
-  11039: McuStatus,
 }
