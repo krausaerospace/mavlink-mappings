@@ -30,41 +30,41 @@ import {
  * of this type. For example the first alpha release would be 64, the second would be 65.
  */
 export enum FirmwareVersionType {
-  'DEV'                                    = 0,
-  'ALPHA'                                  = 64,
-  'BETA'                                   = 128,
-  'RC'                                     = 192,
-  'OFFICIAL'                               = 255,
+  'DEV'                                      = 0,
+  'ALPHA'                                    = 64,
+  'BETA'                                     = 128,
+  'RC'                                       = 192,
+  'OFFICIAL'                                 = 255,
 }
 
 /**
  * Flags to report failure cases over the high latency telemtry.
  */
 export enum HlFailureFlag {
-  'GPS'                                    = 1,
-  'DIFFERENTIAL_PRESSURE'                  = 2,
-  'ABSOLUTE_PRESSURE'                      = 4,
-  'HL_FAILURE_FLAG_3D_ACCEL'               = 8,
-  'HL_FAILURE_FLAG_3D_GYRO'                = 16,
-  'HL_FAILURE_FLAG_3D_MAG'                 = 32,
-  'TERRAIN'                                = 64,
-  'BATTERY'                                = 128,
-  'RC_RECEIVER'                            = 256,
-  'OFFBOARD_LINK'                          = 512,
-  'ENGINE'                                 = 1024,
-  'GEOFENCE'                               = 2048,
-  'ESTIMATOR'                              = 4096,
-  'MISSION'                                = 8192,
+  'GPS'                                      = 1,
+  'DIFFERENTIAL_PRESSURE'                    = 2,
+  'ABSOLUTE_PRESSURE'                        = 4,
+  'HL_FAILURE_FLAG_3D_ACCEL'                 = 8,
+  'HL_FAILURE_FLAG_3D_GYRO'                  = 16,
+  'HL_FAILURE_FLAG_3D_MAG'                   = 32,
+  'TERRAIN'                                  = 64,
+  'BATTERY'                                  = 128,
+  'RC_RECEIVER'                              = 256,
+  'OFFBOARD_LINK'                            = 512,
+  'ENGINE'                                   = 1024,
+  'GEOFENCE'                                 = 2048,
+  'ESTIMATOR'                                = 4096,
+  'MISSION'                                  = 8192,
 }
 
 /**
  * Actions that may be specified in MAV_CMD_OVERRIDE_GOTO to override mission execution.
  */
 export enum MavGoto {
-  'DO_HOLD'                                = 0,
-  'DO_CONTINUE'                            = 1,
-  'HOLD_AT_CURRENT_POSITION'               = 2,
-  'HOLD_AT_SPECIFIED_POSITION'             = 3,
+  'DO_HOLD'                                  = 0,
+  'DO_CONTINUE'                              = 1,
+  'HOLD_AT_CURRENT_POSITION'                 = 2,
+  'HOLD_AT_SPECIFIED_POSITION'               = 3,
 }
 
 /**
@@ -73,70 +73,70 @@ export enum MavGoto {
  * safety override.
  */
 export enum MavMode {
-  'PREFLIGHT'                              = 0,
-  'STABILIZE_DISARMED'                     = 80,
-  'STABILIZE_ARMED'                        = 208,
-  'MANUAL_DISARMED'                        = 64,
-  'MANUAL_ARMED'                           = 192,
-  'GUIDED_DISARMED'                        = 88,
-  'GUIDED_ARMED'                           = 216,
+  'PREFLIGHT'                                = 0,
+  'STABILIZE_DISARMED'                       = 80,
+  'STABILIZE_ARMED'                          = 208,
+  'MANUAL_DISARMED'                          = 64,
+  'MANUAL_ARMED'                             = 192,
+  'GUIDED_DISARMED'                          = 88,
+  'GUIDED_ARMED'                             = 216,
   /**
    * System is allowed to be active, under autonomous control and navigation (the trajectory is decided
    * onboard and not pre-programmed by waypoints)
    */
-  'AUTO_DISARMED'                          = 92,
+  'AUTO_DISARMED'                            = 92,
   /**
    * System is allowed to be active, under autonomous control and navigation (the trajectory is decided
    * onboard and not pre-programmed by waypoints)
    */
-  'AUTO_ARMED'                             = 220,
+  'AUTO_ARMED'                               = 220,
   /**
    * UNDEFINED mode. This solely depends on the autopilot - use with caution, intended for developers
    * only.
    */
-  'TEST_DISARMED'                          = 66,
+  'TEST_DISARMED'                            = 66,
   /**
    * UNDEFINED mode. This solely depends on the autopilot - use with caution, intended for developers
    * only.
    */
-  'TEST_ARMED'                             = 194,
+  'TEST_ARMED'                               = 194,
 }
 
 /**
  * These encode the sensors whose status is sent as part of the SYS_STATUS message.
  */
 export enum MavSysStatusSensor {
-  'SENSOR_3D_GYRO'                         = 1,
-  'SENSOR_3D_ACCEL'                        = 2,
-  'SENSOR_3D_MAG'                          = 4,
-  'SENSOR_ABSOLUTE_PRESSURE'               = 8,
-  'SENSOR_DIFFERENTIAL_PRESSURE'           = 16,
-  'SENSOR_GPS'                             = 32,
-  'SENSOR_OPTICAL_FLOW'                    = 64,
-  'SENSOR_VISION_POSITION'                 = 128,
-  'SENSOR_LASER_POSITION'                  = 256,
-  'SENSOR_EXTERNAL_GROUND_TRUTH'           = 512,
-  'SENSOR_ANGULAR_RATE_CONTROL'            = 1024,
-  'SENSOR_ATTITUDE_STABILIZATION'          = 2048,
-  'SENSOR_YAW_POSITION'                    = 4096,
-  'SENSOR_Z_ALTITUDE_CONTROL'              = 8192,
-  'SENSOR_XY_POSITION_CONTROL'             = 16384,
-  'SENSOR_MOTOR_OUTPUTS'                   = 32768,
-  'SENSOR_RC_RECEIVER'                     = 65536,
-  'SENSOR_3D_GYRO2'                        = 131072,
-  'SENSOR_3D_ACCEL2'                       = 262144,
-  'SENSOR_3D_MAG2'                         = 524288,
-  'GEOFENCE'                               = 1048576,
-  'AHRS'                                   = 2097152,
-  'TERRAIN'                                = 4194304,
-  'REVERSE_MOTOR'                          = 8388608,
-  'LOGGING'                                = 16777216,
-  'SENSOR_BATTERY'                         = 33554432,
-  'SENSOR_PROXIMITY'                       = 67108864,
-  'SENSOR_SATCOM'                          = 134217728,
-  'PREARM_CHECK'                           = 268435456,
-  'OBSTACLE_AVOIDANCE'                     = 536870912,
-  'SENSOR_PROPULSION'                      = 1073741824,
+  'SENSOR_3D_GYRO'                           = 1,
+  'SENSOR_3D_ACCEL'                          = 2,
+  'SENSOR_3D_MAG'                            = 4,
+  'SENSOR_ABSOLUTE_PRESSURE'                 = 8,
+  'SENSOR_DIFFERENTIAL_PRESSURE'             = 16,
+  'SENSOR_GPS'                               = 32,
+  'SENSOR_OPTICAL_FLOW'                      = 64,
+  'SENSOR_VISION_POSITION'                   = 128,
+  'SENSOR_LASER_POSITION'                    = 256,
+  'SENSOR_EXTERNAL_GROUND_TRUTH'             = 512,
+  'SENSOR_ANGULAR_RATE_CONTROL'              = 1024,
+  'SENSOR_ATTITUDE_STABILIZATION'            = 2048,
+  'SENSOR_YAW_POSITION'                      = 4096,
+  'SENSOR_Z_ALTITUDE_CONTROL'                = 8192,
+  'SENSOR_XY_POSITION_CONTROL'               = 16384,
+  'SENSOR_MOTOR_OUTPUTS'                     = 32768,
+  'SENSOR_RC_RECEIVER'                       = 65536,
+  'SENSOR_3D_GYRO2'                          = 131072,
+  'SENSOR_3D_ACCEL2'                         = 262144,
+  'SENSOR_3D_MAG2'                           = 524288,
+  'GEOFENCE'                                 = 1048576,
+  'AHRS'                                     = 2097152,
+  'TERRAIN'                                  = 4194304,
+  'REVERSE_MOTOR'                            = 8388608,
+  'LOGGING'                                  = 16777216,
+  'SENSOR_BATTERY'                           = 33554432,
+  'SENSOR_PROXIMITY'                         = 67108864,
+  'SENSOR_SATCOM'                            = 134217728,
+  'PREARM_CHECK'                             = 268435456,
+  'OBSTACLE_AVOIDANCE'                       = 536870912,
+  'SENSOR_PROPULSION'                        = 1073741824,
 }
 
 /**
@@ -147,204 +147,204 @@ export enum MavFrame {
    * Global (WGS84) coordinate frame + MSL altitude. First value / x: latitude, second value / y:
    * longitude, third value / z: positive altitude over mean sea level (MSL).
    */
-  'GLOBAL'                                 = 0,
-  'LOCAL_NED'                              = 1,
-  'MISSION'                                = 2,
+  'GLOBAL'                                   = 0,
+  'LOCAL_NED'                                = 1,
+  'MISSION'                                  = 2,
   /**
    * Global (WGS84) coordinate frame + altitude relative to the home position. First value / x: latitude,
    * second value / y: longitude, third value / z: positive altitude with 0 being at the altitude of the
    * home location.
    */
-  'GLOBAL_RELATIVE_ALT'                    = 3,
-  'LOCAL_ENU'                              = 4,
+  'GLOBAL_RELATIVE_ALT'                      = 3,
+  'LOCAL_ENU'                                = 4,
   /**
    * Global (WGS84) coordinate frame (scaled) + MSL altitude. First value / x: latitude in
    * degrees*1.0e-7, second value / y: longitude in degrees*1.0e-7, third value / z: positive altitude
    * over mean sea level (MSL).
    */
-  'GLOBAL_INT'                             = 5,
+  'GLOBAL_INT'                               = 5,
   /**
    * Global (WGS84) coordinate frame (scaled) + altitude relative to the home position. First value / x:
    * latitude in degrees*10e-7, second value / y: longitude in degrees*10e-7, third value / z: positive
    * altitude with 0 being at the altitude of the home location.
    */
-  'GLOBAL_RELATIVE_ALT_INT'                = 6,
+  'GLOBAL_RELATIVE_ALT_INT'                  = 6,
   /**
    * Offset to the current local frame. Anything expressed in this frame should be added to the current
    * local frame position.
    */
-  'LOCAL_OFFSET_NED'                       = 7,
+  'LOCAL_OFFSET_NED'                         = 7,
   /**
    * Setpoint in body NED frame. This makes sense if all position control is externalized - e.g. useful
    * to command 2 m/s^2 acceleration to the right.
    */
-  'BODY_NED'                               = 8,
+  'BODY_NED'                                 = 8,
   /**
    * Offset in body NED frame. This makes sense if adding setpoints to the current flight path, to avoid
    * an obstacle - e.g. useful to command 2 m/s^2 acceleration to the east.
    */
-  'BODY_OFFSET_NED'                        = 9,
+  'BODY_OFFSET_NED'                          = 9,
   /**
    * Global (WGS84) coordinate frame with AGL altitude (at the waypoint coordinate). First value / x:
    * latitude in degrees, second value / y: longitude in degrees, third value / z: positive altitude in
    * meters with 0 being at ground level in terrain model.
    */
-  'GLOBAL_TERRAIN_ALT'                     = 10,
+  'GLOBAL_TERRAIN_ALT'                       = 10,
   /**
    * Global (WGS84) coordinate frame (scaled) with AGL altitude (at the waypoint coordinate). First value
    * / x: latitude in degrees*10e-7, second value / y: longitude in degrees*10e-7, third value / z:
    * positive altitude in meters with 0 being at ground level in terrain model.
    */
-  'GLOBAL_TERRAIN_ALT_INT'                 = 11,
-  'BODY_FRD'                               = 12,
-  'RESERVED_13'                            = 13,
+  'GLOBAL_TERRAIN_ALT_INT'                   = 11,
+  'BODY_FRD'                                 = 12,
+  'RESERVED_13'                              = 13,
   /**
    * MAV_FRAME_MOCAP_NED - Odometry local coordinate frame of data given by a motion capture system,
    * Z-down (x: North, y: East, z: Down).
    */
-  'RESERVED_14'                            = 14,
+  'RESERVED_14'                              = 14,
   /**
    * MAV_FRAME_MOCAP_ENU - Odometry local coordinate frame of data given by a motion capture system, Z-up
    * (x: East, y: North, z: Up).
    */
-  'RESERVED_15'                            = 15,
+  'RESERVED_15'                              = 15,
   /**
    * MAV_FRAME_VISION_NED - Odometry local coordinate frame of data given by a vision estimation system,
    * Z-down (x: North, y: East, z: Down).
    */
-  'RESERVED_16'                            = 16,
+  'RESERVED_16'                              = 16,
   /**
    * MAV_FRAME_VISION_ENU - Odometry local coordinate frame of data given by a vision estimation system,
    * Z-up (x: East, y: North, z: Up).
    */
-  'RESERVED_17'                            = 17,
+  'RESERVED_17'                              = 17,
   /**
    * MAV_FRAME_ESTIM_NED - Odometry local coordinate frame of data given by an estimator running onboard
    * the vehicle, Z-down (x: North, y: East, z: Down).
    */
-  'RESERVED_18'                            = 18,
+  'RESERVED_18'                              = 18,
   /**
    * MAV_FRAME_ESTIM_ENU - Odometry local coordinate frame of data given by an estimator running onboard
    * the vehicle, Z-up (x: East, y: North, z: Up).
    */
-  'RESERVED_19'                            = 19,
+  'RESERVED_19'                              = 19,
   /**
    * Forward, Right, Down coordinate frame. This is a local frame with Z-down and arbitrary F/R alignment
    * (i.e. not aligned with NED/earth frame).
    */
-  'LOCAL_FRD'                              = 20,
+  'LOCAL_FRD'                                = 20,
   /**
    * Forward, Left, Up coordinate frame. This is a local frame with Z-up and arbitrary F/L alignment
    * (i.e. not aligned with ENU/earth frame).
    */
-  'LOCAL_FLU'                              = 21,
+  'LOCAL_FLU'                                = 21,
 }
 
 /**
  * MAVLINK_DATA_STREAM_TYPE
  */
 export enum MavlinkDataStreamType {
-  'JPEG'                                   = 0,
-  'BMP'                                    = 1,
-  'RAW8U'                                  = 2,
-  'RAW32U'                                 = 3,
-  'PGM'                                    = 4,
-  'PNG'                                    = 5,
+  'JPEG'                                     = 0,
+  'BMP'                                      = 1,
+  'RAW8U'                                    = 2,
+  'RAW32U'                                   = 3,
+  'PGM'                                      = 4,
+  'PNG'                                      = 5,
 }
 
 /**
  * FENCE_ACTION
  */
 export enum FenceAction {
-  'NONE'                                   = 0,
-  'GUIDED'                                 = 1,
-  'REPORT'                                 = 2,
-  'GUIDED_THR_PASS'                        = 3,
-  'RTL'                                    = 4,
+  'NONE'                                     = 0,
+  'GUIDED'                                   = 1,
+  'REPORT'                                   = 2,
+  'GUIDED_THR_PASS'                          = 3,
+  'RTL'                                      = 4,
 }
 
 /**
  * FENCE_BREACH
  */
 export enum FenceBreach {
-  'NONE'                                   = 0,
-  'MINALT'                                 = 1,
-  'MAXALT'                                 = 2,
-  'BOUNDARY'                               = 3,
+  'NONE'                                     = 0,
+  'MINALT'                                   = 1,
+  'MAXALT'                                   = 2,
+  'BOUNDARY'                                 = 3,
 }
 
 /**
  * Actions being taken to mitigate/prevent fence breach
  */
 export enum FenceMitigate {
-  'UNKNOWN'                                = 0,
-  'NONE'                                   = 1,
-  'VEL_LIMIT'                              = 2,
+  'UNKNOWN'                                  = 0,
+  'NONE'                                     = 1,
+  'VEL_LIMIT'                                = 2,
 }
 
 /**
  * Enumeration of possible mount operation modes
  */
 export enum MavMountMode {
-  'RETRACT'                                = 0,
-  'NEUTRAL'                                = 1,
-  'MAVLINK_TARGETING'                      = 2,
-  'RC_TARGETING'                           = 3,
-  'GPS_POINT'                              = 4,
-  'SYSID_TARGET'                           = 5,
-  'HOME_LOCATION'                          = 6,
+  'RETRACT'                                  = 0,
+  'NEUTRAL'                                  = 1,
+  'MAVLINK_TARGETING'                        = 2,
+  'RC_TARGETING'                             = 3,
+  'GPS_POINT'                                = 4,
+  'SYSID_TARGET'                             = 5,
+  'HOME_LOCATION'                            = 6,
 }
 
 /**
  * Gripper actions.
  */
 export enum GripperActions {
-  'RELEASE'                                = 0,
-  'GRAB'                                   = 1,
+  'RELEASE'                                  = 0,
+  'GRAB'                                     = 1,
 }
 
 /**
  * Winch actions.
  */
 export enum WinchActions {
-  'RELAXED'                                = 0,
-  'RELATIVE_LENGTH_CONTROL'                = 1,
-  'RATE_CONTROL'                           = 2,
+  'RELAXED'                                  = 0,
+  'RELATIVE_LENGTH_CONTROL'                  = 1,
+  'RATE_CONTROL'                             = 2,
 }
 
 /**
  * Generalized UAVCAN node health
  */
 export enum UavcanNodeHealth {
-  'OK'                                     = 0,
-  'WARNING'                                = 1,
-  'ERROR'                                  = 2,
-  'CRITICAL'                               = 3,
+  'OK'                                       = 0,
+  'WARNING'                                  = 1,
+  'ERROR'                                    = 2,
+  'CRITICAL'                                 = 3,
 }
 
 /**
  * Generalized UAVCAN node mode
  */
 export enum UavcanNodeMode {
-  'OPERATIONAL'                            = 0,
-  'INITIALIZATION'                         = 1,
-  'MAINTENANCE'                            = 2,
-  'SOFTWARE_UPDATE'                        = 3,
-  'OFFLINE'                                = 7,
+  'OPERATIONAL'                              = 0,
+  'INITIALIZATION'                           = 1,
+  'MAINTENANCE'                              = 2,
+  'SOFTWARE_UPDATE'                          = 3,
+  'OFFLINE'                                  = 7,
 }
 
 /**
  * Flags to indicate the status of camera storage.
  */
 export enum StorageStatus {
-  'EMPTY'                                  = 0,
-  'UNFORMATTED'                            = 1,
-  'READY'                                  = 2,
+  'EMPTY'                                    = 0,
+  'UNFORMATTED'                              = 1,
+  'READY'                                    = 2,
   /**
    * Camera does not supply storage status information. Capacity information in STORAGE_INFORMATION
    * fields will be ignored.
    */
-  'NOT_SUPPORTED'                          = 3,
+  'NOT_SUPPORTED'                            = 3,
 }
 
 /**
@@ -358,91 +358,91 @@ export enum StorageStatus {
  * structure of the MAV_CMD entries
  */
 export enum MavCmd {
-  'NAV_WAYPOINT'                           = 16,
-  'NAV_LOITER_UNLIM'                       = 17,
-  'NAV_LOITER_TURNS'                       = 18,
-  'NAV_LOITER_TIME'                        = 19,
-  'NAV_RETURN_TO_LAUNCH'                   = 20,
-  'NAV_LAND'                               = 21,
+  'NAV_WAYPOINT'                             = 16,
+  'NAV_LOITER_UNLIM'                         = 17,
+  'NAV_LOITER_TURNS'                         = 18,
+  'NAV_LOITER_TIME'                          = 19,
+  'NAV_RETURN_TO_LAUNCH'                     = 20,
+  'NAV_LAND'                                 = 21,
   /**
    * Takeoff from ground / hand. Vehicles that support multiple takeoff modes (e.g. VTOL quadplane)
    * should take off using the currently configured mode.
    */
-  'NAV_TAKEOFF'                            = 22,
-  'NAV_LAND_LOCAL'                         = 23,
-  'NAV_TAKEOFF_LOCAL'                      = 24,
-  'NAV_FOLLOW'                             = 25,
+  'NAV_TAKEOFF'                              = 22,
+  'NAV_LAND_LOCAL'                           = 23,
+  'NAV_TAKEOFF_LOCAL'                        = 24,
+  'NAV_FOLLOW'                               = 25,
   /**
    * Continue on the current course and climb/descend to specified altitude. When the altitude is reached
    * continue to the next command (i.e., don't proceed to the next command until the desired altitude is
    * reached.
    */
-  'NAV_CONTINUE_AND_CHANGE_ALT'            = 30,
+  'NAV_CONTINUE_AND_CHANGE_ALT'              = 30,
   /**
    * Begin loiter at the specified Latitude and Longitude. If Lat=Lon=0, then loiter at the current
    * position. Don't consider the navigation command complete (don't leave loiter) until the altitude has
    * been reached. Additionally, if the Heading Required parameter is non-zero the aircraft will not
    * leave the loiter until heading toward the next waypoint.
    */
-  'NAV_LOITER_TO_ALT'                      = 31,
-  'DO_FOLLOW'                              = 32,
-  'DO_FOLLOW_REPOSITION'                   = 33,
+  'NAV_LOITER_TO_ALT'                        = 31,
+  'DO_FOLLOW'                                = 32,
+  'DO_FOLLOW_REPOSITION'                     = 33,
   /**
    * Sets the region of interest (ROI) for a sensor set or the vehicle itself. This can then be used by
    * the vehicle's control system to control the vehicle attitude and the attitude of various sensors
    * such as cameras.
    */
-  'NAV_ROI'                                = 80,
-  'NAV_PATHPLANNING'                       = 81,
-  'NAV_SPLINE_WAYPOINT'                    = 82,
-  'NAV_VTOL_TAKEOFF'                       = 84,
-  'NAV_VTOL_LAND'                          = 85,
-  'NAV_GUIDED_ENABLE'                      = 92,
-  'NAV_DELAY'                              = 93,
+  'NAV_ROI'                                  = 80,
+  'NAV_PATHPLANNING'                         = 81,
+  'NAV_SPLINE_WAYPOINT'                      = 82,
+  'NAV_VTOL_TAKEOFF'                         = 84,
+  'NAV_VTOL_LAND'                            = 85,
+  'NAV_GUIDED_ENABLE'                        = 92,
+  'NAV_DELAY'                                = 93,
   /**
    * Descend and place payload. Vehicle moves to specified location, descends until it detects a hanging
    * payload has reached the ground, and then releases the payload. If ground is not detected before the
    * reaching the maximum descent value (param1), the command will complete without releasing the
    * payload.
    */
-  'NAV_PAYLOAD_PLACE'                      = 94,
+  'NAV_PAYLOAD_PLACE'                        = 94,
   /**
    * NOP - This command is only used to mark the upper limit of the NAV/ACTION commands in the
    * enumeration
    */
-  'NAV_LAST'                               = 95,
-  'CONDITION_DELAY'                        = 112,
+  'NAV_LAST'                                 = 95,
+  'CONDITION_DELAY'                          = 112,
   /**
    * Ascend/descend to target altitude at specified rate. Delay mission state machine until desired
    * altitude reached.
    */
-  'CONDITION_CHANGE_ALT'                   = 113,
-  'CONDITION_DISTANCE'                     = 114,
-  'CONDITION_YAW'                          = 115,
-  'CONDITION_LAST'                         = 159,
-  'DO_SET_MODE'                            = 176,
+  'CONDITION_CHANGE_ALT'                     = 113,
+  'CONDITION_DISTANCE'                       = 114,
+  'CONDITION_YAW'                            = 115,
+  'CONDITION_LAST'                           = 159,
+  'DO_SET_MODE'                              = 176,
   /**
    * Jump to the desired command in the mission list. Repeat this action only the specified number of
    * times
    */
-  'DO_JUMP'                                = 177,
-  'DO_CHANGE_SPEED'                        = 178,
-  'DO_SET_HOME'                            = 179,
+  'DO_JUMP'                                  = 177,
+  'DO_CHANGE_SPEED'                          = 178,
+  'DO_SET_HOME'                              = 179,
   /**
    * Set a system parameter. Caution! Use of this command requires knowledge of the numeric enumeration
    * value of the parameter.
    */
-  'DO_SET_PARAMETER'                       = 180,
-  'DO_SET_RELAY'                           = 181,
-  'DO_REPEAT_RELAY'                        = 182,
-  'DO_SET_SERVO'                           = 183,
+  'DO_SET_PARAMETER'                         = 180,
+  'DO_SET_RELAY'                             = 181,
+  'DO_REPEAT_RELAY'                          = 182,
+  'DO_SET_SERVO'                             = 183,
   /**
    * Cycle a between its nominal setting and a desired PWM for a desired number of cycles with a desired
    * period.
    */
-  'DO_REPEAT_SERVO'                        = 184,
-  'DO_FLIGHTTERMINATION'                   = 185,
-  'DO_CHANGE_ALTITUDE'                     = 186,
+  'DO_REPEAT_SERVO'                          = 184,
+  'DO_FLIGHTTERMINATION'                     = 185,
+  'DO_CHANGE_ALTITUDE'                       = 186,
   /**
    * Mission command to perform a landing. This is used as a marker in a mission to tell the autopilot
    * where a sequence of mission items that represents a landing starts. It may also be sent via a
@@ -450,113 +450,113 @@ export enum MavCmd {
    * the mission will be used. The Latitude/Longitude is optional, and may be set to 0 if not needed. If
    * specified then it will be used to help find the closest landing sequence.
    */
-  'DO_LAND_START'                          = 189,
-  'DO_RALLY_LAND'                          = 190,
-  'DO_GO_AROUND'                           = 191,
-  'DO_REPOSITION'                          = 192,
-  'DO_PAUSE_CONTINUE'                      = 193,
-  'DO_SET_REVERSE'                         = 194,
+  'DO_LAND_START'                            = 189,
+  'DO_RALLY_LAND'                            = 190,
+  'DO_GO_AROUND'                             = 191,
+  'DO_REPOSITION'                            = 192,
+  'DO_PAUSE_CONTINUE'                        = 193,
+  'DO_SET_REVERSE'                           = 194,
   /**
    * Sets the region of interest (ROI) to a location. This can then be used by the vehicle's control
    * system to control the vehicle attitude and the attitude of various sensors such as cameras.
    */
-  'DO_SET_ROI_LOCATION'                    = 195,
+  'DO_SET_ROI_LOCATION'                      = 195,
   /**
    * Sets the region of interest (ROI) to be toward next waypoint, with optional pitch/roll/yaw offset.
    * This can then be used by the vehicle's control system to control the vehicle attitude and the
    * attitude of various sensors such as cameras.
    */
-  'DO_SET_ROI_WPNEXT_OFFSET'               = 196,
+  'DO_SET_ROI_WPNEXT_OFFSET'                 = 196,
   /**
    * Cancels any previous ROI command returning the vehicle/sensors to default flight characteristics.
    * This can then be used by the vehicle's control system to control the vehicle attitude and the
    * attitude of various sensors such as cameras.
    */
-  'DO_SET_ROI_NONE'                        = 197,
+  'DO_SET_ROI_NONE'                          = 197,
   /**
    * Mount tracks system with specified system ID. Determination of target vehicle position may be done
    * with GLOBAL_POSITION_INT or any other means.
    */
-  'DO_SET_ROI_SYSID'                       = 198,
-  'DO_CONTROL_VIDEO'                       = 200,
+  'DO_SET_ROI_SYSID'                         = 198,
+  'DO_CONTROL_VIDEO'                         = 200,
   /**
    * Sets the region of interest (ROI) for a sensor set or the vehicle itself. This can then be used by
    * the vehicle's control system to control the vehicle attitude and the attitude of various sensors
    * such as cameras.
    */
-  'DO_SET_ROI'                             = 201,
+  'DO_SET_ROI'                               = 201,
   /**
    * Configure digital camera. This is a fallback message for systems that have not yet implemented
    * PARAM_EXT_XXX messages and camera definition files (see
    * https://mavlink.io/en/services/camera_def.html ).
    */
-  'DO_DIGICAM_CONFIGURE'                   = 202,
+  'DO_DIGICAM_CONFIGURE'                     = 202,
   /**
    * Control digital camera. This is a fallback message for systems that have not yet implemented
    * PARAM_EXT_XXX messages and camera definition files (see
    * https://mavlink.io/en/services/camera_def.html ).
    */
-  'DO_DIGICAM_CONTROL'                     = 203,
-  'DO_MOUNT_CONFIGURE'                     = 204,
-  'DO_MOUNT_CONTROL'                       = 205,
+  'DO_DIGICAM_CONTROL'                       = 203,
+  'DO_MOUNT_CONFIGURE'                       = 204,
+  'DO_MOUNT_CONTROL'                         = 205,
   /**
    * Mission command to set camera trigger distance for this flight. The camera is triggered each time
    * this distance is exceeded. This command can also be used to set the shutter integration time for the
    * camera.
    */
-  'DO_SET_CAM_TRIGG_DIST'                  = 206,
-  'DO_FENCE_ENABLE'                        = 207,
-  'DO_PARACHUTE'                           = 208,
-  'DO_MOTOR_TEST'                          = 209,
-  'DO_INVERTED_FLIGHT'                     = 210,
-  'DO_GRIPPER'                             = 211,
-  'DO_AUTOTUNE_ENABLE'                     = 212,
-  'NAV_SET_YAW_SPEED'                      = 213,
+  'DO_SET_CAM_TRIGG_DIST'                    = 206,
+  'DO_FENCE_ENABLE'                          = 207,
+  'DO_PARACHUTE'                             = 208,
+  'DO_MOTOR_TEST'                            = 209,
+  'DO_INVERTED_FLIGHT'                       = 210,
+  'DO_GRIPPER'                               = 211,
+  'DO_AUTOTUNE_ENABLE'                       = 212,
+  'NAV_SET_YAW_SPEED'                        = 213,
   /**
    * Mission command to set camera trigger interval for this flight. If triggering is enabled, the camera
    * is triggered each time this interval expires. This command can also be used to set the shutter
    * integration time for the camera.
    */
-  'DO_SET_CAM_TRIGG_INTERVAL'              = 214,
-  'DO_MOUNT_CONTROL_QUAT'                  = 220,
-  'DO_GUIDED_MASTER'                       = 221,
-  'DO_GUIDED_LIMITS'                       = 222,
+  'DO_SET_CAM_TRIGG_INTERVAL'                = 214,
+  'DO_MOUNT_CONTROL_QUAT'                    = 220,
+  'DO_GUIDED_MASTER'                         = 221,
+  'DO_GUIDED_LIMITS'                         = 222,
   /**
    * Control vehicle engine. This is interpreted by the vehicles engine controller to change the target
    * engine state. It is intended for vehicles with internal combustion engines
    */
-  'DO_ENGINE_CONTROL'                      = 223,
+  'DO_ENGINE_CONTROL'                        = 223,
   /**
    * Set the mission item with sequence number seq as current item. This means that the MAV will continue
    * to this mission item on the shortest path (not following the mission items in-between).
    */
-  'DO_SET_MISSION_CURRENT'                 = 224,
-  'DO_LAST'                                = 240,
+  'DO_SET_MISSION_CURRENT'                   = 224,
+  'DO_LAST'                                  = 240,
   /**
    * Trigger calibration. This command will be only accepted if in pre-flight mode. Except for
    * Temperature Calibration, only one sensor should be set in a single message and all others should be
    * zero.
    */
-  'PREFLIGHT_CALIBRATION'                  = 241,
-  'PREFLIGHT_SET_SENSOR_OFFSETS'           = 242,
+  'PREFLIGHT_CALIBRATION'                    = 241,
+  'PREFLIGHT_SET_SENSOR_OFFSETS'             = 242,
   /**
    * Trigger UAVCAN configuration (actuator ID assignment and direction mapping). Note that this maps to
    * the legacy UAVCAN v0 function UAVCAN_ENUMERATE, which is intended to be executed just once during
    * initial vehicle configuration (it is not a normal pre-flight command and has been poorly named).
    */
-  'PREFLIGHT_UAVCAN'                       = 243,
+  'PREFLIGHT_UAVCAN'                         = 243,
   /**
    * Request storage of different parameter values and logs. This command will be only accepted if in
    * pre-flight mode.
    */
-  'PREFLIGHT_STORAGE'                      = 245,
-  'PREFLIGHT_REBOOT_SHUTDOWN'              = 246,
+  'PREFLIGHT_STORAGE'                        = 245,
+  'PREFLIGHT_REBOOT_SHUTDOWN'                = 246,
   /**
    * Override current mission with command to pause mission, pause mission and move to position,
    * continue/resume mission. When param 1 indicates that the mission is paused (MAV_GOTO_DO_HOLD), param
    * 2 defines whether it holds in place or moves to another position.
    */
-  'OVERRIDE_GOTO'                          = 252,
+  'OVERRIDE_GOTO'                            = 252,
   /**
    * Mission command to set a Camera Auto Mount Pivoting Oblique Survey (Replaces CAM_TRIGG_DIST for this
    * purpose). The camera is triggered each time this distance is exceeded, then the mount moves to the
@@ -565,9 +565,9 @@ export enum MavCmd {
    * setup (providing an increased HFOV). This command can also be used to set the shutter integration
    * time for the camera.
    */
-  'OBLIQUE_SURVEY'                         = 260,
-  'MISSION_START'                          = 300,
-  'COMPONENT_ARM_DISARM'                   = 400,
+  'OBLIQUE_SURVEY'                           = 260,
+  'MISSION_START'                            = 300,
+  'COMPONENT_ARM_DISARM'                     = 400,
   /**
    * Instructs system to run pre-arm checks. This command should return MAV_RESULT_TEMPORARILY_REJECTED
    * in the case the system is armed, otherwse MAV_RESULT_ACCEPTED. Note that the return value from
@@ -575,82 +575,82 @@ export enum MavCmd {
    * system has successfully run/is currently running the checks. The result of the checks is reflected
    * in the SYS_STATUS message.
    */
-  'RUN_PREARM_CHECKS'                      = 401,
-  'GET_HOME_POSITION'                      = 410,
-  'START_RX_PAIR'                          = 500,
+  'RUN_PREARM_CHECKS'                        = 401,
+  'GET_HOME_POSITION'                        = 410,
+  'START_RX_PAIR'                            = 500,
   /**
    * Request the interval between messages for a particular MAVLink message ID. The receiver should ACK
    * the command and then emit its response in a MESSAGE_INTERVAL message.
    */
-  'GET_MESSAGE_INTERVAL'                   = 510,
+  'GET_MESSAGE_INTERVAL'                     = 510,
   /**
    * Set the interval between messages for a particular MAVLink message ID. This interface replaces
    * REQUEST_DATA_STREAM.
    */
-  'SET_MESSAGE_INTERVAL'                   = 511,
+  'SET_MESSAGE_INTERVAL'                     = 511,
   /**
    * Request the target system(s) emit a single instance of a specified message (i.e. a "one-shot"
    * version of MAV_CMD_SET_MESSAGE_INTERVAL).
    */
-  'REQUEST_MESSAGE'                        = 512,
+  'REQUEST_MESSAGE'                          = 512,
   /**
    * Request MAVLink protocol version compatibility. All receivers should ACK the command and then emit
    * their capabilities in an PROTOCOL_VERSION message
    */
-  'REQUEST_PROTOCOL_VERSION'               = 519,
+  'REQUEST_PROTOCOL_VERSION'                 = 519,
   /**
    * Request autopilot capabilities. The receiver should ACK the command and then emit its capabilities
    * in an AUTOPILOT_VERSION message
    */
-  'REQUEST_AUTOPILOT_CAPABILITIES'         = 520,
-  'REQUEST_CAMERA_INFORMATION'             = 521,
-  'REQUEST_CAMERA_SETTINGS'                = 522,
+  'REQUEST_AUTOPILOT_CAPABILITIES'           = 520,
+  'REQUEST_CAMERA_INFORMATION'               = 521,
+  'REQUEST_CAMERA_SETTINGS'                  = 522,
   /**
    * Request storage information (STORAGE_INFORMATION). Use the command's target_component to target a
    * specific component's storage.
    */
-  'REQUEST_STORAGE_INFORMATION'            = 525,
+  'REQUEST_STORAGE_INFORMATION'              = 525,
   /**
    * Format a storage medium. Once format is complete, a STORAGE_INFORMATION message is sent. Use the
    * command's target_component to target a specific component's storage.
    */
-  'STORAGE_FORMAT'                         = 526,
-  'REQUEST_CAMERA_CAPTURE_STATUS'          = 527,
-  'REQUEST_FLIGHT_INFORMATION'             = 528,
-  'RESET_CAMERA_SETTINGS'                  = 529,
+  'STORAGE_FORMAT'                           = 526,
+  'REQUEST_CAMERA_CAPTURE_STATUS'            = 527,
+  'REQUEST_FLIGHT_INFORMATION'               = 528,
+  'RESET_CAMERA_SETTINGS'                    = 529,
   /**
    * Set camera running mode. Use NaN for reserved values. GCS will send a
    * MAV_CMD_REQUEST_VIDEO_STREAM_STATUS command after a mode change if the camera supports video
    * streaming.
    */
-  'SET_CAMERA_MODE'                        = 530,
-  'JUMP_TAG'                               = 600,
+  'SET_CAMERA_MODE'                          = 530,
+  'JUMP_TAG'                                 = 600,
   /**
    * Jump to the matching tag in the mission list. Repeat this action for the specified number of times.
    * A mission should contain a single matching tag for each jump. If this is not the case then a jump to
    * a missing tag should complete the mission, and a jump where there are multiple matching tags should
    * always select the one with the lowest mission sequence number.
    */
-  'DO_JUMP_TAG'                            = 601,
+  'DO_JUMP_TAG'                              = 601,
   /**
    * Start image capture sequence. Sends CAMERA_IMAGE_CAPTURED after each capture. Use NaN for reserved
    * values.
    */
-  'IMAGE_START_CAPTURE'                    = 2000,
-  'IMAGE_STOP_CAPTURE'                     = 2001,
-  'DO_TRIGGER_CONTROL'                     = 2003,
-  'VIDEO_START_CAPTURE'                    = 2500,
-  'VIDEO_STOP_CAPTURE'                     = 2501,
-  'VIDEO_START_STREAMING'                  = 2502,
-  'VIDEO_STOP_STREAMING'                   = 2503,
-  'REQUEST_VIDEO_STREAM_INFORMATION'       = 2504,
-  'REQUEST_VIDEO_STREAM_STATUS'            = 2505,
-  'LOGGING_START'                          = 2510,
-  'LOGGING_STOP'                           = 2511,
-  'AIRFRAME_CONFIGURATION'                 = 2520,
-  'CONTROL_HIGH_LATENCY'                   = 2600,
-  'PANORAMA_CREATE'                        = 2800,
-  'DO_VTOL_TRANSITION'                     = 3000,
+  'IMAGE_START_CAPTURE'                      = 2000,
+  'IMAGE_STOP_CAPTURE'                       = 2001,
+  'DO_TRIGGER_CONTROL'                       = 2003,
+  'VIDEO_START_CAPTURE'                      = 2500,
+  'VIDEO_STOP_CAPTURE'                       = 2501,
+  'VIDEO_START_STREAMING'                    = 2502,
+  'VIDEO_STOP_STREAMING'                     = 2503,
+  'REQUEST_VIDEO_STREAM_INFORMATION'         = 2504,
+  'REQUEST_VIDEO_STREAM_STATUS'              = 2505,
+  'LOGGING_START'                            = 2510,
+  'LOGGING_STOP'                             = 2511,
+  'AIRFRAME_CONFIGURATION'                   = 2520,
+  'CONTROL_HIGH_LATENCY'                     = 2600,
+  'PANORAMA_CREATE'                          = 2800,
+  'DO_VTOL_TRANSITION'                       = 3000,
   /**
    * Request authorization to arm the vehicle to a external entity, the arm authorizer is responsible to
    * request all data that is needs from the vehicle before authorize or deny the request. If approved
@@ -658,37 +658,37 @@ export enum MavCmd {
    * valid in seconds or in case it was denied it should be set with one of the reasons in
    * ARM_AUTH_DENIED_REASON.
    */
-  'ARM_AUTHORIZATION_REQUEST'              = 3001,
+  'ARM_AUTHORIZATION_REQUEST'                = 3001,
   /**
    * This command sets the submode to standard guided when vehicle is in guided mode. The vehicle holds
    * position and altitude and the user can input the desired velocities along all three axes.
    */
-  'SET_GUIDED_SUBMODE_STANDARD'            = 4000,
+  'SET_GUIDED_SUBMODE_STANDARD'              = 4000,
   /**
    * This command sets submode circle when vehicle is in guided mode. Vehicle flies along a circle facing
    * the center of the circle. The user can input the velocity along the circle and change the radius. If
    * no input is given the vehicle will hold position.
    */
-  'SET_GUIDED_SUBMODE_CIRCLE'              = 4001,
+  'SET_GUIDED_SUBMODE_CIRCLE'                = 4001,
   /**
    * Fence return point (there can only be one such point in a geofence definition). If rally points are
    * supported they should be used instead.
    */
-  'NAV_FENCE_RETURN_POINT'                 = 5000,
+  'NAV_FENCE_RETURN_POINT'                   = 5000,
   /**
    * Fence vertex for an inclusion polygon (the polygon must not be self-intersecting). The vehicle must
    * stay within this area. Minimum of 3 vertices required.
    */
-  'NAV_FENCE_POLYGON_VERTEX_INCLUSION'     = 5001,
+  'NAV_FENCE_POLYGON_VERTEX_INCLUSION'       = 5001,
   /**
    * Fence vertex for an exclusion polygon (the polygon must not be self-intersecting). The vehicle must
    * stay outside this area. Minimum of 3 vertices required.
    */
-  'NAV_FENCE_POLYGON_VERTEX_EXCLUSION'     = 5002,
-  'NAV_FENCE_CIRCLE_INCLUSION'             = 5003,
-  'NAV_FENCE_CIRCLE_EXCLUSION'             = 5004,
-  'NAV_RALLY_POINT'                        = 5100,
-  'NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION' = 5109,
+  'NAV_FENCE_POLYGON_VERTEX_EXCLUSION'       = 5002,
+  'NAV_FENCE_CIRCLE_INCLUSION'               = 5003,
+  'NAV_FENCE_CIRCLE_EXCLUSION'               = 5004,
+  'NAV_RALLY_POINT'                          = 5100,
+  'NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION'   = 5109,
   /**
    * Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every
    * UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver
@@ -696,76 +696,75 @@ export enum MavCmd {
    * UAVCAN_NODE_INFO received earlier; if not, this command should be sent again in order to request
    * re-transmission of the node information messages.
    */
-  'UAVCAN_GET_NODE_INFO'                   = 5200,
+  'UAVCAN_GET_NODE_INFO'                     = 5200,
   /**
    * Deploy payload on a Lat / Lon / Alt position. This includes the navigation to reach the required
    * release position and velocity.
    */
-  'PAYLOAD_PREPARE_DEPLOY'                 = 30001,
-  'PAYLOAD_CONTROL_DEPLOY'                 = 30002,
+  'PAYLOAD_PREPARE_DEPLOY'                   = 30001,
+  'PAYLOAD_CONTROL_DEPLOY'                   = 30002,
   /**
    * Magnetometer calibration based on provided known yaw. This allows for fast calibration using WMM
    * field tables in the vehicle, given only the known yaw of the vehicle. If Latitude and longitude are
    * both zero then use the current vehicle location.
    */
-  'FIXED_MAG_CAL_YAW'                      = 42006,
-  'DO_WINCH'                               = 42600,
-  'SWARM_RADIUS'                           = 12613,
-  'WAYPOINT_USER_1'                        = 31000,
-  'WAYPOINT_USER_2'                        = 31001,
-  'WAYPOINT_USER_3'                        = 31002,
-  'WAYPOINT_USER_4'                        = 31003,
-  'WAYPOINT_USER_5'                        = 31004,
+  'FIXED_MAG_CAL_YAW'                        = 42006,
+  'DO_WINCH'                                 = 42600,
+  'WAYPOINT_USER_1'                          = 31000,
+  'WAYPOINT_USER_2'                          = 31001,
+  'WAYPOINT_USER_3'                          = 31002,
+  'WAYPOINT_USER_4'                          = 31003,
+  'WAYPOINT_USER_5'                          = 31004,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_1'                         = 31005,
+  'SPATIAL_USER_1'                           = 31005,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_2'                         = 31006,
+  'SPATIAL_USER_2'                           = 31006,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_3'                         = 31007,
+  'SPATIAL_USER_3'                           = 31007,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_4'                         = 31008,
+  'SPATIAL_USER_4'                           = 31008,
   /**
    * User defined spatial item. Ground Station will not show the Vehicle as flying through this item.
    * Example: ROI item.
    */
-  'SPATIAL_USER_5'                         = 31009,
+  'SPATIAL_USER_5'                           = 31009,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_1'                                 = 31010,
+  'USER_1'                                   = 31010,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_2'                                 = 31011,
+  'USER_2'                                   = 31011,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_3'                                 = 31012,
+  'USER_3'                                   = 31012,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_4'                                 = 31013,
+  'USER_4'                                   = 31013,
   /**
    * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
    * MAV_CMD_DO_SET_PARAMETER item.
    */
-  'USER_5'                                 = 31014,
+  'USER_5'                                   = 31014,
 }
 
 /**
@@ -773,15 +772,15 @@ export enum MavCmd {
  * Individual autopilots may or may not obey the recommended messages.
  */
 export enum MavDataStream {
-  'ALL'                                    = 0,
-  'RAW_SENSORS'                            = 1,
-  'EXTENDED_STATUS'                        = 2,
-  'RC_CHANNELS'                            = 3,
-  'RAW_CONTROLLER'                         = 4,
-  'POSITION'                               = 6,
-  'EXTRA1'                                 = 10,
-  'EXTRA2'                                 = 11,
-  'EXTRA3'                                 = 12,
+  'ALL'                                      = 0,
+  'RAW_SENSORS'                              = 1,
+  'EXTENDED_STATUS'                          = 2,
+  'RC_CHANNELS'                              = 3,
+  'RAW_CONTROLLER'                           = 4,
+  'POSITION'                                 = 6,
+  'EXTRA1'                                   = 10,
+  'EXTRA2'                                   = 11,
+  'EXTRA3'                                   = 12,
 }
 
 /**
@@ -789,76 +788,76 @@ export enum MavDataStream {
  * attitude alignment (see MAV_CMD_NAV_ROI).
  */
 export enum MavRoi {
-  'NONE'                                   = 0,
-  'WPNEXT'                                 = 1,
-  'WPINDEX'                                = 2,
-  'LOCATION'                               = 3,
-  'TARGET'                                 = 4,
+  'NONE'                                     = 0,
+  'WPNEXT'                                   = 1,
+  'WPINDEX'                                  = 2,
+  'LOCATION'                                 = 3,
+  'TARGET'                                   = 4,
 }
 
 /**
  * ACK / NACK / ERROR values as a result of MAV_CMDs and for mission item transmission.
  */
 export enum MavCmdAck {
-  'OK'                                     = 0,
+  'OK'                                       = 0,
   /**
    * Generic error message if none of the other reasons fails or if no detailed error reporting is
    * implemented.
    */
-  'ERR_FAIL'                               = 1,
-  'ERR_ACCESS_DENIED'                      = 2,
-  'ERR_NOT_SUPPORTED'                      = 3,
-  'ERR_COORDINATE_FRAME_NOT_SUPPORTED'     = 4,
+  'ERR_FAIL'                                 = 1,
+  'ERR_ACCESS_DENIED'                        = 2,
+  'ERR_NOT_SUPPORTED'                        = 3,
+  'ERR_COORDINATE_FRAME_NOT_SUPPORTED'       = 4,
   /**
    * The coordinate frame of this command is ok, but he coordinate values exceed the safety limits of
    * this system. This is a generic error, please use the more specific error messages below if possible.
    */
-  'ERR_COORDINATES_OUT_OF_RANGE'           = 5,
-  'ERR_X_LAT_OUT_OF_RANGE'                 = 6,
-  'ERR_Y_LON_OUT_OF_RANGE'                 = 7,
-  'ERR_Z_ALT_OUT_OF_RANGE'                 = 8,
+  'ERR_COORDINATES_OUT_OF_RANGE'             = 5,
+  'ERR_X_LAT_OUT_OF_RANGE'                   = 6,
+  'ERR_Y_LON_OUT_OF_RANGE'                   = 7,
+  'ERR_Z_ALT_OUT_OF_RANGE'                   = 8,
 }
 
 /**
  * Specifies the datatype of a MAVLink parameter.
  */
 export enum MavParamType {
-  'UINT8'                                  = 1,
-  'INT8'                                   = 2,
-  'UINT16'                                 = 3,
-  'INT16'                                  = 4,
-  'UINT32'                                 = 5,
-  'INT32'                                  = 6,
-  'UINT64'                                 = 7,
-  'INT64'                                  = 8,
-  'REAL32'                                 = 9,
-  'REAL64'                                 = 10,
+  'UINT8'                                    = 1,
+  'INT8'                                     = 2,
+  'UINT16'                                   = 3,
+  'INT16'                                    = 4,
+  'UINT32'                                   = 5,
+  'INT32'                                    = 6,
+  'UINT64'                                   = 7,
+  'INT64'                                    = 8,
+  'REAL32'                                   = 9,
+  'REAL64'                                   = 10,
 }
 
 /**
  * Result from a MAVLink command (MAV_CMD)
  */
 export enum MavResult {
-  'ACCEPTED'                               = 0,
+  'ACCEPTED'                                 = 0,
   /**
    * Command is valid, but cannot be executed at this time. This is used to indicate a problem that
    * should be fixed just by waiting (e.g. a state machine is busy, can't arm because have not got GPS
    * lock, etc.). Retrying later should work.
    */
-  'TEMPORARILY_REJECTED'                   = 1,
+  'TEMPORARILY_REJECTED'                     = 1,
   /**
    * Command is invalid (is supported but has invalid parameters). Retrying same command and parameters
    * will not work.
    */
-  'DENIED'                                 = 2,
-  'UNSUPPORTED'                            = 3,
+  'DENIED'                                   = 2,
+  'UNSUPPORTED'                              = 3,
   /**
    * Command is valid, but execution has failed. This is used to indicate any non-temporary or unexpected
    * problem, i.e. any problem that must be fixed before the command can succeed/be retried. For example,
    * attempting to write a file when out of memory, attempting to arm when sensors are not calibrated,
    * etc.
    */
-  'FAILED'                                 = 4,
+  'FAILED'                                   = 4,
   /**
    * Command is valid and is being executed. This will be followed by further progress updates, i.e. the
    * component may send further COMMAND_ACK messages with result MAV_RESULT_IN_PROGRESS (at a rate
@@ -867,29 +866,29 @@ export enum MavResult {
    * operation. There is no need for the sender to retry the command, but if done during execution, the
    * component will return MAV_RESULT_IN_PROGRESS with an updated progress.
    */
-  'IN_PROGRESS'                            = 5,
+  'IN_PROGRESS'                              = 5,
 }
 
 /**
  * Result of mission operation (in a MISSION_ACK message).
  */
 export enum MavMissionResult {
-  'ACCEPTED'                               = 0,
-  'ERROR'                                  = 1,
-  'UNSUPPORTED_FRAME'                      = 2,
-  'UNSUPPORTED'                            = 3,
-  'NO_SPACE'                               = 4,
-  'INVALID'                                = 5,
-  'INVALID_PARAM1'                         = 6,
-  'INVALID_PARAM2'                         = 7,
-  'INVALID_PARAM3'                         = 8,
-  'INVALID_PARAM4'                         = 9,
-  'INVALID_PARAM5_X'                       = 10,
-  'INVALID_PARAM6_Y'                       = 11,
-  'INVALID_PARAM7'                         = 12,
-  'INVALID_SEQUENCE'                       = 13,
-  'DENIED'                                 = 14,
-  'OPERATION_CANCELLED'                    = 15,
+  'ACCEPTED'                                 = 0,
+  'ERROR'                                    = 1,
+  'UNSUPPORTED_FRAME'                        = 2,
+  'UNSUPPORTED'                              = 3,
+  'NO_SPACE'                                 = 4,
+  'INVALID'                                  = 5,
+  'INVALID_PARAM1'                           = 6,
+  'INVALID_PARAM2'                           = 7,
+  'INVALID_PARAM3'                           = 8,
+  'INVALID_PARAM4'                           = 9,
+  'INVALID_PARAM5_X'                         = 10,
+  'INVALID_PARAM6_Y'                         = 11,
+  'INVALID_PARAM7'                           = 12,
+  'INVALID_SEQUENCE'                         = 13,
+  'DENIED'                                   = 14,
+  'OPERATION_CANCELLED'                      = 15,
 }
 
 /**
@@ -898,134 +897,134 @@ export enum MavMissionResult {
  * http://www.kiwisyslog.com/kb/info:-syslog-message-levels/.
  */
 export enum MavSeverity {
-  'EMERGENCY'                              = 0,
-  'ALERT'                                  = 1,
-  'CRITICAL'                               = 2,
-  'ERROR'                                  = 3,
+  'EMERGENCY'                                = 0,
+  'ALERT'                                    = 1,
+  'CRITICAL'                                 = 2,
+  'ERROR'                                    = 3,
   /**
    * Indicates about a possible future error if this is not resolved within a given timeframe. Example
    * would be a low battery warning.
    */
-  'WARNING'                                = 4,
+  'WARNING'                                  = 4,
   /**
    * An unusual event has occurred, though not an error condition. This should be investigated for the
    * root cause.
    */
-  'NOTICE'                                 = 5,
-  'INFO'                                   = 6,
+  'NOTICE'                                   = 5,
+  'INFO'                                     = 6,
   /**
    * Useful non-operational messages that can assist in debugging. These should not occur during normal
    * operation.
    */
-  'DEBUG'                                  = 7,
+  'DEBUG'                                    = 7,
 }
 
 /**
  * Power supply status flags (bitmask)
  */
 export enum MavPowerStatus {
-  'BRICK_VALID'                            = 1,
-  'SERVO_VALID'                            = 2,
-  'USB_CONNECTED'                          = 4,
-  'PERIPH_OVERCURRENT'                     = 8,
-  'PERIPH_HIPOWER_OVERCURRENT'             = 16,
-  'CHANGED'                                = 32,
+  'BRICK_VALID'                              = 1,
+  'SERVO_VALID'                              = 2,
+  'USB_CONNECTED'                            = 4,
+  'PERIPH_OVERCURRENT'                       = 8,
+  'PERIPH_HIPOWER_OVERCURRENT'               = 16,
+  'CHANGED'                                  = 32,
 }
 
 /**
  * SERIAL_CONTROL device types
  */
 export enum SerialControlDev {
-  'DEV_TELEM1'                             = 0,
-  'DEV_TELEM2'                             = 1,
-  'DEV_GPS1'                               = 2,
-  'DEV_GPS2'                               = 3,
-  'DEV_SHELL'                              = 10,
-  'SERIAL0'                                = 100,
-  'SERIAL1'                                = 101,
-  'SERIAL2'                                = 102,
-  'SERIAL3'                                = 103,
-  'SERIAL4'                                = 104,
-  'SERIAL5'                                = 105,
-  'SERIAL6'                                = 106,
-  'SERIAL7'                                = 107,
-  'SERIAL8'                                = 108,
-  'SERIAL9'                                = 109,
+  'DEV_TELEM1'                               = 0,
+  'DEV_TELEM2'                               = 1,
+  'DEV_GPS1'                                 = 2,
+  'DEV_GPS2'                                 = 3,
+  'DEV_SHELL'                                = 10,
+  'SERIAL0'                                  = 100,
+  'SERIAL1'                                  = 101,
+  'SERIAL2'                                  = 102,
+  'SERIAL3'                                  = 103,
+  'SERIAL4'                                  = 104,
+  'SERIAL5'                                  = 105,
+  'SERIAL6'                                  = 106,
+  'SERIAL7'                                  = 107,
+  'SERIAL8'                                  = 108,
+  'SERIAL9'                                  = 109,
 }
 
 /**
  * SERIAL_CONTROL flags (bitmask)
  */
 export enum SerialControlFlag {
-  'REPLY'                                  = 1,
-  'RESPOND'                                = 2,
+  'REPLY'                                    = 1,
+  'RESPOND'                                  = 2,
   /**
    * Set if access to the serial port should be removed from whatever driver is currently using it,
    * giving exclusive access to the SERIAL_CONTROL protocol. The port can be handed back by sending a
    * request without this flag set
    */
-  'EXCLUSIVE'                              = 4,
-  'BLOCKING'                               = 8,
-  'MULTI'                                  = 16,
+  'EXCLUSIVE'                                = 4,
+  'BLOCKING'                                 = 8,
+  'MULTI'                                    = 16,
 }
 
 /**
  * Enumeration of distance sensor types
  */
 export enum MavDistanceSensor {
-  'LASER'                                  = 0,
-  'ULTRASOUND'                             = 1,
-  'INFRARED'                               = 2,
-  'RADAR'                                  = 3,
-  'UNKNOWN'                                = 4,
+  'LASER'                                    = 0,
+  'ULTRASOUND'                               = 1,
+  'INFRARED'                                 = 2,
+  'RADAR'                                    = 3,
+  'UNKNOWN'                                  = 4,
 }
 
 /**
  * Enumeration of sensor orientation, according to its rotations
  */
 export enum MavSensorOrientation {
-  'NONE'                                   = 0,
-  'YAW_45'                                 = 1,
-  'YAW_90'                                 = 2,
-  'YAW_135'                                = 3,
-  'YAW_180'                                = 4,
-  'YAW_225'                                = 5,
-  'YAW_270'                                = 6,
-  'YAW_315'                                = 7,
-  'ROLL_180'                               = 8,
-  'ROLL_180_YAW_45'                        = 9,
-  'ROLL_180_YAW_90'                        = 10,
-  'ROLL_180_YAW_135'                       = 11,
-  'PITCH_180'                              = 12,
-  'ROLL_180_YAW_225'                       = 13,
-  'ROLL_180_YAW_270'                       = 14,
-  'ROLL_180_YAW_315'                       = 15,
-  'ROLL_90'                                = 16,
-  'ROLL_90_YAW_45'                         = 17,
-  'ROLL_90_YAW_90'                         = 18,
-  'ROLL_90_YAW_135'                        = 19,
-  'ROLL_270'                               = 20,
-  'ROLL_270_YAW_45'                        = 21,
-  'ROLL_270_YAW_90'                        = 22,
-  'ROLL_270_YAW_135'                       = 23,
-  'PITCH_90'                               = 24,
-  'PITCH_270'                              = 25,
-  'PITCH_180_YAW_90'                       = 26,
-  'PITCH_180_YAW_270'                      = 27,
-  'ROLL_90_PITCH_90'                       = 28,
-  'ROLL_180_PITCH_90'                      = 29,
-  'ROLL_270_PITCH_90'                      = 30,
-  'ROLL_90_PITCH_180'                      = 31,
-  'ROLL_270_PITCH_180'                     = 32,
-  'ROLL_90_PITCH_270'                      = 33,
-  'ROLL_180_PITCH_270'                     = 34,
-  'ROLL_270_PITCH_270'                     = 35,
-  'ROLL_90_PITCH_180_YAW_90'               = 36,
-  'ROLL_90_YAW_270'                        = 37,
-  'ROLL_90_PITCH_68_YAW_293'               = 38,
-  'PITCH_315'                              = 39,
-  'ROLL_90_PITCH_315'                      = 40,
-  'CUSTOM'                                 = 100,
+  'NONE'                                     = 0,
+  'YAW_45'                                   = 1,
+  'YAW_90'                                   = 2,
+  'YAW_135'                                  = 3,
+  'YAW_180'                                  = 4,
+  'YAW_225'                                  = 5,
+  'YAW_270'                                  = 6,
+  'YAW_315'                                  = 7,
+  'ROLL_180'                                 = 8,
+  'ROLL_180_YAW_45'                          = 9,
+  'ROLL_180_YAW_90'                          = 10,
+  'ROLL_180_YAW_135'                         = 11,
+  'PITCH_180'                                = 12,
+  'ROLL_180_YAW_225'                         = 13,
+  'ROLL_180_YAW_270'                         = 14,
+  'ROLL_180_YAW_315'                         = 15,
+  'ROLL_90'                                  = 16,
+  'ROLL_90_YAW_45'                           = 17,
+  'ROLL_90_YAW_90'                           = 18,
+  'ROLL_90_YAW_135'                          = 19,
+  'ROLL_270'                                 = 20,
+  'ROLL_270_YAW_45'                          = 21,
+  'ROLL_270_YAW_90'                          = 22,
+  'ROLL_270_YAW_135'                         = 23,
+  'PITCH_90'                                 = 24,
+  'PITCH_270'                                = 25,
+  'PITCH_180_YAW_90'                         = 26,
+  'PITCH_180_YAW_270'                        = 27,
+  'ROLL_90_PITCH_90'                         = 28,
+  'ROLL_180_PITCH_90'                        = 29,
+  'ROLL_270_PITCH_90'                        = 30,
+  'ROLL_90_PITCH_180'                        = 31,
+  'ROLL_270_PITCH_180'                       = 32,
+  'ROLL_90_PITCH_270'                        = 33,
+  'ROLL_180_PITCH_270'                       = 34,
+  'ROLL_270_PITCH_270'                       = 35,
+  'ROLL_90_PITCH_180_YAW_90'                 = 36,
+  'ROLL_90_YAW_270'                          = 37,
+  'ROLL_90_PITCH_68_YAW_293'                 = 38,
+  'PITCH_315'                                = 39,
+  'ROLL_90_PITCH_315'                        = 40,
+  'CUSTOM'                                   = 100,
 }
 
 /**
@@ -1033,97 +1032,97 @@ export enum MavSensorOrientation {
  * capability.
  */
 export enum MavProtocolCapability {
-  'MISSION_FLOAT'                          = 1,
-  'PARAM_FLOAT'                            = 2,
-  'MISSION_INT'                            = 4,
-  'COMMAND_INT'                            = 8,
-  'PARAM_UNION'                            = 16,
-  'FTP'                                    = 32,
-  'SET_ATTITUDE_TARGET'                    = 64,
-  'SET_POSITION_TARGET_LOCAL_NED'          = 128,
-  'SET_POSITION_TARGET_GLOBAL_INT'         = 256,
-  'TERRAIN'                                = 512,
-  'SET_ACTUATOR_TARGET'                    = 1024,
-  'FLIGHT_TERMINATION'                     = 2048,
-  'COMPASS_CALIBRATION'                    = 4096,
-  'MAVLINK2'                               = 8192,
-  'MISSION_FENCE'                          = 16384,
-  'MISSION_RALLY'                          = 32768,
-  'FLIGHT_INFORMATION'                     = 65536,
+  'MISSION_FLOAT'                            = 1,
+  'PARAM_FLOAT'                              = 2,
+  'MISSION_INT'                              = 4,
+  'COMMAND_INT'                              = 8,
+  'PARAM_UNION'                              = 16,
+  'FTP'                                      = 32,
+  'SET_ATTITUDE_TARGET'                      = 64,
+  'SET_POSITION_TARGET_LOCAL_NED'            = 128,
+  'SET_POSITION_TARGET_GLOBAL_INT'           = 256,
+  'TERRAIN'                                  = 512,
+  'SET_ACTUATOR_TARGET'                      = 1024,
+  'FLIGHT_TERMINATION'                       = 2048,
+  'COMPASS_CALIBRATION'                      = 4096,
+  'MAVLINK2'                                 = 8192,
+  'MISSION_FENCE'                            = 16384,
+  'MISSION_RALLY'                            = 32768,
+  'FLIGHT_INFORMATION'                       = 65536,
 }
 
 /**
  * Type of mission items being requested/sent in mission protocol.
  */
 export enum MavMissionType {
-  'MISSION'                                = 0,
-  'FENCE'                                  = 1,
+  'MISSION'                                  = 0,
+  'FENCE'                                    = 1,
   /**
    * Specifies the rally points for the vehicle. Rally points are alternative RTL points. Items are
    * MAV_CMD_NAV_RALLY_POINT rally point items.
    */
-  'RALLY'                                  = 2,
+  'RALLY'                                    = 2,
   /**
    * Specifies Swarm Region-of-Interest. Items are either MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION or
    * MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION.
    */
-  'SWARM_ROI'                              = 3,
-  'ALL'                                    = 255,
+  'SWARM_ROI'                                = 3,
+  'ALL'                                      = 255,
 }
 
 /**
  * Enumeration of estimator types
  */
 export enum MavEstimatorType {
-  'UNKNOWN'                                = 0,
-  'NAIVE'                                  = 1,
-  'VISION'                                 = 2,
-  'VIO'                                    = 3,
-  'GPS'                                    = 4,
-  'GPS_INS'                                = 5,
-  'MOCAP'                                  = 6,
-  'LIDAR'                                  = 7,
-  'AUTOPILOT'                              = 8,
+  'UNKNOWN'                                  = 0,
+  'NAIVE'                                    = 1,
+  'VISION'                                   = 2,
+  'VIO'                                      = 3,
+  'GPS'                                      = 4,
+  'GPS_INS'                                  = 5,
+  'MOCAP'                                    = 6,
+  'LIDAR'                                    = 7,
+  'AUTOPILOT'                                = 8,
 }
 
 /**
  * Enumeration of battery types
  */
 export enum MavBatteryType {
-  'UNKNOWN'                                = 0,
-  'LIPO'                                   = 1,
-  'LIFE'                                   = 2,
-  'LION'                                   = 3,
-  'NIMH'                                   = 4,
+  'UNKNOWN'                                  = 0,
+  'LIPO'                                     = 1,
+  'LIFE'                                     = 2,
+  'LION'                                     = 3,
+  'NIMH'                                     = 4,
 }
 
 /**
  * Enumeration of battery functions
  */
 export enum MavBatteryFunction {
-  'FUNCTION_UNKNOWN'                       = 0,
-  'FUNCTION_ALL'                           = 1,
-  'FUNCTION_PROPULSION'                    = 2,
-  'FUNCTION_AVIONICS'                      = 3,
-  'TYPE_PAYLOAD'                           = 4,
+  'FUNCTION_UNKNOWN'                         = 0,
+  'FUNCTION_ALL'                             = 1,
+  'FUNCTION_PROPULSION'                      = 2,
+  'FUNCTION_AVIONICS'                        = 3,
+  'TYPE_PAYLOAD'                             = 4,
 }
 
 /**
  * Enumeration for battery charge states.
  */
 export enum MavBatteryChargeState {
-  'UNDEFINED'                              = 0,
-  'OK'                                     = 1,
-  'LOW'                                    = 2,
-  'CRITICAL'                               = 3,
+  'UNDEFINED'                                = 0,
+  'OK'                                       = 1,
+  'LOW'                                      = 2,
+  'CRITICAL'                                 = 3,
   /**
    * Battery state is too low for ordinary abort sequence. Perform fastest possible emergency stop to
    * prevent damage.
    */
-  'EMERGENCY'                              = 4,
-  'FAILED'                                 = 5,
-  'UNHEALTHY'                              = 6,
-  'CHARGING'                               = 7,
+  'EMERGENCY'                                = 4,
+  'FAILED'                                   = 5,
+  'UNHEALTHY'                                = 6,
+  'CHARGING'                                 = 7,
 }
 
 /**
@@ -1132,113 +1131,113 @@ export enum MavBatteryChargeState {
  * attention before the next use (they indicate the system is not operating properly).
  */
 export enum MavGeneratorStatusFlag {
-  'OFF'                                    = 1,
-  'READY'                                  = 2,
-  'GENERATING'                             = 4,
-  'CHARGING'                               = 8,
-  'REDUCED_POWER'                          = 16,
-  'MAXPOWER'                               = 32,
-  'OVERTEMP_WARNING'                       = 64,
-  'OVERTEMP_FAULT'                         = 128,
-  'ELECTRONICS_OVERTEMP_WARNING'           = 256,
-  'ELECTRONICS_OVERTEMP_FAULT'             = 512,
-  'ELECTRONICS_FAULT'                      = 1024,
+  'OFF'                                      = 1,
+  'READY'                                    = 2,
+  'GENERATING'                               = 4,
+  'CHARGING'                                 = 8,
+  'REDUCED_POWER'                            = 16,
+  'MAXPOWER'                                 = 32,
+  'OVERTEMP_WARNING'                         = 64,
+  'OVERTEMP_FAULT'                           = 128,
+  'ELECTRONICS_OVERTEMP_WARNING'             = 256,
+  'ELECTRONICS_OVERTEMP_FAULT'               = 512,
+  'ELECTRONICS_FAULT'                        = 1024,
   /**
    * The power source supplying the generator failed e.g. mechanical generator stopped, tether is no
    * longer providing power, solar cell is in shade, hydrogen reaction no longer happening.
    */
-  'POWERSOURCE_FAULT'                      = 2048,
-  'COMMUNICATION_WARNING'                  = 4096,
-  'COOLING_WARNING'                        = 8192,
-  'POWER_RAIL_FAULT'                       = 16384,
-  'OVERCURRENT_FAULT'                      = 32768,
+  'POWERSOURCE_FAULT'                        = 2048,
+  'COMMUNICATION_WARNING'                    = 4096,
+  'COOLING_WARNING'                          = 8192,
+  'POWER_RAIL_FAULT'                         = 16384,
+  'OVERCURRENT_FAULT'                        = 32768,
   /**
    * Generator controller detected a high current going into the batteries and shutdown to prevent
    * battery damage.
    */
-  'BATTERY_OVERCHARGE_CURRENT_FAULT'       = 65536,
+  'BATTERY_OVERCHARGE_CURRENT_FAULT'         = 65536,
   /**
    * Generator controller exceeded it's overvoltage threshold and shutdown to prevent it exceeding the
    * voltage rating.
    */
-  'OVERVOLTAGE_FAULT'                      = 131072,
-  'BATTERY_UNDERVOLT_FAULT'                = 262144,
-  'START_INHIBITED'                        = 524288,
-  'MAINTENANCE_REQUIRED'                   = 1048576,
-  'WARMING_UP'                             = 2097152,
-  'IDLE'                                   = 4194304,
+  'OVERVOLTAGE_FAULT'                        = 131072,
+  'BATTERY_UNDERVOLT_FAULT'                  = 262144,
+  'START_INHIBITED'                          = 524288,
+  'MAINTENANCE_REQUIRED'                     = 1048576,
+  'WARMING_UP'                               = 2097152,
+  'IDLE'                                     = 4194304,
 }
 
 /**
  * Enumeration of VTOL states
  */
 export enum MavVtolState {
-  'UNDEFINED'                              = 0,
-  'TRANSITION_TO_FW'                       = 1,
-  'TRANSITION_TO_MC'                       = 2,
-  'MC'                                     = 3,
-  'FW'                                     = 4,
+  'UNDEFINED'                                = 0,
+  'TRANSITION_TO_FW'                         = 1,
+  'TRANSITION_TO_MC'                         = 2,
+  'MC'                                       = 3,
+  'FW'                                       = 4,
 }
 
 /**
  * Enumeration of landed detector states
  */
 export enum MavLandedState {
-  'UNDEFINED'                              = 0,
-  'ON_GROUND'                              = 1,
-  'IN_AIR'                                 = 2,
-  'TAKEOFF'                                = 3,
-  'LANDING'                                = 4,
+  'UNDEFINED'                                = 0,
+  'ON_GROUND'                                = 1,
+  'IN_AIR'                                   = 2,
+  'TAKEOFF'                                  = 3,
+  'LANDING'                                  = 4,
 }
 
 /**
  * Enumeration of the ADSB altimeter types
  */
 export enum AdsbAltitudeType {
-  'PRESSURE_QNH'                           = 0,
-  'GEOMETRIC'                              = 1,
+  'PRESSURE_QNH'                             = 0,
+  'GEOMETRIC'                                = 1,
 }
 
 /**
  * ADSB classification for the type of vehicle emitting the transponder signal
  */
 export enum AdsbEmitterType {
-  'NO_INFO'                                = 0,
-  'LIGHT'                                  = 1,
-  'SMALL'                                  = 2,
-  'LARGE'                                  = 3,
-  'HIGH_VORTEX_LARGE'                      = 4,
-  'HEAVY'                                  = 5,
-  'HIGHLY_MANUV'                           = 6,
-  'ROTOCRAFT'                              = 7,
-  'UNASSIGNED'                             = 8,
-  'GLIDER'                                 = 9,
-  'LIGHTER_AIR'                            = 10,
-  'PARACHUTE'                              = 11,
-  'ULTRA_LIGHT'                            = 12,
-  'UNASSIGNED2'                            = 13,
-  'UAV'                                    = 14,
-  'SPACE'                                  = 15,
-  'UNASSGINED3'                            = 16,
-  'EMERGENCY_SURFACE'                      = 17,
-  'SERVICE_SURFACE'                        = 18,
-  'POINT_OBSTACLE'                         = 19,
+  'NO_INFO'                                  = 0,
+  'LIGHT'                                    = 1,
+  'SMALL'                                    = 2,
+  'LARGE'                                    = 3,
+  'HIGH_VORTEX_LARGE'                        = 4,
+  'HEAVY'                                    = 5,
+  'HIGHLY_MANUV'                             = 6,
+  'ROTOCRAFT'                                = 7,
+  'UNASSIGNED'                               = 8,
+  'GLIDER'                                   = 9,
+  'LIGHTER_AIR'                              = 10,
+  'PARACHUTE'                                = 11,
+  'ULTRA_LIGHT'                              = 12,
+  'UNASSIGNED2'                              = 13,
+  'UAV'                                      = 14,
+  'SPACE'                                    = 15,
+  'UNASSGINED3'                              = 16,
+  'EMERGENCY_SURFACE'                        = 17,
+  'SERVICE_SURFACE'                          = 18,
+  'POINT_OBSTACLE'                           = 19,
 }
 
 /**
  * These flags indicate status such as data validity of each data source. Set = data valid
  */
 export enum AdsbFlags {
-  'VALID_COORDS'                           = 1,
-  'VALID_ALTITUDE'                         = 2,
-  'VALID_HEADING'                          = 4,
-  'VALID_VELOCITY'                         = 8,
-  'VALID_CALLSIGN'                         = 16,
-  'VALID_SQUAWK'                           = 32,
-  'SIMULATED'                              = 64,
-  'VERTICAL_VELOCITY_VALID'                = 128,
-  'BARO_VALID'                             = 256,
-  'SOURCE_UAT'                             = 32768,
+  'VALID_COORDS'                             = 1,
+  'VALID_ALTITUDE'                           = 2,
+  'VALID_HEADING'                            = 4,
+  'VALID_VELOCITY'                           = 8,
+  'VALID_CALLSIGN'                           = 16,
+  'VALID_SQUAWK'                             = 32,
+  'SIMULATED'                                = 64,
+  'VERTICAL_VELOCITY_VALID'                  = 128,
+  'BARO_VALID'                               = 256,
+  'SOURCE_UAT'                               = 32768,
 }
 
 /**
@@ -1249,217 +1248,217 @@ export enum MavDoRepositionFlags {
    * The aircraft should immediately transition into guided. This should not be set for follow me
    * applications
    */
-  'CHANGE_MODE'                            = 1,
+  'CHANGE_MODE'                              = 1,
 }
 
 /**
  * Flags in ESTIMATOR_STATUS message
  */
 export enum EstimatorStatusFlags {
-  'ATTITUDE'                               = 1,
-  'VELOCITY_HORIZ'                         = 2,
-  'VELOCITY_VERT'                          = 4,
-  'POS_HORIZ_REL'                          = 8,
-  'POS_HORIZ_ABS'                          = 16,
-  'POS_VERT_ABS'                           = 32,
-  'POS_VERT_AGL'                           = 64,
+  'ATTITUDE'                                 = 1,
+  'VELOCITY_HORIZ'                           = 2,
+  'VELOCITY_VERT'                            = 4,
+  'POS_HORIZ_REL'                            = 8,
+  'POS_HORIZ_ABS'                            = 16,
+  'POS_VERT_ABS'                             = 32,
+  'POS_VERT_AGL'                             = 64,
   /**
    * True if the EKF is in a constant position mode and is not using external measurements (eg GPS or
    * optical flow)
    */
-  'CONST_POS_MODE'                         = 128,
-  'PRED_POS_HORIZ_REL'                     = 256,
-  'PRED_POS_HORIZ_ABS'                     = 512,
-  'GPS_GLITCH'                             = 1024,
-  'ACCEL_ERROR'                            = 2048,
+  'CONST_POS_MODE'                           = 128,
+  'PRED_POS_HORIZ_REL'                       = 256,
+  'PRED_POS_HORIZ_ABS'                       = 512,
+  'GPS_GLITCH'                               = 1024,
+  'ACCEL_ERROR'                              = 2048,
 }
 
 /**
  * MOTOR_TEST_ORDER
  */
 export enum MotorTestOrder {
-  'DEFAULT'                                = 0,
-  'SEQUENCE'                               = 1,
-  'BOARD'                                  = 2,
+  'DEFAULT'                                  = 0,
+  'SEQUENCE'                                 = 1,
+  'BOARD'                                    = 2,
 }
 
 /**
  * MOTOR_TEST_THROTTLE_TYPE
  */
 export enum MotorTestThrottleType {
-  'THROTTLE_PERCENT'                       = 0,
-  'THROTTLE_PWM'                           = 1,
-  'THROTTLE_PILOT'                         = 2,
-  'COMPASS_CAL'                            = 3,
+  'THROTTLE_PERCENT'                         = 0,
+  'THROTTLE_PWM'                             = 1,
+  'THROTTLE_PILOT'                           = 2,
+  'COMPASS_CAL'                              = 3,
 }
 
 /**
  * GPS_INPUT_IGNORE_FLAGS
  */
 export enum GpsInputIgnoreFlags {
-  'ALT'                                    = 1,
-  'HDOP'                                   = 2,
-  'VDOP'                                   = 4,
-  'VEL_HORIZ'                              = 8,
-  'VEL_VERT'                               = 16,
-  'SPEED_ACCURACY'                         = 32,
-  'HORIZONTAL_ACCURACY'                    = 64,
-  'VERTICAL_ACCURACY'                      = 128,
+  'ALT'                                      = 1,
+  'HDOP'                                     = 2,
+  'VDOP'                                     = 4,
+  'VEL_HORIZ'                                = 8,
+  'VEL_VERT'                                 = 16,
+  'SPEED_ACCURACY'                           = 32,
+  'HORIZONTAL_ACCURACY'                      = 64,
+  'VERTICAL_ACCURACY'                        = 128,
 }
 
 /**
  * Possible actions an aircraft can take to avoid a collision.
  */
 export enum MavCollisionAction {
-  'NONE'                                   = 0,
-  'REPORT'                                 = 1,
-  'ASCEND_OR_DESCEND'                      = 2,
-  'MOVE_HORIZONTALLY'                      = 3,
-  'MOVE_PERPENDICULAR'                     = 4,
-  'RTL'                                    = 5,
-  'HOVER'                                  = 6,
+  'NONE'                                     = 0,
+  'REPORT'                                   = 1,
+  'ASCEND_OR_DESCEND'                        = 2,
+  'MOVE_HORIZONTALLY'                        = 3,
+  'MOVE_PERPENDICULAR'                       = 4,
+  'RTL'                                      = 5,
+  'HOVER'                                    = 6,
 }
 
 /**
  * Aircraft-rated danger from this threat.
  */
 export enum MavCollisionThreatLevel {
-  'NONE'                                   = 0,
-  'LOW'                                    = 1,
-  'HIGH'                                   = 2,
+  'NONE'                                     = 0,
+  'LOW'                                      = 1,
+  'HIGH'                                     = 2,
 }
 
 /**
  * Source of information about this collision.
  */
 export enum MavCollisionSrc {
-  'ADSB'                                   = 0,
-  'MAVLINK_GPS_GLOBAL_INT'                 = 1,
+  'ADSB'                                     = 0,
+  'MAVLINK_GPS_GLOBAL_INT'                   = 1,
 }
 
 /**
  * Type of GPS fix
  */
 export enum GpsFixType {
-  'NO_GPS'                                 = 0,
-  'NO_FIX'                                 = 1,
-  'GPS_FIX_TYPE_2D_FIX'                    = 2,
-  'GPS_FIX_TYPE_3D_FIX'                    = 3,
-  'DGPS'                                   = 4,
-  'RTK_FLOAT'                              = 5,
-  'RTK_FIXED'                              = 6,
-  'STATIC'                                 = 7,
-  'PPP'                                    = 8,
+  'NO_GPS'                                   = 0,
+  'NO_FIX'                                   = 1,
+  'GPS_FIX_TYPE_2D_FIX'                      = 2,
+  'GPS_FIX_TYPE_3D_FIX'                      = 3,
+  'DGPS'                                     = 4,
+  'RTK_FLOAT'                                = 5,
+  'RTK_FIXED'                                = 6,
+  'STATIC'                                   = 7,
+  'PPP'                                      = 8,
 }
 
 /**
  * RTK GPS baseline coordinate system, used for RTK corrections
  */
 export enum RtkBaselineCoordinateSystem {
-  'ECEF'                                   = 0,
-  'NED'                                    = 1,
+  'ECEF'                                     = 0,
+  'NED'                                      = 1,
 }
 
 /**
  * Type of landing target
  */
 export enum LandingTargetType {
-  'LIGHT_BEACON'                           = 0,
-  'RADIO_BEACON'                           = 1,
-  'VISION_FIDUCIAL'                        = 2,
-  'VISION_OTHER'                           = 3,
+  'LIGHT_BEACON'                             = 0,
+  'RADIO_BEACON'                             = 1,
+  'VISION_FIDUCIAL'                          = 2,
+  'VISION_OTHER'                             = 3,
 }
 
 /**
  * Direction of VTOL transition
  */
 export enum VtolTransitionHeading {
-  'VEHICLE_DEFAULT'                        = 0,
-  'NEXT_WAYPOINT'                          = 1,
-  'TAKEOFF'                                = 2,
-  'SPECIFIED'                              = 3,
+  'VEHICLE_DEFAULT'                          = 0,
+  'NEXT_WAYPOINT'                            = 1,
+  'TAKEOFF'                                  = 2,
+  'SPECIFIED'                                = 3,
   /**
    * Use the current heading when reaching takeoff altitude (potentially facing the wind when
    * weather-vaning is active).
    */
-  'ANY'                                    = 4,
+  'ANY'                                      = 4,
 }
 
 /**
  * Camera capability flags (Bitmap)
  */
 export enum CameraCapFlags {
-  'CAPTURE_VIDEO'                          = 1,
-  'CAPTURE_IMAGE'                          = 2,
-  'HAS_MODES'                              = 4,
-  'CAN_CAPTURE_IMAGE_IN_VIDEO_MODE'        = 8,
-  'CAN_CAPTURE_VIDEO_IN_IMAGE_MODE'        = 16,
-  'HAS_IMAGE_SURVEY_MODE'                  = 32,
-  'HAS_BASIC_ZOOM'                         = 64,
-  'HAS_BASIC_FOCUS'                        = 128,
+  'CAPTURE_VIDEO'                            = 1,
+  'CAPTURE_IMAGE'                            = 2,
+  'HAS_MODES'                                = 4,
+  'CAN_CAPTURE_IMAGE_IN_VIDEO_MODE'          = 8,
+  'CAN_CAPTURE_VIDEO_IN_IMAGE_MODE'          = 16,
+  'HAS_IMAGE_SURVEY_MODE'                    = 32,
+  'HAS_BASIC_ZOOM'                           = 64,
+  'HAS_BASIC_FOCUS'                          = 128,
   /**
    * Camera has video streaming capabilities (request VIDEO_STREAM_INFORMATION with
    * MAV_CMD_REQUEST_MESSAGE for video streaming info)
    */
-  'HAS_VIDEO_STREAM'                       = 256,
-  'HAS_TRACKING_POINT'                     = 512,
-  'HAS_TRACKING_RECTANGLE'                 = 1024,
-  'HAS_TRACKING_GEO_STATUS'                = 2048,
+  'HAS_VIDEO_STREAM'                         = 256,
+  'HAS_TRACKING_POINT'                       = 512,
+  'HAS_TRACKING_RECTANGLE'                   = 1024,
+  'HAS_TRACKING_GEO_STATUS'                  = 2048,
 }
 
 /**
  * Stream status flags (Bitmap)
  */
 export enum VideoStreamStatusFlags {
-  'RUNNING'                                = 1,
-  'THERMAL'                                = 2,
+  'RUNNING'                                  = 1,
+  'THERMAL'                                  = 2,
 }
 
 /**
  * Video stream types
  */
 export enum VideoStreamType {
-  'RTSP'                                   = 0,
-  'RTPUDP'                                 = 1,
-  'TCP_MPEG'                               = 2,
-  'MPEG_TS_H264'                           = 3,
+  'RTSP'                                     = 0,
+  'RTPUDP'                                   = 1,
+  'TCP_MPEG'                                 = 2,
+  'MPEG_TS_H264'                             = 3,
 }
 
 /**
  * Camera Modes.
  */
 export enum CameraMode {
-  'IMAGE'                                  = 0,
-  'VIDEO'                                  = 1,
+  'IMAGE'                                    = 0,
+  'VIDEO'                                    = 1,
   /**
    * Camera is in image survey capture mode. It allows for camera controller to do specific settings for
    * surveys.
    */
-  'IMAGE_SURVEY'                           = 2,
+  'IMAGE_SURVEY'                             = 2,
 }
 
 /**
  * MAV_ARM_AUTH_DENIED_REASON
  */
 export enum MavArmAuthDeniedReason {
-  'GENERIC'                                = 0,
-  'NONE'                                   = 1,
-  'INVALID_WAYPOINT'                       = 2,
-  'TIMEOUT'                                = 3,
+  'GENERIC'                                  = 0,
+  'NONE'                                     = 1,
+  'INVALID_WAYPOINT'                         = 2,
+  'TIMEOUT'                                  = 3,
   /**
    * Airspace of the mission in use by another vehicle, second result parameter can have the waypoint id
    * that caused it to be denied.
    */
-  'AIRSPACE_IN_USE'                        = 4,
-  'BAD_WEATHER'                            = 5,
+  'AIRSPACE_IN_USE'                          = 4,
+  'BAD_WEATHER'                              = 5,
 }
 
 /**
  * RC type
  */
 export enum RcType {
-  'SPEKTRUM_DSM2'                          = 0,
-  'SPEKTRUM_DSMX'                          = 1,
+  'SPEKTRUM_DSM2'                            = 0,
+  'SPEKTRUM_DSMX'                            = 1,
 }
 
 /**
@@ -1468,18 +1467,18 @@ export enum RcType {
  * set the floats afx afy afz should be interpreted as force instead of acceleration.
  */
 export enum PositionTargetTypemask {
-  'X_IGNORE'                               = 1,
-  'Y_IGNORE'                               = 2,
-  'Z_IGNORE'                               = 4,
-  'VX_IGNORE'                              = 8,
-  'VY_IGNORE'                              = 16,
-  'VZ_IGNORE'                              = 32,
-  'AX_IGNORE'                              = 64,
-  'AY_IGNORE'                              = 128,
-  'AZ_IGNORE'                              = 256,
-  'FORCE_SET'                              = 512,
-  'YAW_IGNORE'                             = 1024,
-  'YAW_RATE_IGNORE'                        = 2048,
+  'X_IGNORE'                                 = 1,
+  'Y_IGNORE'                                 = 2,
+  'Z_IGNORE'                                 = 4,
+  'VX_IGNORE'                                = 8,
+  'VY_IGNORE'                                = 16,
+  'VZ_IGNORE'                                = 32,
+  'AX_IGNORE'                                = 64,
+  'AY_IGNORE'                                = 128,
+  'AZ_IGNORE'                                = 256,
+  'FORCE_SET'                                = 512,
+  'YAW_IGNORE'                               = 1024,
+  'YAW_RATE_IGNORE'                          = 2048,
 }
 
 /**
@@ -1487,164 +1486,164 @@ export enum PositionTargetTypemask {
  * indicates that none of the setpoint dimensions should be ignored.
  */
 export enum AttitudeTargetTypemask {
-  'BODY_ROLL_RATE_IGNORE'                  = 1,
-  'BODY_PITCH_RATE_IGNORE'                 = 2,
-  'BODY_YAW_RATE_IGNORE'                   = 4,
-  'THROTTLE_IGNORE'                        = 64,
-  'ATTITUDE_IGNORE'                        = 128,
+  'BODY_ROLL_RATE_IGNORE'                    = 1,
+  'BODY_PITCH_RATE_IGNORE'                   = 2,
+  'BODY_YAW_RATE_IGNORE'                     = 4,
+  'THROTTLE_IGNORE'                          = 64,
+  'ATTITUDE_IGNORE'                          = 128,
 }
 
 /**
  * Airborne status of UAS.
  */
 export enum UtmFlightState {
-  'UNKNOWN'                                = 1,
-  'GROUND'                                 = 2,
-  'AIRBORNE'                               = 3,
-  'EMERGENCY'                              = 16,
-  'NOCTRL'                                 = 32,
+  'UNKNOWN'                                  = 1,
+  'GROUND'                                   = 2,
+  'AIRBORNE'                                 = 3,
+  'EMERGENCY'                                = 16,
+  'NOCTRL'                                   = 32,
 }
 
 /**
  * Flags for the global position report.
  */
 export enum UtmDataAvailFlags {
-  'TIME_VALID'                             = 1,
-  'UAS_ID_AVAILABLE'                       = 2,
-  'POSITION_AVAILABLE'                     = 4,
-  'ALTITUDE_AVAILABLE'                     = 8,
-  'RELATIVE_ALTITUDE_AVAILABLE'            = 16,
-  'HORIZONTAL_VELO_AVAILABLE'              = 32,
-  'VERTICAL_VELO_AVAILABLE'                = 64,
-  'NEXT_WAYPOINT_AVAILABLE'                = 128,
+  'TIME_VALID'                               = 1,
+  'UAS_ID_AVAILABLE'                         = 2,
+  'POSITION_AVAILABLE'                       = 4,
+  'ALTITUDE_AVAILABLE'                       = 8,
+  'RELATIVE_ALTITUDE_AVAILABLE'              = 16,
+  'HORIZONTAL_VELO_AVAILABLE'                = 32,
+  'VERTICAL_VELO_AVAILABLE'                  = 64,
+  'NEXT_WAYPOINT_AVAILABLE'                  = 128,
 }
 
 /**
  * Precision land modes (used in MAV_CMD_NAV_LAND).
  */
 export enum PrecisionLandMode {
-  'DISABLED'                               = 0,
-  'OPPORTUNISTIC'                          = 1,
+  'DISABLED'                                 = 0,
+  'OPPORTUNISTIC'                            = 1,
   /**
    * Use precision landing, searching for beacon if not found when land command accepted (land normally
    * if beacon cannot be found).
    */
-  'REQUIRED'                               = 2,
+  'REQUIRED'                                 = 2,
 }
 
 /**
  * Parachute actions. Trigger release and enable/disable auto-release.
  */
 export enum ParachuteAction {
-  'DISABLE'                                = 0,
-  'ENABLE'                                 = 1,
-  'RELEASE'                                = 2,
+  'DISABLE'                                  = 0,
+  'ENABLE'                                   = 1,
+  'RELEASE'                                  = 2,
 }
 
 /**
  * Type of AIS vessel, enum duplicated from AIS standard, https://gpsd.gitlab.io/gpsd/AIVDM.html
  */
 export enum AisType {
-  'UNKNOWN'                                = 0,
-  'RESERVED_1'                             = 1,
-  'RESERVED_2'                             = 2,
-  'RESERVED_3'                             = 3,
-  'RESERVED_4'                             = 4,
-  'RESERVED_5'                             = 5,
-  'RESERVED_6'                             = 6,
-  'RESERVED_7'                             = 7,
-  'RESERVED_8'                             = 8,
-  'RESERVED_9'                             = 9,
-  'RESERVED_10'                            = 10,
-  'RESERVED_11'                            = 11,
-  'RESERVED_12'                            = 12,
-  'RESERVED_13'                            = 13,
-  'RESERVED_14'                            = 14,
-  'RESERVED_15'                            = 15,
-  'RESERVED_16'                            = 16,
-  'RESERVED_17'                            = 17,
-  'RESERVED_18'                            = 18,
-  'RESERVED_19'                            = 19,
-  'WIG'                                    = 20,
-  'WIG_HAZARDOUS_A'                        = 21,
-  'WIG_HAZARDOUS_B'                        = 22,
-  'WIG_HAZARDOUS_C'                        = 23,
-  'WIG_HAZARDOUS_D'                        = 24,
-  'WIG_RESERVED_1'                         = 25,
-  'WIG_RESERVED_2'                         = 26,
-  'WIG_RESERVED_3'                         = 27,
-  'WIG_RESERVED_4'                         = 28,
-  'WIG_RESERVED_5'                         = 29,
-  'FISHING'                                = 30,
-  'TOWING'                                 = 31,
-  'TOWING_LARGE'                           = 32,
-  'DREDGING'                               = 33,
-  'DIVING'                                 = 34,
-  'MILITARY'                               = 35,
-  'SAILING'                                = 36,
-  'PLEASURE'                               = 37,
-  'RESERVED_20'                            = 38,
-  'RESERVED_21'                            = 39,
-  'HSC'                                    = 40,
-  'HSC_HAZARDOUS_A'                        = 41,
-  'HSC_HAZARDOUS_B'                        = 42,
-  'HSC_HAZARDOUS_C'                        = 43,
-  'HSC_HAZARDOUS_D'                        = 44,
-  'HSC_RESERVED_1'                         = 45,
-  'HSC_RESERVED_2'                         = 46,
-  'HSC_RESERVED_3'                         = 47,
-  'HSC_RESERVED_4'                         = 48,
-  'HSC_UNKNOWN'                            = 49,
-  'PILOT'                                  = 50,
-  'SAR'                                    = 51,
-  'TUG'                                    = 52,
-  'PORT_TENDER'                            = 53,
-  'ANTI_POLLUTION'                         = 54,
-  'LAW_ENFORCEMENT'                        = 55,
-  'SPARE_LOCAL_1'                          = 56,
-  'SPARE_LOCAL_2'                          = 57,
-  'MEDICAL_TRANSPORT'                      = 58,
-  'NONECOMBATANT'                          = 59,
-  'PASSENGER'                              = 60,
-  'PASSENGER_HAZARDOUS_A'                  = 61,
-  'PASSENGER_HAZARDOUS_B'                  = 62,
-  'PASSENGER_HAZARDOUS_C'                  = 63,
-  'PASSENGER_HAZARDOUS_D'                  = 64,
-  'PASSENGER_RESERVED_1'                   = 65,
-  'PASSENGER_RESERVED_2'                   = 66,
-  'PASSENGER_RESERVED_3'                   = 67,
-  'PASSENGER_RESERVED_4'                   = 68,
-  'PASSENGER_UNKNOWN'                      = 69,
-  'CARGO'                                  = 70,
-  'CARGO_HAZARDOUS_A'                      = 71,
-  'CARGO_HAZARDOUS_B'                      = 72,
-  'CARGO_HAZARDOUS_C'                      = 73,
-  'CARGO_HAZARDOUS_D'                      = 74,
-  'CARGO_RESERVED_1'                       = 75,
-  'CARGO_RESERVED_2'                       = 76,
-  'CARGO_RESERVED_3'                       = 77,
-  'CARGO_RESERVED_4'                       = 78,
-  'CARGO_UNKNOWN'                          = 79,
-  'TANKER'                                 = 80,
-  'TANKER_HAZARDOUS_A'                     = 81,
-  'TANKER_HAZARDOUS_B'                     = 82,
-  'TANKER_HAZARDOUS_C'                     = 83,
-  'TANKER_HAZARDOUS_D'                     = 84,
-  'TANKER_RESERVED_1'                      = 85,
-  'TANKER_RESERVED_2'                      = 86,
-  'TANKER_RESERVED_3'                      = 87,
-  'TANKER_RESERVED_4'                      = 88,
-  'TANKER_UNKNOWN'                         = 89,
-  'OTHER'                                  = 90,
-  'OTHER_HAZARDOUS_A'                      = 91,
-  'OTHER_HAZARDOUS_B'                      = 92,
-  'OTHER_HAZARDOUS_C'                      = 93,
-  'OTHER_HAZARDOUS_D'                      = 94,
-  'OTHER_RESERVED_1'                       = 95,
-  'OTHER_RESERVED_2'                       = 96,
-  'OTHER_RESERVED_3'                       = 97,
-  'OTHER_RESERVED_4'                       = 98,
-  'OTHER_UNKNOWN'                          = 99,
+  'UNKNOWN'                                  = 0,
+  'RESERVED_1'                               = 1,
+  'RESERVED_2'                               = 2,
+  'RESERVED_3'                               = 3,
+  'RESERVED_4'                               = 4,
+  'RESERVED_5'                               = 5,
+  'RESERVED_6'                               = 6,
+  'RESERVED_7'                               = 7,
+  'RESERVED_8'                               = 8,
+  'RESERVED_9'                               = 9,
+  'RESERVED_10'                              = 10,
+  'RESERVED_11'                              = 11,
+  'RESERVED_12'                              = 12,
+  'RESERVED_13'                              = 13,
+  'RESERVED_14'                              = 14,
+  'RESERVED_15'                              = 15,
+  'RESERVED_16'                              = 16,
+  'RESERVED_17'                              = 17,
+  'RESERVED_18'                              = 18,
+  'RESERVED_19'                              = 19,
+  'WIG'                                      = 20,
+  'WIG_HAZARDOUS_A'                          = 21,
+  'WIG_HAZARDOUS_B'                          = 22,
+  'WIG_HAZARDOUS_C'                          = 23,
+  'WIG_HAZARDOUS_D'                          = 24,
+  'WIG_RESERVED_1'                           = 25,
+  'WIG_RESERVED_2'                           = 26,
+  'WIG_RESERVED_3'                           = 27,
+  'WIG_RESERVED_4'                           = 28,
+  'WIG_RESERVED_5'                           = 29,
+  'FISHING'                                  = 30,
+  'TOWING'                                   = 31,
+  'TOWING_LARGE'                             = 32,
+  'DREDGING'                                 = 33,
+  'DIVING'                                   = 34,
+  'MILITARY'                                 = 35,
+  'SAILING'                                  = 36,
+  'PLEASURE'                                 = 37,
+  'RESERVED_20'                              = 38,
+  'RESERVED_21'                              = 39,
+  'HSC'                                      = 40,
+  'HSC_HAZARDOUS_A'                          = 41,
+  'HSC_HAZARDOUS_B'                          = 42,
+  'HSC_HAZARDOUS_C'                          = 43,
+  'HSC_HAZARDOUS_D'                          = 44,
+  'HSC_RESERVED_1'                           = 45,
+  'HSC_RESERVED_2'                           = 46,
+  'HSC_RESERVED_3'                           = 47,
+  'HSC_RESERVED_4'                           = 48,
+  'HSC_UNKNOWN'                              = 49,
+  'PILOT'                                    = 50,
+  'SAR'                                      = 51,
+  'TUG'                                      = 52,
+  'PORT_TENDER'                              = 53,
+  'ANTI_POLLUTION'                           = 54,
+  'LAW_ENFORCEMENT'                          = 55,
+  'SPARE_LOCAL_1'                            = 56,
+  'SPARE_LOCAL_2'                            = 57,
+  'MEDICAL_TRANSPORT'                        = 58,
+  'NONECOMBATANT'                            = 59,
+  'PASSENGER'                                = 60,
+  'PASSENGER_HAZARDOUS_A'                    = 61,
+  'PASSENGER_HAZARDOUS_B'                    = 62,
+  'PASSENGER_HAZARDOUS_C'                    = 63,
+  'PASSENGER_HAZARDOUS_D'                    = 64,
+  'PASSENGER_RESERVED_1'                     = 65,
+  'PASSENGER_RESERVED_2'                     = 66,
+  'PASSENGER_RESERVED_3'                     = 67,
+  'PASSENGER_RESERVED_4'                     = 68,
+  'PASSENGER_UNKNOWN'                        = 69,
+  'CARGO'                                    = 70,
+  'CARGO_HAZARDOUS_A'                        = 71,
+  'CARGO_HAZARDOUS_B'                        = 72,
+  'CARGO_HAZARDOUS_C'                        = 73,
+  'CARGO_HAZARDOUS_D'                        = 74,
+  'CARGO_RESERVED_1'                         = 75,
+  'CARGO_RESERVED_2'                         = 76,
+  'CARGO_RESERVED_3'                         = 77,
+  'CARGO_RESERVED_4'                         = 78,
+  'CARGO_UNKNOWN'                            = 79,
+  'TANKER'                                   = 80,
+  'TANKER_HAZARDOUS_A'                       = 81,
+  'TANKER_HAZARDOUS_B'                       = 82,
+  'TANKER_HAZARDOUS_C'                       = 83,
+  'TANKER_HAZARDOUS_D'                       = 84,
+  'TANKER_RESERVED_1'                        = 85,
+  'TANKER_RESERVED_2'                        = 86,
+  'TANKER_RESERVED_3'                        = 87,
+  'TANKER_RESERVED_4'                        = 88,
+  'TANKER_UNKNOWN'                           = 89,
+  'OTHER'                                    = 90,
+  'OTHER_HAZARDOUS_A'                        = 91,
+  'OTHER_HAZARDOUS_B'                        = 92,
+  'OTHER_HAZARDOUS_C'                        = 93,
+  'OTHER_HAZARDOUS_D'                        = 94,
+  'OTHER_RESERVED_1'                         = 95,
+  'OTHER_RESERVED_2'                         = 96,
+  'OTHER_RESERVED_3'                         = 97,
+  'OTHER_RESERVED_4'                         = 98,
+  'OTHER_UNKNOWN'                            = 99,
 }
 
 /**
@@ -1652,22 +1651,22 @@ export enum AisType {
  * https://gpsd.gitlab.io/gpsd/AIVDM.html
  */
 export enum AisNavStatus {
-  'UNDER_WAY'                              = 0,
-  'ANCHORED'                               = 1,
-  'UN_COMMANDED'                           = 2,
-  'RESTRICTED_MANOEUVERABILITY'            = 3,
-  'DRAUGHT_CONSTRAINED'                    = 4,
-  'MOORED'                                 = 5,
-  'AGROUND'                                = 6,
-  'FISHING'                                = 7,
-  'SAILING'                                = 8,
-  'RESERVED_HSC'                           = 9,
-  'RESERVED_WIG'                           = 10,
-  'RESERVED_1'                             = 11,
-  'RESERVED_2'                             = 12,
-  'RESERVED_3'                             = 13,
-  'AIS_SART'                               = 14,
-  'UNKNOWN'                                = 15,
+  'UNDER_WAY'                                = 0,
+  'ANCHORED'                                 = 1,
+  'UN_COMMANDED'                             = 2,
+  'RESTRICTED_MANOEUVERABILITY'              = 3,
+  'DRAUGHT_CONSTRAINED'                      = 4,
+  'MOORED'                                   = 5,
+  'AGROUND'                                  = 6,
+  'FISHING'                                  = 7,
+  'SAILING'                                  = 8,
+  'RESERVED_HSC'                             = 9,
+  'RESERVED_WIG'                             = 10,
+  'RESERVED_1'                               = 11,
+  'RESERVED_2'                               = 12,
+  'RESERVED_3'                               = 13,
+  'AIS_SART'                                 = 14,
+  'UNKNOWN'                                  = 15,
 }
 
 /**
@@ -1675,56 +1674,116 @@ export enum AisNavStatus {
  * message fields. When set, the data is valid.
  */
 export enum AisFlags {
-  'POSITION_ACCURACY'                      = 1,
-  'VALID_COG'                              = 2,
-  'VALID_VELOCITY'                         = 4,
-  'HIGH_VELOCITY'                          = 8,
-  'VALID_TURN_RATE'                        = 16,
+  'POSITION_ACCURACY'                        = 1,
+  'VALID_COG'                                = 2,
+  'VALID_VELOCITY'                           = 4,
+  'HIGH_VELOCITY'                            = 8,
+  'VALID_TURN_RATE'                          = 16,
   /**
    * Only the sign of the returned turn rate value is valid, either greater than 5deg/30s or less than
    * -5deg/30s
    */
-  'TURN_RATE_SIGN_ONLY'                    = 32,
-  'VALID_DIMENSIONS'                       = 64,
-  'LARGE_BOW_DIMENSION'                    = 128,
-  'LARGE_STERN_DIMENSION'                  = 256,
-  'LARGE_PORT_DIMENSION'                   = 512,
-  'LARGE_STARBOARD_DIMENSION'              = 1024,
-  'VALID_CALLSIGN'                         = 2048,
-  'VALID_NAME'                             = 4096,
+  'TURN_RATE_SIGN_ONLY'                      = 32,
+  'VALID_DIMENSIONS'                         = 64,
+  'LARGE_BOW_DIMENSION'                      = 128,
+  'LARGE_STERN_DIMENSION'                    = 256,
+  'LARGE_PORT_DIMENSION'                     = 512,
+  'LARGE_STARBOARD_DIMENSION'                = 1024,
+  'VALID_CALLSIGN'                           = 2048,
+  'VALID_NAME'                               = 4096,
+}
+
+/**
+ * Status of what an individual swarm vehicle is doing.
+ */
+export enum SwarmVehicleState {
+  'STATE_UNKNOWN'                            = 0,
+  'STATE_INGRESSING_TO_MESH'                 = 1,
+  'STATE_LOST_COMMS'                         = 2,
+  'STATE_ON_STATION'                         = 3,
+  /**
+   * On station providing service but requesting Return to Base soon, will need to leave the on station
+   * point within 30min. This allows time for an additional vehicle to join the swarm to take it's place
+   * without a gap in coverage. Next expected state is ON_STATION_BUT_REQUESTION_RTB_NOW.
+   */
+  'STATE_ON_STATION_BUT_REQUESTION_RTB_SOON' = 4,
+  /**
+   * On station providing service but will be switching to Return to Base in less than 2 minutes. Next
+   * expected state is EGRESSING_MESH_RTB.
+   */
+  'STATE_ON_STATION_BUT_REQUESTION_RTB_NOW'  = 5,
+  /**
+   * Was recently on station but mesh topography has changed and are currently in transit to new on
+   * station point.
+   */
+  'STATE_WAS_ON_STATION_BUT_RELOCATING'      = 6,
+  'STATE_EGRESSING_MESH_RTB'                 = 7,
+  'STATE_RTB'                                = 8,
+  'STATE_READY_TO_JOIN_MESH'                 = 9,
+  /**
+   * Not ready, not providing service. For air vehicles this means we're powered up on the ground and
+   * likely performing ground checks. Next expected state is likely READY_TO_JOIN_MESH.
+   */
+  'STATE_NOT_READY'                          = 10,
+  'GCS'                                      = 11,
+}
+
+/**
+ * Status of the ROI from the swarm vehicle's perspective.
+ */
+export enum SwarmRoiStatus {
+  'UNKNOWN'                                  = 0,
+  'INVALID'                                  = 1,
+  'NEEDS_UPDATE'                             = 2,
+  'OK'                                       = 3,
+}
+
+/**
+ * Status of mesh network coverage. Ideally the whole swarm should be generating the same status.
+ */
+export enum SwarmCoverageStatus {
+  'UNKNOWN'                                  = 0,
+  'ROI_IS_NOT_READY'                         = 1,
+  'NOT_ENOUGH_VEHICLES'                      = 2,
+  /**
+   * Swarm mesh currently has the minimum resources to cover the ROI. However, network is expected to
+   * have breif gaps in service coverage.
+   */
+  'MINIMUM'                                  = 3,
+  /**
+   * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy Quality
+   * of Service requirement.
+   */
+  'QOS_GOOD'                                 = 4,
+  /**
+   * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy MORE than
+   * the Quality of Service requirement to better handle unexpected loss of mesh node(s).
+   */
+  'QOS_VERY_GOOD'                            = 5,
 }
 
 /**
  * Winch status flags used in WINCH_STATUS
  */
 export enum MavWinchStatusFlag {
-  'HEALTHY'                                = 1,
-  'FULLY_RETRACTED'                        = 2,
-  'MOVING'                                 = 4,
-  'CLUTCH_ENGAGED'                         = 8,
+  'HEALTHY'                                  = 1,
+  'FULLY_RETRACTED'                          = 2,
+  'MOVING'                                   = 4,
+  'CLUTCH_ENGAGED'                           = 8,
 }
 
 /**
  * MAG_CAL_STATUS
  */
 export enum MagCalStatus {
-  'NOT_STARTED'                            = 0,
-  'WAITING_TO_START'                       = 1,
-  'RUNNING_STEP_ONE'                       = 2,
-  'RUNNING_STEP_TWO'                       = 3,
-  'SUCCESS'                                = 4,
-  'FAILED'                                 = 5,
-  'BAD_ORIENTATION'                        = 6,
-  'BAD_RADIUS'                             = 7,
-}
-
-/**
- * SWARM_STATE_NAV
- */
-export enum SwarmStateNav {
-  'INGRESSING_TO_MESH'                     = 0,
-  'ON_STATION'                             = 1,
-  'HOME'                                   = 2,
+  'NOT_STARTED'                              = 0,
+  'WAITING_TO_START'                         = 1,
+  'RUNNING_STEP_ONE'                         = 2,
+  'RUNNING_STEP_TWO'                         = 3,
+  'SUCCESS'                                  = 4,
+  'FAILED'                                   = 5,
+  'BAD_ORIENTATION'                          = 6,
+  'BAD_RADIUS'                               = 7,
 }
 
 /**
@@ -12192,31 +12251,28 @@ export class ActuatorOutputStatus extends MavLinkData {
 export class SwarmVehicle extends MavLinkData {
   static MSG_ID = 2820
   static MSG_NAME = 'SWARM_VEHICLE'
-  static PAYLOAD_LENGTH = 51
-  static MAGIC_NUMBER = 195
+  static PAYLOAD_LENGTH = 37
+  static MAGIC_NUMBER = 69
 
   static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('cog', 'cog', 8, false, 4, 'float', 'deg'),
-    new MavLinkPacketField('effective_radius', 'effectiveRadius', 12, false, 4, 'float', 'm'),
-    new MavLinkPacketField('lat', 'lat', 16, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('lon', 'lon', 20, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('altMSL', 'altMSL', 24, false, 4, 'float', 'm'),
-    new MavLinkPacketField('lat_target', 'latTarget', 28, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('lon_target', 'lonTarget', 32, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('altMSL_target', 'altMSLTarget', 36, false, 4, 'float', 'm'),
-    new MavLinkPacketField('ROI_crc', 'ROICrc', 40, false, 4, 'uint32_t', ''),
-    new MavLinkPacketField('aircraft_id', 'aircraftId', 44, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('squadron_id', 'squadronId', 46, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('speed', 'speed', 48, false, 2, 'int16_t', 'm/s'),
-    new MavLinkPacketField('state_nav', 'stateNav', 50, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
+    new MavLinkPacketField('effective_radius', 'effectiveRadius', 4, false, 4, 'float', 'm'),
+    new MavLinkPacketField('lat', 'lat', 8, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('lon', 'lon', 12, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('altMSL', 'altMSL', 16, false, 4, 'float', 'm'),
+    new MavLinkPacketField('lat_target', 'latTarget', 20, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('lon_target', 'lonTarget', 24, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('altMSL_target', 'altMSLTarget', 28, false, 4, 'float', 'm'),
+    new MavLinkPacketField('aircraft_id', 'aircraftId', 32, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('squadron_id', 'squadronId', 34, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
   ]
 
   /**
-   * Timestamp (UNIX Epoch time from GPS, if unknown use 0).
-   * Units: us
+   * UTC timestamp of when this packet was generated. Seconds since 1970, or 0 if not available.
+   * Units: s
    */
-  timeUsec: uint64_t
+  timestamp: uint32_t
   /**
    * Aircraft ID
    */
@@ -12226,19 +12282,9 @@ export class SwarmVehicle extends MavLinkData {
    */
   squadronId: uint16_t
   /**
-   * Navigation State
+   * Staus of vehicle
    */
-  stateNav: SwarmStateNav
-  /**
-   * Speed
-   * Units: m/s
-   */
-  speed: int16_t
-  /**
-   * Course over Ground (GPS heading)
-   * Units: deg
-   */
-  cog: float
+  stateNav: SwarmVehicleState
   /**
    * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
    * Units: m
@@ -12274,173 +12320,100 @@ export class SwarmVehicle extends MavLinkData {
    * Units: m
    */
   altMSLTarget: float
+}
+
+/**
+ * Position of an aircraft in swarm with data that updates less often.
+ */
+export class SwarmVehicleSlow extends MavLinkData {
+  static MSG_ID = 2821
+  static MSG_NAME = 'SWARM_VEHICLE_SLOW'
+  static PAYLOAD_LENGTH = 39
+  static MAGIC_NUMBER = 218
+
+  static FIELDS = [
+    new MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
+    new MavLinkPacketField('effective_radius', 'effectiveRadius', 4, false, 4, 'float', 'm'),
+    new MavLinkPacketField('lat_target', 'latTarget', 8, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('lon_target', 'lonTarget', 12, false, 4, 'int32_t', 'degE7'),
+    new MavLinkPacketField('altMSL_target', 'altMSLTarget', 16, false, 4, 'float', 'm'),
+    new MavLinkPacketField('ROI_crc', 'ROICrc', 20, false, 4, 'uint32_t', ''),
+    new MavLinkPacketField('ROI_timestamp', 'ROITimestamp', 24, false, 4, 'uint32_t', 's'),
+    new MavLinkPacketField('aircraft_id', 'aircraftId', 28, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('squadron_id', 'squadronId', 30, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('speed', 'speed', 32, false, 2, 'uint16_t', 'm/s'),
+    new MavLinkPacketField('cog', 'cog', 34, false, 2, 'uint16_t', 'cdeg'),
+    new MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('state_coverage', 'stateCoverage', 37, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('state_roi', 'stateRoi', 38, false, 1, 'uint8_t', ''),
+  ]
+
+  /**
+   * UTC timestamp of when this packet was generated. Seconds since 1970, or 0 if not available.
+   * Units: s
+   */
+  timestamp: uint32_t
+  /**
+   * Aircraft ID
+   */
+  aircraftId: uint16_t
+  /**
+   * Squadron ID
+   */
+  squadronId: uint16_t
+  /**
+   * Staus of vehicle
+   */
+  stateNav: SwarmVehicleState
+  /**
+   * Staus coverage area
+   */
+  stateCoverage: SwarmCoverageStatus
+  /**
+   * Staus of vehicle's ROI
+   */
+  stateRoi: SwarmRoiStatus
+  /**
+   * Speed
+   * Units: m/s
+   */
+  speed: uint16_t
+  /**
+   * Course over Ground (GPS heading). Range: 0-35999
+   * Units: cdeg
+   */
+  cog: uint16_t
+  /**
+   * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
+   * Units: m
+   */
+  effectiveRadius: float
+  /**
+   * Target Latitude
+   * Units: degE7
+   */
+  latTarget: int32_t
+  /**
+   * Target Longitude
+   * Units: degE7
+   */
+  lonTarget: int32_t
+  /**
+   * Target MSL Altitude.
+   * Units: m
+   */
+  altMSLTarget: float
   /**
    * Region-of-Interest 32bit CRC. Zero indicates unknown. If a valid CRC computes to zero, use 1. This
    * CRC is used to verify an ROI that is actively loaded. It is used to keep the swarm in sync without
    * having to constantly send it to the mesh to verify.
    */
   ROICrc: uint32_t
-}
-
-/**
- * Status of a swarm aircraft's communications link.
- */
-export class SwarmCommlinkStatus extends MavLinkData {
-  static MSG_ID = 2821
-  static MSG_NAME = 'SWARM_COMMLINK_STATUS'
-  static PAYLOAD_LENGTH = 10
-  static MAGIC_NUMBER = 39
-
-  static FIELDS = [
-    new MavLinkPacketField('ROSER', 'ROSER', 0, false, 4, 'float', ''),
-    new MavLinkPacketField('aircraft_id_self', 'aircraftIdSelf', 4, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('aircraft_id_external', 'aircraftIdExternal', 6, false, 2, 'uint16_t', ''),
-    new MavLinkPacketField('last_contact', 'lastContact', 8, false, 2, 'uint16_t', 's'),
-  ]
-
   /**
-   * This Aircraft ID
-   */
-  aircraftIdSelf: uint16_t
-  /**
-   * External Aircraft ID
-   */
-  aircraftIdExternal: uint16_t
-  /**
-   * Radio Overlap of Shortest Effective Radius
-   */
-  ROSER: float
-  /**
-   * 
+   * UTC timestamp of ROI generation. Seconds since 1970, or 0 if not available.
    * Units: s
    */
-  lastContact: uint16_t
-}
-
-/**
- * Position of the swarm coverage area (NOT the aircraft).
- */
-export class SwarmCoverageArea extends MavLinkData {
-  static MSG_ID = 2822
-  static MSG_NAME = 'SWARM_COVERAGE_AREA'
-  static PAYLOAD_LENGTH = 88
-  static MAGIC_NUMBER = 49
-
-  static FIELDS = [
-    new MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new MavLinkPacketField('coverage_radius', 'coverageRadius', 8, false, 4, 'float', 'm'),
-    new MavLinkPacketField('lat', 'lat', 12, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('lon', 'lon', 16, false, 4, 'int32_t', 'degE7'),
-    new MavLinkPacketField('altMSL', 'altMSL', 20, false, 4, 'float', 'm'),
-    new MavLinkPacketField('coverage_polys', 'coveragePolys', 24, false, 4, 'float[]', 'm', 16),
-  ]
-
-  /**
-   * Timestamp (UNIX Epoch time from GPS, if unknown use 0).
-   * Units: us
-   */
-  timeUsec: uint64_t
-  /**
-   * Swarm Coverage Area modeled as a radius.
-   * Units: m
-   */
-  coverageRadius: float
-  /**
-   * Latitude
-   * Units: degE7
-   */
-  lat: int32_t
-  /**
-   * Longitude
-   * Units: degE7
-   */
-  lon: int32_t
-  /**
-   * MSL Altitude
-   * Units: m
-   */
-  altMSL: float
-  /**
-   * Swarm Coverage Area modeled as an octogon.
-   * Units: m
-   */
-  coveragePolys: float[]
-}
-
-/**
- * A swarm point. Used to set a swarm ROI point within from GCS. Also used to return a point from MAV
- * GCS.
- */
-export class SwarmPoint extends MavLinkData {
-  static MSG_ID = 2823
-  static MSG_NAME = 'SWARM_POINT'
-  static PAYLOAD_LENGTH = 12
-  static MAGIC_NUMBER = 141
-
-  static FIELDS = [
-    new MavLinkPacketField('lat', 'lat', 0, false, 4, 'float', 'deg'),
-    new MavLinkPacketField('lng', 'lng', 4, false, 4, 'float', 'deg'),
-    new MavLinkPacketField('target_system', 'targetSystem', 8, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 9, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('idx', 'idx', 10, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('count', 'count', 11, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID.
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID.
-   */
-  targetComponent: uint8_t
-  /**
-   * Point index (first point is 1, 0 is for return point).
-   */
-  idx: uint8_t
-  /**
-   * Total number of points (for sanity checking).
-   */
-  count: uint8_t
-  /**
-   * Latitude of point.
-   * Units: deg
-   */
-  lat: float
-  /**
-   * Longitude of point.
-   * Units: deg
-   */
-  lng: float
-}
-
-/**
- * Request a current swarm point from MAV. Mostly intended for GCS.
- */
-export class SwarmFetchPoint extends MavLinkData {
-  static MSG_ID = 2824
-  static MSG_NAME = 'SWARM_FETCH_POINT'
-  static PAYLOAD_LENGTH = 3
-  static MAGIC_NUMBER = 99
-
-  static FIELDS = [
-    new MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new MavLinkPacketField('idx', 'idx', 2, false, 1, 'uint8_t', ''),
-  ]
-
-  /**
-   * System ID.
-   */
-  targetSystem: uint8_t
-  /**
-   * Component ID.
-   */
-  targetComponent: uint8_t
-  /**
-   * Point index (first point is 1, 0 is for return point).
-   */
-  idx: uint8_t
+  ROITimestamp: uint32_t
 }
 
 /**
@@ -12707,10 +12680,7 @@ export const REGISTRY: MavLinkPacketRegistry = {
   373: GeneratorStatus,
   375: ActuatorOutputStatus,
   2820: SwarmVehicle,
-  2821: SwarmCommlinkStatus,
-  2822: SwarmCoverageArea,
-  2823: SwarmPoint,
-  2824: SwarmFetchPoint,
+  2821: SwarmVehicleSlow,
   9000: WheelDistance,
   9005: WinchStatus,
 }

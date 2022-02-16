@@ -1,10 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GpsFixType = exports.MavCollisionSrc = exports.MavCollisionThreatLevel = exports.MavCollisionAction = exports.GpsInputIgnoreFlags = exports.MotorTestThrottleType = exports.MotorTestOrder = exports.EstimatorStatusFlags = exports.MavDoRepositionFlags = exports.AdsbFlags = exports.AdsbEmitterType = exports.AdsbAltitudeType = exports.MavLandedState = exports.MavVtolState = exports.MavGeneratorStatusFlag = exports.MavBatteryChargeState = exports.MavBatteryFunction = exports.MavBatteryType = exports.MavEstimatorType = exports.MavMissionType = exports.MavProtocolCapability = exports.MavSensorOrientation = exports.MavDistanceSensor = exports.SerialControlFlag = exports.SerialControlDev = exports.MavPowerStatus = exports.MavSeverity = exports.MavMissionResult = exports.MavResult = exports.MavParamType = exports.MavCmdAck = exports.MavRoi = exports.MavDataStream = exports.MavCmd = exports.StorageStatus = exports.UavcanNodeMode = exports.UavcanNodeHealth = exports.WinchActions = exports.GripperActions = exports.MavMountMode = exports.FenceMitigate = exports.FenceBreach = exports.FenceAction = exports.MavlinkDataStreamType = exports.MavFrame = exports.MavSysStatusSensor = exports.MavMode = exports.MavGoto = exports.HlFailureFlag = exports.FirmwareVersionType = void 0;
-exports.MissionSetCurrent = exports.MissionRequest = exports.MissionItem = exports.MissionWritePartialList = exports.MissionRequestPartialList = exports.ServoOutputRaw = exports.RcChannelsRaw = exports.RcChannelsScaled = exports.GlobalPositionInt = exports.LocalPositionNed = exports.AttitudeQuaternion = exports.Attitude = exports.ScaledPressure = exports.RawPressure = exports.RawImu = exports.ScaledImu = exports.GpsStatus = exports.GpsRawInt = exports.ParamSet = exports.ParamValue = exports.ParamRequestList = exports.ParamRequestRead = exports.SetMode = exports.AuthKey = exports.ChangeOperatorControlAck = exports.ChangeOperatorControl = exports.Ping = exports.SystemTime = exports.SysStatus = exports.SwarmStateNav = exports.MagCalStatus = exports.MavWinchStatusFlag = exports.AisFlags = exports.AisNavStatus = exports.AisType = exports.ParachuteAction = exports.PrecisionLandMode = exports.UtmDataAvailFlags = exports.UtmFlightState = exports.AttitudeTargetTypemask = exports.PositionTargetTypemask = exports.RcType = exports.MavArmAuthDeniedReason = exports.CameraMode = exports.VideoStreamType = exports.VideoStreamStatusFlags = exports.CameraCapFlags = exports.VtolTransitionHeading = exports.LandingTargetType = exports.RtkBaselineCoordinateSystem = void 0;
-exports.TimeSync = exports.FileTransferProtocol = exports.RadioStatus = exports.SimState = exports.HilSensor = exports.OpticalFlowRad = exports.HighresImu = exports.ViconPositionEstimate = exports.VisionSpeedEstimate = exports.VisionPositionEstimate = exports.GlobalVisionPositionEstimate = exports.OpticalFlow = exports.HilActuatorControls = exports.HilRcInputsRaw = exports.HilControls = exports.HilState = exports.LocalPositionNedSystemGlobalOffset = exports.PositionTargetGlobalInt = exports.SetPositionTargetGlobalInt = exports.PositionTargetLocalNed = exports.SetPositionTargetLocalNed = exports.AttitudeTarget = exports.SetAttitudeTarget = exports.ManualSetpoint = exports.CommandAck = exports.CommandLong = exports.CommandInt = exports.VfrHud = exports.MissionItemInt = exports.RcChannelsOverride = exports.ManualControl = exports.DataStream = exports.RequestDataStream = exports.RcChannels = exports.LocalPositionNedCov = exports.GlobalPositionIntCov = exports.NavControllerOutput = exports.AttitudeQuaternionCov = exports.SafetyAllowedArea = exports.SafetySetAllowedArea = exports.MissionRequestInt = exports.ParamMapRc = exports.GpsGlobalOrigin = exports.SetGpsGlobalOrigin = exports.MissionAck = exports.MissionItemReached = exports.MissionClearAll = exports.MissionCount = exports.MissionRequestList = exports.MissionCurrent = void 0;
-exports.MessageInterval = exports.SetHomePosition = exports.HomePosition = exports.Vibration = exports.HighLatency2 = exports.HighLatency = exports.GpsRtcmData = exports.GpsInput = exports.WindCov = exports.EstimatorStatus = exports.EfiStatus = exports.MagCalReport = exports.FenceStatus = exports.LandingTarget = exports.AutopilotVersion = exports.BatteryStatus = exports.ControlSystemState = exports.FollowTarget = exports.ScaledPressure3 = exports.ResourceRequest = exports.Altitude = exports.ActuatorControlTarget = exports.SetActuatorControlTarget = exports.MotionCaptureAttPos = exports.ScaledPressure2 = exports.TerrainReport = exports.TerrainCheck = exports.TerrainData = exports.TerrainRequest = exports.DistanceSensor = exports.EncapsulatedData = exports.DataTransmissionHandshake = exports.ScaledImu3 = exports.Gps2Rtk = exports.GpsRtk = exports.SerialControl = exports.PowerStatus = exports.Gps2Raw = exports.GpsInjectData = exports.LogRequestEnd = exports.LogErase = exports.LogData = exports.LogRequestData = exports.LogEntry = exports.LogRequestList = exports.ScaledImu2 = exports.HilStateQuaternion = exports.HilOpticalFlow = exports.HilGps = exports.CameraTrigger = void 0;
-exports.REGISTRY = exports.WinchStatus = exports.WheelDistance = exports.SwarmFetchPoint = exports.SwarmPoint = exports.SwarmCoverageArea = exports.SwarmCommlinkStatus = exports.SwarmVehicle = exports.ActuatorOutputStatus = exports.GeneratorStatus = exports.SmartBatteryInfo = exports.DebugFloatArray = exports.UtmGlobalPosition = exports.RawRpm = exports.IsbdLinkStatus = exports.Odometry = exports.ObstacleDistance = exports.UavcanNodeInfo = exports.UavcanNodeStatus = exports.AisVessel = exports.WifiConfigAp = exports.VideoStreamStatus = exports.VideoStreamInformation = exports.LoggingAck = exports.LoggingDataAcked = exports.LoggingData = exports.MountOrientation = exports.FlightInformation = exports.CameraImageCaptured = exports.CameraCaptureStatus = exports.StorageInformation = exports.CameraSettings = exports.CameraInformation = exports.PlayTune = exports.ButtonChange = exports.SetupSigning = exports.Debug = exports.StatusText = exports.NamedValueInt = exports.NamedValueFloat = exports.DebugVect = exports.MemoryVect = exports.V2Extension = exports.Collision = exports.AdsbVehicle = exports.ExtendedSysState = void 0;
+exports.MissionItem = exports.MissionWritePartialList = exports.MissionRequestPartialList = exports.ServoOutputRaw = exports.RcChannelsRaw = exports.RcChannelsScaled = exports.GlobalPositionInt = exports.LocalPositionNed = exports.AttitudeQuaternion = exports.Attitude = exports.ScaledPressure = exports.RawPressure = exports.RawImu = exports.ScaledImu = exports.GpsStatus = exports.GpsRawInt = exports.ParamSet = exports.ParamValue = exports.ParamRequestList = exports.ParamRequestRead = exports.SetMode = exports.AuthKey = exports.ChangeOperatorControlAck = exports.ChangeOperatorControl = exports.Ping = exports.SystemTime = exports.SysStatus = exports.MagCalStatus = exports.MavWinchStatusFlag = exports.SwarmCoverageStatus = exports.SwarmRoiStatus = exports.SwarmVehicleState = exports.AisFlags = exports.AisNavStatus = exports.AisType = exports.ParachuteAction = exports.PrecisionLandMode = exports.UtmDataAvailFlags = exports.UtmFlightState = exports.AttitudeTargetTypemask = exports.PositionTargetTypemask = exports.RcType = exports.MavArmAuthDeniedReason = exports.CameraMode = exports.VideoStreamType = exports.VideoStreamStatusFlags = exports.CameraCapFlags = exports.VtolTransitionHeading = exports.LandingTargetType = exports.RtkBaselineCoordinateSystem = void 0;
+exports.RadioStatus = exports.SimState = exports.HilSensor = exports.OpticalFlowRad = exports.HighresImu = exports.ViconPositionEstimate = exports.VisionSpeedEstimate = exports.VisionPositionEstimate = exports.GlobalVisionPositionEstimate = exports.OpticalFlow = exports.HilActuatorControls = exports.HilRcInputsRaw = exports.HilControls = exports.HilState = exports.LocalPositionNedSystemGlobalOffset = exports.PositionTargetGlobalInt = exports.SetPositionTargetGlobalInt = exports.PositionTargetLocalNed = exports.SetPositionTargetLocalNed = exports.AttitudeTarget = exports.SetAttitudeTarget = exports.ManualSetpoint = exports.CommandAck = exports.CommandLong = exports.CommandInt = exports.VfrHud = exports.MissionItemInt = exports.RcChannelsOverride = exports.ManualControl = exports.DataStream = exports.RequestDataStream = exports.RcChannels = exports.LocalPositionNedCov = exports.GlobalPositionIntCov = exports.NavControllerOutput = exports.AttitudeQuaternionCov = exports.SafetyAllowedArea = exports.SafetySetAllowedArea = exports.MissionRequestInt = exports.ParamMapRc = exports.GpsGlobalOrigin = exports.SetGpsGlobalOrigin = exports.MissionAck = exports.MissionItemReached = exports.MissionClearAll = exports.MissionCount = exports.MissionRequestList = exports.MissionCurrent = exports.MissionSetCurrent = exports.MissionRequest = void 0;
+exports.HomePosition = exports.Vibration = exports.HighLatency2 = exports.HighLatency = exports.GpsRtcmData = exports.GpsInput = exports.WindCov = exports.EstimatorStatus = exports.EfiStatus = exports.MagCalReport = exports.FenceStatus = exports.LandingTarget = exports.AutopilotVersion = exports.BatteryStatus = exports.ControlSystemState = exports.FollowTarget = exports.ScaledPressure3 = exports.ResourceRequest = exports.Altitude = exports.ActuatorControlTarget = exports.SetActuatorControlTarget = exports.MotionCaptureAttPos = exports.ScaledPressure2 = exports.TerrainReport = exports.TerrainCheck = exports.TerrainData = exports.TerrainRequest = exports.DistanceSensor = exports.EncapsulatedData = exports.DataTransmissionHandshake = exports.ScaledImu3 = exports.Gps2Rtk = exports.GpsRtk = exports.SerialControl = exports.PowerStatus = exports.Gps2Raw = exports.GpsInjectData = exports.LogRequestEnd = exports.LogErase = exports.LogData = exports.LogRequestData = exports.LogEntry = exports.LogRequestList = exports.ScaledImu2 = exports.HilStateQuaternion = exports.HilOpticalFlow = exports.HilGps = exports.CameraTrigger = exports.TimeSync = exports.FileTransferProtocol = void 0;
+exports.REGISTRY = exports.WinchStatus = exports.WheelDistance = exports.SwarmVehicleSlow = exports.SwarmVehicle = exports.ActuatorOutputStatus = exports.GeneratorStatus = exports.SmartBatteryInfo = exports.DebugFloatArray = exports.UtmGlobalPosition = exports.RawRpm = exports.IsbdLinkStatus = exports.Odometry = exports.ObstacleDistance = exports.UavcanNodeInfo = exports.UavcanNodeStatus = exports.AisVessel = exports.WifiConfigAp = exports.VideoStreamStatus = exports.VideoStreamInformation = exports.LoggingAck = exports.LoggingDataAcked = exports.LoggingData = exports.MountOrientation = exports.FlightInformation = exports.CameraImageCaptured = exports.CameraCaptureStatus = exports.StorageInformation = exports.CameraSettings = exports.CameraInformation = exports.PlayTune = exports.ButtonChange = exports.SetupSigning = exports.Debug = exports.StatusText = exports.NamedValueInt = exports.NamedValueFloat = exports.DebugVect = exports.MemoryVect = exports.V2Extension = exports.Collision = exports.AdsbVehicle = exports.ExtendedSysState = exports.MessageInterval = exports.SetHomePosition = void 0;
 const mavlink_1 = require("./mavlink");
 /**
  * These values define the type of firmware release. These values indicate the first version or release
@@ -692,7 +692,6 @@ var MavCmd;
      */
     MavCmd[MavCmd["FIXED_MAG_CAL_YAW"] = 42006] = "FIXED_MAG_CAL_YAW";
     MavCmd[MavCmd["DO_WINCH"] = 42600] = "DO_WINCH";
-    MavCmd[MavCmd["SWARM_RADIUS"] = 12613] = "SWARM_RADIUS";
     MavCmd[MavCmd["WAYPOINT_USER_1"] = 31000] = "WAYPOINT_USER_1";
     MavCmd[MavCmd["WAYPOINT_USER_2"] = 31001] = "WAYPOINT_USER_2";
     MavCmd[MavCmd["WAYPOINT_USER_3"] = 31002] = "WAYPOINT_USER_3";
@@ -1676,6 +1675,75 @@ var AisFlags;
     AisFlags[AisFlags["VALID_NAME"] = 4096] = "VALID_NAME";
 })(AisFlags = exports.AisFlags || (exports.AisFlags = {}));
 /**
+ * Status of what an individual swarm vehicle is doing.
+ */
+var SwarmVehicleState;
+(function (SwarmVehicleState) {
+    SwarmVehicleState[SwarmVehicleState["STATE_UNKNOWN"] = 0] = "STATE_UNKNOWN";
+    SwarmVehicleState[SwarmVehicleState["STATE_INGRESSING_TO_MESH"] = 1] = "STATE_INGRESSING_TO_MESH";
+    SwarmVehicleState[SwarmVehicleState["STATE_LOST_COMMS"] = 2] = "STATE_LOST_COMMS";
+    SwarmVehicleState[SwarmVehicleState["STATE_ON_STATION"] = 3] = "STATE_ON_STATION";
+    /**
+     * On station providing service but requesting Return to Base soon, will need to leave the on station
+     * point within 30min. This allows time for an additional vehicle to join the swarm to take it's place
+     * without a gap in coverage. Next expected state is ON_STATION_BUT_REQUESTION_RTB_NOW.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_ON_STATION_BUT_REQUESTION_RTB_SOON"] = 4] = "STATE_ON_STATION_BUT_REQUESTION_RTB_SOON";
+    /**
+     * On station providing service but will be switching to Return to Base in less than 2 minutes. Next
+     * expected state is EGRESSING_MESH_RTB.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_ON_STATION_BUT_REQUESTION_RTB_NOW"] = 5] = "STATE_ON_STATION_BUT_REQUESTION_RTB_NOW";
+    /**
+     * Was recently on station but mesh topography has changed and are currently in transit to new on
+     * station point.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_WAS_ON_STATION_BUT_RELOCATING"] = 6] = "STATE_WAS_ON_STATION_BUT_RELOCATING";
+    SwarmVehicleState[SwarmVehicleState["STATE_EGRESSING_MESH_RTB"] = 7] = "STATE_EGRESSING_MESH_RTB";
+    SwarmVehicleState[SwarmVehicleState["STATE_RTB"] = 8] = "STATE_RTB";
+    SwarmVehicleState[SwarmVehicleState["STATE_READY_TO_JOIN_MESH"] = 9] = "STATE_READY_TO_JOIN_MESH";
+    /**
+     * Not ready, not providing service. For air vehicles this means we're powered up on the ground and
+     * likely performing ground checks. Next expected state is likely READY_TO_JOIN_MESH.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_NOT_READY"] = 10] = "STATE_NOT_READY";
+    SwarmVehicleState[SwarmVehicleState["GCS"] = 11] = "GCS";
+})(SwarmVehicleState = exports.SwarmVehicleState || (exports.SwarmVehicleState = {}));
+/**
+ * Status of the ROI from the swarm vehicle's perspective.
+ */
+var SwarmRoiStatus;
+(function (SwarmRoiStatus) {
+    SwarmRoiStatus[SwarmRoiStatus["UNKNOWN"] = 0] = "UNKNOWN";
+    SwarmRoiStatus[SwarmRoiStatus["INVALID"] = 1] = "INVALID";
+    SwarmRoiStatus[SwarmRoiStatus["NEEDS_UPDATE"] = 2] = "NEEDS_UPDATE";
+    SwarmRoiStatus[SwarmRoiStatus["OK"] = 3] = "OK";
+})(SwarmRoiStatus = exports.SwarmRoiStatus || (exports.SwarmRoiStatus = {}));
+/**
+ * Status of mesh network coverage. Ideally the whole swarm should be generating the same status.
+ */
+var SwarmCoverageStatus;
+(function (SwarmCoverageStatus) {
+    SwarmCoverageStatus[SwarmCoverageStatus["UNKNOWN"] = 0] = "UNKNOWN";
+    SwarmCoverageStatus[SwarmCoverageStatus["ROI_IS_NOT_READY"] = 1] = "ROI_IS_NOT_READY";
+    SwarmCoverageStatus[SwarmCoverageStatus["NOT_ENOUGH_VEHICLES"] = 2] = "NOT_ENOUGH_VEHICLES";
+    /**
+     * Swarm mesh currently has the minimum resources to cover the ROI. However, network is expected to
+     * have breif gaps in service coverage.
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["MINIMUM"] = 3] = "MINIMUM";
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy Quality
+     * of Service requirement.
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["QOS_GOOD"] = 4] = "QOS_GOOD";
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy MORE than
+     * the Quality of Service requirement to better handle unexpected loss of mesh node(s).
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["QOS_VERY_GOOD"] = 5] = "QOS_VERY_GOOD";
+})(SwarmCoverageStatus = exports.SwarmCoverageStatus || (exports.SwarmCoverageStatus = {}));
+/**
  * Winch status flags used in WINCH_STATUS
  */
 var MavWinchStatusFlag;
@@ -1699,15 +1767,6 @@ var MagCalStatus;
     MagCalStatus[MagCalStatus["BAD_ORIENTATION"] = 6] = "BAD_ORIENTATION";
     MagCalStatus[MagCalStatus["BAD_RADIUS"] = 7] = "BAD_RADIUS";
 })(MagCalStatus = exports.MagCalStatus || (exports.MagCalStatus = {}));
-/**
- * SWARM_STATE_NAV
- */
-var SwarmStateNav;
-(function (SwarmStateNav) {
-    SwarmStateNav[SwarmStateNav["INGRESSING_TO_MESH"] = 0] = "INGRESSING_TO_MESH";
-    SwarmStateNav[SwarmStateNav["ON_STATION"] = 1] = "ON_STATION";
-    SwarmStateNav[SwarmStateNav["HOME"] = 2] = "HOME";
-})(SwarmStateNav = exports.SwarmStateNav || (exports.SwarmStateNav = {}));
 /**
  * The general system state. If the system is following the MAVLink standard, the system state is
  * mainly defined by three orthogonal states/modes: The system mode, which is either LOCKED (motors
@@ -5278,91 +5337,46 @@ class SwarmVehicle extends mavlink_1.MavLinkData {
 exports.SwarmVehicle = SwarmVehicle;
 SwarmVehicle.MSG_ID = 2820;
 SwarmVehicle.MSG_NAME = 'SWARM_VEHICLE';
-SwarmVehicle.PAYLOAD_LENGTH = 51;
-SwarmVehicle.MAGIC_NUMBER = 195;
+SwarmVehicle.PAYLOAD_LENGTH = 37;
+SwarmVehicle.MAGIC_NUMBER = 69;
 SwarmVehicle.FIELDS = [
-    new mavlink_1.MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new mavlink_1.MavLinkPacketField('cog', 'cog', 8, false, 4, 'float', 'deg'),
-    new mavlink_1.MavLinkPacketField('effective_radius', 'effectiveRadius', 12, false, 4, 'float', 'm'),
-    new mavlink_1.MavLinkPacketField('lat', 'lat', 16, false, 4, 'int32_t', 'degE7'),
-    new mavlink_1.MavLinkPacketField('lon', 'lon', 20, false, 4, 'int32_t', 'degE7'),
-    new mavlink_1.MavLinkPacketField('altMSL', 'altMSL', 24, false, 4, 'float', 'm'),
-    new mavlink_1.MavLinkPacketField('lat_target', 'latTarget', 28, false, 4, 'int32_t', 'degE7'),
-    new mavlink_1.MavLinkPacketField('lon_target', 'lonTarget', 32, false, 4, 'int32_t', 'degE7'),
-    new mavlink_1.MavLinkPacketField('altMSL_target', 'altMSLTarget', 36, false, 4, 'float', 'm'),
-    new mavlink_1.MavLinkPacketField('ROI_crc', 'ROICrc', 40, false, 4, 'uint32_t', ''),
-    new mavlink_1.MavLinkPacketField('aircraft_id', 'aircraftId', 44, false, 2, 'uint16_t', ''),
-    new mavlink_1.MavLinkPacketField('squadron_id', 'squadronId', 46, false, 2, 'uint16_t', ''),
-    new mavlink_1.MavLinkPacketField('speed', 'speed', 48, false, 2, 'int16_t', 'm/s'),
-    new mavlink_1.MavLinkPacketField('state_nav', 'stateNav', 50, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('effective_radius', 'effectiveRadius', 4, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('lat', 'lat', 8, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('lon', 'lon', 12, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('altMSL', 'altMSL', 16, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('lat_target', 'latTarget', 20, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('lon_target', 'lonTarget', 24, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('altMSL_target', 'altMSLTarget', 28, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('aircraft_id', 'aircraftId', 32, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('squadron_id', 'squadronId', 34, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
 ];
 /**
- * Status of a swarm aircraft's communications link.
+ * Position of an aircraft in swarm with data that updates less often.
  */
-class SwarmCommlinkStatus extends mavlink_1.MavLinkData {
+class SwarmVehicleSlow extends mavlink_1.MavLinkData {
 }
-exports.SwarmCommlinkStatus = SwarmCommlinkStatus;
-SwarmCommlinkStatus.MSG_ID = 2821;
-SwarmCommlinkStatus.MSG_NAME = 'SWARM_COMMLINK_STATUS';
-SwarmCommlinkStatus.PAYLOAD_LENGTH = 10;
-SwarmCommlinkStatus.MAGIC_NUMBER = 39;
-SwarmCommlinkStatus.FIELDS = [
-    new mavlink_1.MavLinkPacketField('ROSER', 'ROSER', 0, false, 4, 'float', ''),
-    new mavlink_1.MavLinkPacketField('aircraft_id_self', 'aircraftIdSelf', 4, false, 2, 'uint16_t', ''),
-    new mavlink_1.MavLinkPacketField('aircraft_id_external', 'aircraftIdExternal', 6, false, 2, 'uint16_t', ''),
-    new mavlink_1.MavLinkPacketField('last_contact', 'lastContact', 8, false, 2, 'uint16_t', 's'),
-];
-/**
- * Position of the swarm coverage area (NOT the aircraft).
- */
-class SwarmCoverageArea extends mavlink_1.MavLinkData {
-}
-exports.SwarmCoverageArea = SwarmCoverageArea;
-SwarmCoverageArea.MSG_ID = 2822;
-SwarmCoverageArea.MSG_NAME = 'SWARM_COVERAGE_AREA';
-SwarmCoverageArea.PAYLOAD_LENGTH = 88;
-SwarmCoverageArea.MAGIC_NUMBER = 49;
-SwarmCoverageArea.FIELDS = [
-    new mavlink_1.MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new mavlink_1.MavLinkPacketField('coverage_radius', 'coverageRadius', 8, false, 4, 'float', 'm'),
-    new mavlink_1.MavLinkPacketField('lat', 'lat', 12, false, 4, 'int32_t', 'degE7'),
-    new mavlink_1.MavLinkPacketField('lon', 'lon', 16, false, 4, 'int32_t', 'degE7'),
-    new mavlink_1.MavLinkPacketField('altMSL', 'altMSL', 20, false, 4, 'float', 'm'),
-    new mavlink_1.MavLinkPacketField('coverage_polys', 'coveragePolys', 24, false, 4, 'float[]', 'm', 16),
-];
-/**
- * A swarm point. Used to set a swarm ROI point within from GCS. Also used to return a point from MAV
- * GCS.
- */
-class SwarmPoint extends mavlink_1.MavLinkData {
-}
-exports.SwarmPoint = SwarmPoint;
-SwarmPoint.MSG_ID = 2823;
-SwarmPoint.MSG_NAME = 'SWARM_POINT';
-SwarmPoint.PAYLOAD_LENGTH = 12;
-SwarmPoint.MAGIC_NUMBER = 141;
-SwarmPoint.FIELDS = [
-    new mavlink_1.MavLinkPacketField('lat', 'lat', 0, false, 4, 'float', 'deg'),
-    new mavlink_1.MavLinkPacketField('lng', 'lng', 4, false, 4, 'float', 'deg'),
-    new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 8, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 9, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('idx', 'idx', 10, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('count', 'count', 11, false, 1, 'uint8_t', ''),
-];
-/**
- * Request a current swarm point from MAV. Mostly intended for GCS.
- */
-class SwarmFetchPoint extends mavlink_1.MavLinkData {
-}
-exports.SwarmFetchPoint = SwarmFetchPoint;
-SwarmFetchPoint.MSG_ID = 2824;
-SwarmFetchPoint.MSG_NAME = 'SWARM_FETCH_POINT';
-SwarmFetchPoint.PAYLOAD_LENGTH = 3;
-SwarmFetchPoint.MAGIC_NUMBER = 99;
-SwarmFetchPoint.FIELDS = [
-    new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('idx', 'idx', 2, false, 1, 'uint8_t', ''),
+exports.SwarmVehicleSlow = SwarmVehicleSlow;
+SwarmVehicleSlow.MSG_ID = 2821;
+SwarmVehicleSlow.MSG_NAME = 'SWARM_VEHICLE_SLOW';
+SwarmVehicleSlow.PAYLOAD_LENGTH = 39;
+SwarmVehicleSlow.MAGIC_NUMBER = 218;
+SwarmVehicleSlow.FIELDS = [
+    new mavlink_1.MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('effective_radius', 'effectiveRadius', 4, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('lat_target', 'latTarget', 8, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('lon_target', 'lonTarget', 12, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('altMSL_target', 'altMSLTarget', 16, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('ROI_crc', 'ROICrc', 20, false, 4, 'uint32_t', ''),
+    new mavlink_1.MavLinkPacketField('ROI_timestamp', 'ROITimestamp', 24, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('aircraft_id', 'aircraftId', 28, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('squadron_id', 'squadronId', 30, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('speed', 'speed', 32, false, 2, 'uint16_t', 'm/s'),
+    new mavlink_1.MavLinkPacketField('cog', 'cog', 34, false, 2, 'uint16_t', 'cdeg'),
+    new mavlink_1.MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('state_coverage', 'stateCoverage', 37, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('state_roi', 'stateRoi', 38, false, 1, 'uint8_t', ''),
 ];
 /**
  * Cumulative distance traveled for each reported wheel.
@@ -5568,10 +5582,7 @@ exports.REGISTRY = {
     373: GeneratorStatus,
     375: ActuatorOutputStatus,
     2820: SwarmVehicle,
-    2821: SwarmCommlinkStatus,
-    2822: SwarmCoverageArea,
-    2823: SwarmPoint,
-    2824: SwarmFetchPoint,
+    2821: SwarmVehicleSlow,
     9000: WheelDistance,
     9005: WinchStatus,
 };

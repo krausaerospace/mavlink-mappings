@@ -670,7 +670,6 @@ export declare enum MavCmd {
      */
     'FIXED_MAG_CAL_YAW' = 42006,
     'DO_WINCH' = 42600,
-    'SWARM_RADIUS' = 12613,
     'WAYPOINT_USER_1' = 31000,
     'WAYPOINT_USER_2' = 31001,
     'WAYPOINT_USER_3' = 31002,
@@ -1603,6 +1602,72 @@ export declare enum AisFlags {
     'VALID_NAME' = 4096
 }
 /**
+ * Status of what an individual swarm vehicle is doing.
+ */
+export declare enum SwarmVehicleState {
+    'STATE_UNKNOWN' = 0,
+    'STATE_INGRESSING_TO_MESH' = 1,
+    'STATE_LOST_COMMS' = 2,
+    'STATE_ON_STATION' = 3,
+    /**
+     * On station providing service but requesting Return to Base soon, will need to leave the on station
+     * point within 30min. This allows time for an additional vehicle to join the swarm to take it's place
+     * without a gap in coverage. Next expected state is ON_STATION_BUT_REQUESTION_RTB_NOW.
+     */
+    'STATE_ON_STATION_BUT_REQUESTION_RTB_SOON' = 4,
+    /**
+     * On station providing service but will be switching to Return to Base in less than 2 minutes. Next
+     * expected state is EGRESSING_MESH_RTB.
+     */
+    'STATE_ON_STATION_BUT_REQUESTION_RTB_NOW' = 5,
+    /**
+     * Was recently on station but mesh topography has changed and are currently in transit to new on
+     * station point.
+     */
+    'STATE_WAS_ON_STATION_BUT_RELOCATING' = 6,
+    'STATE_EGRESSING_MESH_RTB' = 7,
+    'STATE_RTB' = 8,
+    'STATE_READY_TO_JOIN_MESH' = 9,
+    /**
+     * Not ready, not providing service. For air vehicles this means we're powered up on the ground and
+     * likely performing ground checks. Next expected state is likely READY_TO_JOIN_MESH.
+     */
+    'STATE_NOT_READY' = 10,
+    'GCS' = 11
+}
+/**
+ * Status of the ROI from the swarm vehicle's perspective.
+ */
+export declare enum SwarmRoiStatus {
+    'UNKNOWN' = 0,
+    'INVALID' = 1,
+    'NEEDS_UPDATE' = 2,
+    'OK' = 3
+}
+/**
+ * Status of mesh network coverage. Ideally the whole swarm should be generating the same status.
+ */
+export declare enum SwarmCoverageStatus {
+    'UNKNOWN' = 0,
+    'ROI_IS_NOT_READY' = 1,
+    'NOT_ENOUGH_VEHICLES' = 2,
+    /**
+     * Swarm mesh currently has the minimum resources to cover the ROI. However, network is expected to
+     * have breif gaps in service coverage.
+     */
+    'MINIMUM' = 3,
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy Quality
+     * of Service requirement.
+     */
+    'QOS_GOOD' = 4,
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy MORE than
+     * the Quality of Service requirement to better handle unexpected loss of mesh node(s).
+     */
+    'QOS_VERY_GOOD' = 5
+}
+/**
  * Winch status flags used in WINCH_STATUS
  */
 export declare enum MavWinchStatusFlag {
@@ -1623,14 +1688,6 @@ export declare enum MagCalStatus {
     'FAILED' = 5,
     'BAD_ORIENTATION' = 6,
     'BAD_RADIUS' = 7
-}
-/**
- * SWARM_STATE_NAV
- */
-export declare enum SwarmStateNav {
-    'INGRESSING_TO_MESH' = 0,
-    'ON_STATION' = 1,
-    'HOME' = 2
 }
 /**
  * The general system state. If the system is following the MAVLink standard, the system state is
@@ -10059,10 +10116,10 @@ export declare class SwarmVehicle extends MavLinkData {
     static MAGIC_NUMBER: number;
     static FIELDS: MavLinkPacketField[];
     /**
-     * Timestamp (UNIX Epoch time from GPS, if unknown use 0).
-     * Units: us
+     * UTC timestamp of when this packet was generated. Seconds since 1970, or 0 if not available.
+     * Units: s
      */
-    timeUsec: uint64_t;
+    timestamp: uint32_t;
     /**
      * Aircraft ID
      */
@@ -10072,19 +10129,9 @@ export declare class SwarmVehicle extends MavLinkData {
      */
     squadronId: uint16_t;
     /**
-     * Navigation State
+     * Staus of vehicle
      */
-    stateNav: SwarmStateNav;
-    /**
-     * Speed
-     * Units: m/s
-     */
-    speed: int16_t;
-    /**
-     * Course over Ground (GPS heading)
-     * Units: deg
-     */
-    cog: float;
+    stateNav: SwarmVehicleState;
     /**
      * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
      * Units: m
@@ -10120,138 +10167,82 @@ export declare class SwarmVehicle extends MavLinkData {
      * Units: m
      */
     altMSLTarget: float;
+}
+/**
+ * Position of an aircraft in swarm with data that updates less often.
+ */
+export declare class SwarmVehicleSlow extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * UTC timestamp of when this packet was generated. Seconds since 1970, or 0 if not available.
+     * Units: s
+     */
+    timestamp: uint32_t;
+    /**
+     * Aircraft ID
+     */
+    aircraftId: uint16_t;
+    /**
+     * Squadron ID
+     */
+    squadronId: uint16_t;
+    /**
+     * Staus of vehicle
+     */
+    stateNav: SwarmVehicleState;
+    /**
+     * Staus coverage area
+     */
+    stateCoverage: SwarmCoverageStatus;
+    /**
+     * Staus of vehicle's ROI
+     */
+    stateRoi: SwarmRoiStatus;
+    /**
+     * Speed
+     * Units: m/s
+     */
+    speed: uint16_t;
+    /**
+     * Course over Ground (GPS heading). Range: 0-35999
+     * Units: cdeg
+     */
+    cog: uint16_t;
+    /**
+     * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
+     * Units: m
+     */
+    effectiveRadius: float;
+    /**
+     * Target Latitude
+     * Units: degE7
+     */
+    latTarget: int32_t;
+    /**
+     * Target Longitude
+     * Units: degE7
+     */
+    lonTarget: int32_t;
+    /**
+     * Target MSL Altitude.
+     * Units: m
+     */
+    altMSLTarget: float;
     /**
      * Region-of-Interest 32bit CRC. Zero indicates unknown. If a valid CRC computes to zero, use 1. This
      * CRC is used to verify an ROI that is actively loaded. It is used to keep the swarm in sync without
      * having to constantly send it to the mesh to verify.
      */
     ROICrc: uint32_t;
-}
-/**
- * Status of a swarm aircraft's communications link.
- */
-export declare class SwarmCommlinkStatus extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
     /**
-     * This Aircraft ID
-     */
-    aircraftIdSelf: uint16_t;
-    /**
-     * External Aircraft ID
-     */
-    aircraftIdExternal: uint16_t;
-    /**
-     * Radio Overlap of Shortest Effective Radius
-     */
-    ROSER: float;
-    /**
-     *
+     * UTC timestamp of ROI generation. Seconds since 1970, or 0 if not available.
      * Units: s
      */
-    lastContact: uint16_t;
-}
-/**
- * Position of the swarm coverage area (NOT the aircraft).
- */
-export declare class SwarmCoverageArea extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    /**
-     * Timestamp (UNIX Epoch time from GPS, if unknown use 0).
-     * Units: us
-     */
-    timeUsec: uint64_t;
-    /**
-     * Swarm Coverage Area modeled as a radius.
-     * Units: m
-     */
-    coverageRadius: float;
-    /**
-     * Latitude
-     * Units: degE7
-     */
-    lat: int32_t;
-    /**
-     * Longitude
-     * Units: degE7
-     */
-    lon: int32_t;
-    /**
-     * MSL Altitude
-     * Units: m
-     */
-    altMSL: float;
-    /**
-     * Swarm Coverage Area modeled as an octogon.
-     * Units: m
-     */
-    coveragePolys: float[];
-}
-/**
- * A swarm point. Used to set a swarm ROI point within from GCS. Also used to return a point from MAV
- * GCS.
- */
-export declare class SwarmPoint extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    /**
-     * System ID.
-     */
-    targetSystem: uint8_t;
-    /**
-     * Component ID.
-     */
-    targetComponent: uint8_t;
-    /**
-     * Point index (first point is 1, 0 is for return point).
-     */
-    idx: uint8_t;
-    /**
-     * Total number of points (for sanity checking).
-     */
-    count: uint8_t;
-    /**
-     * Latitude of point.
-     * Units: deg
-     */
-    lat: float;
-    /**
-     * Longitude of point.
-     * Units: deg
-     */
-    lng: float;
-}
-/**
- * Request a current swarm point from MAV. Mostly intended for GCS.
- */
-export declare class SwarmFetchPoint extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    /**
-     * System ID.
-     */
-    targetSystem: uint8_t;
-    /**
-     * Component ID.
-     */
-    targetComponent: uint8_t;
-    /**
-     * Point index (first point is 1, 0 is for return point).
-     */
-    idx: uint8_t;
+    ROITimestamp: uint32_t;
 }
 /**
  * Cumulative distance traveled for each reported wheel.
