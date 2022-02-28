@@ -1729,6 +1729,18 @@ export enum SwarmVehicleState {
 }
 
 /**
+ * Type of the vehicle that is swarming. Sample types are fixed-wing, copter, tank, jeep, human.
+ */
+export enum SwarmVehicleType {
+  'UNKNOWN'                                  = 0,
+  'FIXED_WING'                               = 1,
+  'COPTER'                                   = 2,
+  'TANK'                                     = 3,
+  'JEEP'                                     = 4,
+  'HUMAN'                                    = 5,
+}
+
+/**
  * Status of the ROI from the swarm vehicle's perspective.
  */
 export enum SwarmRoiStatus {
@@ -12251,8 +12263,8 @@ export class ActuatorOutputStatus extends MavLinkData {
 export class SwarmVehicle extends MavLinkData {
   static MSG_ID = 2820
   static MSG_NAME = 'SWARM_VEHICLE'
-  static PAYLOAD_LENGTH = 37
-  static MAGIC_NUMBER = 69
+  static PAYLOAD_LENGTH = 38
+  static MAGIC_NUMBER = 215
 
   static FIELDS = [
     new MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
@@ -12266,6 +12278,7 @@ export class SwarmVehicle extends MavLinkData {
     new MavLinkPacketField('aircraft_id', 'aircraftId', 32, false, 2, 'uint16_t', ''),
     new MavLinkPacketField('squadron_id', 'squadronId', 34, false, 2, 'uint16_t', ''),
     new MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('vehicle_type', 'vehicleType', 37, false, 1, 'uint8_t', ''),
   ]
 
   /**
@@ -12320,6 +12333,10 @@ export class SwarmVehicle extends MavLinkData {
    * Units: m
    */
   altMSLTarget: float
+  /**
+   * Swarm Vehicle Type
+   */
+  vehicleType: SwarmVehicleType
 }
 
 /**
@@ -12328,8 +12345,8 @@ export class SwarmVehicle extends MavLinkData {
 export class SwarmVehicleSlow extends MavLinkData {
   static MSG_ID = 2821
   static MSG_NAME = 'SWARM_VEHICLE_SLOW'
-  static PAYLOAD_LENGTH = 39
-  static MAGIC_NUMBER = 218
+  static PAYLOAD_LENGTH = 40
+  static MAGIC_NUMBER = 10
 
   static FIELDS = [
     new MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
@@ -12346,6 +12363,7 @@ export class SwarmVehicleSlow extends MavLinkData {
     new MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('state_coverage', 'stateCoverage', 37, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('state_roi', 'stateRoi', 38, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('vehicle_type', 'vehicleType', 39, false, 1, 'uint8_t', ''),
   ]
 
   /**
@@ -12403,6 +12421,10 @@ export class SwarmVehicleSlow extends MavLinkData {
    * Units: m
    */
   altMSLTarget: float
+  /**
+   * Swarm Vehicle Type
+   */
+  vehicleType: SwarmVehicleType
   /**
    * Region-of-Interest 32bit CRC. Zero indicates unknown. If a valid CRC computes to zero, use 1. This
    * CRC is used to verify an ROI that is actively loaded. It is used to keep the swarm in sync without

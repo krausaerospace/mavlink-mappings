@@ -1636,6 +1636,17 @@ export declare enum SwarmVehicleState {
     'GCS' = 11
 }
 /**
+ * Type of the vehicle that is swarming. Sample types are fixed-wing, copter, tank, jeep, human.
+ */
+export declare enum SwarmVehicleType {
+    'UNKNOWN' = 0,
+    'FIXED_WING' = 1,
+    'COPTER' = 2,
+    'TANK' = 3,
+    'JEEP' = 4,
+    'HUMAN' = 5
+}
+/**
  * Status of the ROI from the swarm vehicle's perspective.
  */
 export declare enum SwarmRoiStatus {
@@ -10167,6 +10178,10 @@ export declare class SwarmVehicle extends MavLinkData {
      * Units: m
      */
     altMSLTarget: float;
+    /**
+     * Swarm Vehicle Type
+     */
+    vehicleType: SwarmVehicleType;
 }
 /**
  * Position of an aircraft in swarm with data that updates less often.
@@ -10232,6 +10247,10 @@ export declare class SwarmVehicleSlow extends MavLinkData {
      * Units: m
      */
     altMSLTarget: float;
+    /**
+     * Swarm Vehicle Type
+     */
+    vehicleType: SwarmVehicleType;
     /**
      * Region-of-Interest 32bit CRC. Zero indicates unknown. If a valid CRC computes to zero, use 1. This
      * CRC is used to verify an ROI that is actively loaded. It is used to keep the swarm in sync without
