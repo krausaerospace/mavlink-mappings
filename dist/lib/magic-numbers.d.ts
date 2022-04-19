@@ -234,6 +234,7 @@ export declare const MSG_ID_MAGIC_NUMBER: {
     '375': number;
     '2820': number;
     '2821': number;
+    '2822': number;
     '9000': number;
     '9005': number;
     '10001': number;

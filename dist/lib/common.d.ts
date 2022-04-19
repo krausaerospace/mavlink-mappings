@@ -10264,6 +10264,40 @@ export declare class SwarmVehicleSlow extends MavLinkData {
     ROITimestamp: uint32_t;
 }
 /**
+ * Region of Interest points. Array of int32_t lat/lng pairs of polygon points.
+ */
+export declare class SwarmVehicleRoi extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * Aircraft ID of intended target. Use 0 for broadcast.
+     */
+    idTarget: uint32_t;
+    /**
+     * 32bit CRC of ROI of the complete polygon.
+     */
+    crc: uint32_t;
+    /**
+     * UTC timestamp of ROI generation. Seconds since 1970, or 0 if not available.
+     * Units: s
+     */
+    timestampS: uint32_t;
+    /**
+     * Number of points in the ROI polygon. One point is considered an int32 pair. This value must be >= 3
+     * to be a valid polygon.
+     */
+    pointCount: uint32_t;
+    /**
+     * Latitude and Longitude int32 pairs. One polygon point is two of these enteries. Even indexed values
+     * are latitude, odd are longitude.
+     * Units: degE7
+     */
+    points: int32_t[];
+}
+/**
  * Cumulative distance traveled for each reported wheel.
  */
 export declare class WheelDistance extends MavLinkData {

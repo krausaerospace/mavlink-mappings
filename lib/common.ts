@@ -12439,6 +12439,49 @@ export class SwarmVehicleSlow extends MavLinkData {
 }
 
 /**
+ * Region of Interest points. Array of int32_t lat/lng pairs of polygon points.
+ */
+export class SwarmVehicleRoi extends MavLinkData {
+  static MSG_ID = 2822
+  static MSG_NAME = 'SWARM_VEHICLE_ROI'
+  static PAYLOAD_LENGTH = 240
+  static MAGIC_NUMBER = 225
+
+  static FIELDS = [
+    new MavLinkPacketField('id_target', 'idTarget', 0, false, 4, 'uint32_t', ''),
+    new MavLinkPacketField('crc', 'crc', 4, false, 4, 'uint32_t', ''),
+    new MavLinkPacketField('timestamp_s', 'timestampS', 8, false, 4, 'uint32_t', 's'),
+    new MavLinkPacketField('point_count', 'pointCount', 12, false, 4, 'uint32_t', ''),
+    new MavLinkPacketField('points', 'points', 16, false, 4, 'int32_t[]', 'degE7', 56),
+  ]
+
+  /**
+   * Aircraft ID of intended target. Use 0 for broadcast.
+   */
+  idTarget: uint32_t
+  /**
+   * 32bit CRC of ROI of the complete polygon.
+   */
+  crc: uint32_t
+  /**
+   * UTC timestamp of ROI generation. Seconds since 1970, or 0 if not available.
+   * Units: s
+   */
+  timestampS: uint32_t
+  /**
+   * Number of points in the ROI polygon. One point is considered an int32 pair. This value must be >= 3
+   * to be a valid polygon.
+   */
+  pointCount: uint32_t
+  /**
+   * Latitude and Longitude int32 pairs. One polygon point is two of these enteries. Even indexed values
+   * are latitude, odd are longitude.
+   * Units: degE7
+   */
+  points: int32_t[]
+}
+
+/**
  * Cumulative distance traveled for each reported wheel.
  */
 export class WheelDistance extends MavLinkData {
@@ -12703,6 +12746,7 @@ export const REGISTRY: MavLinkPacketRegistry = {
   375: ActuatorOutputStatus,
   2820: SwarmVehicle,
   2821: SwarmVehicleSlow,
+  2822: SwarmVehicleRoi,
   9000: WheelDistance,
   9005: WinchStatus,
 }
