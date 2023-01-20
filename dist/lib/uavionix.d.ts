@@ -94,6 +94,74 @@ export declare enum UavionixAdsbEmergencyStatus {
     'RESERVED' = 7
 }
 /**
+ * State flags for ADS-B transponder dynamic report
+ */
+export declare enum UavionixAdsbOutControlState {
+    'EXTERNAL_BARO_CROSSCHECKED' = 1,
+    'ON_GROUND' = 4,
+    'IDENT_BUTTON_ACTIVE' = 8,
+    'MODE_A_ENABLED' = 16,
+    'MODE_C_ENABLED' = 32,
+    'MODE_S_ENABLED' = 64,
+    'UAVIONIX_ADSB_OUT_CONTROL_STATE_1090ES_TX_ENABLED' = 128
+}
+/**
+ * State flags for X-Bit and reserved fields.
+ */
+export declare enum UavionixAdsbXbit {
+    'ENABLED' = 128
+}
+/**
+ * State flags for ADS-B transponder status report
+ */
+export declare enum UavionixAdsbOutStatusState {
+    'ON_GROUND' = 1,
+    'INTERROGATED_SINCE_LAST' = 2,
+    'XBIT_ENABLED' = 4,
+    'IDENT_ACTIVE' = 8,
+    'MODE_A_ENABLED' = 16,
+    'MODE_C_ENABLED' = 32,
+    'MODE_S_ENABLED' = 64,
+    'UAVIONIX_ADSB_OUT_STATUS_STATE_1090ES_TX_ENABLED' = 128
+}
+/**
+ * State flags for ADS-B transponder status report
+ */
+export declare enum UavionixAdsbOutStatusNicNacp {
+    'NIC_CR_20_NM' = 1,
+    'NIC_CR_8_NM' = 2,
+    'NIC_CR_4_NM' = 3,
+    'NIC_CR_2_NM' = 4,
+    'NIC_CR_1_NM' = 5,
+    'NIC_CR_0_3_NM' = 6,
+    'NIC_CR_0_2_NM' = 7,
+    'NIC_CR_0_1_NM' = 8,
+    'NIC_CR_75_M' = 9,
+    'NIC_CR_25_M' = 10,
+    'NIC_CR_7_5_M' = 11,
+    'NACP_EPU_10_NM' = 16,
+    'NACP_EPU_4_NM' = 32,
+    'NACP_EPU_2_NM' = 48,
+    'NACP_EPU_1_NM' = 64,
+    'NACP_EPU_0_5_NM' = 80,
+    'NACP_EPU_0_3_NM' = 96,
+    'NACP_EPU_0_1_NM' = 112,
+    'NACP_EPU_0_05_NM' = 128,
+    'NACP_EPU_30_M' = 144,
+    'NACP_EPU_10_M' = 160,
+    'NACP_EPU_3_M' = 176
+}
+/**
+ * State flags for ADS-B transponder fault report
+ */
+export declare enum UavionixAdsbOutStatusFault {
+    'STATUS_MESSAGE_UNAVAIL' = 8,
+    'GPS_NO_POS' = 16,
+    'GPS_UNAVAIL' = 32,
+    'TX_SYSTEM_FAIL' = 64,
+    'MAINT_REQ' = 128
+}
+/**
  * Static data to configure the ADS-B transponder (send within 10 sec of a POR and every 10 sec
  * thereafter)
  */
@@ -237,5 +305,123 @@ export declare class UavionixAdsbTransceiverHealthReport extends MavLinkData {
      * ADS-B transponder messages
      */
     rfHealth: UavionixAdsbRfHealth;
+}
+/**
+ * Aircraft Registration.
+ */
+export declare class UavionixAdsbOutCfgRegistration extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * Aircraft Registration (ASCII string A-Z, 0-9 only), e.g. "N8644B ". Trailing spaces (0x20) only.
+     * This is null-terminated.
+     */
+    registration: string;
+}
+/**
+ * Flight Identification for ADSB-Out vehicles.
+ */
+export declare class UavionixAdsbOutCfgFlightid extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * Flight Identification: 8 ASCII characters, '0' through '9', 'A' through 'Z' or space. Spaces (0x20)
+     * used as a trailing pad character, or when call sign is unavailable. Reflects Control message
+     * setting. This is null-terminated.
+     */
+    flightId: string;
+}
+/**
+ * Request messages.
+ */
+export declare class UavionixAdsbGet extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * Message ID to request. Supports any message in this 10000-10099 range
+     */
+    ReqMessageId: uint32_t;
+}
+/**
+ * Control message with all data sent in UCP control message.
+ */
+export declare class UavionixAdsbOutControl extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * ADS-B transponder control state flags
+     */
+    state: UavionixAdsbOutControlState;
+    /**
+     * Barometric pressure altitude (MSL) relative to a standard atmosphere of 1013.2 mBar and NOT bar
+     * corrected altitude (m * 1E-3). (up +ve). If unknown set to INT32_MAX
+     * Units: mbar
+     */
+    baroAltMSL: int32_t;
+    /**
+     * Mode A code (typically 1200 [0x04B0] for VFR)
+     */
+    squawk: uint16_t;
+    /**
+     * Emergency status
+     */
+    emergencyStatus: UavionixAdsbEmergencyStatus;
+    /**
+     * Flight Identification: 8 ASCII characters, '0' through '9', 'A' through 'Z' or space. Spaces (0x20)
+     * used as a trailing pad character, or when call sign is unavailable.
+     */
+    flightId: string;
+    /**
+     * X-Bit enable (military transponders only)
+     */
+    xBit: UavionixAdsbXbit;
+}
+/**
+ * Status message with information from UCP Heartbeat and Status messages.
+ */
+export declare class UavionixAdsbOutStatus extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * ADS-B transponder status state flags
+     */
+    state: UavionixAdsbOutStatusState;
+    /**
+     * Mode A code (typically 1200 [0x04B0] for VFR)
+     */
+    squawk: uint16_t;
+    /**
+     * Integrity and Accuracy of traffic reported as a 4-bit value for each field (NACp 7:4, NIC 3:0) and
+     * encoded by Containment Radius (HPL) and Estimated Position Uncertainty (HFOM), respectively
+     */
+    NICNACp: UavionixAdsbOutStatusNicNacp;
+    /**
+     * Board temperature in C
+     */
+    boardTemp: uint8_t;
+    /**
+     * ADS-B transponder fault flags
+     */
+    fault: UavionixAdsbOutStatusFault;
+    /**
+     * Flight Identification: 8 ASCII characters, '0' through '9', 'A' through 'Z' or space. Spaces (0x20)
+     * used as a trailing pad character, or when call sign is unavailable.
+     */
+    flightId: string;
 }
 export declare const REGISTRY: MavLinkPacketRegistry;

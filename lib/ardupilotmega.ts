@@ -1101,7 +1101,7 @@ export class MountControl extends MavLinkData {
 export class MountStatus extends MavLinkData {
   static MSG_ID = 158
   static MSG_NAME = 'MOUNT_STATUS'
-  static PAYLOAD_LENGTH = 14
+  static PAYLOAD_LENGTH = 15
   static MAGIC_NUMBER = 134
 
   static FIELDS = [
@@ -1110,6 +1110,7 @@ export class MountStatus extends MavLinkData {
     new MavLinkPacketField('pointing_c', 'pointingC', 8, false, 4, 'int32_t', 'cdeg'),
     new MavLinkPacketField('target_system', 'targetSystem', 12, false, 1, 'uint8_t', ''),
     new MavLinkPacketField('target_component', 'targetComponent', 13, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('mount_mode', 'mountMode', 14, true, 1, 'uint8_t', ''),
   ]
 
   /**
@@ -1135,6 +1136,10 @@ export class MountStatus extends MavLinkData {
    * Units: cdeg
    */
   pointingC: int32_t
+  /**
+   * Mount operating mode.
+   */
+  mountMode: MavMountMode
 }
 
 /**

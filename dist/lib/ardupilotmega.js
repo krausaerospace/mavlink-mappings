@@ -826,7 +826,7 @@ class MountStatus extends mavlink_1.MavLinkData {
 exports.MountStatus = MountStatus;
 MountStatus.MSG_ID = 158;
 MountStatus.MSG_NAME = 'MOUNT_STATUS';
-MountStatus.PAYLOAD_LENGTH = 14;
+MountStatus.PAYLOAD_LENGTH = 15;
 MountStatus.MAGIC_NUMBER = 134;
 MountStatus.FIELDS = [
     new mavlink_1.MavLinkPacketField('pointing_a', 'pointingA', 0, false, 4, 'int32_t', 'cdeg'),
@@ -834,6 +834,7 @@ MountStatus.FIELDS = [
     new mavlink_1.MavLinkPacketField('pointing_c', 'pointingC', 8, false, 4, 'int32_t', 'cdeg'),
     new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 12, false, 1, 'uint8_t', ''),
     new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 13, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('mount_mode', 'mountMode', 14, true, 1, 'uint8_t', ''),
 ];
 /**
  * A fence point. Used to set a point when from GCS -> MAV. Also used to return a point from MAV ->

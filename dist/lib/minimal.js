@@ -573,6 +573,7 @@ var MavComponent;
     MavComponent[MavComponent["GIMBAL4"] = 173] = "GIMBAL4";
     MavComponent[MavComponent["GIMBAL5"] = 174] = "GIMBAL5";
     MavComponent[MavComponent["GIMBAL6"] = 175] = "GIMBAL6";
+    MavComponent[MavComponent["MAVCAN"] = 189] = "MAVCAN";
     MavComponent[MavComponent["MISSIONPLANNER"] = 190] = "MISSIONPLANNER";
     /**
      * Component that lives on the onboard computer (companion computer) and has some generic

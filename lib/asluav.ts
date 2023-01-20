@@ -50,7 +50,7 @@ export enum GsmModemType {
  * depends on the actual command value.
  */
 export class CommandIntStamped extends MavLinkData {
-  static MSG_ID = 78
+  static MSG_ID = 223
   static MSG_NAME = 'COMMAND_INT_STAMPED'
   static PAYLOAD_LENGTH = 47
   static MAGIC_NUMBER = 119
@@ -140,7 +140,7 @@ export class CommandIntStamped extends MavLinkData {
  * Send a command with up to seven parameters to the MAV and additional metadata
  */
 export class CommandLongStamped extends MavLinkData {
-  static MSG_ID = 79
+  static MSG_ID = 224
   static MSG_NAME = 'COMMAND_LONG_STAMPED'
   static PAYLOAD_LENGTH = 45
   static MAGIC_NUMBER = 102
@@ -219,7 +219,7 @@ export class CommandLongStamped extends MavLinkData {
  * Voltage and current sensor data
  */
 export class SensPower extends MavLinkData {
-  static MSG_ID = 201
+  static MSG_ID = 8002
   static MSG_NAME = 'SENS_POWER'
   static PAYLOAD_LENGTH = 16
   static MAGIC_NUMBER = 218
@@ -257,7 +257,7 @@ export class SensPower extends MavLinkData {
  * Maximum Power Point Tracker (MPPT) sensor data for solar module power performance tracking
  */
 export class SensMppt extends MavLinkData {
-  static MSG_ID = 202
+  static MSG_ID = 8003
   static MSG_NAME = 'SENS_MPPT'
   static PAYLOAD_LENGTH = 41
   static MAGIC_NUMBER = 231
@@ -346,7 +346,7 @@ export class SensMppt extends MavLinkData {
  * ASL-fixed-wing controller data
  */
 export class AslctrlData extends MavLinkData {
-  static MSG_ID = 203
+  static MSG_ID = 8004
   static MSG_NAME = 'ASLCTRL_DATA'
   static PAYLOAD_LENGTH = 98
   static MAGIC_NUMBER = 172
@@ -448,7 +448,7 @@ export class AslctrlData extends MavLinkData {
  * ASL-fixed-wing controller debug data
  */
 export class AslctrlDebug extends MavLinkData {
-  static MSG_ID = 204
+  static MSG_ID = 8005
   static MSG_NAME = 'ASLCTRL_DEBUG'
   static PAYLOAD_LENGTH = 38
   static MAGIC_NUMBER = 251
@@ -517,7 +517,7 @@ export class AslctrlDebug extends MavLinkData {
  * Extended state information for ASLUAVs
  */
 export class AsluavStatus extends MavLinkData {
-  static MSG_ID = 205
+  static MSG_ID = 8006
   static MSG_NAME = 'ASLUAV_STATUS'
   static PAYLOAD_LENGTH = 14
   static MAGIC_NUMBER = 97
@@ -551,7 +551,7 @@ export class AsluavStatus extends MavLinkData {
  * Extended EKF state estimates for ASLUAVs
  */
 export class EkfExt extends MavLinkData {
-  static MSG_ID = 206
+  static MSG_ID = 8007
   static MSG_NAME = 'EKF_EXT'
   static PAYLOAD_LENGTH = 32
   static MAGIC_NUMBER = 64
@@ -607,7 +607,7 @@ export class EkfExt extends MavLinkData {
  * Off-board controls/commands for ASLUAVs
  */
 export class AslObctrl extends MavLinkData {
-  static MSG_ID = 207
+  static MSG_ID = 8008
   static MSG_NAME = 'ASL_OBCTRL'
   static PAYLOAD_LENGTH = 33
   static MAGIC_NUMBER = 234
@@ -662,7 +662,7 @@ export class AslObctrl extends MavLinkData {
  * Atmospheric sensors (temperature, humidity, ...)
  */
 export class SensAtmos extends MavLinkData {
-  static MSG_ID = 208
+  static MSG_ID = 8009
   static MSG_NAME = 'SENS_ATMOS'
   static PAYLOAD_LENGTH = 16
   static MAGIC_NUMBER = 144
@@ -694,7 +694,7 @@ export class SensAtmos extends MavLinkData {
  * Battery pack monitoring data for Li-Ion batteries
  */
 export class SensBatmon extends MavLinkData {
-  static MSG_ID = 209
+  static MSG_ID = 8010
   static MSG_NAME = 'SENS_BATMON'
   static PAYLOAD_LENGTH = 41
   static MAGIC_NUMBER = 155
@@ -793,7 +793,7 @@ export class SensBatmon extends MavLinkData {
  * Fixed-wing soaring (i.e. thermal seeking) data
  */
 export class FwSoaringData extends MavLinkData {
-  static MSG_ID = 210
+  static MSG_ID = 8011
   static MSG_NAME = 'FW_SOARING_DATA'
   static PAYLOAD_LENGTH = 102
   static MAGIC_NUMBER = 20
@@ -946,7 +946,7 @@ export class FwSoaringData extends MavLinkData {
  * Monitoring of sensorpod status
  */
 export class SensorpodStatus extends MavLinkData {
-  static MSG_ID = 211
+  static MSG_ID = 8012
   static MSG_NAME = 'SENSORPOD_STATUS'
   static PAYLOAD_LENGTH = 16
   static MAGIC_NUMBER = 54
@@ -1002,7 +1002,7 @@ export class SensorpodStatus extends MavLinkData {
  * Monitoring of power board status
  */
 export class SensPowerBoard extends MavLinkData {
-  static MSG_ID = 212
+  static MSG_ID = 8013
   static MSG_NAME = 'SENS_POWER_BOARD'
   static PAYLOAD_LENGTH = 46
   static MAGIC_NUMBER = 222
@@ -1086,7 +1086,7 @@ export class SensPowerBoard extends MavLinkData {
  * Status of GSM modem (connected to onboard computer)
  */
 export class GsmLinkStatus extends MavLinkData {
-  static MSG_ID = 213
+  static MSG_ID = 8014
   static MSG_NAME = 'GSM_LINK_STATUS'
   static PAYLOAD_LENGTH = 14
   static MAGIC_NUMBER = 200
@@ -1132,20 +1132,120 @@ export class GsmLinkStatus extends MavLinkData {
   rsrq: uint8_t
 }
 
+/**
+ * Status of the SatCom link
+ */
+export class SatcomLinkStatus extends MavLinkData {
+  static MSG_ID = 8015
+  static MSG_NAME = 'SATCOM_LINK_STATUS'
+  static PAYLOAD_LENGTH = 24
+  static MAGIC_NUMBER = 23
+
+  static FIELDS = [
+    new MavLinkPacketField('timestamp', 'timestamp', 0, false, 8, 'uint64_t', 'us'),
+    new MavLinkPacketField('last_heartbeat', 'lastHeartbeat', 8, false, 8, 'uint64_t', 'us'),
+    new MavLinkPacketField('failed_sessions', 'failedSessions', 16, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('successful_sessions', 'successfulSessions', 18, false, 2, 'uint16_t', ''),
+    new MavLinkPacketField('signal_quality', 'signalQuality', 20, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('ring_pending', 'ringPending', 21, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('tx_session_pending', 'txSessionPending', 22, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('rx_session_pending', 'rxSessionPending', 23, false, 1, 'uint8_t', ''),
+  ]
+
+  /**
+   * Timestamp
+   * Units: us
+   */
+  timestamp: uint64_t
+  /**
+   * Timestamp of the last successful sbd session
+   * Units: us
+   */
+  lastHeartbeat: uint64_t
+  /**
+   * Number of failed sessions
+   */
+  failedSessions: uint16_t
+  /**
+   * Number of successful sessions
+   */
+  successfulSessions: uint16_t
+  /**
+   * Signal quality
+   */
+  signalQuality: uint8_t
+  /**
+   * Ring call pending
+   */
+  ringPending: uint8_t
+  /**
+   * Transmission session pending
+   */
+  txSessionPending: uint8_t
+  /**
+   * Receiving session pending
+   */
+  rxSessionPending: uint8_t
+}
+
+/**
+ * Calibrated airflow angle measurements
+ */
+export class SensorAirflowAngles extends MavLinkData {
+  static MSG_ID = 8016
+  static MSG_NAME = 'SENSOR_AIRFLOW_ANGLES'
+  static PAYLOAD_LENGTH = 18
+  static MAGIC_NUMBER = 149
+
+  static FIELDS = [
+    new MavLinkPacketField('timestamp', 'timestamp', 0, false, 8, 'uint64_t', 'us'),
+    new MavLinkPacketField('angleofattack', 'angleofattack', 8, false, 4, 'float', 'deg'),
+    new MavLinkPacketField('sideslip', 'sideslip', 12, false, 4, 'float', 'deg'),
+    new MavLinkPacketField('angleofattack_valid', 'angleofattackValid', 16, false, 1, 'uint8_t', ''),
+    new MavLinkPacketField('sideslip_valid', 'sideslipValid', 17, false, 1, 'uint8_t', ''),
+  ]
+
+  /**
+   * Timestamp
+   * Units: us
+   */
+  timestamp: uint64_t
+  /**
+   * Angle of attack
+   * Units: deg
+   */
+  angleofattack: float
+  /**
+   * Angle of attack measurement valid
+   */
+  angleofattackValid: uint8_t
+  /**
+   * Sideslip angle
+   * Units: deg
+   */
+  sideslip: float
+  /**
+   * Sideslip angle measurement valid
+   */
+  sideslipValid: uint8_t
+}
+
 export const REGISTRY: MavLinkPacketRegistry = {
-  78: CommandIntStamped,
-  79: CommandLongStamped,
-  201: SensPower,
-  202: SensMppt,
-  203: AslctrlData,
-  204: AslctrlDebug,
-  205: AsluavStatus,
-  206: EkfExt,
-  207: AslObctrl,
-  208: SensAtmos,
-  209: SensBatmon,
-  210: FwSoaringData,
-  211: SensorpodStatus,
-  212: SensPowerBoard,
-  213: GsmLinkStatus,
+  223: CommandIntStamped,
+  224: CommandLongStamped,
+  8002: SensPower,
+  8003: SensMppt,
+  8004: AslctrlData,
+  8005: AslctrlDebug,
+  8006: AsluavStatus,
+  8007: EkfExt,
+  8008: AslObctrl,
+  8009: SensAtmos,
+  8010: SensBatmon,
+  8011: FwSoaringData,
+  8012: SensorpodStatus,
+  8013: SensPowerBoard,
+  8014: GsmLinkStatus,
+  8015: SatcomLinkStatus,
+  8016: SensorAirflowAngles,
 }

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.REGISTRY = exports.GsmLinkStatus = exports.SensPowerBoard = exports.SensorpodStatus = exports.FwSoaringData = exports.SensBatmon = exports.SensAtmos = exports.AslObctrl = exports.EkfExt = exports.AsluavStatus = exports.AslctrlDebug = exports.AslctrlData = exports.SensMppt = exports.SensPower = exports.CommandLongStamped = exports.CommandIntStamped = exports.GsmModemType = exports.GsmLinkType = exports.MavCmd = void 0;
+exports.REGISTRY = exports.SensorAirflowAngles = exports.SatcomLinkStatus = exports.GsmLinkStatus = exports.SensPowerBoard = exports.SensorpodStatus = exports.FwSoaringData = exports.SensBatmon = exports.SensAtmos = exports.AslObctrl = exports.EkfExt = exports.AsluavStatus = exports.AslctrlDebug = exports.AslctrlData = exports.SensMppt = exports.SensPower = exports.CommandLongStamped = exports.CommandIntStamped = exports.GsmModemType = exports.GsmLinkType = exports.MavCmd = void 0;
 const mavlink_1 = require("./mavlink");
 /**
  * MAV_CMD
@@ -36,7 +36,7 @@ var GsmModemType;
 class CommandIntStamped extends mavlink_1.MavLinkData {
 }
 exports.CommandIntStamped = CommandIntStamped;
-CommandIntStamped.MSG_ID = 78;
+CommandIntStamped.MSG_ID = 223;
 CommandIntStamped.MSG_NAME = 'COMMAND_INT_STAMPED';
 CommandIntStamped.PAYLOAD_LENGTH = 47;
 CommandIntStamped.MAGIC_NUMBER = 119;
@@ -63,7 +63,7 @@ CommandIntStamped.FIELDS = [
 class CommandLongStamped extends mavlink_1.MavLinkData {
 }
 exports.CommandLongStamped = CommandLongStamped;
-CommandLongStamped.MSG_ID = 79;
+CommandLongStamped.MSG_ID = 224;
 CommandLongStamped.MSG_NAME = 'COMMAND_LONG_STAMPED';
 CommandLongStamped.PAYLOAD_LENGTH = 45;
 CommandLongStamped.MAGIC_NUMBER = 102;
@@ -88,7 +88,7 @@ CommandLongStamped.FIELDS = [
 class SensPower extends mavlink_1.MavLinkData {
 }
 exports.SensPower = SensPower;
-SensPower.MSG_ID = 201;
+SensPower.MSG_ID = 8002;
 SensPower.MSG_NAME = 'SENS_POWER';
 SensPower.PAYLOAD_LENGTH = 16;
 SensPower.MAGIC_NUMBER = 218;
@@ -104,7 +104,7 @@ SensPower.FIELDS = [
 class SensMppt extends mavlink_1.MavLinkData {
 }
 exports.SensMppt = SensMppt;
-SensMppt.MSG_ID = 202;
+SensMppt.MSG_ID = 8003;
 SensMppt.MSG_NAME = 'SENS_MPPT';
 SensMppt.PAYLOAD_LENGTH = 41;
 SensMppt.MAGIC_NUMBER = 231;
@@ -129,7 +129,7 @@ SensMppt.FIELDS = [
 class AslctrlData extends mavlink_1.MavLinkData {
 }
 exports.AslctrlData = AslctrlData;
-AslctrlData.MSG_ID = 203;
+AslctrlData.MSG_ID = 8004;
 AslctrlData.MSG_NAME = 'ASLCTRL_DATA';
 AslctrlData.PAYLOAD_LENGTH = 98;
 AslctrlData.MAGIC_NUMBER = 172;
@@ -166,7 +166,7 @@ AslctrlData.FIELDS = [
 class AslctrlDebug extends mavlink_1.MavLinkData {
 }
 exports.AslctrlDebug = AslctrlDebug;
-AslctrlDebug.MSG_ID = 204;
+AslctrlDebug.MSG_ID = 8005;
 AslctrlDebug.MSG_NAME = 'ASLCTRL_DEBUG';
 AslctrlDebug.PAYLOAD_LENGTH = 38;
 AslctrlDebug.MAGIC_NUMBER = 251;
@@ -189,7 +189,7 @@ AslctrlDebug.FIELDS = [
 class AsluavStatus extends mavlink_1.MavLinkData {
 }
 exports.AsluavStatus = AsluavStatus;
-AsluavStatus.MSG_ID = 205;
+AsluavStatus.MSG_ID = 8006;
 AsluavStatus.MSG_NAME = 'ASLUAV_STATUS';
 AsluavStatus.PAYLOAD_LENGTH = 14;
 AsluavStatus.MAGIC_NUMBER = 97;
@@ -205,7 +205,7 @@ AsluavStatus.FIELDS = [
 class EkfExt extends mavlink_1.MavLinkData {
 }
 exports.EkfExt = EkfExt;
-EkfExt.MSG_ID = 206;
+EkfExt.MSG_ID = 8007;
 EkfExt.MSG_NAME = 'EKF_EXT';
 EkfExt.PAYLOAD_LENGTH = 32;
 EkfExt.MAGIC_NUMBER = 64;
@@ -224,7 +224,7 @@ EkfExt.FIELDS = [
 class AslObctrl extends mavlink_1.MavLinkData {
 }
 exports.AslObctrl = AslObctrl;
-AslObctrl.MSG_ID = 207;
+AslObctrl.MSG_ID = 8008;
 AslObctrl.MSG_NAME = 'ASL_OBCTRL';
 AslObctrl.PAYLOAD_LENGTH = 33;
 AslObctrl.MAGIC_NUMBER = 234;
@@ -244,7 +244,7 @@ AslObctrl.FIELDS = [
 class SensAtmos extends mavlink_1.MavLinkData {
 }
 exports.SensAtmos = SensAtmos;
-SensAtmos.MSG_ID = 208;
+SensAtmos.MSG_ID = 8009;
 SensAtmos.MSG_NAME = 'SENS_ATMOS';
 SensAtmos.PAYLOAD_LENGTH = 16;
 SensAtmos.MAGIC_NUMBER = 144;
@@ -259,7 +259,7 @@ SensAtmos.FIELDS = [
 class SensBatmon extends mavlink_1.MavLinkData {
 }
 exports.SensBatmon = SensBatmon;
-SensBatmon.MSG_ID = 209;
+SensBatmon.MSG_ID = 8010;
 SensBatmon.MSG_NAME = 'SENS_BATMON';
 SensBatmon.PAYLOAD_LENGTH = 41;
 SensBatmon.MAGIC_NUMBER = 155;
@@ -286,7 +286,7 @@ SensBatmon.FIELDS = [
 class FwSoaringData extends mavlink_1.MavLinkData {
 }
 exports.FwSoaringData = FwSoaringData;
-FwSoaringData.MSG_ID = 210;
+FwSoaringData.MSG_ID = 8011;
 FwSoaringData.MSG_NAME = 'FW_SOARING_DATA';
 FwSoaringData.PAYLOAD_LENGTH = 102;
 FwSoaringData.MAGIC_NUMBER = 20;
@@ -323,7 +323,7 @@ FwSoaringData.FIELDS = [
 class SensorpodStatus extends mavlink_1.MavLinkData {
 }
 exports.SensorpodStatus = SensorpodStatus;
-SensorpodStatus.MSG_ID = 211;
+SensorpodStatus.MSG_ID = 8012;
 SensorpodStatus.MSG_NAME = 'SENSORPOD_STATUS';
 SensorpodStatus.PAYLOAD_LENGTH = 16;
 SensorpodStatus.MAGIC_NUMBER = 54;
@@ -343,7 +343,7 @@ SensorpodStatus.FIELDS = [
 class SensPowerBoard extends mavlink_1.MavLinkData {
 }
 exports.SensPowerBoard = SensPowerBoard;
-SensPowerBoard.MSG_ID = 212;
+SensPowerBoard.MSG_ID = 8013;
 SensPowerBoard.MSG_NAME = 'SENS_POWER_BOARD';
 SensPowerBoard.PAYLOAD_LENGTH = 46;
 SensPowerBoard.MAGIC_NUMBER = 222;
@@ -367,7 +367,7 @@ SensPowerBoard.FIELDS = [
 class GsmLinkStatus extends mavlink_1.MavLinkData {
 }
 exports.GsmLinkStatus = GsmLinkStatus;
-GsmLinkStatus.MSG_ID = 213;
+GsmLinkStatus.MSG_ID = 8014;
 GsmLinkStatus.MSG_NAME = 'GSM_LINK_STATUS';
 GsmLinkStatus.PAYLOAD_LENGTH = 14;
 GsmLinkStatus.MAGIC_NUMBER = 200;
@@ -380,20 +380,59 @@ GsmLinkStatus.FIELDS = [
     new mavlink_1.MavLinkPacketField('sinr_ecio', 'sinrEcio', 12, false, 1, 'uint8_t', ''),
     new mavlink_1.MavLinkPacketField('rsrq', 'rsrq', 13, false, 1, 'uint8_t', ''),
 ];
+/**
+ * Status of the SatCom link
+ */
+class SatcomLinkStatus extends mavlink_1.MavLinkData {
+}
+exports.SatcomLinkStatus = SatcomLinkStatus;
+SatcomLinkStatus.MSG_ID = 8015;
+SatcomLinkStatus.MSG_NAME = 'SATCOM_LINK_STATUS';
+SatcomLinkStatus.PAYLOAD_LENGTH = 24;
+SatcomLinkStatus.MAGIC_NUMBER = 23;
+SatcomLinkStatus.FIELDS = [
+    new mavlink_1.MavLinkPacketField('timestamp', 'timestamp', 0, false, 8, 'uint64_t', 'us'),
+    new mavlink_1.MavLinkPacketField('last_heartbeat', 'lastHeartbeat', 8, false, 8, 'uint64_t', 'us'),
+    new mavlink_1.MavLinkPacketField('failed_sessions', 'failedSessions', 16, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('successful_sessions', 'successfulSessions', 18, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('signal_quality', 'signalQuality', 20, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('ring_pending', 'ringPending', 21, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('tx_session_pending', 'txSessionPending', 22, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('rx_session_pending', 'rxSessionPending', 23, false, 1, 'uint8_t', ''),
+];
+/**
+ * Calibrated airflow angle measurements
+ */
+class SensorAirflowAngles extends mavlink_1.MavLinkData {
+}
+exports.SensorAirflowAngles = SensorAirflowAngles;
+SensorAirflowAngles.MSG_ID = 8016;
+SensorAirflowAngles.MSG_NAME = 'SENSOR_AIRFLOW_ANGLES';
+SensorAirflowAngles.PAYLOAD_LENGTH = 18;
+SensorAirflowAngles.MAGIC_NUMBER = 149;
+SensorAirflowAngles.FIELDS = [
+    new mavlink_1.MavLinkPacketField('timestamp', 'timestamp', 0, false, 8, 'uint64_t', 'us'),
+    new mavlink_1.MavLinkPacketField('angleofattack', 'angleofattack', 8, false, 4, 'float', 'deg'),
+    new mavlink_1.MavLinkPacketField('sideslip', 'sideslip', 12, false, 4, 'float', 'deg'),
+    new mavlink_1.MavLinkPacketField('angleofattack_valid', 'angleofattackValid', 16, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('sideslip_valid', 'sideslipValid', 17, false, 1, 'uint8_t', ''),
+];
 exports.REGISTRY = {
-    78: CommandIntStamped,
-    79: CommandLongStamped,
-    201: SensPower,
-    202: SensMppt,
-    203: AslctrlData,
-    204: AslctrlDebug,
-    205: AsluavStatus,
-    206: EkfExt,
-    207: AslObctrl,
-    208: SensAtmos,
-    209: SensBatmon,
-    210: FwSoaringData,
-    211: SensorpodStatus,
-    212: SensPowerBoard,
-    213: GsmLinkStatus,
+    223: CommandIntStamped,
+    224: CommandLongStamped,
+    8002: SensPower,
+    8003: SensMppt,
+    8004: AslctrlData,
+    8005: AslctrlDebug,
+    8006: AsluavStatus,
+    8007: EkfExt,
+    8008: AslObctrl,
+    8009: SensAtmos,
+    8010: SensBatmon,
+    8011: FwSoaringData,
+    8012: SensorpodStatus,
+    8013: SensPowerBoard,
+    8014: GsmLinkStatus,
+    8015: SatcomLinkStatus,
+    8016: SensorAirflowAngles,
 };

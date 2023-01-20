@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.REGISTRY = exports.UavionixAdsbTransceiverHealthReport = exports.UavionixAdsbOutDynamic = exports.UavionixAdsbOutCfg = exports.UavionixAdsbEmergencyStatus = exports.UavionixAdsbOutCfgGpsOffsetLon = exports.UavionixAdsbOutCfgGpsOffsetLat = exports.UavionixAdsbOutCfgAircraftSize = exports.UavionixAdsbRfHealth = exports.UavionixAdsbOutDynamicGpsFix = exports.UavionixAdsbOutRfSelect = exports.UavionixAdsbOutDynamicState = void 0;
+exports.REGISTRY = exports.UavionixAdsbOutStatus = exports.UavionixAdsbOutControl = exports.UavionixAdsbGet = exports.UavionixAdsbOutCfgFlightid = exports.UavionixAdsbOutCfgRegistration = exports.UavionixAdsbTransceiverHealthReport = exports.UavionixAdsbOutDynamic = exports.UavionixAdsbOutCfg = exports.UavionixAdsbOutStatusFault = exports.UavionixAdsbOutStatusNicNacp = exports.UavionixAdsbOutStatusState = exports.UavionixAdsbXbit = exports.UavionixAdsbOutControlState = exports.UavionixAdsbEmergencyStatus = exports.UavionixAdsbOutCfgGpsOffsetLon = exports.UavionixAdsbOutCfgGpsOffsetLat = exports.UavionixAdsbOutCfgAircraftSize = exports.UavionixAdsbRfHealth = exports.UavionixAdsbOutDynamicGpsFix = exports.UavionixAdsbOutRfSelect = exports.UavionixAdsbOutDynamicState = void 0;
 const mavlink_1 = require("./mavlink");
 /**
  * State flags for ADS-B transponder dynamic report
@@ -103,6 +103,79 @@ var UavionixAdsbEmergencyStatus;
     UavionixAdsbEmergencyStatus[UavionixAdsbEmergencyStatus["RESERVED"] = 7] = "RESERVED";
 })(UavionixAdsbEmergencyStatus = exports.UavionixAdsbEmergencyStatus || (exports.UavionixAdsbEmergencyStatus = {}));
 /**
+ * State flags for ADS-B transponder dynamic report
+ */
+var UavionixAdsbOutControlState;
+(function (UavionixAdsbOutControlState) {
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["EXTERNAL_BARO_CROSSCHECKED"] = 1] = "EXTERNAL_BARO_CROSSCHECKED";
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["ON_GROUND"] = 4] = "ON_GROUND";
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["IDENT_BUTTON_ACTIVE"] = 8] = "IDENT_BUTTON_ACTIVE";
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["MODE_A_ENABLED"] = 16] = "MODE_A_ENABLED";
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["MODE_C_ENABLED"] = 32] = "MODE_C_ENABLED";
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["MODE_S_ENABLED"] = 64] = "MODE_S_ENABLED";
+    UavionixAdsbOutControlState[UavionixAdsbOutControlState["UAVIONIX_ADSB_OUT_CONTROL_STATE_1090ES_TX_ENABLED"] = 128] = "UAVIONIX_ADSB_OUT_CONTROL_STATE_1090ES_TX_ENABLED";
+})(UavionixAdsbOutControlState = exports.UavionixAdsbOutControlState || (exports.UavionixAdsbOutControlState = {}));
+/**
+ * State flags for X-Bit and reserved fields.
+ */
+var UavionixAdsbXbit;
+(function (UavionixAdsbXbit) {
+    UavionixAdsbXbit[UavionixAdsbXbit["ENABLED"] = 128] = "ENABLED";
+})(UavionixAdsbXbit = exports.UavionixAdsbXbit || (exports.UavionixAdsbXbit = {}));
+/**
+ * State flags for ADS-B transponder status report
+ */
+var UavionixAdsbOutStatusState;
+(function (UavionixAdsbOutStatusState) {
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["ON_GROUND"] = 1] = "ON_GROUND";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["INTERROGATED_SINCE_LAST"] = 2] = "INTERROGATED_SINCE_LAST";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["XBIT_ENABLED"] = 4] = "XBIT_ENABLED";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["IDENT_ACTIVE"] = 8] = "IDENT_ACTIVE";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["MODE_A_ENABLED"] = 16] = "MODE_A_ENABLED";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["MODE_C_ENABLED"] = 32] = "MODE_C_ENABLED";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["MODE_S_ENABLED"] = 64] = "MODE_S_ENABLED";
+    UavionixAdsbOutStatusState[UavionixAdsbOutStatusState["UAVIONIX_ADSB_OUT_STATUS_STATE_1090ES_TX_ENABLED"] = 128] = "UAVIONIX_ADSB_OUT_STATUS_STATE_1090ES_TX_ENABLED";
+})(UavionixAdsbOutStatusState = exports.UavionixAdsbOutStatusState || (exports.UavionixAdsbOutStatusState = {}));
+/**
+ * State flags for ADS-B transponder status report
+ */
+var UavionixAdsbOutStatusNicNacp;
+(function (UavionixAdsbOutStatusNicNacp) {
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_20_NM"] = 1] = "NIC_CR_20_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_8_NM"] = 2] = "NIC_CR_8_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_4_NM"] = 3] = "NIC_CR_4_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_2_NM"] = 4] = "NIC_CR_2_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_1_NM"] = 5] = "NIC_CR_1_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_0_3_NM"] = 6] = "NIC_CR_0_3_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_0_2_NM"] = 7] = "NIC_CR_0_2_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_0_1_NM"] = 8] = "NIC_CR_0_1_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_75_M"] = 9] = "NIC_CR_75_M";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_25_M"] = 10] = "NIC_CR_25_M";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NIC_CR_7_5_M"] = 11] = "NIC_CR_7_5_M";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_10_NM"] = 16] = "NACP_EPU_10_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_4_NM"] = 32] = "NACP_EPU_4_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_2_NM"] = 48] = "NACP_EPU_2_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_1_NM"] = 64] = "NACP_EPU_1_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_0_5_NM"] = 80] = "NACP_EPU_0_5_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_0_3_NM"] = 96] = "NACP_EPU_0_3_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_0_1_NM"] = 112] = "NACP_EPU_0_1_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_0_05_NM"] = 128] = "NACP_EPU_0_05_NM";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_30_M"] = 144] = "NACP_EPU_30_M";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_10_M"] = 160] = "NACP_EPU_10_M";
+    UavionixAdsbOutStatusNicNacp[UavionixAdsbOutStatusNicNacp["NACP_EPU_3_M"] = 176] = "NACP_EPU_3_M";
+})(UavionixAdsbOutStatusNicNacp = exports.UavionixAdsbOutStatusNicNacp || (exports.UavionixAdsbOutStatusNicNacp = {}));
+/**
+ * State flags for ADS-B transponder fault report
+ */
+var UavionixAdsbOutStatusFault;
+(function (UavionixAdsbOutStatusFault) {
+    UavionixAdsbOutStatusFault[UavionixAdsbOutStatusFault["STATUS_MESSAGE_UNAVAIL"] = 8] = "STATUS_MESSAGE_UNAVAIL";
+    UavionixAdsbOutStatusFault[UavionixAdsbOutStatusFault["GPS_NO_POS"] = 16] = "GPS_NO_POS";
+    UavionixAdsbOutStatusFault[UavionixAdsbOutStatusFault["GPS_UNAVAIL"] = 32] = "GPS_UNAVAIL";
+    UavionixAdsbOutStatusFault[UavionixAdsbOutStatusFault["TX_SYSTEM_FAIL"] = 64] = "TX_SYSTEM_FAIL";
+    UavionixAdsbOutStatusFault[UavionixAdsbOutStatusFault["MAINT_REQ"] = 128] = "MAINT_REQ";
+})(UavionixAdsbOutStatusFault = exports.UavionixAdsbOutStatusFault || (exports.UavionixAdsbOutStatusFault = {}));
+/**
  * Static data to configure the ADS-B transponder (send within 10 sec of a POR and every 10 sec
  * thereafter)
  */
@@ -164,8 +237,88 @@ UavionixAdsbTransceiverHealthReport.MAGIC_NUMBER = 4;
 UavionixAdsbTransceiverHealthReport.FIELDS = [
     new mavlink_1.MavLinkPacketField('rfHealth', 'rfHealth', 0, false, 1, 'uint8_t', ''),
 ];
+/**
+ * Aircraft Registration.
+ */
+class UavionixAdsbOutCfgRegistration extends mavlink_1.MavLinkData {
+}
+exports.UavionixAdsbOutCfgRegistration = UavionixAdsbOutCfgRegistration;
+UavionixAdsbOutCfgRegistration.MSG_ID = 10004;
+UavionixAdsbOutCfgRegistration.MSG_NAME = 'UAVIONIX_ADSB_OUT_CFG_REGISTRATION';
+UavionixAdsbOutCfgRegistration.PAYLOAD_LENGTH = 9;
+UavionixAdsbOutCfgRegistration.MAGIC_NUMBER = 133;
+UavionixAdsbOutCfgRegistration.FIELDS = [
+    new mavlink_1.MavLinkPacketField('registration', 'registration', 0, false, 1, 'char[]', '', 9),
+];
+/**
+ * Flight Identification for ADSB-Out vehicles.
+ */
+class UavionixAdsbOutCfgFlightid extends mavlink_1.MavLinkData {
+}
+exports.UavionixAdsbOutCfgFlightid = UavionixAdsbOutCfgFlightid;
+UavionixAdsbOutCfgFlightid.MSG_ID = 10005;
+UavionixAdsbOutCfgFlightid.MSG_NAME = 'UAVIONIX_ADSB_OUT_CFG_FLIGHTID';
+UavionixAdsbOutCfgFlightid.PAYLOAD_LENGTH = 9;
+UavionixAdsbOutCfgFlightid.MAGIC_NUMBER = 103;
+UavionixAdsbOutCfgFlightid.FIELDS = [
+    new mavlink_1.MavLinkPacketField('flight_id', 'flightId', 0, false, 1, 'char[]', '', 9),
+];
+/**
+ * Request messages.
+ */
+class UavionixAdsbGet extends mavlink_1.MavLinkData {
+}
+exports.UavionixAdsbGet = UavionixAdsbGet;
+UavionixAdsbGet.MSG_ID = 10006;
+UavionixAdsbGet.MSG_NAME = 'UAVIONIX_ADSB_GET';
+UavionixAdsbGet.PAYLOAD_LENGTH = 4;
+UavionixAdsbGet.MAGIC_NUMBER = 193;
+UavionixAdsbGet.FIELDS = [
+    new mavlink_1.MavLinkPacketField('ReqMessageId', 'ReqMessageId', 0, false, 4, 'uint32_t', ''),
+];
+/**
+ * Control message with all data sent in UCP control message.
+ */
+class UavionixAdsbOutControl extends mavlink_1.MavLinkData {
+}
+exports.UavionixAdsbOutControl = UavionixAdsbOutControl;
+UavionixAdsbOutControl.MSG_ID = 10007;
+UavionixAdsbOutControl.MSG_NAME = 'UAVIONIX_ADSB_OUT_CONTROL';
+UavionixAdsbOutControl.PAYLOAD_LENGTH = 17;
+UavionixAdsbOutControl.MAGIC_NUMBER = 71;
+UavionixAdsbOutControl.FIELDS = [
+    new mavlink_1.MavLinkPacketField('baroAltMSL', 'baroAltMSL', 0, false, 4, 'int32_t', 'mbar'),
+    new mavlink_1.MavLinkPacketField('squawk', 'squawk', 4, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('state', 'state', 6, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('emergencyStatus', 'emergencyStatus', 7, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('flight_id', 'flightId', 8, false, 1, 'char[]', '', 8),
+    new mavlink_1.MavLinkPacketField('x_bit', 'xBit', 16, false, 1, 'uint8_t', ''),
+];
+/**
+ * Status message with information from UCP Heartbeat and Status messages.
+ */
+class UavionixAdsbOutStatus extends mavlink_1.MavLinkData {
+}
+exports.UavionixAdsbOutStatus = UavionixAdsbOutStatus;
+UavionixAdsbOutStatus.MSG_ID = 10008;
+UavionixAdsbOutStatus.MSG_NAME = 'UAVIONIX_ADSB_OUT_STATUS';
+UavionixAdsbOutStatus.PAYLOAD_LENGTH = 14;
+UavionixAdsbOutStatus.MAGIC_NUMBER = 240;
+UavionixAdsbOutStatus.FIELDS = [
+    new mavlink_1.MavLinkPacketField('squawk', 'squawk', 0, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('state', 'state', 2, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('NIC_NACp', 'NICNACp', 3, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('boardTemp', 'boardTemp', 4, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('fault', 'fault', 5, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('flight_id', 'flightId', 6, false, 1, 'char[]', '', 8),
+];
 exports.REGISTRY = {
     10001: UavionixAdsbOutCfg,
     10002: UavionixAdsbOutDynamic,
     10003: UavionixAdsbTransceiverHealthReport,
+    10004: UavionixAdsbOutCfgRegistration,
+    10005: UavionixAdsbOutCfgFlightid,
+    10006: UavionixAdsbGet,
+    10007: UavionixAdsbOutControl,
+    10008: UavionixAdsbOutStatus,
 };

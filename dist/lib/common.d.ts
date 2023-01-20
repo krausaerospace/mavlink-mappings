@@ -308,6 +308,15 @@ export declare enum StorageStatus {
     'NOT_SUPPORTED' = 3
 }
 /**
+ * Enable axes that will be tuned via autotuning. Used in MAV_CMD_DO_AUTOTUNE_ENABLE.
+ */
+export declare enum AutotuneAxis {
+    'DEFAULT' = 0,
+    'ROLL' = 1,
+    'PITCH' = 2,
+    'YAW' = 4
+}
+/**
  * Commands to be executed by the MAV. They can be executed on user request, or as part of a mission
  * script. If the action is used in a mission, the parameter mapping to the waypoint/mission message is
  * as follows: Param 1, Param 2, Param 3, Param 4, X: Param 5, Y:Param 6, Z:Param 7. This command list
@@ -724,7 +733,12 @@ export declare enum MavCmd {
      * User defined command. Ground Station will not show the Vehicle as flying through this item. Example:
      * MAV_CMD_DO_SET_PARAMETER item.
      */
-    'USER_5' = 31014
+    'USER_5' = 31014,
+    /**
+     * Request forwarding of CAN packets from the given CAN bus to this interface. CAN Frames are sent
+     * using CAN_FRAME and CANFD_FRAME messages
+     */
+    'CAN_FORWARD' = 32000
 }
 /**
  * A data stream is not a fixed set of messages, but rather a recommendation to the autopilot software.
@@ -788,6 +802,22 @@ export declare enum MavParamType {
     'INT64' = 8,
     'REAL32' = 9,
     'REAL64' = 10
+}
+/**
+ * Specifies the datatype of a MAVLink extended parameter.
+ */
+export declare enum MavParamExtType {
+    'UINT8' = 1,
+    'INT8' = 2,
+    'UINT16' = 3,
+    'INT16' = 4,
+    'UINT32' = 5,
+    'INT32' = 6,
+    'UINT64' = 7,
+    'INT64' = 8,
+    'REAL32' = 9,
+    'REAL64' = 10,
+    'CUSTOM' = 11
 }
 /**
  * Result from a MAVLink command (MAV_CMD)
@@ -1345,6 +1375,21 @@ export declare enum VideoStreamType {
     'MPEG_TS_H264' = 3
 }
 /**
+ * Result from PARAM_EXT_SET message (or a PARAM_SET within a transaction).
+ */
+export declare enum ParamAck {
+    'ACCEPTED' = 0,
+    'VALUE_UNSUPPORTED' = 1,
+    'FAILED' = 2,
+    /**
+     * Parameter value received but not yet set/accepted. A subsequent PARAM_ACK_TRANSACTION or
+     * PARAM_EXT_ACK with the final result will follow once operation is completed. This is returned
+     * immediately for parameters that take longer to set, indicating taht the the parameter was recieved
+     * and does not need to be resent.
+     */
+    'IN_PROGRESS' = 3
+}
+/**
  * Camera Modes.
  */
 export declare enum CameraMode {
@@ -1699,6 +1744,14 @@ export declare enum MagCalStatus {
     'FAILED' = 5,
     'BAD_ORIENTATION' = 6,
     'BAD_RADIUS' = 7
+}
+/**
+ * CAN_FILTER_OP
+ */
+export declare enum CanFilterOp {
+    'REPLACE' = 0,
+    'ADD' = 1,
+    'REMOVE' = 2
 }
 /**
  * The general system state. If the system is following the MAVLink standard, the system state is
@@ -8341,6 +8394,8 @@ export declare class HomePosition extends MavLinkData {
  * slope, which can be used by the aircraft to adjust the approach. The approach 3D vector describes
  * the point to which the system should fly in normal flight mode and then perform a landing sequence
  * along the vector.
+ *
+ * @deprecated since 2022-02, replaced by MAV_CMD_DO_SET_HOME; This message is being superseded by MAV_CMD_DO_SET_HOME.  Using the command protocols allows a GCS to detect setting of the home position has failed.
  */
 export declare class SetHomePosition extends MavLinkData {
     static MSG_ID: number;
@@ -10296,6 +10351,112 @@ export declare class SwarmVehicleRoi extends MavLinkData {
      * Units: degE7
      */
     points: int32_t[];
+}
+/**
+ * A forwarded CAN frame as requested by MAV_CMD_CAN_FORWARD.
+ */
+export declare class CanFrame extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * System ID.
+     */
+    targetSystem: uint8_t;
+    /**
+     * Component ID.
+     */
+    targetComponent: uint8_t;
+    /**
+     * bus number
+     */
+    bus: uint8_t;
+    /**
+     * Frame length
+     */
+    len: uint8_t;
+    /**
+     * Frame ID
+     */
+    id: uint32_t;
+    /**
+     * Frame data
+     */
+    data: uint8_t[];
+}
+/**
+ * A forwarded CANFD frame as requested by MAV_CMD_CAN_FORWARD. These are separated from CAN_FRAME as
+ * they need different handling (eg. TAO handling)
+ */
+export declare class CanfdFrame extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * System ID.
+     */
+    targetSystem: uint8_t;
+    /**
+     * Component ID.
+     */
+    targetComponent: uint8_t;
+    /**
+     * bus number
+     */
+    bus: uint8_t;
+    /**
+     * Frame length
+     */
+    len: uint8_t;
+    /**
+     * Frame ID
+     */
+    id: uint32_t;
+    /**
+     * Frame data
+     */
+    data: uint8_t[];
+}
+/**
+ * Modify the filter of what CAN messages to forward over the mavlink. This can be used to make CAN
+ * forwarding work well on low bandwith links. The filtering is applied on bits 8 to 24 of the CAN id
+ * (2nd and 3rd bytes) which corresponds to the DroneCAN message ID for DroneCAN. Filters with more
+ * than 16 IDs can be constructed by sending multiple CAN_FILTER_MODIFY messages.
+ */
+export declare class CanFilterModify extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * System ID.
+     */
+    targetSystem: uint8_t;
+    /**
+     * Component ID.
+     */
+    targetComponent: uint8_t;
+    /**
+     * bus number
+     */
+    bus: uint8_t;
+    /**
+     * what operation to perform on the filter list. See CAN_FILTER_OP enum.
+     */
+    operation: CanFilterOp;
+    /**
+     * number of IDs in filter list
+     */
+    numIds: uint8_t;
+    /**
+     * filter IDs, length num_ids
+     */
+    ids: uint16_t[];
 }
 /**
  * Cumulative distance traveled for each reported wheel.

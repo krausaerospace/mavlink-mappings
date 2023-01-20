@@ -581,6 +581,7 @@ export enum MavComponent {
   'GIMBAL4'                                      = 173,
   'GIMBAL5'                                      = 174,
   'GIMBAL6'                                      = 175,
+  'MAVCAN'                                       = 189,
   'MISSIONPLANNER'                               = 190,
   /**
    * Component that lives on the onboard computer (companion computer) and has some generic

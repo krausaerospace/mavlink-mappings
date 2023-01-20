@@ -967,6 +967,10 @@ export declare class MountStatus extends MavLinkData {
      * Units: cdeg
      */
     pointingC: int32_t;
+    /**
+     * Mount operating mode.
+     */
+    mountMode: MavMountMode;
 }
 /**
  * A fence point. Used to set a point when from GCS -> MAV. Also used to return a point from MAV ->

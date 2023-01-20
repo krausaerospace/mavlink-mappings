@@ -882,4 +882,81 @@ export declare class GsmLinkStatus extends MavLinkData {
      */
     rsrq: uint8_t;
 }
+/**
+ * Status of the SatCom link
+ */
+export declare class SatcomLinkStatus extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * Timestamp
+     * Units: us
+     */
+    timestamp: uint64_t;
+    /**
+     * Timestamp of the last successful sbd session
+     * Units: us
+     */
+    lastHeartbeat: uint64_t;
+    /**
+     * Number of failed sessions
+     */
+    failedSessions: uint16_t;
+    /**
+     * Number of successful sessions
+     */
+    successfulSessions: uint16_t;
+    /**
+     * Signal quality
+     */
+    signalQuality: uint8_t;
+    /**
+     * Ring call pending
+     */
+    ringPending: uint8_t;
+    /**
+     * Transmission session pending
+     */
+    txSessionPending: uint8_t;
+    /**
+     * Receiving session pending
+     */
+    rxSessionPending: uint8_t;
+}
+/**
+ * Calibrated airflow angle measurements
+ */
+export declare class SensorAirflowAngles extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    /**
+     * Timestamp
+     * Units: us
+     */
+    timestamp: uint64_t;
+    /**
+     * Angle of attack
+     * Units: deg
+     */
+    angleofattack: float;
+    /**
+     * Angle of attack measurement valid
+     */
+    angleofattackValid: uint8_t;
+    /**
+     * Sideslip angle
+     * Units: deg
+     */
+    sideslip: float;
+    /**
+     * Sideslip angle measurement valid
+     */
+    sideslipValid: uint8_t;
+}
 export declare const REGISTRY: MavLinkPacketRegistry;
