@@ -1,5 +1,4 @@
 import {
-  char,
   int8_t,
   uint8_t,
   int16_t,
@@ -20,5 +19,6 @@ import {
   MavMountMode,
   MavDistanceSensor,
   MavFrame,
-  MagCalStatus
+  MagCalStatus,
+  MavLinkCommandRegistry
 } from './common'

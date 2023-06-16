@@ -1,5 +1,4 @@
 import {
-  char,
   int8_t,
   uint8_t,
   int16_t,
@@ -15,12 +14,14 @@ import {
 import {
   MavLinkPacketRegistry,
   MavLinkPacketField,
-  MavLinkData
+  MavLinkData,
+  MavLinkDataConstructor
 } from './mavlink'
 
 import {
   MavType,
   MavAutopilot,
-  MavComponent,
   MavModeFlag
 } from './minimal'
+
+export type MavLinkCommandRegistry = Record<number, MavLinkDataConstructor<CommandLong>>

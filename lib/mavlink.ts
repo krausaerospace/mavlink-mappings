@@ -63,4 +63,3 @@ export interface MavLinkDataConstructor<T extends MavLinkData> {
  * Type describing a registry binding together all packets
  */
 export type MavLinkPacketRegistry = { [x: number]: MavLinkDataConstructor<MavLinkData> }
-
