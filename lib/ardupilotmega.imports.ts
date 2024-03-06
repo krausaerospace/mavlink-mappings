@@ -12,13 +12,14 @@ import {
 import {
   MavLinkPacketRegistry,
   MavLinkPacketField,
-  MavLinkData
+  MavLinkData,
 } from './mavlink'
 
 import {
   MavMountMode,
   MavDistanceSensor,
   MavFrame,
+  MavResult,
   MagCalStatus,
   MavLinkCommandRegistry
 } from './common'
