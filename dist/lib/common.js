@@ -1,14 +1,14 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AdsbEmitterType = exports.AdsbAltitudeType = exports.MavLandedState = exports.MavVtolState = exports.MavGeneratorStatusFlag = exports.MavBatteryFault = exports.MavBatteryMode = exports.MavBatteryChargeState = exports.MavBatteryFunction = exports.MavBatteryType = exports.MavEstimatorType = exports.MavMissionType = exports.MavProtocolCapability = exports.MavSensorOrientation = exports.MavDistanceSensor = exports.SerialControlFlag = exports.SerialControlDev = exports.MavPowerStatus = exports.MavSeverity = exports.MavMissionResult = exports.MavResult = exports.MavParamExtType = exports.MavParamType = exports.MavRoi = exports.MavDataStream = exports.MavCmd = exports.AutotuneAxis = exports.StorageType = exports.StorageStatus = exports.UavcanNodeMode = exports.UavcanNodeHealth = exports.WinchActions = exports.GripperActions = exports.GimbalDeviceErrorFlags = exports.GimbalManagerFlags = exports.GimbalDeviceFlags = exports.GimbalManagerCapFlags = exports.GimbalDeviceCapFlags = exports.MavMountMode = exports.FenceType = exports.FenceMitigate = exports.FenceBreach = exports.FenceAction = exports.MavlinkDataStreamType = exports.MavFrame = exports.MavSysStatusSensor = exports.MavMode = exports.MavGoto = exports.HlFailureFlag = exports.FirmwareVersionType = void 0;
-exports.MavOdidArmStatus = exports.MavOdidOperatorIdType = exports.MavOdidClassEu = exports.MavOdidCategoryEu = exports.MavOdidClassificationType = exports.MavOdidOperatorLocationType = exports.MavOdidDescType = exports.MavOdidAuthType = exports.MavOdidTimeAcc = exports.MavOdidSpeedAcc = exports.MavOdidVerAcc = exports.MavOdidHorAcc = exports.MavOdidHeightRef = exports.MavOdidStatus = exports.MavOdidUaType = exports.MavOdidIdType = exports.MavTunnelPayloadType = exports.ParachuteAction = exports.PrecisionLandMode = exports.UtmDataAvailFlags = exports.UtmFlightState = exports.AttitudeTargetTypemask = exports.PositionTargetTypemask = exports.EngineControlOptions = exports.RcType = exports.MavArmAuthDeniedReason = exports.CameraMode = exports.ParamAck = exports.SetFocusType = exports.CameraZoomType = exports.CameraTrackingTargetData = exports.CameraTrackingMode = exports.CameraTrackingStatusFlags = exports.VideoStreamType = exports.VideoStreamStatusFlags = exports.CameraCapFlags = exports.VtolTransitionHeading = exports.LandingTargetType = exports.RtkBaselineCoordinateSystem = exports.GpsFixType = exports.MavCollisionSrc = exports.MavCollisionThreatLevel = exports.MavCollisionAction = exports.GpsInputIgnoreFlags = exports.MotorTestThrottleType = exports.MotorTestOrder = exports.EstimatorStatusFlags = exports.SpeedType = exports.MavDoRepositionFlags = exports.AdsbFlags = void 0;
-exports.SafetyAllowedArea = exports.SafetySetAllowedArea = exports.MissionRequestInt = exports.ParamMapRc = exports.GpsGlobalOrigin = exports.SetGpsGlobalOrigin = exports.MissionAck = exports.MissionItemReached = exports.MissionClearAll = exports.MissionCount = exports.MissionRequestList = exports.MissionCurrent = exports.MissionSetCurrent = exports.MissionRequest = exports.MissionItem = exports.MissionWritePartialList = exports.MissionRequestPartialList = exports.ServoOutputRaw = exports.RcChannelsRaw = exports.RcChannelsScaled = exports.GlobalPositionInt = exports.LocalPositionNed = exports.AttitudeQuaternion = exports.Attitude = exports.ScaledPressure = exports.RawPressure = exports.RawImu = exports.ScaledImu = exports.GpsStatus = exports.GpsRawInt = exports.ParamSet = exports.ParamValue = exports.ParamRequestList = exports.ParamRequestRead = exports.SetMode = exports.AuthKey = exports.ChangeOperatorControlAck = exports.ChangeOperatorControl = exports.Ping = exports.SystemTime = exports.SysStatus = exports.SafetySwitchState = exports.MissionState = exports.NavVtolLandOptions = exports.CanFilterOp = exports.MagCalStatus = exports.MavWinchStatusFlag = exports.AisFlags = exports.AisNavStatus = exports.AisType = void 0;
-exports.GpsInjectData = exports.LogRequestEnd = exports.LogErase = exports.LogData = exports.LogRequestData = exports.LogEntry = exports.LogRequestList = exports.ScaledImu2 = exports.HilStateQuaternion = exports.HilOpticalFlow = exports.HilGps = exports.CameraTrigger = exports.TimeSync = exports.FileTransferProtocol = exports.RadioStatus = exports.SimState = exports.HilSensor = exports.OpticalFlowRad = exports.HighresImu = exports.ViconPositionEstimate = exports.VisionSpeedEstimate = exports.VisionPositionEstimate = exports.GlobalVisionPositionEstimate = exports.OpticalFlow = exports.HilActuatorControls = exports.HilRcInputsRaw = exports.HilControls = exports.HilState = exports.LocalPositionNedSystemGlobalOffset = exports.PositionTargetGlobalInt = exports.SetPositionTargetGlobalInt = exports.PositionTargetLocalNed = exports.SetPositionTargetLocalNed = exports.AttitudeTarget = exports.SetAttitudeTarget = exports.ManualSetpoint = exports.CommandAck = exports.CommandLong = exports.CommandInt = exports.VfrHud = exports.MissionItemInt = exports.RcChannelsOverride = exports.ManualControl = exports.DataStream = exports.RequestDataStream = exports.RcChannels = exports.LocalPositionNedCov = exports.GlobalPositionIntCov = exports.NavControllerOutput = exports.AttitudeQuaternionCov = void 0;
-exports.ButtonChange = exports.SetupSigning = exports.Debug = exports.StatusText = exports.NamedValueInt = exports.NamedValueFloat = exports.DebugVect = exports.MemoryVect = exports.V2Extension = exports.Collision = exports.AdsbVehicle = exports.ExtendedSysState = exports.MessageInterval = exports.SetHomePosition = exports.HomePosition = exports.Vibration = exports.HighLatency2 = exports.HighLatency = exports.GpsRtcmData = exports.GpsInput = exports.WindCov = exports.EstimatorStatus = exports.EfiStatus = exports.MagCalReport = exports.FenceStatus = exports.LandingTarget = exports.AutopilotVersion = exports.BatteryStatus = exports.ControlSystemState = exports.FollowTarget = exports.ScaledPressure3 = exports.ResourceRequest = exports.Altitude = exports.ActuatorControlTarget = exports.SetActuatorControlTarget = exports.MotionCaptureAttPos = exports.ScaledPressure2 = exports.TerrainReport = exports.TerrainCheck = exports.TerrainData = exports.TerrainRequest = exports.DistanceSensor = exports.EncapsulatedData = exports.DataTransmissionHandshake = exports.ScaledImu3 = exports.Gps2Rtk = exports.GpsRtk = exports.SerialControl = exports.PowerStatus = exports.Gps2Raw = void 0;
-exports.OpenDroneIdArmStatus = exports.WinchStatus = exports.WheelDistance = exports.CanFilterModify = exports.CanfdFrame = exports.CanFrame = exports.Tunnel = exports.RelayStatus = exports.ActuatorOutputStatus = exports.GeneratorStatus = exports.SmartBatteryInfo = exports.DebugFloatArray = exports.UtmGlobalPosition = exports.IsbdLinkStatus = exports.Odometry = exports.ObstacleDistance = exports.ParamExtAck = exports.ParamExtSet = exports.ParamExtValue = exports.ParamExtRequestList = exports.ParamExtRequestRead = exports.UavcanNodeInfo = exports.UavcanNodeStatus = exports.AisVessel = exports.WifiConfigAp = exports.GimbalManagerSetManualControl = exports.GimbalManagerSetPitchyaw = exports.AutopilotStateForGimbalDevice = exports.GimbalDeviceAttitudeStatus = exports.GimbalDeviceSetAttitude = exports.GimbalDeviceInformation = exports.GimbalManagerSetAttitude = exports.GimbalManagerStatus = exports.GimbalManagerInformation = exports.CameraTrackingGeoStatus = exports.CameraTrackingImageStatus = exports.CameraFovStatus = exports.VideoStreamStatus = exports.VideoStreamInformation = exports.LoggingAck = exports.LoggingDataAcked = exports.LoggingData = exports.MountOrientation = exports.FlightInformation = exports.CameraImageCaptured = exports.CameraCaptureStatus = exports.StorageInformation = exports.CameraSettings = exports.CameraInformation = exports.PlayTune = void 0;
-exports.DoSetRoiNoneCommand = exports.DoSetRoiWpnextOffsetCommand = exports.DoSetRoiLocationCommand = exports.DoSetReverseCommand = exports.DoPauseContinueCommand = exports.DoRepositionCommand = exports.DoGoAroundCommand = exports.DoRallyLandCommand = exports.DoLandStartCommand = exports.DoChangeAltitudeCommand = exports.DoFlightterminationCommand = exports.DoRepeatServoCommand = exports.DoSetServoCommand = exports.DoRepeatRelayCommand = exports.DoSetRelayCommand = exports.DoSetParameterCommand = exports.DoSetHomeCommand = exports.DoChangeSpeedCommand = exports.DoJumpCommand = exports.DoSetModeCommand = exports.ConditionLastCommand = exports.ConditionYawCommand = exports.ConditionDistanceCommand = exports.ConditionChangeAltCommand = exports.ConditionDelayCommand = exports.NavLastCommand = exports.NavPayloadPlaceCommand = exports.NavDelayCommand = exports.NavGuidedEnableCommand = exports.NavVtolLandCommand = exports.NavVtolTakeoffCommand = exports.NavSplineWaypointCommand = exports.NavPathplanningCommand = exports.NavRoiCommand = exports.DoFollowRepositionCommand = exports.DoFollowCommand = exports.NavLoiterToAltCommand = exports.NavContinueAndChangeAltCommand = exports.NavFollowCommand = exports.NavTakeoffLocalCommand = exports.NavLandLocalCommand = exports.NavTakeoffCommand = exports.NavLandCommand = exports.NavReturnToLaunchCommand = exports.NavLoiterTimeCommand = exports.NavLoiterTurnsCommand = exports.NavLoiterUnlimCommand = exports.NavWaypointCommand = exports.HygrometerSensor = exports.OpenDroneIdSystemUpdate = void 0;
-exports.JumpTagCommand = exports.SetCameraFocusCommand = exports.SetCameraZoomCommand = exports.SetCameraModeCommand = exports.ResetCameraSettingsCommand = exports.RequestFlightInformationCommand = exports.RequestCameraCaptureStatusCommand = exports.StorageFormatCommand = exports.RequestStorageInformationCommand = exports.RequestCameraSettingsCommand = exports.RequestCameraInformationCommand = exports.RequestAutopilotCapabilitiesCommand = exports.RequestProtocolVersionCommand = exports.RequestMessageCommand = exports.SetMessageIntervalCommand = exports.GetMessageIntervalCommand = exports.StartRxPairCommand = exports.GetHomePositionCommand = exports.RunPrearmChecksCommand = exports.ComponentArmDisarmCommand = exports.MissionStartCommand = exports.ObliqueSurveyCommand = exports.OverrideGotoCommand = exports.PreflightRebootShutdownCommand = exports.PreflightStorageCommand = exports.PreflightUavcanCommand = exports.PreflightSetSensorOffsetsCommand = exports.PreflightCalibrationCommand = exports.DoLastCommand = exports.DoSetMissionCurrentCommand = exports.DoEngineControlCommand = exports.DoGuidedLimitsCommand = exports.DoGuidedMasterCommand = exports.DoMountControlQuatCommand = exports.DoSetCamTriggIntervalCommand = exports.NavSetYawSpeedCommand = exports.DoAutotuneEnableCommand = exports.DoGripperCommand = exports.DoInvertedFlightCommand = exports.DoMotorTestCommand = exports.DoParachuteCommand = exports.DoFenceEnableCommand = exports.DoSetCamTriggDistCommand = exports.DoMountControlCommand = exports.DoMountConfigureCommand = exports.DoDigicamControlCommand = exports.DoDigicamConfigureCommand = exports.DoSetRoiCommand = exports.DoControlVideoCommand = exports.DoSetRoiSysidCommand = void 0;
-exports.User3Command = exports.User2Command = exports.User1Command = exports.SpatialUser5Command = exports.SpatialUser4Command = exports.SpatialUser3Command = exports.SpatialUser2Command = exports.SpatialUser1Command = exports.WaypointUser5Command = exports.WaypointUser4Command = exports.WaypointUser3Command = exports.WaypointUser2Command = exports.WaypointUser1Command = exports.DoWinchCommand = exports.FixedMagCalYawCommand = exports.PayloadControlDeployCommand = exports.PayloadPrepareDeployCommand = exports.DoAdsbOutIdentCommand = exports.DoSetSafetySwitchStateCommand = exports.UavcanGetNodeInfoCommand = exports.NavRallyPointCommand = exports.NavFenceCircleExclusionCommand = exports.NavFenceCircleInclusionCommand = exports.NavFencePolygonVertexExclusionCommand = exports.NavFencePolygonVertexInclusionCommand = exports.NavFenceReturnPointCommand = exports.SetGuidedSubmodeCircleCommand = exports.SetGuidedSubmodeStandardCommand = exports.ArmAuthorizationRequestCommand = exports.DoVtolTransitionCommand = exports.PanoramaCreateCommand = exports.ControlHighLatencyCommand = exports.AirframeConfigurationCommand = exports.LoggingStopCommand = exports.LoggingStartCommand = exports.RequestVideoStreamStatusCommand = exports.RequestVideoStreamInformationCommand = exports.VideoStopStreamingCommand = exports.VideoStartStreamingCommand = exports.VideoStopCaptureCommand = exports.VideoStartCaptureCommand = exports.CameraStopTrackingCommand = exports.CameraTrackRectangleCommand = exports.CameraTrackPointCommand = exports.DoTriggerControlCommand = exports.ImageStopCaptureCommand = exports.ImageStartCaptureCommand = exports.DoGimbalManagerConfigureCommand = exports.DoGimbalManagerPitchyawCommand = exports.DoJumpTagCommand = void 0;
+exports.MavDoRepositionFlags = exports.AdsbFlags = exports.AdsbEmitterType = exports.AdsbAltitudeType = exports.MavLandedState = exports.MavVtolState = exports.MavGeneratorStatusFlag = exports.MavBatteryChargeState = exports.MavBatteryFunction = exports.MavBatteryType = exports.MavEstimatorType = exports.MavMissionType = exports.MavProtocolCapability = exports.MavSensorOrientation = exports.MavDistanceSensor = exports.SerialControlFlag = exports.SerialControlDev = exports.MavPowerStatus = exports.MavSeverity = exports.MavMissionResult = exports.MavResult = exports.MavParamExtType = exports.MavParamType = exports.MavRoi = exports.MavDataStream = exports.MavCmd = exports.AutotuneAxis = exports.StorageType = exports.StorageStatus = exports.UavcanNodeMode = exports.UavcanNodeHealth = exports.WinchActions = exports.GripperActions = exports.GimbalDeviceErrorFlags = exports.GimbalManagerFlags = exports.GimbalDeviceFlags = exports.GimbalManagerCapFlags = exports.GimbalDeviceCapFlags = exports.MavMountMode = exports.FenceType = exports.FenceMitigate = exports.FenceBreach = exports.FenceAction = exports.MavlinkDataStreamType = exports.MavFrame = exports.MavSysStatusSensor = exports.MavMode = exports.MavGoto = exports.HlFailureFlag = exports.FirmwareVersionType = void 0;
+exports.AisNavStatus = exports.AisType = exports.MavOdidArmStatus = exports.MavOdidOperatorIdType = exports.MavOdidClassEu = exports.MavOdidCategoryEu = exports.MavOdidClassificationType = exports.MavOdidOperatorLocationType = exports.MavOdidDescType = exports.MavOdidAuthType = exports.MavOdidTimeAcc = exports.MavOdidSpeedAcc = exports.MavOdidVerAcc = exports.MavOdidHorAcc = exports.MavOdidHeightRef = exports.MavOdidStatus = exports.MavOdidUaType = exports.MavOdidIdType = exports.MavTunnelPayloadType = exports.ParachuteAction = exports.PrecisionLandMode = exports.UtmDataAvailFlags = exports.UtmFlightState = exports.AttitudeTargetTypemask = exports.PositionTargetTypemask = exports.EngineControlOptions = exports.RcType = exports.MavArmAuthDeniedReason = exports.CameraMode = exports.ParamAck = exports.SetFocusType = exports.CameraZoomType = exports.CameraTrackingTargetData = exports.CameraTrackingMode = exports.CameraTrackingStatusFlags = exports.VideoStreamType = exports.VideoStreamStatusFlags = exports.CameraCapFlags = exports.VtolTransitionHeading = exports.LandingTargetType = exports.RtkBaselineCoordinateSystem = exports.GpsFixType = exports.MavCollisionSrc = exports.MavCollisionThreatLevel = exports.MavCollisionAction = exports.GpsInputIgnoreFlags = exports.MotorTestThrottleType = exports.MotorTestOrder = exports.EstimatorStatusFlags = exports.SpeedType = void 0;
+exports.MissionRequestInt = exports.ParamMapRc = exports.GpsGlobalOrigin = exports.SetGpsGlobalOrigin = exports.MissionAck = exports.MissionItemReached = exports.MissionClearAll = exports.MissionCount = exports.MissionRequestList = exports.MissionCurrent = exports.MissionSetCurrent = exports.MissionRequest = exports.MissionItem = exports.MissionWritePartialList = exports.MissionRequestPartialList = exports.ServoOutputRaw = exports.RcChannelsRaw = exports.RcChannelsScaled = exports.GlobalPositionInt = exports.LocalPositionNed = exports.AttitudeQuaternion = exports.Attitude = exports.ScaledPressure = exports.RawPressure = exports.RawImu = exports.ScaledImu = exports.GpsStatus = exports.GpsRawInt = exports.ParamSet = exports.ParamValue = exports.ParamRequestList = exports.ParamRequestRead = exports.SetMode = exports.AuthKey = exports.ChangeOperatorControlAck = exports.ChangeOperatorControl = exports.Ping = exports.SystemTime = exports.SysStatus = exports.SafetySwitchState = exports.MissionState = exports.NavVtolLandOptions = exports.CanFilterOp = exports.MagCalStatus = exports.MavWinchStatusFlag = exports.SwarmCoverageStatus = exports.SwarmRoiStatus = exports.SwarmVehicleType = exports.SwarmVehicleState = exports.AisFlags = void 0;
+exports.LogErase = exports.LogData = exports.LogRequestData = exports.LogEntry = exports.LogRequestList = exports.ScaledImu2 = exports.HilStateQuaternion = exports.HilOpticalFlow = exports.HilGps = exports.CameraTrigger = exports.TimeSync = exports.FileTransferProtocol = exports.RadioStatus = exports.SimState = exports.HilSensor = exports.OpticalFlowRad = exports.HighresImu = exports.ViconPositionEstimate = exports.VisionSpeedEstimate = exports.VisionPositionEstimate = exports.GlobalVisionPositionEstimate = exports.OpticalFlow = exports.HilActuatorControls = exports.HilRcInputsRaw = exports.HilControls = exports.HilState = exports.LocalPositionNedSystemGlobalOffset = exports.PositionTargetGlobalInt = exports.SetPositionTargetGlobalInt = exports.PositionTargetLocalNed = exports.SetPositionTargetLocalNed = exports.AttitudeTarget = exports.SetAttitudeTarget = exports.ManualSetpoint = exports.CommandAck = exports.CommandLong = exports.CommandInt = exports.VfrHud = exports.MissionItemInt = exports.RcChannelsOverride = exports.ManualControl = exports.DataStream = exports.RequestDataStream = exports.RcChannels = exports.LocalPositionNedCov = exports.GlobalPositionIntCov = exports.NavControllerOutput = exports.AttitudeQuaternionCov = exports.SafetyAllowedArea = exports.SafetySetAllowedArea = void 0;
+exports.Debug = exports.StatusText = exports.NamedValueInt = exports.NamedValueFloat = exports.DebugVect = exports.MemoryVect = exports.V2Extension = exports.Collision = exports.AdsbVehicle = exports.ExtendedSysState = exports.MessageInterval = exports.SetHomePosition = exports.HomePosition = exports.Vibration = exports.HighLatency2 = exports.HighLatency = exports.GpsRtcmData = exports.GpsInput = exports.WindCov = exports.EstimatorStatus = exports.EfiStatus = exports.MagCalReport = exports.FenceStatus = exports.LandingTarget = exports.AutopilotVersion = exports.BatteryStatus = exports.ControlSystemState = exports.FollowTarget = exports.ScaledPressure3 = exports.ResourceRequest = exports.Altitude = exports.ActuatorControlTarget = exports.SetActuatorControlTarget = exports.MotionCaptureAttPos = exports.ScaledPressure2 = exports.TerrainReport = exports.TerrainCheck = exports.TerrainData = exports.TerrainRequest = exports.DistanceSensor = exports.EncapsulatedData = exports.DataTransmissionHandshake = exports.ScaledImu3 = exports.Gps2Rtk = exports.GpsRtk = exports.SerialControl = exports.PowerStatus = exports.Gps2Raw = exports.GpsInjectData = exports.LogRequestEnd = void 0;
+exports.OpenDroneIdSystemUpdate = exports.OpenDroneIdArmStatus = exports.WheelDistance = exports.CanFilterModify = exports.CanfdFrame = exports.CanFrame = exports.Tunnel = exports.RelayStatus = exports.SwarmVehicleRoi = exports.SwarmVehicleSlow = exports.SwarmVehicle = exports.ActuatorOutputStatus = exports.GeneratorStatus = exports.SmartBatteryInfo = exports.DebugFloatArray = exports.UtmGlobalPosition = exports.IsbdLinkStatus = exports.Odometry = exports.ObstacleDistance = exports.UavcanNodeInfo = exports.UavcanNodeStatus = exports.AisVessel = exports.WifiConfigAp = exports.GimbalManagerSetManualControl = exports.GimbalManagerSetPitchyaw = exports.AutopilotStateForGimbalDevice = exports.GimbalDeviceAttitudeStatus = exports.GimbalDeviceSetAttitude = exports.GimbalDeviceInformation = exports.GimbalManagerSetAttitude = exports.GimbalManagerStatus = exports.GimbalManagerInformation = exports.CameraTrackingGeoStatus = exports.CameraTrackingImageStatus = exports.CameraFovStatus = exports.VideoStreamStatus = exports.VideoStreamInformation = exports.LoggingAck = exports.LoggingDataAcked = exports.LoggingData = exports.MountOrientation = exports.FlightInformation = exports.CameraImageCaptured = exports.CameraCaptureStatus = exports.StorageInformation = exports.CameraSettings = exports.CameraInformation = exports.PlayTune = exports.ButtonChange = exports.SetupSigning = void 0;
+exports.DoSetRoiSysidCommand = exports.DoSetRoiNoneCommand = exports.DoSetRoiWpnextOffsetCommand = exports.DoSetRoiLocationCommand = exports.DoSetReverseCommand = exports.DoPauseContinueCommand = exports.DoRepositionCommand = exports.DoGoAroundCommand = exports.DoRallyLandCommand = exports.DoLandStartCommand = exports.DoChangeAltitudeCommand = exports.DoFlightterminationCommand = exports.DoRepeatServoCommand = exports.DoSetServoCommand = exports.DoRepeatRelayCommand = exports.DoSetRelayCommand = exports.DoSetParameterCommand = exports.DoSetHomeCommand = exports.DoChangeSpeedCommand = exports.DoJumpCommand = exports.DoSetModeCommand = exports.ConditionLastCommand = exports.ConditionYawCommand = exports.ConditionDistanceCommand = exports.ConditionChangeAltCommand = exports.ConditionDelayCommand = exports.NavLastCommand = exports.NavPayloadPlaceCommand = exports.NavDelayCommand = exports.NavGuidedEnableCommand = exports.NavVtolLandCommand = exports.NavVtolTakeoffCommand = exports.NavSplineWaypointCommand = exports.NavPathplanningCommand = exports.NavRoiCommand = exports.DoFollowRepositionCommand = exports.DoFollowCommand = exports.NavLoiterToAltCommand = exports.NavContinueAndChangeAltCommand = exports.NavFollowCommand = exports.NavTakeoffLocalCommand = exports.NavLandLocalCommand = exports.NavTakeoffCommand = exports.NavLandCommand = exports.NavReturnToLaunchCommand = exports.NavLoiterTimeCommand = exports.NavLoiterTurnsCommand = exports.NavLoiterUnlimCommand = exports.NavWaypointCommand = exports.HygrometerSensor = void 0;
+exports.DoJumpTagCommand = exports.JumpTagCommand = exports.SetCameraFocusCommand = exports.SetCameraZoomCommand = exports.SetCameraModeCommand = exports.ResetCameraSettingsCommand = exports.RequestFlightInformationCommand = exports.RequestCameraCaptureStatusCommand = exports.StorageFormatCommand = exports.RequestStorageInformationCommand = exports.RequestCameraSettingsCommand = exports.RequestCameraInformationCommand = exports.RequestAutopilotCapabilitiesCommand = exports.RequestProtocolVersionCommand = exports.RequestMessageCommand = exports.SetMessageIntervalCommand = exports.GetMessageIntervalCommand = exports.StartRxPairCommand = exports.GetHomePositionCommand = exports.RunPrearmChecksCommand = exports.ComponentArmDisarmCommand = exports.MissionStartCommand = exports.ObliqueSurveyCommand = exports.OverrideGotoCommand = exports.PreflightRebootShutdownCommand = exports.PreflightStorageCommand = exports.PreflightUavcanCommand = exports.PreflightSetSensorOffsetsCommand = exports.PreflightCalibrationCommand = exports.DoLastCommand = exports.DoSetMissionCurrentCommand = exports.DoEngineControlCommand = exports.DoGuidedLimitsCommand = exports.DoGuidedMasterCommand = exports.DoMountControlQuatCommand = exports.DoSetCamTriggIntervalCommand = exports.NavSetYawSpeedCommand = exports.DoAutotuneEnableCommand = exports.DoGripperCommand = exports.DoInvertedFlightCommand = exports.DoMotorTestCommand = exports.DoParachuteCommand = exports.DoFenceEnableCommand = exports.DoSetCamTriggDistCommand = exports.DoMountControlCommand = exports.DoMountConfigureCommand = exports.DoDigicamControlCommand = exports.DoDigicamConfigureCommand = exports.DoSetRoiCommand = exports.DoControlVideoCommand = void 0;
+exports.User3Command = exports.User2Command = exports.User1Command = exports.SpatialUser5Command = exports.SpatialUser4Command = exports.SpatialUser3Command = exports.SpatialUser2Command = exports.SpatialUser1Command = exports.WaypointUser5Command = exports.WaypointUser4Command = exports.WaypointUser3Command = exports.WaypointUser2Command = exports.WaypointUser1Command = exports.DoWinchCommand = exports.FixedMagCalYawCommand = exports.PayloadControlDeployCommand = exports.PayloadPrepareDeployCommand = exports.DoAdsbOutIdentCommand = exports.DoSetSafetySwitchStateCommand = exports.UavcanGetNodeInfoCommand = exports.NavSwarmRoiPolygonVertexInclusionCommand = exports.NavRallyPointCommand = exports.NavFenceCircleExclusionCommand = exports.NavFenceCircleInclusionCommand = exports.NavFencePolygonVertexExclusionCommand = exports.NavFencePolygonVertexInclusionCommand = exports.NavFenceReturnPointCommand = exports.SetGuidedSubmodeCircleCommand = exports.SetGuidedSubmodeStandardCommand = exports.ArmAuthorizationRequestCommand = exports.DoVtolTransitionCommand = exports.PanoramaCreateCommand = exports.ControlHighLatencyCommand = exports.AirframeConfigurationCommand = exports.LoggingStopCommand = exports.LoggingStartCommand = exports.RequestVideoStreamStatusCommand = exports.RequestVideoStreamInformationCommand = exports.VideoStopStreamingCommand = exports.VideoStartStreamingCommand = exports.VideoStopCaptureCommand = exports.VideoStartCaptureCommand = exports.CameraStopTrackingCommand = exports.CameraTrackRectangleCommand = exports.CameraTrackPointCommand = exports.DoTriggerControlCommand = exports.ImageStopCaptureCommand = exports.ImageStartCaptureCommand = exports.DoGimbalManagerConfigureCommand = exports.DoGimbalManagerPitchyawCommand = void 0;
 exports.COMMANDS = exports.REGISTRY = exports.CanForwardCommand = exports.User5Command = exports.User4Command = void 0;
 const mavlink_1 = require("./mavlink");
 const minimal_1 = require("./minimal");
@@ -2492,6 +2492,20 @@ var MavCmd;
      */
     MavCmd[MavCmd["NAV_RALLY_POINT"] = 5100] = "NAV_RALLY_POINT";
     /**
+     * Swarm vertex for an inclusion polygon
+     *
+     * @note has location
+     *
+     * @param1 Reserved
+     * @param2 Reserved
+     * @param3 Reserved
+     * @param4 Reserved
+     * @param5 Latitude Latitude
+     * @param6 Longitude Longitude
+     * @param74 Reserved
+     */
+    MavCmd[MavCmd["NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION"] = 5109] = "NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION";
+    /**
      * Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every
      * UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver
      * can detect easily by checking whether every received UAVCAN_NODE_STATUS has a matching message
@@ -3547,6 +3561,11 @@ var MavMissionType;
      */
     MavMissionType[MavMissionType["RALLY"] = 2] = "RALLY";
     /**
+     * Specifies Swarm Region-of-Interest. Items are either MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION or
+     * MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION.
+     */
+    MavMissionType[MavMissionType["SWARM_ROI"] = 3] = "SWARM_ROI";
+    /**
      * Only used in MISSION_CLEAR_ALL to clear all mission types.
      */
     MavMissionType[MavMissionType["ALL"] = 255] = "ALL";
@@ -3685,72 +3704,6 @@ var MavBatteryChargeState;
      */
     MavBatteryChargeState[MavBatteryChargeState["CHARGING"] = 7] = "CHARGING";
 })(MavBatteryChargeState = exports.MavBatteryChargeState || (exports.MavBatteryChargeState = {}));
-/**
- * Battery mode. Note, the normal operation mode (i.e. when flying) should be reported as
- * MAV_BATTERY_MODE_UNKNOWN to allow message trimming in normal flight.
- */
-var MavBatteryMode;
-(function (MavBatteryMode) {
-    /**
-     * Battery mode not supported/unknown battery mode/normal operation.
-     */
-    MavBatteryMode[MavBatteryMode["UNKNOWN"] = 0] = "UNKNOWN";
-    /**
-     * Battery is auto discharging (towards storage level).
-     */
-    MavBatteryMode[MavBatteryMode["AUTO_DISCHARGING"] = 1] = "AUTO_DISCHARGING";
-    /**
-     * Battery in hot-swap mode (current limited to prevent spikes that might damage sensitive electrical
-     * circuits).
-     */
-    MavBatteryMode[MavBatteryMode["HOT_SWAP"] = 2] = "HOT_SWAP";
-})(MavBatteryMode = exports.MavBatteryMode || (exports.MavBatteryMode = {}));
-/**
- * Smart battery supply status/fault flags (bitmask) for health indication. The battery must also
- * report either MAV_BATTERY_CHARGE_STATE_FAILED or MAV_BATTERY_CHARGE_STATE_UNHEALTHY if any of these
- * are set.
- */
-var MavBatteryFault;
-(function (MavBatteryFault) {
-    /**
-     * Battery has deep discharged.
-     */
-    MavBatteryFault[MavBatteryFault["DEEP_DISCHARGE"] = 1] = "DEEP_DISCHARGE";
-    /**
-     * Voltage spikes.
-     */
-    MavBatteryFault[MavBatteryFault["SPIKES"] = 2] = "SPIKES";
-    /**
-     * One or more cells have failed. Battery should also report MAV_BATTERY_CHARGE_STATE_FAILE (and should
-     * not be used).
-     */
-    MavBatteryFault[MavBatteryFault["CELL_FAIL"] = 4] = "CELL_FAIL";
-    /**
-     * Over-current fault.
-     */
-    MavBatteryFault[MavBatteryFault["OVER_CURRENT"] = 8] = "OVER_CURRENT";
-    /**
-     * Over-temperature fault.
-     */
-    MavBatteryFault[MavBatteryFault["OVER_TEMPERATURE"] = 16] = "OVER_TEMPERATURE";
-    /**
-     * Under-temperature fault.
-     */
-    MavBatteryFault[MavBatteryFault["UNDER_TEMPERATURE"] = 32] = "UNDER_TEMPERATURE";
-    /**
-     * Vehicle voltage is not compatible with this battery (batteries on same power rail should have
-     * similar voltage).
-     */
-    MavBatteryFault[MavBatteryFault["INCOMPATIBLE_VOLTAGE"] = 64] = "INCOMPATIBLE_VOLTAGE";
-    /**
-     * Battery firmware is not compatible with current autopilot firmware.
-     */
-    MavBatteryFault[MavBatteryFault["INCOMPATIBLE_FIRMWARE"] = 128] = "INCOMPATIBLE_FIRMWARE";
-    /**
-     * Battery is not compatible due to cell configuration (e.g. 5s1p when vehicle requires 6s).
-     */
-    MavBatteryFault[MavBatteryFault["BATTERY_FAULT_INCOMPATIBLE_CELLS_CONFIGURATION"] = 256] = "BATTERY_FAULT_INCOMPATIBLE_CELLS_CONFIGURATION";
-})(MavBatteryFault = exports.MavBatteryFault || (exports.MavBatteryFault = {}));
 /**
  * Flags to report status/failure cases for a power generator (used in GENERATOR_STATUS). Note that
  * FAULTS are conditions that cause the generator to fail. Warnings are conditions that require
@@ -5536,6 +5489,141 @@ var AisFlags;
     AisFlags[AisFlags["VALID_CALLSIGN"] = 2048] = "VALID_CALLSIGN";
     AisFlags[AisFlags["VALID_NAME"] = 4096] = "VALID_NAME";
 })(AisFlags = exports.AisFlags || (exports.AisFlags = {}));
+/**
+ * Status of what an individual swarm vehicle is doing.
+ */
+var SwarmVehicleState;
+(function (SwarmVehicleState) {
+    /**
+     * Unknown.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_UNKNOWN"] = 0] = "STATE_UNKNOWN";
+    /**
+     * Currently traveling to join the mesh network.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_INGRESSING_TO_MESH"] = 1] = "STATE_INGRESSING_TO_MESH";
+    /**
+     * Have lost contact with the mesh and unable to sync and unable to provide service.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_LOST_COMMS"] = 2] = "STATE_LOST_COMMS";
+    /**
+     * Situation NORMAL, on station providing service
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_ON_STATION"] = 3] = "STATE_ON_STATION";
+    /**
+     * On station providing service but requesting Return to Base soon, will need to leave the on station
+     * point within 30min. This allows time for an additional vehicle to join the swarm to take it's place
+     * without a gap in coverage. Next expected state is ON_STATION_BUT_REQUESTION_RTB_NOW.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_ON_STATION_BUT_REQUESTION_RTB_SOON"] = 4] = "STATE_ON_STATION_BUT_REQUESTION_RTB_SOON";
+    /**
+     * On station providing service but will be switching to Return to Base in less than 2 minutes. Next
+     * expected state is EGRESSING_MESH_RTB.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_ON_STATION_BUT_REQUESTION_RTB_NOW"] = 5] = "STATE_ON_STATION_BUT_REQUESTION_RTB_NOW";
+    /**
+     * Was recently on station but mesh topography has changed and are currently in transit to new on
+     * station point.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_WAS_ON_STATION_BUT_RELOCATING"] = 6] = "STATE_WAS_ON_STATION_BUT_RELOCATING";
+    /**
+     * Leaving mesh to return to base. Is still acting as mesh node providing service on the way back.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_EGRESSING_MESH_RTB"] = 7] = "STATE_EGRESSING_MESH_RTB";
+    /**
+     * Returning to base. May or may-not be providing service on the way back.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_RTB"] = 8] = "STATE_RTB";
+    /**
+     * Not providing service but is able and ready to join.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_READY_TO_JOIN_MESH"] = 9] = "STATE_READY_TO_JOIN_MESH";
+    /**
+     * Not ready, not providing service. For air vehicles this means we're powered up on the ground and
+     * likely performing ground checks. Next expected state is likely READY_TO_JOIN_MESH.
+     */
+    SwarmVehicleState[SwarmVehicleState["STATE_NOT_READY"] = 10] = "STATE_NOT_READY";
+    /**
+     * This is the Ground Control Station.
+     */
+    SwarmVehicleState[SwarmVehicleState["GCS"] = 11] = "GCS";
+})(SwarmVehicleState = exports.SwarmVehicleState || (exports.SwarmVehicleState = {}));
+/**
+ * Type of the vehicle that is swarming. Sample types are fixed-wing, copter, tank, jeep, human.
+ */
+var SwarmVehicleType;
+(function (SwarmVehicleType) {
+    /**
+     * Unknown.
+     */
+    SwarmVehicleType[SwarmVehicleType["UNKNOWN"] = 0] = "UNKNOWN";
+    /**
+     * Fixed wing aircraft
+     */
+    SwarmVehicleType[SwarmVehicleType["FIXED_WING"] = 1] = "FIXED_WING";
+    /**
+     * Copter
+     */
+    SwarmVehicleType[SwarmVehicleType["COPTER"] = 2] = "COPTER";
+    /**
+     * Tank
+     */
+    SwarmVehicleType[SwarmVehicleType["TANK"] = 3] = "TANK";
+    /**
+     * Jeep
+     */
+    SwarmVehicleType[SwarmVehicleType["JEEP"] = 4] = "JEEP";
+    /**
+     * Human
+     */
+    SwarmVehicleType[SwarmVehicleType["HUMAN"] = 5] = "HUMAN";
+})(SwarmVehicleType = exports.SwarmVehicleType || (exports.SwarmVehicleType = {}));
+/**
+ * Status of the ROI from the swarm vehicle's perspective.
+ */
+var SwarmRoiStatus;
+(function (SwarmRoiStatus) {
+    SwarmRoiStatus[SwarmRoiStatus["UNKNOWN"] = 0] = "UNKNOWN";
+    SwarmRoiStatus[SwarmRoiStatus["INVALID"] = 1] = "INVALID";
+    /**
+     * Has a valid ROI but it's old. We've seen another CRC with a newer timestamp.
+     */
+    SwarmRoiStatus[SwarmRoiStatus["NEEDS_UPDATE"] = 2] = "NEEDS_UPDATE";
+    /**
+     * Has a valid and up-to-date ROI.
+     */
+    SwarmRoiStatus[SwarmRoiStatus["OK"] = 3] = "OK";
+})(SwarmRoiStatus = exports.SwarmRoiStatus || (exports.SwarmRoiStatus = {}));
+/**
+ * Status of mesh network coverage. Ideally the whole swarm should be generating the same status.
+ */
+var SwarmCoverageStatus;
+(function (SwarmCoverageStatus) {
+    SwarmCoverageStatus[SwarmCoverageStatus["UNKNOWN"] = 0] = "UNKNOWN";
+    /**
+     * ROI is not ready so a coverage status is unable to be determined.
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["ROI_IS_NOT_READY"] = 1] = "ROI_IS_NOT_READY";
+    /**
+     * Swarm mesh has insufficient vehicle resources to cover the ROI.
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["NOT_ENOUGH_VEHICLES"] = 2] = "NOT_ENOUGH_VEHICLES";
+    /**
+     * Swarm mesh currently has the minimum resources to cover the ROI. However, network is expected to
+     * have breif gaps in service coverage.
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["MINIMUM"] = 3] = "MINIMUM";
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy Quality
+     * of Service requirement.
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["QOS_GOOD"] = 4] = "QOS_GOOD";
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy MORE than
+     * the Quality of Service requirement to better handle unexpected loss of mesh node(s).
+     */
+    SwarmCoverageStatus[SwarmCoverageStatus["QOS_VERY_GOOD"] = 5] = "QOS_VERY_GOOD";
+})(SwarmCoverageStatus = exports.SwarmCoverageStatus || (exports.SwarmCoverageStatus = {}));
 /**
  * Winch status flags used in WINCH_STATUS
  */
@@ -7377,24 +7465,16 @@ class CommandAck extends mavlink_1.MavLinkData {
         super();
         this.command = MavCmd[Object.keys(MavCmd)[0]];
         this.result = MavResult[Object.keys(MavResult)[0]];
-        this.progress = 0;
-        this.resultParam2 = 0;
-        this.targetSystem = 0;
-        this.targetComponent = 0;
     }
 }
 exports.CommandAck = CommandAck;
 CommandAck.MSG_ID = 77;
 CommandAck.MSG_NAME = 'COMMAND_ACK';
-CommandAck.PAYLOAD_LENGTH = 10;
+CommandAck.PAYLOAD_LENGTH = 3;
 CommandAck.MAGIC_NUMBER = 143;
 CommandAck.FIELDS = [
     new mavlink_1.MavLinkPacketField('command', 'command', 0, false, 2, 'uint16_t', ''),
     new mavlink_1.MavLinkPacketField('result', 'result', 2, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('progress', 'progress', 3, true, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('result_param2', 'resultParam2', 4, true, 4, 'int32_t', ''),
-    new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 8, true, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 9, true, 1, 'uint8_t', ''),
 ];
 /**
  * Setpoint in roll, pitch, yaw and thrust from the operator
@@ -9330,14 +9410,12 @@ class BatteryStatus extends mavlink_1.MavLinkData {
         this.timeRemaining = 0;
         this.chargeState = MavBatteryChargeState[Object.keys(MavBatteryChargeState)[0]];
         this.voltagesExt = [];
-        this.mode = MavBatteryMode[Object.keys(MavBatteryMode)[0]];
-        this.faultBitmask = MavBatteryFault[Object.keys(MavBatteryFault)[0]];
     }
 }
 exports.BatteryStatus = BatteryStatus;
 BatteryStatus.MSG_ID = 147;
 BatteryStatus.MSG_NAME = 'BATTERY_STATUS';
-BatteryStatus.PAYLOAD_LENGTH = 54;
+BatteryStatus.PAYLOAD_LENGTH = 49;
 BatteryStatus.MAGIC_NUMBER = 154;
 BatteryStatus.FIELDS = [
     new mavlink_1.MavLinkPacketField('current_consumed', 'currentConsumed', 0, false, 4, 'int32_t', 'mAh'),
@@ -9352,8 +9430,6 @@ BatteryStatus.FIELDS = [
     new mavlink_1.MavLinkPacketField('time_remaining', 'timeRemaining', 36, true, 4, 'int32_t', 's'),
     new mavlink_1.MavLinkPacketField('charge_state', 'chargeState', 40, true, 1, 'uint8_t', ''),
     new mavlink_1.MavLinkPacketField('voltages_ext', 'voltagesExt', 41, true, 2, 'uint16_t[]', 'mV', 4),
-    new mavlink_1.MavLinkPacketField('mode', 'mode', 49, true, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('fault_bitmask', 'faultBitmask', 50, true, 4, 'uint32_t', ''),
 ];
 /**
  * Version and capability of autopilot software. This should be emitted in response to a request with
@@ -10399,14 +10475,12 @@ class StorageInformation extends mavlink_1.MavLinkData {
         this.availableCapacity = 0;
         this.readSpeed = 0;
         this.writeSpeed = 0;
-        this.type = StorageType[Object.keys(StorageType)[0]];
-        this.name = '';
     }
 }
 exports.StorageInformation = StorageInformation;
 StorageInformation.MSG_ID = 261;
 StorageInformation.MSG_NAME = 'STORAGE_INFORMATION';
-StorageInformation.PAYLOAD_LENGTH = 60;
+StorageInformation.PAYLOAD_LENGTH = 27;
 StorageInformation.MAGIC_NUMBER = 179;
 StorageInformation.FIELDS = [
     new mavlink_1.MavLinkPacketField('time_boot_ms', 'timeBootMs', 0, false, 4, 'uint32_t', 'ms'),
@@ -10418,8 +10492,6 @@ StorageInformation.FIELDS = [
     new mavlink_1.MavLinkPacketField('storage_id', 'storageId', 24, false, 1, 'uint8_t', ''),
     new mavlink_1.MavLinkPacketField('storage_count', 'storageCount', 25, false, 1, 'uint8_t', ''),
     new mavlink_1.MavLinkPacketField('status', 'status', 26, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('type', 'type', 27, true, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('name', 'name', 28, true, 1, 'char[]', '', 32),
 ];
 /**
  * Information about the status of a capture. Can be requested with a MAV_CMD_REQUEST_MESSAGE command.
@@ -11286,128 +11358,6 @@ UavcanNodeInfo.FIELDS = [
     new mavlink_1.MavLinkPacketField('sw_version_minor', 'swVersionMinor', 115, false, 1, 'uint8_t', ''),
 ];
 /**
- * Request to read the value of a parameter with either the param_id string id or param_index.
- * PARAM_EXT_VALUE should be emitted in response.
- */
-class ParamExtRequestRead extends mavlink_1.MavLinkData {
-    constructor() {
-        super();
-        this.targetSystem = 0;
-        this.targetComponent = 0;
-        this.paramId = '';
-        this.paramIndex = 0;
-    }
-}
-exports.ParamExtRequestRead = ParamExtRequestRead;
-ParamExtRequestRead.MSG_ID = 320;
-ParamExtRequestRead.MSG_NAME = 'PARAM_EXT_REQUEST_READ';
-ParamExtRequestRead.PAYLOAD_LENGTH = 20;
-ParamExtRequestRead.MAGIC_NUMBER = 243;
-ParamExtRequestRead.FIELDS = [
-    new mavlink_1.MavLinkPacketField('param_index', 'paramIndex', 0, false, 2, 'int16_t', ''),
-    new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 2, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 3, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('param_id', 'paramId', 4, false, 1, 'char[]', '', 16),
-];
-/**
- * Request all parameters of this component. All parameters should be emitted in response as
- * PARAM_EXT_VALUE.
- */
-class ParamExtRequestList extends mavlink_1.MavLinkData {
-    constructor() {
-        super();
-        this.targetSystem = 0;
-        this.targetComponent = 0;
-    }
-}
-exports.ParamExtRequestList = ParamExtRequestList;
-ParamExtRequestList.MSG_ID = 321;
-ParamExtRequestList.MSG_NAME = 'PARAM_EXT_REQUEST_LIST';
-ParamExtRequestList.PAYLOAD_LENGTH = 2;
-ParamExtRequestList.MAGIC_NUMBER = 88;
-ParamExtRequestList.FIELDS = [
-    new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-];
-/**
- * Emit the value of a parameter. The inclusion of param_count and param_index in the message allows
- * the recipient to keep track of received parameters and allows them to re-request missing parameters
- * after a loss or timeout.
- */
-class ParamExtValue extends mavlink_1.MavLinkData {
-    constructor() {
-        super();
-        this.paramId = '';
-        this.paramValue = '';
-        this.paramType = MavParamExtType[Object.keys(MavParamExtType)[0]];
-        this.paramCount = 0;
-        this.paramIndex = 0;
-    }
-}
-exports.ParamExtValue = ParamExtValue;
-ParamExtValue.MSG_ID = 322;
-ParamExtValue.MSG_NAME = 'PARAM_EXT_VALUE';
-ParamExtValue.PAYLOAD_LENGTH = 149;
-ParamExtValue.MAGIC_NUMBER = 243;
-ParamExtValue.FIELDS = [
-    new mavlink_1.MavLinkPacketField('param_count', 'paramCount', 0, false, 2, 'uint16_t', ''),
-    new mavlink_1.MavLinkPacketField('param_index', 'paramIndex', 2, false, 2, 'uint16_t', ''),
-    new mavlink_1.MavLinkPacketField('param_id', 'paramId', 4, false, 1, 'char[]', '', 16),
-    new mavlink_1.MavLinkPacketField('param_value', 'paramValue', 20, false, 1, 'char[]', '', 128),
-    new mavlink_1.MavLinkPacketField('param_type', 'paramType', 148, false, 1, 'uint8_t', ''),
-];
-/**
- * Set a parameter value. In order to deal with message loss (and retransmission of PARAM_EXT_SET),
- * when setting a parameter value and the new value is the same as the current value, you will
- * immediately get a PARAM_ACK_ACCEPTED response. If the current state is PARAM_ACK_IN_PROGRESS, you
- * will accordingly receive a PARAM_ACK_IN_PROGRESS in response.
- */
-class ParamExtSet extends mavlink_1.MavLinkData {
-    constructor() {
-        super();
-        this.targetSystem = 0;
-        this.targetComponent = 0;
-        this.paramId = '';
-        this.paramValue = '';
-        this.paramType = MavParamExtType[Object.keys(MavParamExtType)[0]];
-    }
-}
-exports.ParamExtSet = ParamExtSet;
-ParamExtSet.MSG_ID = 323;
-ParamExtSet.MSG_NAME = 'PARAM_EXT_SET';
-ParamExtSet.PAYLOAD_LENGTH = 147;
-ParamExtSet.MAGIC_NUMBER = 78;
-ParamExtSet.FIELDS = [
-    new mavlink_1.MavLinkPacketField('target_system', 'targetSystem', 0, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 1, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('param_id', 'paramId', 2, false, 1, 'char[]', '', 16),
-    new mavlink_1.MavLinkPacketField('param_value', 'paramValue', 18, false, 1, 'char[]', '', 128),
-    new mavlink_1.MavLinkPacketField('param_type', 'paramType', 146, false, 1, 'uint8_t', ''),
-];
-/**
- * Response from a PARAM_EXT_SET message.
- */
-class ParamExtAck extends mavlink_1.MavLinkData {
-    constructor() {
-        super();
-        this.paramId = '';
-        this.paramValue = '';
-        this.paramType = MavParamExtType[Object.keys(MavParamExtType)[0]];
-        this.paramResult = ParamAck[Object.keys(ParamAck)[0]];
-    }
-}
-exports.ParamExtAck = ParamExtAck;
-ParamExtAck.MSG_ID = 324;
-ParamExtAck.MSG_NAME = 'PARAM_EXT_ACK';
-ParamExtAck.PAYLOAD_LENGTH = 146;
-ParamExtAck.MAGIC_NUMBER = 132;
-ParamExtAck.FIELDS = [
-    new mavlink_1.MavLinkPacketField('param_id', 'paramId', 0, false, 1, 'char[]', '', 16),
-    new mavlink_1.MavLinkPacketField('param_value', 'paramValue', 16, false, 1, 'char[]', '', 128),
-    new mavlink_1.MavLinkPacketField('param_type', 'paramType', 144, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('param_result', 'paramResult', 145, false, 1, 'uint8_t', ''),
-];
-/**
  * Obstacle distances in front of the sensor, starting from the left in increment degrees to the right
  */
 class ObstacleDistance extends mavlink_1.MavLinkData {
@@ -11709,6 +11659,115 @@ ActuatorOutputStatus.FIELDS = [
     new mavlink_1.MavLinkPacketField('actuator', 'actuator', 12, false, 4, 'float[]', '', 32),
 ];
 /**
+ * Position of an aircraft in swarm.
+ */
+class SwarmVehicle extends mavlink_1.MavLinkData {
+    constructor() {
+        super();
+        this.timestamp = 0;
+        this.aircraftId = 0;
+        this.squadronId = 0;
+        this.stateNav = SwarmVehicleState[Object.keys(SwarmVehicleState)[0]];
+        this.effectiveRadius = 0;
+        this.lat = 0;
+        this.lon = 0;
+        this.altMSL = 0;
+        this.latTarget = 0;
+        this.lonTarget = 0;
+        this.altMSLTarget = 0;
+        this.vehicleType = SwarmVehicleType[Object.keys(SwarmVehicleType)[0]];
+    }
+}
+exports.SwarmVehicle = SwarmVehicle;
+SwarmVehicle.MSG_ID = 2820;
+SwarmVehicle.MSG_NAME = 'SWARM_VEHICLE';
+SwarmVehicle.PAYLOAD_LENGTH = 38;
+SwarmVehicle.MAGIC_NUMBER = 215;
+SwarmVehicle.FIELDS = [
+    new mavlink_1.MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('effective_radius', 'effectiveRadius', 4, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('lat', 'lat', 8, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('lon', 'lon', 12, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('altMSL', 'altMSL', 16, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('lat_target', 'latTarget', 20, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('lon_target', 'lonTarget', 24, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('altMSL_target', 'altMSLTarget', 28, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('aircraft_id', 'aircraftId', 32, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('squadron_id', 'squadronId', 34, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('vehicle_type', 'vehicleType', 37, false, 1, 'uint8_t', ''),
+];
+/**
+ * Position of an aircraft in swarm with data that updates less often.
+ */
+class SwarmVehicleSlow extends mavlink_1.MavLinkData {
+    constructor() {
+        super();
+        this.timestamp = 0;
+        this.aircraftId = 0;
+        this.squadronId = 0;
+        this.stateNav = SwarmVehicleState[Object.keys(SwarmVehicleState)[0]];
+        this.stateCoverage = SwarmCoverageStatus[Object.keys(SwarmCoverageStatus)[0]];
+        this.stateRoi = SwarmRoiStatus[Object.keys(SwarmRoiStatus)[0]];
+        this.speed = 0;
+        this.cog = 0;
+        this.effectiveRadius = 0;
+        this.latTarget = 0;
+        this.lonTarget = 0;
+        this.altMSLTarget = 0;
+        this.vehicleType = SwarmVehicleType[Object.keys(SwarmVehicleType)[0]];
+        this.ROICrc = 0;
+        this.ROITimestamp = 0;
+    }
+}
+exports.SwarmVehicleSlow = SwarmVehicleSlow;
+SwarmVehicleSlow.MSG_ID = 2821;
+SwarmVehicleSlow.MSG_NAME = 'SWARM_VEHICLE_SLOW';
+SwarmVehicleSlow.PAYLOAD_LENGTH = 40;
+SwarmVehicleSlow.MAGIC_NUMBER = 10;
+SwarmVehicleSlow.FIELDS = [
+    new mavlink_1.MavLinkPacketField('timestamp', 'timestamp', 0, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('effective_radius', 'effectiveRadius', 4, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('lat_target', 'latTarget', 8, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('lon_target', 'lonTarget', 12, false, 4, 'int32_t', 'degE7'),
+    new mavlink_1.MavLinkPacketField('altMSL_target', 'altMSLTarget', 16, false, 4, 'float', 'm'),
+    new mavlink_1.MavLinkPacketField('ROI_crc', 'ROICrc', 20, false, 4, 'uint32_t', ''),
+    new mavlink_1.MavLinkPacketField('ROI_timestamp', 'ROITimestamp', 24, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('aircraft_id', 'aircraftId', 28, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('squadron_id', 'squadronId', 30, false, 2, 'uint16_t', ''),
+    new mavlink_1.MavLinkPacketField('speed', 'speed', 32, false, 2, 'uint16_t', 'm/s'),
+    new mavlink_1.MavLinkPacketField('cog', 'cog', 34, false, 2, 'uint16_t', 'cdeg'),
+    new mavlink_1.MavLinkPacketField('state_nav', 'stateNav', 36, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('state_coverage', 'stateCoverage', 37, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('state_roi', 'stateRoi', 38, false, 1, 'uint8_t', ''),
+    new mavlink_1.MavLinkPacketField('vehicle_type', 'vehicleType', 39, false, 1, 'uint8_t', ''),
+];
+/**
+ * Region of Interest points. Array of int32_t lat/lng pairs of polygon points.
+ */
+class SwarmVehicleRoi extends mavlink_1.MavLinkData {
+    constructor() {
+        super();
+        this.idTarget = 0;
+        this.crc = 0;
+        this.timestampS = 0;
+        this.pointCount = 0;
+        this.points = [];
+    }
+}
+exports.SwarmVehicleRoi = SwarmVehicleRoi;
+SwarmVehicleRoi.MSG_ID = 2822;
+SwarmVehicleRoi.MSG_NAME = 'SWARM_VEHICLE_ROI';
+SwarmVehicleRoi.PAYLOAD_LENGTH = 240;
+SwarmVehicleRoi.MAGIC_NUMBER = 225;
+SwarmVehicleRoi.FIELDS = [
+    new mavlink_1.MavLinkPacketField('id_target', 'idTarget', 0, false, 4, 'uint32_t', ''),
+    new mavlink_1.MavLinkPacketField('crc', 'crc', 4, false, 4, 'uint32_t', ''),
+    new mavlink_1.MavLinkPacketField('timestamp_s', 'timestampS', 8, false, 4, 'uint32_t', 's'),
+    new mavlink_1.MavLinkPacketField('point_count', 'pointCount', 12, false, 4, 'uint32_t', ''),
+    new mavlink_1.MavLinkPacketField('points', 'points', 16, false, 4, 'int32_t[]', 'degE7', 56),
+];
+/**
  * Reports the on/off state of relays, as controlled by MAV_CMD_DO_SET_RELAY.
  */
 class RelayStatus extends mavlink_1.MavLinkData {
@@ -11861,37 +11920,6 @@ WheelDistance.FIELDS = [
     new mavlink_1.MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
     new mavlink_1.MavLinkPacketField('distance', 'distance', 8, false, 8, 'double[]', 'm', 16),
     new mavlink_1.MavLinkPacketField('count', 'count', 136, false, 1, 'uint8_t', ''),
-];
-/**
- * Winch status.
- */
-class WinchStatus extends mavlink_1.MavLinkData {
-    constructor() {
-        super();
-        this.timeUsec = BigInt(0);
-        this.lineLength = 0;
-        this.speed = 0;
-        this.tension = 0;
-        this.voltage = 0;
-        this.current = 0;
-        this.temperature = 0;
-        this.status = MavWinchStatusFlag[Object.keys(MavWinchStatusFlag)[0]];
-    }
-}
-exports.WinchStatus = WinchStatus;
-WinchStatus.MSG_ID = 9005;
-WinchStatus.MSG_NAME = 'WINCH_STATUS';
-WinchStatus.PAYLOAD_LENGTH = 34;
-WinchStatus.MAGIC_NUMBER = 117;
-WinchStatus.FIELDS = [
-    new mavlink_1.MavLinkPacketField('time_usec', 'timeUsec', 0, false, 8, 'uint64_t', 'us'),
-    new mavlink_1.MavLinkPacketField('line_length', 'lineLength', 8, false, 4, 'float', 'm'),
-    new mavlink_1.MavLinkPacketField('speed', 'speed', 12, false, 4, 'float', 'm/s'),
-    new mavlink_1.MavLinkPacketField('tension', 'tension', 16, false, 4, 'float', 'kg'),
-    new mavlink_1.MavLinkPacketField('voltage', 'voltage', 20, false, 4, 'float', 'V'),
-    new mavlink_1.MavLinkPacketField('current', 'current', 24, false, 4, 'float', 'A'),
-    new mavlink_1.MavLinkPacketField('status', 'status', 28, false, 4, 'uint32_t', ''),
-    new mavlink_1.MavLinkPacketField('temperature', 'temperature', 32, false, 2, 'int16_t', 'degC'),
 ];
 /**
  * Status from the transmitter telling the flight controller if the remote ID system is ready for
@@ -17761,6 +17789,38 @@ class NavRallyPointCommand extends CommandLong {
 }
 exports.NavRallyPointCommand = NavRallyPointCommand;
 /**
+ * Swarm vertex for an inclusion polygon
+ *
+ * This command has location.
+ */
+class NavSwarmRoiPolygonVertexInclusionCommand extends CommandLong {
+    constructor(targetSystem = 1, targetComponent = 1) {
+        super();
+        this.command = MavCmd.NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION;
+        this.targetSystem = targetSystem;
+        this.targetComponent = targetComponent;
+    }
+    /**
+     * Latitude
+     */
+    get latitude() {
+        return this._param5;
+    }
+    set latitude(value) {
+        this._param5 = value;
+    }
+    /**
+     * Longitude
+     */
+    get longitude() {
+        return this._param6;
+    }
+    set longitude(value) {
+        this._param6 = value;
+    }
+}
+exports.NavSwarmRoiPolygonVertexInclusionCommand = NavSwarmRoiPolygonVertexInclusionCommand;
+/**
  * Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every
  * UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver
  * can detect easily by checking whether every received UAVCAN_NODE_STATUS has a matching message
@@ -18751,11 +18811,6 @@ exports.REGISTRY = {
     301: AisVessel,
     310: UavcanNodeStatus,
     311: UavcanNodeInfo,
-    320: ParamExtRequestRead,
-    321: ParamExtRequestList,
-    322: ParamExtValue,
-    323: ParamExtSet,
-    324: ParamExtAck,
     330: ObstacleDistance,
     331: Odometry,
     335: IsbdLinkStatus,
@@ -18764,13 +18819,15 @@ exports.REGISTRY = {
     370: SmartBatteryInfo,
     373: GeneratorStatus,
     375: ActuatorOutputStatus,
+    2820: SwarmVehicle,
+    2821: SwarmVehicleSlow,
+    2822: SwarmVehicleRoi,
     376: RelayStatus,
     385: Tunnel,
     386: CanFrame,
     387: CanfdFrame,
     388: CanFilterModify,
     9000: WheelDistance,
-    9005: WinchStatus,
     12918: OpenDroneIdArmStatus,
     12919: OpenDroneIdSystemUpdate,
     12920: HygrometerSensor,
@@ -18904,6 +18961,7 @@ exports.COMMANDS = {
     [MavCmd.NAV_FENCE_CIRCLE_INCLUSION]: NavFenceCircleInclusionCommand,
     [MavCmd.NAV_FENCE_CIRCLE_EXCLUSION]: NavFenceCircleExclusionCommand,
     [MavCmd.NAV_RALLY_POINT]: NavRallyPointCommand,
+    [MavCmd.NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION]: NavSwarmRoiPolygonVertexInclusionCommand,
     [MavCmd.UAVCAN_GET_NODE_INFO]: UavcanGetNodeInfoCommand,
     [MavCmd.DO_SET_SAFETY_SWITCH_STATE]: DoSetSafetySwitchStateCommand,
     [MavCmd.DO_ADSB_OUT_IDENT]: DoAdsbOutIdentCommand,
