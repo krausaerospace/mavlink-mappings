@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.MemInfo = exports.SetMagOffsets = exports.SensorOffsets = exports.OsdParamConfigError = exports.OsdParamConfigType = exports.TrackerMode = exports.RoverMode = exports.SubMode = exports.CopterMode = exports.PlaneMode = exports.DeepstallStage = exports.DeviceOpBustype = exports.MavRemoteLogDataBlockStatuses = exports.MavRemoteLogDataBlockCommands = exports.PidTuningAxis = exports.EkfStatusFlags = exports.LedControlPattern = exports.MavCmdDoAuxFunctionSwitchLevel = exports.GoproBurstRate = exports.GoproModel = exports.GoproCharging = exports.GoproProtuneExposure = exports.GoproProtuneSharpness = exports.GoproProtuneGain = exports.GoproProtuneColour = exports.GoproProtuneWhiteBalance = exports.GoproPhotoResolution = exports.GoproVideoSettingsFlags = exports.GoproFieldOfView = exports.GoproFrameRate = exports.GoproResolution = exports.GoproCaptureMode = exports.GoproCommand = exports.GoproRequestStatus = exports.GoproHeartbeatFlags = exports.GoproHeartbeatStatus = exports.GimbalAxisCalibrationRequired = exports.GimbalAxisCalibrationStatus = exports.GimbalAxis = exports.MavModeGimbal = exports.CameraFeedbackFlags = exports.CameraStatusTypes = exports.RallyFlags = exports.LimitModule = exports.LimitsState = exports.SecureCommandOp = exports.ScriptingCmd = exports.MavCmd = exports.HeadingType = exports.AccelcalVehiclePos = void 0;
 exports.SecureCommand = exports.DeviceOpWriteReply = exports.DeviceOpWrite = exports.DeviceOpReadReply = exports.DeviceOpRead = exports.Rpm = exports.GoproSetResponse = exports.GoproSetRequest = exports.GoproGetResponse = exports.GoproGetRequest = exports.GoproHeartbeat = exports.GimbalTorqueCmdReport = exports.GimbalControl = exports.GimbalReport = exports.Deepstall = exports.PidTuning = exports.EkfStatusReport = exports.MagCalProgress = exports.LedControl = exports.RemoteLogBlockStatus = exports.RemoteLogDataBlock = exports.AutopilotVersionRequest = exports.Ahrs3 = exports.Battery2 = exports.CameraFeedback = exports.CameraStatus = exports.Ahrs2 = exports.CompassMotStatus = exports.RallyFetchPoint = exports.RallyPoint = exports.AirspeedAutocal = exports.RangeFinder = exports.Data96 = exports.Data64 = exports.Data32 = exports.Data16 = exports.Wind = exports.LimitsStatus = exports.Radio = exports.HwStatus = exports.SimState = exports.Ahrs = exports.FenceFetchPoint = exports.FencePoint = exports.MountStatus = exports.MountControl = exports.MountConfigure = exports.DigicamControl = exports.DigicamConfigure = exports.ApAdc = void 0;
-exports.GuidedChangeHeadingCommand = exports.GuidedChangeAltitudeCommand = exports.GuidedChangeSpeedCommand = exports.NavAttitudeTimeCommand = exports.NavScriptTimeCommand = exports.ScriptingCommand = exports.DebugTrapCommand = exports.BatteryResetCommand = exports.FlashBootloaderCommand = exports.GimbalFullResetCommand = exports.GimbalRequestAxisCalibrationCommand = exports.GimbalAxisCalibrationStatusCommand = exports.GimbalResetCommand = exports.SetFactoryTestModeCommand = exports.DoSendBannerCommand = exports.AccelcalVehiclePosCommand = exports.DoCancelMagCalCommand = exports.DoAcceptMagCalCommand = exports.DoStartMagCalCommand = exports.SetEkfSourceSetCommand = exports.FixedMagCalFieldCommand = exports.FixedMagCalCommand = exports.SoloBtnPauseClickCommand = exports.SoloBtnFlyHoldCommand = exports.SoloBtnFlyClickCommand = exports.PowerOffInitiatedCommand = exports.NavAltitudeWaitCommand = exports.DoAuxFunctionCommand = exports.DoSendScriptMessageCommand = exports.DoSprayerCommand = exports.DoSetResumeRepeatDistCommand = exports.EscTelemetry29To32 = exports.EscTelemetry25To28 = exports.EscTelemetry21To24 = exports.EscTelemetry17To20 = exports.EscTelemetry13To16 = exports.McuStatus = exports.WaterDepth = exports.ObstacleDistance3d = exports.OsdParamShowConfigReply = exports.OsdParamShowConfig = exports.OsdParamConfigReply = exports.OsdParamConfig = exports.EscTelemetry9To12 = exports.EscTelemetry5To8 = exports.EscTelemetry1To4 = exports.AoaSsa = exports.VisionPositionDelta = exports.AdapTuning = exports.SecureCommandReply = void 0;
-exports.COMMANDS = exports.REGISTRY = exports.ExternalPositionEstimateCommand = void 0;
+exports.ExternalPositionEstimateCommand = exports.GuidedChangeHeadingCommand = exports.GuidedChangeAltitudeCommand = exports.GuidedChangeSpeedCommand = exports.NavAttitudeTimeCommand = exports.NavScriptTimeCommand = exports.ScriptingCommand = exports.DebugTrapCommand = exports.BatteryResetCommand = exports.FlashBootloaderCommand = exports.GimbalFullResetCommand = exports.GimbalRequestAxisCalibrationCommand = exports.GimbalAxisCalibrationStatusCommand = exports.GimbalResetCommand = exports.SetFactoryTestModeCommand = exports.DoSendBannerCommand = exports.AccelcalVehiclePosCommand = exports.DoCancelMagCalCommand = exports.DoAcceptMagCalCommand = exports.DoStartMagCalCommand = exports.FixedMagCalFieldCommand = exports.FixedMagCalCommand = exports.SoloBtnPauseClickCommand = exports.SoloBtnFlyHoldCommand = exports.SoloBtnFlyClickCommand = exports.PowerOffInitiatedCommand = exports.NavAltitudeWaitCommand = exports.DoAuxFunctionCommand = exports.DoSendScriptMessageCommand = exports.DoSprayerCommand = exports.DoSetResumeRepeatDistCommand = exports.EscTelemetry29To32 = exports.EscTelemetry25To28 = exports.EscTelemetry21To24 = exports.EscTelemetry17To20 = exports.EscTelemetry13To16 = exports.McuStatus = exports.WaterDepth = exports.ObstacleDistance3d = exports.OsdParamShowConfigReply = exports.OsdParamShowConfig = exports.OsdParamConfigReply = exports.OsdParamConfig = exports.EscTelemetry9To12 = exports.EscTelemetry5To8 = exports.EscTelemetry1To4 = exports.AoaSsa = exports.VisionPositionDelta = exports.AdapTuning = exports.SecureCommandReply = void 0;
+exports.COMMANDS = exports.REGISTRY = void 0;
 const mavlink_1 = require("./mavlink");
 const common_1 = require("./common");
 /**
@@ -158,17 +158,6 @@ var MavCmd;
      * @param7 Empty.
      */
     MavCmd[MavCmd["FIXED_MAG_CAL_FIELD"] = 42005] = "FIXED_MAG_CAL_FIELD";
-    /**
-     * Set EKF sensor source set.
-     * @param1 SourceSetId (min: 1, max: 3, increment: 1) Source Set Id.
-     * @param2 Empty.
-     * @param3 Empty.
-     * @param4 Empty.
-     * @param5 Empty.
-     * @param6 Empty.
-     * @param7 Empty.
-     */
-    MavCmd[MavCmd["SET_EKF_SOURCE_SET"] = 42007] = "SET_EKF_SOURCE_SET";
     /**
      * Initiate a magnetometer calibration.
      * @param1 Magnetometers Bitmask (min: 0, max: 255, increment: 1) Bitmask of magnetometers to calibrate. Use 0 to calibrate all sensors that can be started (sensors may not start if disabled, unhealthy, etc.). The command will NACK if calibration does not start for a sensor explicitly specified by the bitmask.
@@ -407,14 +396,6 @@ var ScriptingCmd;
      * End a REPL session.
      */
     ScriptingCmd[ScriptingCmd["REPL_STOP"] = 1] = "REPL_STOP";
-    /**
-     * Stop execution of scripts.
-     */
-    ScriptingCmd[ScriptingCmd["STOP"] = 2] = "STOP";
-    /**
-     * Stop execution of scripts and restart.
-     */
-    ScriptingCmd[ScriptingCmd["STOP_AND_RESTART"] = 3] = "STOP_AND_RESTART";
 })(ScriptingCmd = exports.ScriptingCmd || (exports.ScriptingCmd = {}));
 /**
  * SECURE_COMMAND_OP
@@ -1519,7 +1500,6 @@ var CopterMode;
     CopterMode[CopterMode["ZIGZAG"] = 24] = "ZIGZAG";
     CopterMode[CopterMode["SYSTEMID"] = 25] = "SYSTEMID";
     CopterMode[CopterMode["AUTOROTATE"] = 26] = "AUTOROTATE";
-    CopterMode[CopterMode["AUTO_RTL"] = 27] = "AUTO_RTL";
 })(CopterMode = exports.CopterMode || (exports.CopterMode = {}));
 /**
  * A mapping of sub flight modes for custom_mode field of heartbeat.
@@ -1661,7 +1641,7 @@ SetMagOffsets.FIELDS = [
     new mavlink_1.MavLinkPacketField('target_component', 'targetComponent', 7, false, 1, 'uint8_t', ''),
 ];
 /**
- * State of autopilot RAM.
+ * State of APM memory.
  */
 class MemInfo extends mavlink_1.MavLinkData {
     constructor() {
@@ -1835,7 +1815,7 @@ MountControl.FIELDS = [
     new mavlink_1.MavLinkPacketField('save_position', 'savePosition', 14, false, 1, 'uint8_t', ''),
 ];
 /**
- * Message with some status from autopilot to GCS about camera or antenna mount.
+ * Message with some status from APM to GCS about camera or antenna mount.
  */
 class MountStatus extends mavlink_1.MavLinkData {
     constructor() {
@@ -2631,14 +2611,12 @@ class PidTuning extends mavlink_1.MavLinkData {
         this.P = 0;
         this.I = 0;
         this.D = 0;
-        this.SRate = 0;
-        this.PDmod = 0;
     }
 }
 exports.PidTuning = PidTuning;
 PidTuning.MSG_ID = 194;
 PidTuning.MSG_NAME = 'PID_TUNING';
-PidTuning.PAYLOAD_LENGTH = 33;
+PidTuning.PAYLOAD_LENGTH = 25;
 PidTuning.MAGIC_NUMBER = 98;
 PidTuning.FIELDS = [
     new mavlink_1.MavLinkPacketField('desired', 'desired', 0, false, 4, 'float', ''),
@@ -2648,8 +2626,6 @@ PidTuning.FIELDS = [
     new mavlink_1.MavLinkPacketField('I', 'I', 16, false, 4, 'float', ''),
     new mavlink_1.MavLinkPacketField('D', 'D', 20, false, 4, 'float', ''),
     new mavlink_1.MavLinkPacketField('axis', 'axis', 24, false, 1, 'uint8_t', ''),
-    new mavlink_1.MavLinkPacketField('SRate', 'SRate', 25, true, 4, 'float', ''),
-    new mavlink_1.MavLinkPacketField('PDmod', 'PDmod', 29, true, 4, 'float', ''),
 ];
 /**
  * Deepstall path planning.
@@ -3937,31 +3913,6 @@ class FixedMagCalFieldCommand extends common_2.CommandLong {
 }
 exports.FixedMagCalFieldCommand = FixedMagCalFieldCommand;
 /**
- * Set EKF sensor source set.
- */
-class SetEkfSourceSetCommand extends common_2.CommandLong {
-    constructor(targetSystem = 1, targetComponent = 1) {
-        super();
-        this.command = MavCmd.SET_EKF_SOURCE_SET;
-        this.targetSystem = targetSystem;
-        this.targetComponent = targetComponent;
-    }
-    /**
-     * Source Set Id.
-     *
-     * @min: 1
-     * @max: 3
-     * @increment: 1
-     */
-    get sourcesetid() {
-        return this._param1;
-    }
-    set sourcesetid(value) {
-        this._param1 = value;
-    }
-}
-exports.SetEkfSourceSetCommand = SetEkfSourceSetCommand;
-/**
  * Initiate a magnetometer calibration.
  */
 class DoStartMagCalCommand extends common_2.CommandLong {
@@ -4743,7 +4694,6 @@ exports.COMMANDS = {
     [MavCmd.SOLO_BTN_PAUSE_CLICK]: SoloBtnPauseClickCommand,
     [MavCmd.FIXED_MAG_CAL]: FixedMagCalCommand,
     [MavCmd.FIXED_MAG_CAL_FIELD]: FixedMagCalFieldCommand,
-    [MavCmd.SET_EKF_SOURCE_SET]: SetEkfSourceSetCommand,
     [MavCmd.DO_START_MAG_CAL]: DoStartMagCalCommand,
     [MavCmd.DO_ACCEPT_MAG_CAL]: DoAcceptMagCalCommand,
     [MavCmd.DO_CANCEL_MAG_CAL]: DoCancelMagCalCommand,

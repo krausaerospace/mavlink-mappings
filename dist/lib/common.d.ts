@@ -2457,6 +2457,20 @@ export declare enum MavCmd {
      */
     'NAV_RALLY_POINT' = 5100,
     /**
+     * Swarm vertex for an inclusion polygon
+     *
+     * @note has location
+     *
+     * @param1 Reserved
+     * @param2 Reserved
+     * @param3 Reserved
+     * @param4 Reserved
+     * @param5 Latitude Latitude
+     * @param6 Longitude Longitude
+     * @param74 Reserved
+     */
+    'NAV_SWARM_ROI_POLYGON_VERTEX_INCLUSION' = 5109,
+    /**
      * Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every
      * UAVCAN node that is online. Note that some of the response messages can be lost, which the receiver
      * can detect easily by checking whether every received UAVCAN_NODE_STATUS has a matching message
@@ -3498,6 +3512,11 @@ export declare enum MavMissionType {
      */
     'RALLY' = 2,
     /**
+     * Specifies Swarm Region-of-Interest. Items are either MAV_CMD_NAV_FENCE_POLYGON_VERTEX_INCLUSION or
+     * MAV_CMD_NAV_FENCE_CIRCLE_INCLUSION.
+     */
+    'SWARM_ROI' = 3,
+    /**
      * Only used in MISSION_CLEAR_ALL to clear all mission types.
      */
     'ALL' = 255
@@ -3631,70 +3650,6 @@ export declare enum MavBatteryChargeState {
      * Battery is charging.
      */
     'CHARGING' = 7
-}
-/**
- * Battery mode. Note, the normal operation mode (i.e. when flying) should be reported as
- * MAV_BATTERY_MODE_UNKNOWN to allow message trimming in normal flight.
- */
-export declare enum MavBatteryMode {
-    /**
-     * Battery mode not supported/unknown battery mode/normal operation.
-     */
-    'UNKNOWN' = 0,
-    /**
-     * Battery is auto discharging (towards storage level).
-     */
-    'AUTO_DISCHARGING' = 1,
-    /**
-     * Battery in hot-swap mode (current limited to prevent spikes that might damage sensitive electrical
-     * circuits).
-     */
-    'HOT_SWAP' = 2
-}
-/**
- * Smart battery supply status/fault flags (bitmask) for health indication. The battery must also
- * report either MAV_BATTERY_CHARGE_STATE_FAILED or MAV_BATTERY_CHARGE_STATE_UNHEALTHY if any of these
- * are set.
- */
-export declare enum MavBatteryFault {
-    /**
-     * Battery has deep discharged.
-     */
-    'DEEP_DISCHARGE' = 1,
-    /**
-     * Voltage spikes.
-     */
-    'SPIKES' = 2,
-    /**
-     * One or more cells have failed. Battery should also report MAV_BATTERY_CHARGE_STATE_FAILE (and should
-     * not be used).
-     */
-    'CELL_FAIL' = 4,
-    /**
-     * Over-current fault.
-     */
-    'OVER_CURRENT' = 8,
-    /**
-     * Over-temperature fault.
-     */
-    'OVER_TEMPERATURE' = 16,
-    /**
-     * Under-temperature fault.
-     */
-    'UNDER_TEMPERATURE' = 32,
-    /**
-     * Vehicle voltage is not compatible with this battery (batteries on same power rail should have
-     * similar voltage).
-     */
-    'INCOMPATIBLE_VOLTAGE' = 64,
-    /**
-     * Battery firmware is not compatible with current autopilot firmware.
-     */
-    'INCOMPATIBLE_FIRMWARE' = 128,
-    /**
-     * Battery is not compatible due to cell configuration (e.g. 5s1p when vehicle requires 6s).
-     */
-    'BATTERY_FAULT_INCOMPATIBLE_CELLS_CONFIGURATION' = 256
 }
 /**
  * Flags to report status/failure cases for a power generator (used in GENERATOR_STATUS). Note that
@@ -5422,6 +5377,137 @@ export declare enum AisFlags {
     'LARGE_STARBOARD_DIMENSION' = 1024,
     'VALID_CALLSIGN' = 2048,
     'VALID_NAME' = 4096
+}
+/**
+ * Status of what an individual swarm vehicle is doing.
+ */
+export declare enum SwarmVehicleState {
+    /**
+     * Unknown.
+     */
+    'STATE_UNKNOWN' = 0,
+    /**
+     * Currently traveling to join the mesh network.
+     */
+    'STATE_INGRESSING_TO_MESH' = 1,
+    /**
+     * Have lost contact with the mesh and unable to sync and unable to provide service.
+     */
+    'STATE_LOST_COMMS' = 2,
+    /**
+     * Situation NORMAL, on station providing service
+     */
+    'STATE_ON_STATION' = 3,
+    /**
+     * On station providing service but requesting Return to Base soon, will need to leave the on station
+     * point within 30min. This allows time for an additional vehicle to join the swarm to take it's place
+     * without a gap in coverage. Next expected state is ON_STATION_BUT_REQUESTION_RTB_NOW.
+     */
+    'STATE_ON_STATION_BUT_REQUESTION_RTB_SOON' = 4,
+    /**
+     * On station providing service but will be switching to Return to Base in less than 2 minutes. Next
+     * expected state is EGRESSING_MESH_RTB.
+     */
+    'STATE_ON_STATION_BUT_REQUESTION_RTB_NOW' = 5,
+    /**
+     * Was recently on station but mesh topography has changed and are currently in transit to new on
+     * station point.
+     */
+    'STATE_WAS_ON_STATION_BUT_RELOCATING' = 6,
+    /**
+     * Leaving mesh to return to base. Is still acting as mesh node providing service on the way back.
+     */
+    'STATE_EGRESSING_MESH_RTB' = 7,
+    /**
+     * Returning to base. May or may-not be providing service on the way back.
+     */
+    'STATE_RTB' = 8,
+    /**
+     * Not providing service but is able and ready to join.
+     */
+    'STATE_READY_TO_JOIN_MESH' = 9,
+    /**
+     * Not ready, not providing service. For air vehicles this means we're powered up on the ground and
+     * likely performing ground checks. Next expected state is likely READY_TO_JOIN_MESH.
+     */
+    'STATE_NOT_READY' = 10,
+    /**
+     * This is the Ground Control Station.
+     */
+    'GCS' = 11
+}
+/**
+ * Type of the vehicle that is swarming. Sample types are fixed-wing, copter, tank, jeep, human.
+ */
+export declare enum SwarmVehicleType {
+    /**
+     * Unknown.
+     */
+    'UNKNOWN' = 0,
+    /**
+     * Fixed wing aircraft
+     */
+    'FIXED_WING' = 1,
+    /**
+     * Copter
+     */
+    'COPTER' = 2,
+    /**
+     * Tank
+     */
+    'TANK' = 3,
+    /**
+     * Jeep
+     */
+    'JEEP' = 4,
+    /**
+     * Human
+     */
+    'HUMAN' = 5
+}
+/**
+ * Status of the ROI from the swarm vehicle's perspective.
+ */
+export declare enum SwarmRoiStatus {
+    'UNKNOWN' = 0,
+    'INVALID' = 1,
+    /**
+     * Has a valid ROI but it's old. We've seen another CRC with a newer timestamp.
+     */
+    'NEEDS_UPDATE' = 2,
+    /**
+     * Has a valid and up-to-date ROI.
+     */
+    'OK' = 3
+}
+/**
+ * Status of mesh network coverage. Ideally the whole swarm should be generating the same status.
+ */
+export declare enum SwarmCoverageStatus {
+    'UNKNOWN' = 0,
+    /**
+     * ROI is not ready so a coverage status is unable to be determined.
+     */
+    'ROI_IS_NOT_READY' = 1,
+    /**
+     * Swarm mesh has insufficient vehicle resources to cover the ROI.
+     */
+    'NOT_ENOUGH_VEHICLES' = 2,
+    /**
+     * Swarm mesh currently has the minimum resources to cover the ROI. However, network is expected to
+     * have breif gaps in service coverage.
+     */
+    'MINIMUM' = 3,
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy Quality
+     * of Service requirement.
+     */
+    'QOS_GOOD' = 4,
+    /**
+     * Swarm mesh currently has enough vehicle resources to cover the ROI sufficiently to satisfy MORE than
+     * the Quality of Service requirement to better handle unexpected loss of mesh node(s).
+     */
+    'QOS_VERY_GOOD' = 5
 }
 /**
  * Winch status flags used in WINCH_STATUS
@@ -8164,25 +8250,6 @@ export declare class CommandAck extends MavLinkData {
      * Result of command.
      */
     result: MavResult;
-    /**
-     * Also used as result_param1, it can be set with a enum containing the errors reasons of why the
-     * command was denied or the progress percentage or 255 if unknown the progress when result is
-     * MAV_RESULT_IN_PROGRESS.
-     */
-    progress: uint8_t;
-    /**
-     * Additional parameter of the result, example: which parameter of MAV_CMD_NAV_WAYPOINT caused it to be
-     * denied.
-     */
-    resultParam2: int32_t;
-    /**
-     * System which requested the command to be executed
-     */
-    targetSystem: uint8_t;
-    /**
-     * Component which requested the command to be executed
-     */
-    targetComponent: uint8_t;
 }
 /**
  * Setpoint in roll, pitch, yaw and thrust from the operator
@@ -11390,16 +11457,6 @@ export declare class BatteryStatus extends MavLinkData {
      * Units: mV
      */
     voltagesExt: uint16_t[];
-    /**
-     * Battery mode. Default (0) is that battery mode reporting is not supported or battery is in
-     * normal-use mode.
-     */
-    mode: MavBatteryMode;
-    /**
-     * Fault/health indications. These should be set when charge_state is MAV_BATTERY_CHARGE_STATE_FAILED
-     * or MAV_BATTERY_CHARGE_STATE_UNHEALTHY (if not, fault reporting is not supported).
-     */
-    faultBitmask: MavBatteryFault;
 }
 /**
  * Version and capability of autopilot software. This should be emitted in response to a request with
@@ -13105,16 +13162,6 @@ export declare class StorageInformation extends MavLinkData {
      * Units: MiB/s
      */
     writeSpeed: float;
-    /**
-     * Type of storage
-     */
-    type: StorageType;
-    /**
-     * Textual storage name to be used in UI (microSD 1, Internal Memory, etc.) This is a NULL terminated
-     * string. If it is exactly 32 characters long, add a terminating NULL. If this string is empty, the
-     * generic type is shown to the user.
-     */
-    name: string;
 }
 /**
  * Information about the status of a capture. Can be requested with a MAV_CMD_REQUEST_MESSAGE command.
@@ -14468,157 +14515,6 @@ export declare class UavcanNodeInfo extends MavLinkData {
     swVcsCommit: uint32_t;
 }
 /**
- * Request to read the value of a parameter with either the param_id string id or param_index.
- * PARAM_EXT_VALUE should be emitted in response.
- */
-export declare class ParamExtRequestRead extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    constructor();
-    /**
-     * System ID
-     */
-    targetSystem: uint8_t;
-    /**
-     * Component ID
-     */
-    targetComponent: uint8_t;
-    /**
-     * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-     * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-     * storage if the ID is stored as string
-     */
-    paramId: string;
-    /**
-     * Parameter index. Set to -1 to use the Parameter ID field as identifier (else param_id will be
-     * ignored)
-     */
-    paramIndex: int16_t;
-}
-/**
- * Request all parameters of this component. All parameters should be emitted in response as
- * PARAM_EXT_VALUE.
- */
-export declare class ParamExtRequestList extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    constructor();
-    /**
-     * System ID
-     */
-    targetSystem: uint8_t;
-    /**
-     * Component ID
-     */
-    targetComponent: uint8_t;
-}
-/**
- * Emit the value of a parameter. The inclusion of param_count and param_index in the message allows
- * the recipient to keep track of received parameters and allows them to re-request missing parameters
- * after a loss or timeout.
- */
-export declare class ParamExtValue extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    constructor();
-    /**
-     * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-     * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-     * storage if the ID is stored as string
-     */
-    paramId: string;
-    /**
-     * Parameter value
-     */
-    paramValue: string;
-    /**
-     * Parameter type.
-     */
-    paramType: MavParamExtType;
-    /**
-     * Total number of parameters
-     */
-    paramCount: uint16_t;
-    /**
-     * Index of this parameter
-     */
-    paramIndex: uint16_t;
-}
-/**
- * Set a parameter value. In order to deal with message loss (and retransmission of PARAM_EXT_SET),
- * when setting a parameter value and the new value is the same as the current value, you will
- * immediately get a PARAM_ACK_ACCEPTED response. If the current state is PARAM_ACK_IN_PROGRESS, you
- * will accordingly receive a PARAM_ACK_IN_PROGRESS in response.
- */
-export declare class ParamExtSet extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    constructor();
-    /**
-     * System ID
-     */
-    targetSystem: uint8_t;
-    /**
-     * Component ID
-     */
-    targetComponent: uint8_t;
-    /**
-     * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-     * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-     * storage if the ID is stored as string
-     */
-    paramId: string;
-    /**
-     * Parameter value
-     */
-    paramValue: string;
-    /**
-     * Parameter type.
-     */
-    paramType: MavParamExtType;
-}
-/**
- * Response from a PARAM_EXT_SET message.
- */
-export declare class ParamExtAck extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    constructor();
-    /**
-     * Parameter id, terminated by NULL if the length is less than 16 human-readable chars and WITHOUT null
-     * termination (NULL) byte if the length is exactly 16 chars - applications have to provide 16+1 bytes
-     * storage if the ID is stored as string
-     */
-    paramId: string;
-    /**
-     * Parameter value (new value if PARAM_ACK_ACCEPTED, current value otherwise)
-     */
-    paramValue: string;
-    /**
-     * Parameter type.
-     */
-    paramType: MavParamExtType;
-    /**
-     * Result code.
-     */
-    paramResult: ParamAck;
-}
-/**
  * Obstacle distances in front of the sensor, starting from the left in increment degrees to the right
  */
 export declare class ObstacleDistance extends MavLinkData {
@@ -15146,6 +15042,189 @@ export declare class ActuatorOutputStatus extends MavLinkData {
     actuator: float[];
 }
 /**
+ * Position of an aircraft in swarm.
+ */
+export declare class SwarmVehicle extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    constructor();
+    /**
+     * UTC timestamp of when this packet was generated. Seconds since 1970, or 0 if not available.
+     * Units: s
+     */
+    timestamp: uint32_t;
+    /**
+     * Aircraft ID
+     */
+    aircraftId: uint16_t;
+    /**
+     * Squadron ID
+     */
+    squadronId: uint16_t;
+    /**
+     * Staus of vehicle
+     */
+    stateNav: SwarmVehicleState;
+    /**
+     * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
+     * Units: m
+     */
+    effectiveRadius: float;
+    /**
+     * Latitude
+     * Units: degE7
+     */
+    lat: int32_t;
+    /**
+     * Longitude
+     * Units: degE7
+     */
+    lon: int32_t;
+    /**
+     * MSL Altitude.
+     * Units: m
+     */
+    altMSL: float;
+    /**
+     * Target Latitude
+     * Units: degE7
+     */
+    latTarget: int32_t;
+    /**
+     * Target Longitude
+     * Units: degE7
+     */
+    lonTarget: int32_t;
+    /**
+     * Target MSL Altitude.
+     * Units: m
+     */
+    altMSLTarget: float;
+    /**
+     * Swarm Vehicle Type
+     */
+    vehicleType: SwarmVehicleType;
+}
+/**
+ * Position of an aircraft in swarm with data that updates less often.
+ */
+export declare class SwarmVehicleSlow extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    constructor();
+    /**
+     * UTC timestamp of when this packet was generated. Seconds since 1970, or 0 if not available.
+     * Units: s
+     */
+    timestamp: uint32_t;
+    /**
+     * Aircraft ID
+     */
+    aircraftId: uint16_t;
+    /**
+     * Squadron ID
+     */
+    squadronId: uint16_t;
+    /**
+     * Staus of vehicle
+     */
+    stateNav: SwarmVehicleState;
+    /**
+     * Staus coverage area
+     */
+    stateCoverage: SwarmCoverageStatus;
+    /**
+     * Staus of vehicle's ROI
+     */
+    stateRoi: SwarmRoiStatus;
+    /**
+     * Speed
+     * Units: m/s
+     */
+    speed: uint16_t;
+    /**
+     * Course over Ground (GPS heading). Range: 0-35999
+     * Units: cdeg
+     */
+    cog: uint16_t;
+    /**
+     * Effective Radius of radio distance. Includes loiter radius and any overlap margin.
+     * Units: m
+     */
+    effectiveRadius: float;
+    /**
+     * Target Latitude
+     * Units: degE7
+     */
+    latTarget: int32_t;
+    /**
+     * Target Longitude
+     * Units: degE7
+     */
+    lonTarget: int32_t;
+    /**
+     * Target MSL Altitude.
+     * Units: m
+     */
+    altMSLTarget: float;
+    /**
+     * Swarm Vehicle Type
+     */
+    vehicleType: SwarmVehicleType;
+    /**
+     * Region-of-Interest 32bit CRC. Zero indicates unknown. If a valid CRC computes to zero, use 1. This
+     * CRC is used to verify an ROI that is actively loaded. It is used to keep the swarm in sync without
+     * having to constantly send it to the mesh to verify.
+     */
+    ROICrc: uint32_t;
+    /**
+     * UTC timestamp of ROI generation. Seconds since 1970, or 0 if not available.
+     * Units: s
+     */
+    ROITimestamp: uint32_t;
+}
+/**
+ * Region of Interest points. Array of int32_t lat/lng pairs of polygon points.
+ */
+export declare class SwarmVehicleRoi extends MavLinkData {
+    static MSG_ID: number;
+    static MSG_NAME: string;
+    static PAYLOAD_LENGTH: number;
+    static MAGIC_NUMBER: number;
+    static FIELDS: MavLinkPacketField[];
+    constructor();
+    /**
+     * Aircraft ID of intended target. Use 0 for broadcast.
+     */
+    idTarget: uint32_t;
+    /**
+     * 32bit CRC of ROI of the complete polygon.
+     */
+    crc: uint32_t;
+    /**
+     * UTC timestamp of ROI generation. Seconds since 1970, or 0 if not available.
+     * Units: s
+     */
+    timestampS: uint32_t;
+    /**
+     * Number of points in the ROI polygon. One point is considered an int32 pair. This value must be >= 3
+     * to be a valid polygon.
+     */
+    pointCount: uint32_t;
+    /**
+     * Latitude and Longitude int32 pairs. One polygon point is two of these enteries. Even indexed values
+     * are latitude, odd are longitude.
+     * Units: degE7
+     */
+    points: int32_t[];
+}
+/**
  * Reports the on/off state of relays, as controlled by MAV_CMD_DO_SET_RELAY.
  */
 export declare class RelayStatus extends MavLinkData {
@@ -15343,57 +15422,6 @@ export declare class WheelDistance extends MavLinkData {
      * Units: m
      */
     distance: double[];
-}
-/**
- * Winch status.
- */
-export declare class WinchStatus extends MavLinkData {
-    static MSG_ID: number;
-    static MSG_NAME: string;
-    static PAYLOAD_LENGTH: number;
-    static MAGIC_NUMBER: number;
-    static FIELDS: MavLinkPacketField[];
-    constructor();
-    /**
-     * Timestamp (synced to UNIX time or since system boot).
-     * Units: us
-     */
-    timeUsec: uint64_t;
-    /**
-     * Length of line released. NaN if unknown
-     * Units: m
-     */
-    lineLength: float;
-    /**
-     * Speed line is being released or retracted. Positive values if being released, negative values if
-     * being retracted, NaN if unknown
-     * Units: m/s
-     */
-    speed: float;
-    /**
-     * Tension on the line. NaN if unknown
-     * Units: kg
-     */
-    tension: float;
-    /**
-     * Voltage of the battery supplying the winch. NaN if unknown
-     * Units: V
-     */
-    voltage: float;
-    /**
-     * Current draw from the winch. NaN if unknown
-     * Units: A
-     */
-    current: float;
-    /**
-     * Temperature of the motor. INT16_MAX if unknown
-     * Units: degC
-     */
-    temperature: int16_t;
-    /**
-     * Status flags
-     */
-    status: MavWinchStatusFlag;
 }
 /**
  * Status from the transmitter telling the flight controller if the remote ID system is ready for
@@ -19053,6 +19081,24 @@ export declare class NavRallyPointCommand extends CommandLong {
      */
     get altitude(): number;
     set altitude(value: number);
+}
+/**
+ * Swarm vertex for an inclusion polygon
+ *
+ * This command has location.
+ */
+export declare class NavSwarmRoiPolygonVertexInclusionCommand extends CommandLong {
+    constructor(targetSystem?: number, targetComponent?: number);
+    /**
+     * Latitude
+     */
+    get latitude(): number;
+    set latitude(value: number);
+    /**
+     * Longitude
+     */
+    get longitude(): number;
+    set longitude(value: number);
 }
 /**
  * Commands the vehicle to respond with a sequence of messages UAVCAN_NODE_INFO, one message per every

@@ -151,17 +151,6 @@ export declare enum MavCmd {
      */
     'FIXED_MAG_CAL_FIELD' = 42005,
     /**
-     * Set EKF sensor source set.
-     * @param1 SourceSetId (min: 1, max: 3, increment: 1) Source Set Id.
-     * @param2 Empty.
-     * @param3 Empty.
-     * @param4 Empty.
-     * @param5 Empty.
-     * @param6 Empty.
-     * @param7 Empty.
-     */
-    'SET_EKF_SOURCE_SET' = 42007,
-    /**
      * Initiate a magnetometer calibration.
      * @param1 Magnetometers Bitmask (min: 0, max: 255, increment: 1) Bitmask of magnetometers to calibrate. Use 0 to calibrate all sensors that can be started (sensors may not start if disabled, unhealthy, etc.). The command will NACK if calibration does not start for a sensor explicitly specified by the bitmask.
      * @param2 Retry on Failure (min: 0, max: 1, increment: 1) Automatically retry on failure (0=no retry, 1=retry).
@@ -397,15 +386,7 @@ export declare enum ScriptingCmd {
     /**
      * End a REPL session.
      */
-    'REPL_STOP' = 1,
-    /**
-     * Stop execution of scripts.
-     */
-    'STOP' = 2,
-    /**
-     * Stop execution of scripts and restart.
-     */
-    'STOP_AND_RESTART' = 3
+    'REPL_STOP' = 1
 }
 /**
  * SECURE_COMMAND_OP
@@ -1471,8 +1452,7 @@ export declare enum CopterMode {
     'FOLLOW' = 23,
     'ZIGZAG' = 24,
     'SYSTEMID' = 25,
-    'AUTOROTATE' = 26,
-    'AUTO_RTL' = 27
+    'AUTOROTATE' = 26
 }
 /**
  * A mapping of sub flight modes for custom_mode field of heartbeat.
@@ -1636,7 +1616,7 @@ export declare class SetMagOffsets extends MavLinkData {
     magOfsZ: int16_t;
 }
 /**
- * State of autopilot RAM.
+ * State of APM memory.
  */
 export declare class MemInfo extends MavLinkData {
     static MSG_ID: number;
@@ -1875,7 +1855,7 @@ export declare class MountControl extends MavLinkData {
     savePosition: uint8_t;
 }
 /**
- * Message with some status from autopilot to GCS about camera or antenna mount.
+ * Message with some status from APM to GCS about camera or antenna mount.
  */
 export declare class MountStatus extends MavLinkData {
     static MSG_ID: number;
@@ -2995,14 +2975,6 @@ export declare class PidTuning extends MavLinkData {
      * D component.
      */
     D: float;
-    /**
-     * Slew rate.
-     */
-    SRate: float;
-    /**
-     * P/D oscillation modifier.
-     */
-    PDmod: float;
 }
 /**
  * Deepstall path planning.
@@ -4520,21 +4492,6 @@ export declare class FixedMagCalFieldCommand extends CommandLong {
      */
     get fieldZ(): number;
     set fieldZ(value: number);
-}
-/**
- * Set EKF sensor source set.
- */
-export declare class SetEkfSourceSetCommand extends CommandLong {
-    constructor(targetSystem?: number, targetComponent?: number);
-    /**
-     * Source Set Id.
-     *
-     * @min: 1
-     * @max: 3
-     * @increment: 1
-     */
-    get sourcesetid(): number;
-    set sourcesetid(value: number);
 }
 /**
  * Initiate a magnetometer calibration.
