@@ -14,7 +14,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.storm32 = exports.ualberta = exports.development = exports.asluav = exports.icarous = exports.uavionix = exports.ardupilotmega = exports.common = exports.minimal = void 0;
+exports.kha = exports.storm32 = exports.ualberta = exports.development = exports.asluav = exports.icarous = exports.uavionix = exports.ardupilotmega = exports.common = exports.minimal = void 0;
 __exportStar(require("mavlink-mappings-gen"), exports);
 __exportStar(require("./lib/types"), exports);
 __exportStar(require("./lib/mavlink"), exports);
@@ -28,4 +28,5 @@ exports.asluav = require("./lib/asluav");
 exports.development = require("./lib/development");
 exports.ualberta = require("./lib/ualberta");
 exports.storm32 = require("./lib/storm32");
+exports.kha = require("./lib/kha");
 //# sourceMappingURL=index.js.map
