@@ -15,7 +15,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.kha = exports.storm32 = exports.ualberta = exports.development = exports.asluav = exports.icarous = exports.uavionix = exports.ardupilotmega = exports.common = exports.minimal = void 0;
-__exportStar(require("mavlink-mappings-gen"), exports);
 __exportStar(require("./lib/types"), exports);
 __exportStar(require("./lib/mavlink"), exports);
 __exportStar(require("./lib/magic-numbers"), exports);

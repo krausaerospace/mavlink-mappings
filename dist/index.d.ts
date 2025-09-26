@@ -1,4 +1,3 @@
-export * from "mavlink-mappings-gen";
 export * from "./lib/types";
 export * from "./lib/mavlink";
 export * from "./lib/magic-numbers";
