@@ -1,4 +1,5 @@
-export { x25crc } from "mavlink-mappings-gen";
+/// <reference types="node" />
+export declare function x25crc(buffer: Buffer, start?: number, trim?: number, magic?: number | null): number;
 export * from "./lib/types";
 export * from "./lib/mavlink";
 export * from "./lib/magic-numbers";
@@ -11,4 +12,3 @@ export * as asluav from "./lib/asluav";
 export * as development from "./lib/development";
 export * as ualberta from "./lib/ualberta";
 export * as storm32 from "./lib/storm32";
-export * as kha from "./lib/kha";

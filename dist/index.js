@@ -14,9 +14,25 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.kha = exports.storm32 = exports.ualberta = exports.development = exports.asluav = exports.icarous = exports.uavionix = exports.ardupilotmega = exports.common = exports.minimal = exports.x25crc = void 0;
-var mavlink_mappings_gen_1 = require("mavlink-mappings-gen");
-Object.defineProperty(exports, "x25crc", { enumerable: true, get: function () { return mavlink_mappings_gen_1.x25crc; } });
+exports.storm32 = exports.ualberta = exports.development = exports.asluav = exports.icarous = exports.uavionix = exports.ardupilotmega = exports.common = exports.minimal = exports.x25crc = void 0;
+function x25crc(buffer, start = 0, trim = 0, magic = null) {
+    let crc = 0xffff;
+    const digest = (byte) => {
+        let tmp = (byte & 0xff) ^ (crc & 0xff);
+        tmp ^= tmp << 4;
+        tmp &= 0xff;
+        crc = (crc >> 8) ^ (tmp << 8) ^ (tmp << 3) ^ (tmp >> 4);
+        crc &= 0xffff;
+    };
+    for (let i = start; i < buffer.length - trim; i++) {
+        digest(buffer[i]);
+    }
+    if (magic !== null) {
+        digest(magic);
+    }
+    return crc;
+}
+exports.x25crc = x25crc;
 __exportStar(require("./lib/types"), exports);
 __exportStar(require("./lib/mavlink"), exports);
 __exportStar(require("./lib/magic-numbers"), exports);
@@ -29,5 +45,4 @@ exports.asluav = require("./lib/asluav");
 exports.development = require("./lib/development");
 exports.ualberta = require("./lib/ualberta");
 exports.storm32 = require("./lib/storm32");
-exports.kha = require("./lib/kha");
 //# sourceMappingURL=index.js.map
