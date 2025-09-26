@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.COMMANDS = exports.REGISTRY = exports.DoSetSysCmpIdCommand = exports.RadioRcChannels = exports.Airspeed = exports.MissionChecksum = exports.MavCmd = exports.RadioRcChannelsFlags = exports.AirspeedSensorFlags = void 0;
+exports.REGISTRY = exports.RadioRcChannels = exports.Airspeed = exports.MissionChecksum = exports.RadioRcChannelsFlags = exports.AirspeedSensorFlags = void 0;
 const mavlink_1 = require("./mavlink");
 const common_1 = require("./common");
 /**
@@ -34,21 +34,6 @@ var RadioRcChannelsFlags;
      */
     RadioRcChannelsFlags[RadioRcChannelsFlags["OUTDATED"] = 2] = "OUTDATED";
 })(RadioRcChannelsFlags = exports.RadioRcChannelsFlags || (exports.RadioRcChannelsFlags = {}));
-/**
- * MAV_CMD
- */
-var MavCmd;
-(function (MavCmd) {
-    /**
-     * Set system and component id. This allows moving of a system and all its components to a new system
-     * id, or moving a particular component to a new system/component id. Recipients must reject command
-     * addressed to broadcast system ID.
-     * @param1 System ID (min: 1, max: 255, increment: 1) New system ID for target component(s). 0: ignore and reject command (broadcast system ID not allowed).
-     * @param2 Component ID (min: 0, max: 255, increment: 1) New component ID for target component(s). 0: ignore (component IDs don't change).
-     * @param3 Reboot Reboot components after ID change. Any non-zero value triggers the reboot.
-     */
-    MavCmd[MavCmd["DO_SET_SYS_CMP_ID"] = 610] = "DO_SET_SYS_CMP_ID";
-})(MavCmd = exports.MavCmd || (exports.MavCmd = {}));
 /**
  * Checksum for the current mission, rally point or geofence plan, or for the "combined" plan (a GCS
  * can use these checksums to determine if it has matching plans). This message must be broadcast with
@@ -151,63 +136,9 @@ RadioRcChannels.FIELDS = [
     new mavlink_1.MavLinkPacketField('count', 'count', 8, false, 1, 'uint8_t', ''),
     new mavlink_1.MavLinkPacketField('channels', 'channels', 9, true, 2, 'int16_t[]', '', 32),
 ];
-const common_2 = require("./common");
-/**
- * Set system and component id. This allows moving of a system and all its components to a new system
- * id, or moving a particular component to a new system/component id. Recipients must reject command
- * addressed to broadcast system ID.
- */
-class DoSetSysCmpIdCommand extends common_2.CommandLong {
-    constructor(targetSystem = 1, targetComponent = 1) {
-        super();
-        this.command = MavCmd.DO_SET_SYS_CMP_ID;
-        this.targetSystem = targetSystem;
-        this.targetComponent = targetComponent;
-    }
-    /**
-     * New system ID for target component(s). 0: ignore and reject command (broadcast system ID not
-     * allowed).
-     *
-     * @min: 1
-     * @max: 255
-     * @increment: 1
-     */
-    get systemId() {
-        return this._param1;
-    }
-    set systemId(value) {
-        this._param1 = value;
-    }
-    /**
-     * New component ID for target component(s). 0: ignore (component IDs don't change).
-     *
-     * @min: 0
-     * @max: 255
-     * @increment: 1
-     */
-    get componentId() {
-        return this._param2;
-    }
-    set componentId(value) {
-        this._param2 = value;
-    }
-    /**
-     * Reboot components after ID change. Any non-zero value triggers the reboot.
-     */
-    get reboot() {
-        return this._param3;
-    }
-    set reboot(value) {
-        this._param3 = value;
-    }
-}
-exports.DoSetSysCmpIdCommand = DoSetSysCmpIdCommand;
 exports.REGISTRY = {
     53: MissionChecksum,
     295: Airspeed,
     420: RadioRcChannels,
-};
-exports.COMMANDS = {
-    [MavCmd.DO_SET_SYS_CMP_ID]: DoSetSysCmpIdCommand,
 };
 //# sourceMappingURL=development.js.map

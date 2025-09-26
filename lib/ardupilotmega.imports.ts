@@ -6,14 +6,14 @@ import {
   int32_t,
   uint32_t,
   uint64_t,
-  float
-} from './types'
+  float,
+} from "./types";
 
 import {
   MavLinkPacketRegistry,
   MavLinkPacketField,
   MavLinkData,
-} from './mavlink'
+} from "./mavlink";
 
 import {
   MavMountMode,
@@ -22,5 +22,4 @@ import {
   MavResult,
   MagCalStatus,
   MavLinkCommandRegistry,
-  MavResult
-} from './common'
+} from "./common";

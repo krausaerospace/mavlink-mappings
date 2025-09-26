@@ -8,25 +8,19 @@ import {
   int64_t,
   uint64_t,
   float,
-  double
-} from './types'
+  double,
+} from "./types";
 
 import {
   MavLinkPacketRegistry,
   MavLinkPacketField,
   MavLinkData,
-  MavLinkDataConstructor
-} from './mavlink'
+  MavLinkDataConstructor,
+} from "./mavlink";
 
-import {
-  MavType,
-  MavAutopilot,
-  MavModeFlag
-} from './minimal'
+import { MavType, MavAutopilot, MavModeFlag } from "./minimal";
 
-import {
-  MavBool,
-  MavProtocolCapability
-} from './standard'
-
-export type MavLinkCommandRegistry = Record<number, MavLinkDataConstructor<CommandLong>>
+export type MavLinkCommandRegistry = Record<
+  number,
+  MavLinkDataConstructor<CommandLong>
+>;
