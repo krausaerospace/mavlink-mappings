@@ -12,3 +12,4 @@ export * as asluav from "./lib/asluav";
 export * as development from "./lib/development";
 export * as ualberta from "./lib/ualberta";
 export * as storm32 from "./lib/storm32";
+export * as kha from "./lib/kha";
