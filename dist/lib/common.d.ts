@@ -1009,6 +1009,28 @@ export declare enum StorageType {
     'OTHER' = 254
 }
 /**
+ * Flags to indicate usage for a particular storage (see STORAGE_INFORMATION.storage_usage and
+ * MAV_CMD_SET_STORAGE_USAGE).
+ */
+export declare enum StorageUsageFlag {
+    /**
+     * Always set to 1 (indicates STORAGE_INFORMATION.storage_usage is supported).
+     */
+    'SET' = 1,
+    /**
+     * Storage for saving photos.
+     */
+    'PHOTO' = 2,
+    /**
+     * Storage for saving videos.
+     */
+    'VIDEO' = 4,
+    /**
+     * Storage for saving logs.
+     */
+    'LOGS' = 8
+}
+/**
  * Enable axes that will be tuned via autotuning. Used in MAV_CMD_DO_AUTOTUNE_ENABLE.
  */
 export declare enum AutotuneAxis {
@@ -2150,6 +2172,25 @@ export declare enum MavCmd {
      * @param2 Focus Value Focus value
      */
     'SET_CAMERA_FOCUS' = 532,
+    /**
+     * Set that a particular storage is the preferred location for saving photos, videos, and/or other
+     * media (e.g. to set that an SD card is used for storing videos). There can only be one preferred save
+     * location for each particular media type: setting a media usage flag will clear/reset that same flag
+     * if set on any other storage. If no flag is set the system should use its default storage. A target
+     * system can choose to always use default storage, in which case it should ACK the command with
+     * MAV_RESULT_UNSUPPORTED. A target system can choose to not allow a particular storage to be set as
+     * preferred storage, in which case it should ACK the command with MAV_RESULT_DENIED.
+     * @param1 Storage ID (min: 0, increment: 1) Storage ID (1 for first, 2 for second, etc.)
+     * @param2 Usage Usage flags
+     */
+    'SET_STORAGE_USAGE' = 533,
+    /**
+     * Set camera source. Changes the camera's active sources on cameras with multiple image sensors.
+     * @param1 device id Component Id of camera to address or 1-6 for non-MAVLink cameras, 0 for all cameras.
+     * @param2 primary source Primary Source
+     * @param3 secondary source Secondary Source. If non-zero the second source will be displayed as picture-in-picture.
+     */
+    'SET_CAMERA_SOURCE' = 534,
     /**
      * Tagged jump target. Can be jumped to with MAV_CMD_DO_JUMP_TAG.
      * @param1 Tag (min: 0, increment: 1) Tag.
@@ -3478,7 +3519,11 @@ export declare enum MavProtocolCapability {
     /**
      * Autopilot supports the flight information protocol.
      */
-    'FLIGHT_INFORMATION' = 65536
+    'FLIGHT_INFORMATION' = 65536,
+    /**
+     * Autopilot supports swarming.
+     */
+    'SWARMING' = 131072
 }
 /**
  * Type of mission items being requested/sent in mission protocol.
@@ -3846,7 +3891,11 @@ export declare enum MavLandedState {
     /**
      * MAV currently landing
      */
-    'LANDING' = 4
+    'LANDING' = 4,
+    /**
+     * MAV currently aborting a landing
+     */
+    'GO_AROUND' = 5
 }
 /**
  * Enumeration of the ADSB altimeter types
@@ -4426,6 +4475,27 @@ export declare enum SetFocusType {
      * Continuous auto focus. Mainly used for dynamic scenes. Abbreviated as AF-C.
      */
     'AUTO_CONTINUOUS' = 6
+}
+/**
+ * Camera sources for MAV_CMD_SET_CAMERA_SOURCE
+ */
+export declare enum CameraSource {
+    /**
+     * Default camera source.
+     */
+    'DEFAULT' = 0,
+    /**
+     * RGB camera source.
+     */
+    'RGB' = 1,
+    /**
+     * IR camera source.
+     */
+    'IR' = 2,
+    /**
+     * NDVI camera source.
+     */
+    'NDVI' = 3
 }
 /**
  * Result from PARAM_EXT_SET message (or a PARAM_SET within a transaction).
@@ -18303,6 +18373,52 @@ export declare class SetCameraFocusCommand extends CommandLong {
      */
     get focusValue(): number;
     set focusValue(value: number);
+}
+/**
+ * Set that a particular storage is the preferred location for saving photos, videos, and/or other
+ * media (e.g. to set that an SD card is used for storing videos). There can only be one preferred save
+ * location for each particular media type: setting a media usage flag will clear/reset that same flag
+ * if set on any other storage. If no flag is set the system should use its default storage. A target
+ * system can choose to always use default storage, in which case it should ACK the command with
+ * MAV_RESULT_UNSUPPORTED. A target system can choose to not allow a particular storage to be set as
+ * preferred storage, in which case it should ACK the command with MAV_RESULT_DENIED.
+ */
+export declare class SetStorageUsageCommand extends CommandLong {
+    constructor(targetSystem?: number, targetComponent?: number);
+    /**
+     * Storage ID (1 for first, 2 for second, etc.)
+     *
+     * @min: 0
+     * @increment: 1
+     */
+    get storageId(): number;
+    set storageId(value: number);
+    /**
+     * Usage flags
+     */
+    get usage(): number;
+    set usage(value: number);
+}
+/**
+ * Set camera source. Changes the camera's active sources on cameras with multiple image sensors.
+ */
+export declare class SetCameraSourceCommand extends CommandLong {
+    constructor(targetSystem?: number, targetComponent?: number);
+    /**
+     * Component Id of camera to address or 1-6 for non-MAVLink cameras, 0 for all cameras.
+     */
+    get deviceId(): number;
+    set deviceId(value: number);
+    /**
+     * Primary Source
+     */
+    get primarySource(): number;
+    set primarySource(value: number);
+    /**
+     * Secondary Source. If non-zero the second source will be displayed as picture-in-picture.
+     */
+    get secondarySource(): number;
+    set secondarySource(value: number);
 }
 /**
  * Tagged jump target. Can be jumped to with MAV_CMD_DO_JUMP_TAG.

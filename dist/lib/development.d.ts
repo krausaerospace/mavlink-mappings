@@ -1,6 +1,6 @@
 import { int16_t, uint8_t, uint32_t, float } from './types';
 import { MavLinkPacketRegistry, MavLinkPacketField, MavLinkData } from './mavlink';
-import { MavMissionType } from './common';
+import { MavLinkCommandRegistry, MavMissionType } from './common';
 /**
  * Airspeed sensor flags
  */
@@ -29,6 +29,20 @@ export declare enum RadioRcChannelsFlags {
      * from the transmitter and has therefore resent the last valid data it received.
      */
     'OUTDATED' = 2
+}
+/**
+ * MAV_CMD
+ */
+export declare enum MavCmd {
+    /**
+     * Set system and component id. This allows moving of a system and all its components to a new system
+     * id, or moving a particular component to a new system/component id. Recipients must reject command
+     * addressed to broadcast system ID.
+     * @param1 System ID (min: 1, max: 255, increment: 1) New system ID for target component(s). 0: ignore and reject command (broadcast system ID not allowed).
+     * @param2 Component ID (min: 0, max: 255, increment: 1) New component ID for target component(s). 0: ignore (component IDs don't change).
+     * @param3 Reboot Reboot components after ID change. Any non-zero value triggers the reboot.
+     */
+    'DO_SET_SYS_CMP_ID' = 610
 }
 /**
  * Checksum for the current mission, rally point or geofence plan, or for the "combined" plan (a GCS
@@ -154,4 +168,38 @@ export declare class RadioRcChannels extends MavLinkData {
      */
     channels: int16_t[];
 }
+import { CommandLong } from './common';
+/**
+ * Set system and component id. This allows moving of a system and all its components to a new system
+ * id, or moving a particular component to a new system/component id. Recipients must reject command
+ * addressed to broadcast system ID.
+ */
+export declare class DoSetSysCmpIdCommand extends CommandLong {
+    constructor(targetSystem?: number, targetComponent?: number);
+    /**
+     * New system ID for target component(s). 0: ignore and reject command (broadcast system ID not
+     * allowed).
+     *
+     * @min: 1
+     * @max: 255
+     * @increment: 1
+     */
+    get systemId(): number;
+    set systemId(value: number);
+    /**
+     * New component ID for target component(s). 0: ignore (component IDs don't change).
+     *
+     * @min: 0
+     * @max: 255
+     * @increment: 1
+     */
+    get componentId(): number;
+    set componentId(value: number);
+    /**
+     * Reboot components after ID change. Any non-zero value triggers the reboot.
+     */
+    get reboot(): number;
+    set reboot(value: number);
+}
 export declare const REGISTRY: MavLinkPacketRegistry;
+export declare const COMMANDS: MavLinkCommandRegistry;
